@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3469419344c45a49af1ca91f20c6c4c, type: 3}
+  m_Name: Example SO_Data_Key UI Game Panel Info
+  m_EditorClassIdentifier: 
+  _nameSO: Example SO_Data_Key UI Game Panel Info
+  _setName: 1
+  _saveBackupChangeData: 1
+  _list:
+  - _identifierData: {fileID: 11400000, guid: cab99f7c2dc7f9347b6d06104c8a0291, type: 2}
+    _dataKey:
+      _key: "\u0422\u0435\u0441\u0442\u043E\u0432\u0430\u044F \u043F\u0430\u043D\u0435\u043B\u044C"
+  _fatalError:
+    Enable: 0
+    TextError: 
+    MessageType: 3
+  _error:
+    Enable: 0
+    TextError: 
+    MessageType: 2

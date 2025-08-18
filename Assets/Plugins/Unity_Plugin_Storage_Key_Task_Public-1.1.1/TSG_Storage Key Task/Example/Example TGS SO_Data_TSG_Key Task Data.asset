@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3403ed004888f90479b0c4279010b1aa, type: 3}
+  m_Name: Example TGS SO_Data_TSG_Key Task Data
+  m_EditorClassIdentifier: 
+  _nameSO: Example TGS SO_Data_TSG_Key Task Data
+  _setName: 1
+  _saveBackupChangeData: 1
+  _list:
+  - _identifierData: {fileID: 11400000, guid: 5e691b64b3c559c4f8de5c7aef39f3ed, type: 2}
+    _dataKey:
+      _key: "\u0411\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u043A\u0430 \u043E\u0442\u043A\u0440\u044B\u0442\u0438\u044F,
+        \u0438\u0437 \u0437\u0430 (\u0425\u0417 \u043F\u0440\u0438\u0434\u0443\u043C\u0430\u0439
+        \u0441\u0430\u043C)"
+  _fatalError:
+    Enable: 0
+    TextError: 
+    MessageType: 3
+  _error:
+    Enable: 0
+    TextError: 
+    MessageType: 2

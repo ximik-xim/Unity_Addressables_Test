@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe0c7a4436f1654683fa8f069bef203, type: 3}
+  m_Name: New Example Save Json Script Obj
+  m_EditorClassIdentifier: 
+  _exampleUserClass:
+    _listInt: 16000000
+    _exampleClassJson2:
+      _intValue: 55
+    exampleMonobeh: {fileID: 0}
+    exampleScriptObj: {fileID: 0}

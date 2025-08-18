@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1069d4693d96c9645826a9ae2f38e28e, type: 3}
+  m_Name: Example TGS SO Data MBS_DKO
+  m_EditorClassIdentifier: 
+  _nameSO: Example TGS SO Data MBS_DKO
+  _setName: 1
+  _saveBackupChangeData: 1
+  _list:
+  - _identifierData: {fileID: 11400000, guid: b7585cd71415bb242974a3cf1de4b264, type: 2}
+    dataKeyDKO:
+      _key: "DKO \u0425\u0440\u0430\u043D\u0438\u043B\u0435\u0449\u0435 \u0441 Task"
+  _fatalError:
+    Enable: 0
+    TextError: 
+    MessageType: 3
+  _error:
+    Enable: 0
+    TextError: 
+    MessageType: 2

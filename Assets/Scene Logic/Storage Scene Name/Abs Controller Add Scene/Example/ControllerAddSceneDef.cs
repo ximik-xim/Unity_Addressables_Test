@@ -9,7 +9,7 @@ public class ControllerAddScene : AbsControllerAddScene
     public override event Action OnComplitedAddScene;
     
     [SerializeField] 
-    private SO_Data_NameScene _sceneLevel;
+    private AbsGetStorageKeyNameScene _sceneLevel;
 
     [SerializeField] 
     private StorageSceneName _storageScene;
@@ -17,7 +17,7 @@ public class ControllerAddScene : AbsControllerAddScene
     public override void StartAddScene()
     {
         //получ. список сцен
-        var listScene = _sceneLevel.GetAllData();
+        var listScene = _sceneLevel.GetData().GetAllData();
 
         foreach (var VARIABLE in listScene)
         {

@@ -1,0 +1,123 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
+
+public class IsGetAddressablesObjectSOStorageIResourceLocation : AbsBoolIsGetAddressablesObject
+{
+
+    /// <summary>
+    /// Путь к фаилу, котор. и будем искать
+    /// Пример,
+    /// к серверу путь нач http или https
+    /// к локалке путь нач Assets (пока не собрано, а после сборки обычно нач с file)
+    /// </summary>
+    /// (при работе в инспекторе)
+    [SerializeField] 
+    private string _pathTargetEditor = "http / Assets";
+    /// (при работе в собраном проекте)
+    [SerializeField] 
+    private string _pathTargetBuild = "http / file";
+    /// <summary>
+    /// Если будет true, будут выбраны все элементы кроме тех, что совпадают с указанным именем
+    /// если false, будет выбран только элемент с указанным именем
+    /// </summary>
+    [SerializeField] 
+    private bool _excludeTarget = false;
+    
+    
+    public override bool IsInit => _storageBool.IsInit;
+    public override event Action OnInit
+    {
+        add
+        {
+            _storageBool.OnInit += value;
+        }
+
+        remove
+        {
+            _storageBool.OnInit -= value;
+        }
+    }
+
+    [SerializeField] 
+    private SOStorageBoolIsGetAddressablesObject _storageBool;
+
+    public override GetServerRequestData<bool> IsGet(object obj)
+    {
+        CallbackDataBool wrapperCallbackData = new CallbackDataBool(0);
+        
+        var callback = Addressables.LoadResourceLocationsAsync(obj);
+
+        if (callback.IsDone == true)
+        {
+            Complited();
+        }
+        else
+        {
+            callback.Completed += OnComplited;
+        }
+
+
+        void OnComplited(AsyncOperationHandle<IList<IResourceLocation>> data)
+        {
+            if (callback.IsDone == true)
+            {
+                callback.Completed -= OnComplited;
+                Complited();
+            }
+        }
+
+        void Complited()
+        {
+            IResourceLocation _resLocation = null;
+
+            //путь к фаилу
+            string patchTarget = "";
+
+#if UNITY_EDITOR
+            patchTarget = _pathTargetEditor;
+#else
+                patchTarget = _pathTargetBuild;
+#endif
+
+            //ищем подход. путь
+            foreach (var VARIABLE in callback.Result)
+            {
+                if (_excludeTarget == true)
+                {
+                    if (VARIABLE.InternalId.StartsWith(patchTarget) == false)
+                    {
+                        _resLocation = VARIABLE;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (VARIABLE.InternalId.StartsWith(patchTarget) == true)
+                    {
+                        _resLocation = VARIABLE;
+                        break;
+                    }
+                }
+            }
+
+
+            bool isGet = false;
+            
+            if (_resLocation != null)
+            {
+                isGet = _storageBool.IsGetObjectIRes(_resLocation);
+            }
+
+            wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
+            wrapperCallbackData.Data.GetData = isGet;
+            wrapperCallbackData.Data.IsGetDataCompleted = true;
+            wrapperCallbackData.Data.Invoke();
+        }
+
+        return wrapperCallbackData.DataGet;
+    }
+}

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -17,11 +18,13 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
     /// Пример,
     /// к серверу путь нач http или https
     /// к локалке путь нач Assets (пока не собрано, а после сборки обычно нач с file)
-    /// 
     /// </summary>
+    /// (при работе в инспекторе)
     [SerializeField] 
-    private string _pathTarget = "http / Assets / file";
-    
+    private string _pathTargetEditor = "http / Assets";
+    /// (при работе в собраном проекте)
+    [SerializeField] 
+    private string _pathTargetBuild = "http / file";
     /// <summary>
     /// Если будет true, будут выбраны все элементы кроме тех, что совпадают с указанным именем
     /// если false, будет выбран только элемент с указанным именем
@@ -89,13 +92,22 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
                 var resourceAllLocation = dataCallbackLoadResource.Result;
 
                 IResourceLocation _resLocation = null;
+
+                //путь к фаилу
+                string patchTarget = "";
+
+#if UNITY_EDITOR
+                patchTarget = _pathTargetEditor;
+#else
+                patchTarget = _pathTargetBuild;
+#endif
                 
                 //ищем подход. путь
                 foreach (var VARIABLE in resourceAllLocation)
                 {
                     if (_excludeTarget == true) 
                     {
-                        if (VARIABLE.InternalId.StartsWith(_pathTarget) == false)
+                        if (VARIABLE.InternalId.StartsWith(patchTarget) == false)
                         {
                             _resLocation = VARIABLE;
                             break;
@@ -103,7 +115,7 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
                     }
                     else
                     {
-                        if (VARIABLE.InternalId.StartsWith(_pathTarget) == true)
+                        if (VARIABLE.InternalId.StartsWith(patchTarget) == true)
                         {
                             _resLocation = VARIABLE;
                             break;

@@ -14,5 +14,5 @@ public abstract class AbsBoolIsGetAddressablesObject : MonoBehaviour
     /// Определяем, можно ли этот взять
     /// </summary>
     /// <param name="Data"></param>
-    public abstract bool IsGet(object data);
+    public abstract GetServerRequestData<bool> IsGet(object data);
 }

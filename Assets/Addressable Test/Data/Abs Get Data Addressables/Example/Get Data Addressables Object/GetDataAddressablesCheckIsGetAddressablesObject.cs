@@ -1,45 +1,170 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// Нужен для проверки, можно ли взять этот обьект(к примеру с локального хран)
 /// </summary>
 public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDataAddressables
 {
+    
+    public override bool IsInit => _isInit;
+    private bool _isInit = false;
+    public override event Action OnInit;
+    
     [SerializeField] 
     private AbsCallbackGetDataAddressables _absGetDataAddressables;
     
     [SerializeField] 
     private AbsBoolIsGetAddressablesObject _absIsGetAddressablesObject;
 
-
-    public override bool IsInit => true;
-    public override event Action OnInit;
+    /// <summary>
+    /// Список Id callback, которые сейчас в ожидании
+    /// (сериализован просто для удобного отслеживания в инспекторе)
+    /// </summary>
+    [SerializeField]
+    private List<int> _idCallback = new List<int>();
 
     private void Awake()
     {
-        OnInit?.Invoke();
-    }
-
-    public override GetServerRequestData<T> GetData<T>(object data)
-    {
-        if (_absIsGetAddressablesObject.IsGet(data) == true)
+        if (_absIsGetAddressablesObject.IsInit == false)
         {
-            return _absGetDataAddressables.GetData<T>(data);
+            _absIsGetAddressablesObject.OnInit += OnInitAbsIsGet;
+            return;
         }
 
-        //Если запрещено брать, то возращаем пустышку
-        CallbackRequestDataAddressablesWrapper<T> callbackData = new CallbackRequestDataAddressablesWrapper<T>(0);
+        InitAbsIsGet();
         
-        //тут именно ERROR
-        callbackData.Data.StatusServer = StatusCallBackServer.Error;
-        callbackData.Data.GetData = default;
+    }
+    
+    private void OnInitAbsIsGet()
+    {
+        if (_absIsGetAddressablesObject.IsInit == true)
+        {
+            _absIsGetAddressablesObject.OnInit -= OnInitAbsIsGet;
+            InitAbsIsGet();
+        }
+    }
+    
+    private void InitAbsIsGet()
+    {
+        if (_isInit == false)
+        {
+            _isInit = true;
+            OnInit?.Invoke();    
+        }
+    }
+    
+    public override GetServerRequestData<T> GetData<T>(object data)
+    {
+        int id = GetUniqueId();
+        CallbackRequestDataAddressablesWrapper<T> callbackData = new CallbackRequestDataAddressablesWrapper<T>(id);
+        _idCallback.Add(id);
+        
+        var callback = _absIsGetAddressablesObject.IsGet(data);
 
-        callbackData.Data.IsGetDataCompleted = true;
-        callbackData.Data.Invoke();
+        if (callback.IsGetDataCompleted == true)
+        {
+            ComplitedIsGet();
+        }
+        else
+        {
+            callback.OnGetDataCompleted += OnComplitedIsGet;
+        }
+        
+        void OnComplitedIsGet()
+        {
 
+            if (callback.IsGetDataCompleted == true) 
+            {
+                callback.OnGetDataCompleted -= OnComplitedIsGet;
+                ComplitedIsGet();
+            }
+            
+        }
+        
+        void ComplitedIsGet()
+        {
+            if (callback.GetData == true)
+            {
+                StartGetData();
+            }
+            else
+            {
+                CallbackError();
+            }
+        }
 
+        
+        void StartGetData()
+        {
+            var callbackGetData = _absGetDataAddressables.GetData<T>(data);
+            
+            if (callbackGetData.IsGetDataCompleted == true)
+            {
+                ComplitedGetData();
+            }
+            else
+            {
+                callbackGetData.OnGetDataCompleted += OnComplitedGetData;
+            }
+        
+            void OnComplitedGetData()
+            {
+
+                if (callbackGetData.IsGetDataCompleted == true) 
+                {
+                    callbackGetData.OnGetDataCompleted -= OnComplitedGetData;
+                    ComplitedGetData();
+                }
+            
+            }
+        
+            void ComplitedGetData()
+            {
+                callbackData.Data.StatusServer = callbackGetData.StatusServer;
+                callbackData.Data.GetData = callbackGetData.GetData;
+
+                callbackData.Data.IsGetDataCompleted = true;
+                callbackData.Data.Invoke();
+                
+                _idCallback.Remove(callbackData.Data.IdMassage);
+                return;
+            }
+            
+        }
+
+        void CallbackError()
+        {
+            //Если запрещено брать, то возращаем пустышку
+            //тут именно ERROR
+            callbackData.Data.StatusServer = StatusCallBackServer.Error;
+            callbackData.Data.GetData = default;
+
+            callbackData.Data.IsGetDataCompleted = true;
+            callbackData.Data.Invoke();
+            
+            _idCallback.Remove(callbackData.Data.IdMassage);
+        }
+        
         return callbackData.DataGet;
     }
+    
+    private int GetUniqueId()
+    {
+        int id = 0;
+        while (true)
+        {
+            id = Random.Range(0, Int32.MaxValue - 1);
+            if (_idCallback.Contains(id) == false)
+            {
+                break;
+            }
+        }
+
+        return id;
+    }
+
 }

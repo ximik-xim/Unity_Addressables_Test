@@ -17,8 +17,15 @@ public class IsGetAddressablesObjectDefault : AbsBoolIsGetAddressablesObject
         OnInit?.Invoke();
     }
 
-    public override bool IsGet(object data)
+    public override GetServerRequestData<bool> IsGet(object data)
     {
-        return _isGet;
+        CallbackDataBool wrapperCallbackData = new CallbackDataBool(0);
+	    
+        wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
+        wrapperCallbackData.Data.GetData = _isGet;
+        wrapperCallbackData.Data.IsGetDataCompleted = true;
+        wrapperCallbackData.Data.Invoke();
+
+        return wrapperCallbackData.DataGet;
     }
 }

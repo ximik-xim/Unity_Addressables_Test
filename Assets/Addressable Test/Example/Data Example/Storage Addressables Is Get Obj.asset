@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9c63a132e894d74ebbf488979c0d8f8, type: 3}
-  m_Name: New SO Storage Bool Is Get Addressables Object
+  m_Name: Storage Addressables Is Get Obj
   m_EditorClassIdentifier: 
   _isBlockList: 1
   _refObj: []

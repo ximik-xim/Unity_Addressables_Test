@@ -244,6 +244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 483113444045209712}
+  - component: {fileID: 4478274463397196238}
   m_Layer: 0
   m_Name: Update Object Check Is Get
   m_TagString: Untagged
@@ -259,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7157130305707782760}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -268,6 +269,20 @@ Transform:
   - {fileID: 6477832750153483915}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4478274463397196238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7157130305707782760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a75d005707cbd45b6557708d869e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _absCheckIsUpdateObj: {fileID: 3190629994503971527}
+  _absDownloadUpdateObj: {fileID: 4155837642893646236}
 --- !u!1 &7803827825986446396
 GameObject:
   m_ObjectHideFlags: 0

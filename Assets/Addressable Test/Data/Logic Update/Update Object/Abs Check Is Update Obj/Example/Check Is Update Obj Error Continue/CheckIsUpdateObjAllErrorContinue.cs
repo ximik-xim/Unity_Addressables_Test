@@ -129,6 +129,24 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                         _idCallback.Remove(wrapperCallbackData.Data.IdMassage);
                         return;
                     }
+                    else
+                    {
+                        //Т.к включена филтрация, то возращаю пустой список(т.к у тех обьектво нет обновлений)
+                        
+                        //заполняю данные для ответа
+                        wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
+                        
+                        StorageStatusCallbackIResourceLocation storage3 = new StorageStatusCallbackIResourceLocation(new List<StatusCallbackIResourceLocation>());
+                        
+                        wrapperCallbackData.Data.GetData = storage3;
+
+                        wrapperCallbackData.Data.IsGetDataCompleted = true;
+                        wrapperCallbackData.Data.Invoke();
+                
+                        _idCallback.Remove(wrapperCallbackData.Data.IdMassage);
+                        return;
+                        
+                    }
                     
                 }
                 
@@ -158,6 +176,7 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 
                 {
+                    
                     //заного отпр. запрос, и по новой 
                     dataCallback = Addressables.GetDownloadSizeAsync(locatorsObjectUpdate);
                     if (dataCallback.IsDone == true)

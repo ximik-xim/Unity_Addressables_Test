@@ -81,32 +81,32 @@ public class DownloadUpdateObjRequestSplit : AbsDownloadUpdateObj
 
         int targetCount = locatorsObjectUpdate.Count;
         //Это список обьектов для проверки обновлений для них, которые буду отправлять(по группом из N элементов)
-        List<IResourceLocation> listRequestLocator = new List<IResourceLocation>();
+        List<IResourceLocation> bufferListRequestLocator = new List<IResourceLocation>();
 
         //Тут нарезаю весь список с обьектами(у котор. надо проверить налич. обновлений) на группы по N элемнтов 
         for (int i = 0; i < targetCount; i++)
         {
-            listRequestLocator.Add(locatorsObjectUpdate[i]);
+            bufferListRequestLocator.Add(locatorsObjectUpdate[i]);
             locatorsObjectUpdate.RemoveAt(i);
 
             i--;
             targetCount--;
 
-            if (listStatusCallback.Count == _countElementRequest)
+            if (bufferListRequestLocator.Count == _countElementRequest)
             {
                 //Делаю отпр. запроса на обновление католгов 
-                var callbackData = _absDownloadUpdateObj.DownloadUpdateObj(listRequestLocator);
+                var callbackData = _absDownloadUpdateObj.DownloadUpdateObj(bufferListRequestLocator);
                 bufferCallback.Add(callbackData);
 
-                listRequestLocator.Clear();
+                bufferListRequestLocator.Clear();
             }
         }
 
         //Если все элементы не удалось разбить на равные группы, то в конце ост. группа с меньшим кол-во элементов
         //И её тоже надо отправить
-        if (listRequestLocator.Count > 0)
+        if (bufferListRequestLocator.Count > 0)
         {
-            var callbackData = _absDownloadUpdateObj.DownloadUpdateObj(listRequestLocator);
+            var callbackData = _absDownloadUpdateObj.DownloadUpdateObj(bufferListRequestLocator);
             bufferCallback.Add(callbackData);
         }
 

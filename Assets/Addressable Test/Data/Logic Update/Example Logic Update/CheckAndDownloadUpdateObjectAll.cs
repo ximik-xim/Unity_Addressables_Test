@@ -10,7 +10,7 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 /// - обьектов
 /// (желательно использовать в момент запуска(загрузки) игры)
 /// </summary>
-public class CheckAndDownloadUpdateObject : MonoBehaviour
+public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
 {
     public bool IsInit => _isInit;
     private bool _isInit = false;
@@ -383,20 +383,24 @@ public class CheckAndDownloadUpdateObject : MonoBehaviour
         {
             if (dataCallback.StatusServer == StatusCallBackServer.Ok)
             {
-                Debug.Log("Все обновления для обьектов были успешно установлены");
+                if (dataCallback.GetData.StatusAllCallBack == TypeStorageStatusCallbackIResourceLocator.Ok)
+                {
+                    Debug.Log("Все обновления для обьектов были успешно установлены");
                 
-                _wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
-                _wrapperCallbackData.Data.GetData = dataCallback.GetData;
-                _wrapperCallbackData.Data.IsGetDataCompleted = true;
-                _wrapperCallbackData.Data.Invoke();
+                    _wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
+                    _wrapperCallbackData.Data.GetData = dataCallback.GetData;
+                    _wrapperCallbackData.Data.IsGetDataCompleted = true;
+                    _wrapperCallbackData.Data.Invoke();
 
-                _isBlock = false;
-                OnUpdateStatusBlock?.Invoke();
+                    _isBlock = false;
+                    OnUpdateStatusBlock?.Invoke();
+                    return;
+                }
+                
             }
-            else
-            {
-                CallbackError();
-            }
+     
+            CallbackError();
+            return;
         }
     }
     

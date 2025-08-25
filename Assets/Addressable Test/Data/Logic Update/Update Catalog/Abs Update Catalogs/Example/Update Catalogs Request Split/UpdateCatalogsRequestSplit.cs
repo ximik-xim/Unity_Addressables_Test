@@ -83,32 +83,32 @@ public class UpdateCatalogsRequestSplit : AbsUpdateCatalogs
         
         int targetCount = idCatalogUpdate.Count;
         //Это список ID каталогов, которые буду отправлять(по группом из N элементов)
-        List<string> listRequestID = new List<string>();
+        List<string> bufferListRequestID = new List<string>();
 
         //Тут нарезаю весь список с ID каталогов на группы по N элемнтов 
         for (int i = 0; i < targetCount; i++)
         {
-            listRequestID.Add(idCatalogUpdate[i]);
+            bufferListRequestID.Add(idCatalogUpdate[i]);
             idCatalogUpdate.RemoveAt(i);
 
             i--;
             targetCount--;
 
-            if (listStatusCallback.Count == _countElementRequest)
+            if (bufferListRequestID.Count == _countElementRequest)
             {
                 //Делаю отпр. запроса на обновление католгов 
-                var callbackData = _absUpdateCatalogs.StartUpdateCatalog(listRequestID);
+                var callbackData = _absUpdateCatalogs.StartUpdateCatalog(bufferListRequestID);
                 bufferCallback.Add(callbackData);
 
-                listRequestID.Clear();
+                bufferListRequestID.Clear();
             }
         }
 
         //Если все элементы не удалось разбить на равные группы, то в конце ост. группа с меньшим кол-во элементов
         //И её тоже надо отправить
-        if (listRequestID.Count > 0)
+        if (bufferListRequestID.Count > 0)
         {
-            var callbackData = _absUpdateCatalogs.StartUpdateCatalog(listRequestID);
+            var callbackData = _absUpdateCatalogs.StartUpdateCatalog(bufferListRequestID);
             bufferCallback.Add(callbackData);
         }
 

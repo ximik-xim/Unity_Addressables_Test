@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _absGetDataAddressables: {fileID: 4199951527269882774}
-  _absIsGetAddressablesObject: {fileID: 1127787721429019933}
+  _absIsGetAddressablesObject: {fileID: 1287144593235274748}
   _idCallback: 
 --- !u!1 &3420053619317054387
 GameObject:
@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4363a7cfd0d32845b8ee8ea1ee4386c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pathTargetEditor: http / Assets
-  _pathTargetBuild: http / file
+  _pathTargetEditor: Assets
+  _pathTargetBuild: file
   _excludeTarget: 0
   _idCallback: 
 --- !u!1 &8618085097207766669

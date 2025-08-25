@@ -8,35 +8,39 @@ public class StorageStatusCallbackIResourceLocation
 {
     public StorageStatusCallbackIResourceLocation(List<StatusCallbackIResourceLocation> listCallbackStatus)
     {
-        bool isAllError = true;
-        bool isError = false;
-      
-        foreach (var VARIABLE in listCallbackStatus)
-        {
-            if (VARIABLE.StatusCallBack == StatusCallBackServer.Ok)
-            {
-                isAllError = false;
-            }
-         
-            if (VARIABLE.StatusCallBack == StatusCallBackServer.Error)
-            {
-                isError = true;
-            }
-        }
-
-        if (isAllError == true)
-        {
-            _statusAllCallBack = TypeStorageStatusCallbackIResourceLocator.AllError;
-            return;
-        }
-      
-        if (isError == true)
-        {
-            _statusAllCallBack = TypeStorageStatusCallbackIResourceLocator.PartialError;
-            return;
-        }
-      
         _listCallbackStatus = listCallbackStatus;
+        
+        if (listCallbackStatus.Count > 0)
+        {
+            bool isAllError = true;
+            bool isError = false;
+            
+            foreach (var VARIABLE in listCallbackStatus)
+            {
+                if (VARIABLE.StatusCallBack == StatusCallBackServer.Ok)
+                {
+                    isAllError = false;
+                }
+         
+                if (VARIABLE.StatusCallBack == StatusCallBackServer.Error)
+                {
+                    isError = true;
+                }
+            }
+
+            if (isAllError == true)
+            {
+                _statusAllCallBack = TypeStorageStatusCallbackIResourceLocator.AllError;
+                return;
+            }
+      
+            if (isError == true)
+            {
+                _statusAllCallBack = TypeStorageStatusCallbackIResourceLocator.PartialError;
+                return;
+            }
+        }
+        
         _statusAllCallBack = TypeStorageStatusCallbackIResourceLocator.Ok;
     }
    

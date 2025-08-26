@@ -30,23 +30,11 @@ public class SOStorageBoolIsGetAddressablesObject : ScriptableObject, IInitScrip
     public bool IsBlockList => _isBlockList;
     
     [SerializeField] 
-    private List<AssetReference> _refObj;
+    private List<DataAssetReferenceAndFilterInternalId> _refObj;
     
     [SerializeField] 
-    private List<string>  _key;
+    private List<DataKeyAddressablesAndFilterInternalId>  _key;
     
-    [SerializeField] 
-    private List<Hash128>  _GUID;
-    
-    /// <summary>
-    /// Путь до место нахожд. обьекта
-    /// Если хочу что бы не было лишних интерфеисов IResourceLocation в списке для сравнение,
-    /// то нужно заполнять только этот список, указ. именно путь
-    /// </summary>
-    [SerializeField] 
-    private List<string>  _iResourceLocationLocal;
-
-
     /// <summary>
     /// Интерфеисы ваше указ. обьектов
     /// </summary>
@@ -135,18 +123,24 @@ public class SOStorageBoolIsGetAddressablesObject : ScriptableObject, IInitScrip
             //Если это список разрешенных обьектов
             if (_isBlockList == false)
             {
-                if (_refObj.Contains(assetRef) == true)
+                foreach (var VARIABLE in _refObj)
                 {
-                    return true;
+                    if (VARIABLE.RefObj == assetRef) 
+                    {
+                        return true;
+                    }
                 }
-
+                
                 return false;
             }
 
             //Если это список запрещенных обьектов
-            if (_refObj.Contains(assetRef) == true)
+            foreach (var VARIABLE in _refObj)
             {
-                return false;
+                if (VARIABLE.RefObj == assetRef) 
+                {
+                    return false;
+                }
             }
 
             return true;
@@ -159,45 +153,28 @@ public class SOStorageBoolIsGetAddressablesObject : ScriptableObject, IInitScrip
             //Если это список разрешенных обьектов
             if (_isBlockList == false)
             {
-                if (_key.Contains(strKey) == true)
+                foreach (var VARIABLE in _key)
                 {
-                    return true;
+                    if (VARIABLE.KeyAddressables == strKey) 
+                    {
+                        return true;
+                    }
                 }
 
                 return false;
             }
 
             //Если это список запрещенных обьектов
-            if (_key.Contains(strKey) == true)
+            foreach (var VARIABLE in _key)
             {
-                return false;
-            }
-
-            return true;
-
-        }
-        
-        // Hash128 (GUID)
-        if (obj is Hash128 guid)
-        {
-            //Если это список разрешенных обьектов
-            if (_isBlockList == false)
-            {
-                if (_GUID.Contains(guid) == true)
+                if (VARIABLE.KeyAddressables == strKey) 
                 {
-                    return true;
+                    return false;
                 }
-
-                return false;
-            }
-
-            //Если это список запрещенных обьектов
-            if (_GUID.Contains(guid) == true)
-            {
-                return false;
             }
 
             return true;
+
         }
 
 
@@ -205,23 +182,8 @@ public class SOStorageBoolIsGetAddressablesObject : ScriptableObject, IInitScrip
         if (obj is IResourceLocation iResourceLocation)
         {
             //Если это список разрешенных обьектов
-            if (_isBlockList == false)
-            {
-                if (_iResourceLocationLocal.Contains(iResourceLocation.InternalId) == true)
-                {
-                    return true;
-                }
 
-                return false;
-            }
-
-            //Если это список запрещенных обьектов
-            if (_iResourceLocationLocal.Contains(iResourceLocation.InternalId) == true)
-            {
-                return false;
-            }
-
-            return true;
+            return IsGetObjectIRes(iResourceLocation);
         }
         
         return false;
@@ -230,31 +192,23 @@ public class SOStorageBoolIsGetAddressablesObject : ScriptableObject, IInitScrip
 
     private void StartGetIResourceLocation()
     {
-        List<AsyncOperationHandle<IList<IResourceLocation>>> listCallback = new List<AsyncOperationHandle<IList<IResourceLocation>>>();
+        List<CabllbackDataListIResourceLocationFilterInternalId> listCallback = new List<CabllbackDataListIResourceLocationFilterInternalId>();
 
 
         foreach (var VARIABLE in _refObj)
         {
-            var callback = Addressables.LoadResourceLocationsAsync(VARIABLE);
-            listCallback.Add(callback);
+            var callback = Addressables.LoadResourceLocationsAsync(VARIABLE.RefObj);
+            
+            CabllbackDataListIResourceLocationFilterInternalId callbackData = new CabllbackDataListIResourceLocationFilterInternalId(callback, VARIABLE.FilterInternalId_IResourceLocation);
+            listCallback.Add(callbackData);
         }
 
         foreach (var VARIABLE in _key)
         {
-            var callback = Addressables.LoadResourceLocationsAsync(VARIABLE);
-            listCallback.Add(callback);
-        }
+            var callback = Addressables.LoadResourceLocationsAsync(VARIABLE.KeyAddressables);
 
-        foreach (var VARIABLE in _GUID)
-        {
-            var callback = Addressables.LoadResourceLocationsAsync(VARIABLE);
-            listCallback.Add(callback);
-        }
-
-        foreach (var VARIABLE in _iResourceLocationLocal)
-        {
-            var callback = Addressables.LoadResourceLocationsAsync(VARIABLE);
-            listCallback.Add(callback);
+            CabllbackDataListIResourceLocationFilterInternalId callbackData = new CabllbackDataListIResourceLocationFilterInternalId(callback, VARIABLE.FilterInternalId_IResourceLocation);
+            listCallback.Add(callbackData);
         }
 
         Check();
@@ -266,16 +220,31 @@ public class SOStorageBoolIsGetAddressablesObject : ScriptableObject, IInitScrip
             for (int i = 0; i < targetCount; i++)
             {
                 //Если этот callbak закончил работу, обрабатываю данные
-                if (listCallback[i].IsDone == true)
+                if (listCallback[i].CallbackData.IsDone == true)
                 {
                     //Те данные, что пришли добавляю в общ список данных, получ. с сервера
-                    foreach (var VARIABLE in listCallback[i].Result)
+                    foreach (var VARIABLE in listCallback[i].CallbackData.Result)
                     {
-                        _resourceLocations.Add(VARIABLE);
+                        //Если у обьекта есть фильтрация по IResourceLocation(через место нахождение обьекта)
+                        if (listCallback[i].FilterInternalId_IResourceLocation != "" && listCallback[i].FilterInternalId_IResourceLocation != String.Empty)
+                        {
+                            //Если начало пути (или весь путь целиком) до обьекта совпадает с указ в фильтре
+                            if (VARIABLE.InternalId.StartsWith(listCallback[i].FilterInternalId_IResourceLocation) == true) 
+                            {
+                                //Добавляю интерфеис IResourceLocation в список
+                                _resourceLocations.Add(VARIABLE);    
+                            }
+                            
+                        }
+                        else
+                        {
+                            //Если фильтрации для IResourceLocation нету, то добовляю все IResourceLocation найденные для этого обьекта
+                            _resourceLocations.Add(VARIABLE);    
+                        }
                     }
 
                     //Отписывась от проверки 
-                    listCallback[i].Completed -= OnCheck;
+                    listCallback[i].CallbackData.Completed -= OnCheck;
                     //Удаляю Callback с сервера
                     listCallback.RemoveAt(i);
                     i--;
@@ -284,8 +253,8 @@ public class SOStorageBoolIsGetAddressablesObject : ScriptableObject, IInitScrip
                 else
                 {
                     //Тут отписка обяз. Т.к сюда буду несколько раз заходиться
-                    listCallback[i].Completed -= OnCheck;
-                    listCallback[i].Completed += OnCheck;
+                    listCallback[i].CallbackData.Completed -= OnCheck;
+                    listCallback[i].CallbackData.Completed += OnCheck;
                 }
             }
 
@@ -345,9 +314,9 @@ public class SOStorageBoolIsGetAddressablesObject : ScriptableObject, IInitScrip
     {
         return _resourceLocations;
     }
-
-
-
-
-
 }
+
+
+
+
+

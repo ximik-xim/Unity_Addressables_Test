@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Storage Addressables Update Obj
   m_EditorClassIdentifier: 
   _isBlockList: 0
-  _refObj: []
+  _refObj:
+  - _refObj:
+      m_AssetGUID: d1577abc74bdef84d914500c4796cfb1
+      m_SubObjectName: 
+      m_SubObjectGUID: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    _filterInternalId_IResourceLocation: Assets/
   _key: []
-  _GUID: []
-  _iResourceLocationLocal:
-  - Assets/New Folder 6/Example Object.prefab
-  - Assets/New Folder 6/Example Object.prefab

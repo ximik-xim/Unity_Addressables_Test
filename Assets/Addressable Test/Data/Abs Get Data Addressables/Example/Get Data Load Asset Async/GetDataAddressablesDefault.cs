@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -35,8 +36,18 @@ public class GetDataAddressablesDefault : AbsCallbackGetDataAddressables
        
        CallbackRequestDataAddressablesWrapper<T> wrapperCallbackData = new CallbackRequestDataAddressablesWrapper<T>(id);
        _idCallback.Add(id);
+
+       AsyncOperationHandle<T> dataCallback;
        
-       var dataCallback = Addressables.LoadAssetAsync<T>(data);
+       //!! Тут ОБЕЗАТЕЛЬНО нужно приведение типа, иначе при передаче IResourceLocation как Object, метод LoadAssetAsync выдает ОШИБКУ !!
+       if (data is IResourceLocation resourceLocation)
+       {
+           dataCallback = Addressables.LoadAssetAsync<T>(resourceLocation);
+       }
+       else
+       {
+            dataCallback = Addressables.LoadAssetAsync<T>(data);   
+       }
 
        if (dataCallback.IsDone == true)
        {

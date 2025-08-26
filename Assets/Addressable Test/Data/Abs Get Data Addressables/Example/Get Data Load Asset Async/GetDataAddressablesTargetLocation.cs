@@ -56,8 +56,18 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
         int id = GetUniqueId();
         CallbackRequestDataAddressablesWrapper<T> wrapperCallbackData = new CallbackRequestDataAddressablesWrapper<T>(id);
         _idCallback.Add(id);
+
+        AsyncOperationHandle<IList<IResourceLocation>> dataCallbackLoadResource;
         
-        var dataCallbackLoadResource = Addressables.LoadResourceLocationsAsync(data);
+        if (data is IResourceLocation resourceLocation)
+        {
+            Debug.Log($"Обноружена ФИГНЯ !!! В логику загрузки LoadResourceLocationsAsync был отправлен интерфеис IResourceLocation. Операция была запущена по ключ = {resourceLocation.PrimaryKey} ");
+             dataCallbackLoadResource = Addressables.LoadResourceLocationsAsync(resourceLocation.PrimaryKey);
+        }
+        else
+        {
+             dataCallbackLoadResource = Addressables.LoadResourceLocationsAsync(data);
+        }
 
         //проверяю готовы ли данные 
         if (dataCallbackLoadResource.IsDone == true)

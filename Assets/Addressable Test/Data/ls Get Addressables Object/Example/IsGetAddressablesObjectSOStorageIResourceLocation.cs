@@ -5,6 +5,12 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
+/// <summary>
+/// Делает запрос, к хранилещу с обьектами(которые или разрешено или запрещено брать)
+/// и сравнивает обьекты по интерфеис IResourceLocation. Это самй лучший вариант для сравнения
+/// (т.к иначе может возникнуть ситуация когда Key заблокирован, а обьект нет, и в итоге можно будет скачать обьект)
+/// НО тут нужно указ, где ссылку(IResourceLocation) на фаил(локально или для сервера)
+/// </summary>
 public class IsGetAddressablesObjectSOStorageIResourceLocation : AbsBoolIsGetAddressablesObject
 {
 
@@ -49,7 +55,18 @@ public class IsGetAddressablesObjectSOStorageIResourceLocation : AbsBoolIsGetAdd
     {
         CallbackDataBool wrapperCallbackData = new CallbackDataBool(0);
         
-        var callback = Addressables.LoadResourceLocationsAsync(obj);
+        
+        AsyncOperationHandle<IList<IResourceLocation>> callback;
+        
+        if (obj is IResourceLocation resourceLocation)
+        {
+            Debug.Log($"Обноружена ФИГНЯ !!! В логику Проверки пути до фаила LoadResourceLocationsAsync был отправлен интерфеис IResourceLocation. Операция была запущена по ключ = {resourceLocation.PrimaryKey} ");
+            callback = Addressables.LoadResourceLocationsAsync(resourceLocation.PrimaryKey);
+        }
+        else
+        {
+            callback = Addressables.LoadResourceLocationsAsync(obj);
+        }
 
         if (callback.IsDone == true)
         {

@@ -14,8 +14,6 @@ public class ExampleGetDataAddressablesIResourceLocation : MonoBehaviour
    private bool _isInit = false;
    public event Action OnInit;
 
-
-
    /// <summary>
    /// А тут он нужен, что бы побыстрому получить интерфеис IResourceLocation
    /// </summary>
@@ -48,7 +46,6 @@ public class ExampleGetDataAddressablesIResourceLocation : MonoBehaviour
          _getDataAddressables.OnInit -= OnInitGetData;
          InitGetData();
       }
-
    }
 
    private void InitGetData()
@@ -123,6 +120,6 @@ public class ExampleGetDataAddressablesIResourceLocation : MonoBehaviour
          _isInit = true;
          OnInit?.Invoke();
       }
-
+      
    }
 }

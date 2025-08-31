@@ -1,70 +1,47 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.UI;
 
 /// <summary>
-/// Тестово запускает обновление для указанных элементов
+/// Тестово запускает обновление для всех элементов
 /// </summary>
-public class ButtonCheckTargetTTTT : MonoBehaviour
+public class ButtonCheckUpdateAllObj : MonoBehaviour
 {
     [SerializeField]
-    private Button _button;
-    
-     /// <summary>
-    ///  Список обьектов, которые можно обновлять
-    /// </summary>
-    [SerializeField] 
-    private SOStorageBoolIsGetAddressablesObject _storageIsGetObject;
-
-    /// <summary>
-    /// Логика для обновления указ обьектов
-    /// (с проверкой, а нужно ли обновл. указанным обьектам)
-    /// </summary>
-    [SerializeField]
-    private CheckAndDownloadUpdateObjectTargetListObj _checkAndDownloadUpdateObject;
+   private Button _button;
+       
+     [SerializeField]
+    private CheckAndDownloadUpdateObjectAll _downloadUpdateObject;
 
     private void Awake()
     {
-        if (_storageIsGetObject.IsInit == false)
+        if (_downloadUpdateObject.IsInit == false)
         {
-            _storageIsGetObject.OnInit += OnInitStorageIsGetObject;
+            _downloadUpdateObject.OnInit += OnInitCheckAndDownloadUpdateObject;
         }
-
-        if (_checkAndDownloadUpdateObject.IsInit == false)
-        {
-            _checkAndDownloadUpdateObject.OnInit += OnInitСheckAndDownloadUpdateObject;
-        }
+        
 
         CheckInit();
     }
 
-    private void OnInitStorageIsGetObject()
+    private void OnInitCheckAndDownloadUpdateObject()
     {
-        if (_storageIsGetObject.IsInit == true)
+        if (_downloadUpdateObject.IsInit == true)
         {
-            _storageIsGetObject.OnInit -= OnInitStorageIsGetObject;
+            _downloadUpdateObject.OnInit -= OnInitCheckAndDownloadUpdateObject;
             CheckInit();
         }
     }
-
-    private void OnInitСheckAndDownloadUpdateObject()
-    {
-        if (_checkAndDownloadUpdateObject.IsInit == true)
-        {
-            _checkAndDownloadUpdateObject.OnInit -= OnInitСheckAndDownloadUpdateObject;
-            CheckInit();
-        }
-    }
+    
 
     private void CheckInit()
     {
-        if (_storageIsGetObject.IsInit == true && _checkAndDownloadUpdateObject.IsInit == true)
+        if (_downloadUpdateObject.IsInit == true)
         {
             Init();
         }
     }
-    
+
     private void Init()
     {
         _button.onClick.AddListener(ButtonClick);
@@ -78,14 +55,8 @@ public class ButtonCheckTargetTTTT : MonoBehaviour
 
     private void StartLogic()
     {
-        List<IResourceLocation> listResourceLocation = new List<IResourceLocation>();
-        foreach (var VARIABLE in _storageIsGetObject.GetAllObject())
-        {
-            listResourceLocation.Add(VARIABLE);
-        }
-        
-        //Запускаем логику обновления для обьектов(взятых из списка с рашен. обьектами для обновл)
-        var dataCallback = _checkAndDownloadUpdateObject.StartCheckAndUpdateObject(listResourceLocation);
+        //Запускаем логику обновления для каталогов и обьектов
+        var dataCallback = _downloadUpdateObject.StartCheckUpdateCatalog();
 
         if (dataCallback.IsGetDataCompleted == true)
         {

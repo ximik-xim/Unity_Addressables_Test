@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// Тестовая загр. элемента
 /// (пока без в тупую, для проверки)
 /// </summary>
-public class ButtonLoadDef : MonoBehaviour
+public class ButtonLoadTargetObj : MonoBehaviour
 {
     [SerializeField]
     private Button _button;

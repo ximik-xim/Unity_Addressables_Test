@@ -1106,7 +1106,7 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
-    m_Target: 10
+    m_Target: 12.386267
     speed: 2
     m_Value: 10
   m_Ortho:
@@ -1186,7 +1186,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Addressable Test/Data/Logic Update/New Folder 2
+    - Assets/Addressable Test/Data/Logic Update
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1205,7 +1205,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 180}
     m_SelectedIDs: 50b70000
     m_LastClickedID: 46928
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000deb50000e0b50000e2b50000e4b50000e6b50000e8b50000eab50000ecb50000eeb50000f0b50000f2b50000f4b50000f6b50000f8b50000fab50000fcb50000feb5000000b6000002b6000004b60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1234,7 +1234,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000deb50000e0b50000e2b50000e4b50000e6b50000e8b50000eab50000ecb50000eeb50000f0b50000f2b50000f4b50000f6b50000f8b50000fab50000fcb50000feb5000000b6000002b6000004b60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

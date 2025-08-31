@@ -15,10 +15,17 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 346699dbb217b9249a88fd034740002a
   m_SerializeEntries:
+  - m_GUID: 6d3936dcfd20df44380ff7f18fe09e30
+    m_Address: Assets/Addressable Test/Example/Data Example/Example Object 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1577abc74bdef84d914500c4796cfb1
     m_Address: Assets/New Folder 6/Example Object.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b090ad64ee7daee4caf0c4da90a69914, type: 2}

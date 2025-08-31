@@ -15,6 +15,8 @@ public class ButtonCheckUpdateAllObj : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("Иниц. началась");
+        
         if (_downloadUpdateObject.IsInit == false)
         {
             _downloadUpdateObject.OnInit += OnInitCheckAndDownloadUpdateObject;
@@ -28,6 +30,7 @@ public class ButtonCheckUpdateAllObj : MonoBehaviour
     {
         if (_downloadUpdateObject.IsInit == true)
         {
+            Debug.Log("Иниц. Chekc");
             _downloadUpdateObject.OnInit -= OnInitCheckAndDownloadUpdateObject;
             CheckInit();
         }
@@ -38,6 +41,7 @@ public class ButtonCheckUpdateAllObj : MonoBehaviour
     {
         if (_downloadUpdateObject.IsInit == true)
         {
+            Debug.Log("Иниц. закончилась");
             Init();
         }
     }

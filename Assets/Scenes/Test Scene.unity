@@ -682,6 +682,7 @@ GameObject:
   - component: {fileID: 442230233}
   - component: {fileID: 442230232}
   - component: {fileID: 442230231}
+  - component: {fileID: 442230235}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -772,6 +773,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &442230235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442230230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a855427545353479785890a3d5543e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaler: {fileID: 442230232}
 --- !u!114 &575415121 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6582898030191382244, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
@@ -1287,6 +1301,60 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   _getDataAddressables: {fileID: 40421841637242816}
+--- !u!1 &1238612746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1238612748}
+  - component: {fileID: 1238612747}
+  m_Layer: 0
+  m_Name: Static Camer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1238612747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238612746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a34849ac94579478168013c9e00ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 330585545}
+  _initialSize: 0
+  _startRectWidhtAndHeight: {x: 0, y: 0}
+  _scalePixelWidhtAndHeight: {x: 720, y: 1280}
+  _typeScaleBorders: 0
+  _maxScalePixelCamera: {x: 720, y: 1280}
+  _typeScaleCameraFromResolution: 1
+  _avtoCentr: 1
+  UpdateData:
+  - {fileID: 442230235}
+--- !u!4 &1238612748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238612746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6588209, y: -8.300228, z: 90.4278}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312076383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,3 +2010,4 @@ SceneRoots:
   - {fileID: 442230234}
   - {fileID: 1631273811}
   - {fileID: 652041136}
+  - {fileID: 1238612748}

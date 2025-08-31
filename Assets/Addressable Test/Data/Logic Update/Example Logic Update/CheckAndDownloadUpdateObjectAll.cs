@@ -64,33 +64,33 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
 
         if (_checkUpdateCatalog.IsInit == false)
         {
+            Debug.Log("Check Init _checkUpdateCatalog");
             _checkUpdateCatalog.OnInit += OnInitCheckUpdateCatalog;
-            return;
         }
 
         if (_updateCatalog.IsInit == false)
         {
+            Debug.Log("Check Init _updateCatalog");
             _updateCatalog.OnInit += OnInitUpdateCatalog;
-            return;
         }
 
         if (_getCatalogUpdateID.IsInit == false)
         {
+            Debug.Log("Check Init _getCatalogUpdateID");
             _getCatalogUpdateID.OnInit += OnInitGetCatalogUpdateID;
-            return;
         }
 
         if (_absDownloadUpdateObj.IsInit == false)
         {
+            Debug.Log("Check Init _absDownloadUpdateObj");
             _absDownloadUpdateObj.OnInit += OnInitDownloadUpdateObj;
-            return;
         }
 
         
-        if (_absDownloadUpdateObj.IsInit == false)
+        if (_storageIsGetObject.IsInit == false)
         {
-            _absDownloadUpdateObj.OnInit += OnInitStorageIsGetObject;
-            return;
+            Debug.Log("Check Init _storageIsGetObject");
+            _storageIsGetObject.OnInit += OnInitStorageIsGetObject;
         }
 
         CheckInit();
@@ -101,6 +101,7 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
     {
         if (_checkUpdateCatalog.IsInit == true)
         {
+            Debug.Log("Init _checkUpdateCatalog");
             _checkUpdateCatalog.OnInit -= OnInitCheckUpdateCatalog;
             CheckInit();
         }
@@ -110,6 +111,7 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
     {
         if (_updateCatalog.IsInit == true)
         {
+            Debug.Log("Init _updateCatalog");
             _updateCatalog.OnInit -= OnInitUpdateCatalog;
             CheckInit();
         }
@@ -119,6 +121,7 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
     {
         if (_getCatalogUpdateID.IsInit == true)
         {
+            Debug.Log("Init _getCatalogUpdateID");
             _getCatalogUpdateID.OnInit -= OnInitGetCatalogUpdateID;
             CheckInit();
         }
@@ -128,6 +131,7 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
     {
         if (_absDownloadUpdateObj.IsInit == true)
         {
+            Debug.Log("Init _absDownloadUpdateObj");
             _absDownloadUpdateObj.OnInit -= OnInitDownloadUpdateObj;
             CheckInit();
         }
@@ -135,9 +139,10 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
 
     private void OnInitStorageIsGetObject()
     {
-        if (_absDownloadUpdateObj.IsInit == true)
+        if (_storageIsGetObject.IsInit == true)
         {
-            _absDownloadUpdateObj.OnInit -= OnInitStorageIsGetObject;
+            Debug.Log("Init _storageIsGetObject");
+            _storageIsGetObject.OnInit -= OnInitStorageIsGetObject;
             CheckInit();
         }
     }

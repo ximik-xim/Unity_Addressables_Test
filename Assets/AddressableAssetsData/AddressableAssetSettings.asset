@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 346699dbb217b9249a88fd034740002a
   m_currentHash:
     serializedVersion: 2
-    Hash: 7835c3561e4bef55028dcaac153e4a9d
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_CatalogRequestsTimeout: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
       - m_Id: 8ab264d50462df94595472a2b418c581
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: 95f9e83fdbe8d5b42b1e673ab3f01e8e
-        m_Value: <undefined>
+        m_Value: 'https://unity0addressables0test.hb.ru-msk.vkcloud-storage.ru/[BuildTarget]'
       - m_Id: b94cc9307d359dc49a6c0cda3f2f843b
         m_Value: 'ServerData/[BuildTarget]'
       - m_Id: e08ef432be7c1a14a9e35cad6e41b151

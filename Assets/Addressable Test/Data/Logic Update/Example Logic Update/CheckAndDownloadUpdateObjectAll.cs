@@ -1,6 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.AddressableAssets.ResourceLocators;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
 /// <summary>
@@ -15,6 +19,12 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
     private bool _isInit = false;
     public event Action OnInit;
 
+
+    /// <summary>
+    /// Проверять ли, есть ли обновления каталогов при иниц. (отдельная логика)
+    /// </summary>
+    [SerializeField]
+    private bool _isCheckUpdateAwake = true;
     
     /// <summary>
     /// Проверка, есть ли обновление для каталогов
@@ -58,10 +68,108 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
     public bool IsBlock => _isBlock;
     private bool _isBlock;
     public event Action OnUpdateStatusBlock;
+    
         
     private void Awake()
     {
+        //!!! ТУТ ОБЯЗ. НУЖНО ИНИЦ Addressables (перед запросом каталогов)
+        var callback  = Addressables.InitializeAsync();
 
+        if (callback.IsDone == true)
+        {
+            ComplitedInitAddressables();
+        }
+        else
+        {
+            callback.Completed += OnInitComplitedInitAddressables;
+        }
+        
+
+        void OnInitComplitedInitAddressables(AsyncOperationHandle<IResourceLocator> obj)
+        {
+            if (callback.IsDone == true)
+            {
+                callback.Completed -= OnInitComplitedInitAddressables;
+                ComplitedInitAddressables();
+            }
+        }
+        
+        void ComplitedInitAddressables()
+        {
+            if (callback.Status == AsyncOperationStatus.Succeeded)
+            {
+                Debug.Log("Addressables инициализирован");    
+            }
+            else
+            {
+                Debug.LogError("Не удалось инициализировать Addressables");    
+            }
+
+            CheckIsUpdateAwake();
+        }
+
+    }
+
+
+    private void CheckIsUpdateAwake()
+    {
+        if (_isCheckUpdateAwake == true) 
+        {
+            CheckUpdateAwake();
+        }
+        else
+        {
+            StartInit();
+        }
+    }
+
+    private void CheckUpdateAwake()
+    {
+        var callback  = Addressables.CheckForCatalogUpdates();
+
+        if (callback.IsDone == true)
+        {
+            ComplitedInitAddressables();
+        }
+        else
+        {
+            callback.Completed += OnInitComplitedInitAddressables;
+        }
+        
+
+        void OnInitComplitedInitAddressables(AsyncOperationHandle<List<string>> obj)
+        {
+            if (callback.IsDone == true)
+            {
+                callback.Completed -= OnInitComplitedInitAddressables;
+                ComplitedInitAddressables();
+            }
+        }
+        
+        void ComplitedInitAddressables()
+        {
+            if (callback.Status == AsyncOperationStatus.Succeeded)
+            {
+                if (callback.Result != null && callback.Result.Count >= 0)
+                {
+                    Debug.Log($"Найдено обновлений каталогов = {callback.Result.Count}");  
+                }
+                else
+                {
+                    Debug.Log("Обновления каталогов отсутствуют");
+                }   
+            }
+            else
+            {
+                Debug.LogError("Ошибка при запросе обновлений каталогов");    
+            }
+
+            StartInit();
+        }
+    }
+
+    private void StartInit()
+    {
         if (_checkUpdateCatalog.IsInit == false)
         {
             Debug.Log("Check Init _checkUpdateCatalog");
@@ -94,7 +202,6 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
         }
 
         CheckInit();
-        
     }
 
     private void OnInitCheckUpdateCatalog()

@@ -36,6 +36,7 @@ public class CheckUpdateCatalogs : MonoBehaviour
     
     public GetServerRequestData<List<string>> StartCheckUpdateCatalog()
     {
+        Debug.Log("Запрос на проверку обн. каталогов был отправлен");
         //запрашиваю данные
         var dataCallback = Addressables.CheckForCatalogUpdates();
         
@@ -72,6 +73,9 @@ public class CheckUpdateCatalogs : MonoBehaviour
             //Если успешно получил данные
             if (dataCallback.Status == AsyncOperationStatus.Succeeded)
             {
+                
+                Debug.Log("Запрос на проверку обн. каталогов успешен");
+                
                 //очищаю список ошибок
                 _errorLogic.OnRemoveAllError();
                 
@@ -92,6 +96,9 @@ public class CheckUpdateCatalogs : MonoBehaviour
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 
                 {
+                    Debug.Log("Запрос на проверку обн. каталогов ошибка. Переотправка");
+                    
+                    
                     //заного отпр. запрос, и по новой 
                     dataCallback = Addressables.CheckForCatalogUpdates();
                     if (dataCallback.IsDone == true)
@@ -108,6 +115,8 @@ public class CheckUpdateCatalogs : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("Запрос на проверку обн. каталогов ошибка. Попытки кончились. Возр. ERROR");
+                    
                     //если попытки достучаться до сервера закончились, то отпр. все как есть(ошибку)
                     
                     //очищаю список ошибок

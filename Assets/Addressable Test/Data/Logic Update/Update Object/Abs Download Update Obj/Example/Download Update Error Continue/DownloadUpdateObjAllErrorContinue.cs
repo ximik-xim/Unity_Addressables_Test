@@ -59,6 +59,7 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
     
     public override GetServerRequestData<StorageStatusCallbackIResourceLocation> DownloadUpdateObj(List<IResourceLocation> locatorsObjectUpdate)
     {
+        Debug.Log("Запрос на загр. обн. обьекта был отправлен");
         //запрашиваю данные
         var dataCallback = Addressables.DownloadDependenciesAsync(locatorsObjectUpdate);
         
@@ -95,6 +96,8 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
             //Если успешно получил данные
             if (dataCallback.Status == AsyncOperationStatus.Succeeded)
             {
+                Debug.Log("Запрос на загр. обн. обьекта успешен");
+                
                 //очищаю список ошибок
                 _errorLogic.OnRemoveAllError();
                 
@@ -125,6 +128,8 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 
                 {
+                    Debug.Log("Запрос на загр. обн. обьекта ошибка. Переотправка");
+                    
                     //заного отпр. запрос, и по новой 
                     dataCallback = Addressables.DownloadDependenciesAsync(locatorsObjectUpdate);
                     if (dataCallback.IsDone == true)
@@ -141,6 +146,8 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
                 }
                 else
                 {
+                    Debug.Log("Запрос на загр. обн. обьекта ошибка. Попытки кончились. Возр. ERROR");
+                    
                     //если попытки достучаться до сервера закончились, то отпр. все как есть(ошибку)
                     
                     //очищаю список ошибок

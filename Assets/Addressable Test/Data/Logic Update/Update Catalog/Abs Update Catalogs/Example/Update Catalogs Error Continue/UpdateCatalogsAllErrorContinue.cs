@@ -37,6 +37,8 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
     
     public override GetServerRequestData<StorageStatusCallbackIResourceLocation> StartUpdateCatalog(List<string> idCatalogUpdate)
     {
+        
+        Debug.Log("Запрос на загр. обн. каталогов был отправлен");
         //запрашиваю данные
         var dataCallback = Addressables.UpdateCatalogs(idCatalogUpdate);
         
@@ -73,6 +75,8 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
             //Если успешно получил данные
             if (dataCallback.Status == AsyncOperationStatus.Succeeded)
             {
+                Debug.Log("Запрос на обн. каталогов успешен");
+                
                 //очищаю список ошибок
                 _errorLogic.OnRemoveAllError();
                 
@@ -106,6 +110,8 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 
                 {
+                    Debug.Log("Запрос на обн. каталогов ошибка. Переотправка");
+                    
                     //заного отпр. запрос, и по новой 
                     dataCallback = Addressables.UpdateCatalogs(idCatalogUpdate);
                     if (dataCallback.IsDone == true)
@@ -122,6 +128,8 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                 }
                 else
                 {
+                    Debug.Log("Запрос на обн. каталогов ошибка. Попытки кончились. Возр. ERROR");
+                    
                     //если попытки достучаться до сервера закончились, то отпр. все как есть(ошибку)
                     
                     //очищаю список ошибок

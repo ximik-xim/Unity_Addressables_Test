@@ -441,7 +441,7 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
         //Тут нужна именно доп проверка этого статуса, по тому как, если разбиваем запросы, то может произойти так, что один из запросов не дойдет
         if (storageLocation.StatusAllCallBack == TypeStorageStatusCallbackIResourceLocator.Ok)
         {
-            Debug.Log($"Обновление каталогов прошло успешно, начинаю фильтрацию для {_listLocation.Count} обьектов");
+            Debug.Log($"Обновление каталогов прошло успешно, начинаю фильтрацию для {storageLocation.ListCallbackStatus.Count} обьектов");
             
             foreach (var VARIABLE in storageLocation.ListCallbackStatus)
             {

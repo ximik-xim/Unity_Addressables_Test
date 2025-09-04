@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -17,6 +19,20 @@ public class CheckUpdateCatalogs : MonoBehaviour
     
     [SerializeField]
     private LogicErrorCallbackRequestAddressables _errorLogic;
+
+    /// <summary>
+    /// Время ожидание, до переотправки запроса
+    /// (нужно, т.к иначе, если сразу сделаю переотправку запроса, получу ERROR Attempting to use an invalid operation handle)
+    /// </summary>
+    [SerializeField]
+    private float _timeSecondWait = 1f;
+
+    /// <summary>
+    /// Буду ли исп. для ожидания асинхронную операцию
+    /// (если нет, то буду исп. корутину)
+    /// </summary>
+    [SerializeField]
+    private bool _useWaitAsycn = true;
     
     /// <summary>
     /// Список Id callback, которые сейчас в ожидании
@@ -96,20 +112,56 @@ public class CheckUpdateCatalogs : MonoBehaviour
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 
                 {
-                    Debug.Log("Запрос на проверку обн. каталогов ошибка. Переотправка");
+                    Debug.Log("Запрос на проверку обн. каталогов ошибка. Подготовка к переотправки");
                     
-                    
-                    //заного отпр. запрос, и по новой 
-                    dataCallback = Addressables.CheckForCatalogUpdates();
-                    if (dataCallback.IsDone == true)
+                    //Тут пришлось сделать ожид. перед отпр. след запрос т.к иначе(если сразу дел. след. запрос) получаю ERROR Attempting to use an invalid operation handle) 
+                    if (_useWaitAsycn == true) 
                     {
-                        CompletedCallback();
+                        //Асинхронное ожидание
+                        Debug.Log("Асинхрон. Ожид. перед переотправкой");
+                        WaitRequestAsync();
                     }
                     else
                     {
-                        dataCallback.Completed -= OnCompletedCallback;
-                        dataCallback.Completed += OnCompletedCallback;
+                        //Ожидание через корутину
+                        Debug.Log("Ожид. через корутину перед переотправкой");
+                        StartCoroutine(WaitRequestCoroutine());
                     }
+                    
+                    async Task WaitRequestAsync()
+                    {
+                        // Ждём указ. кол - во секунд, перед переотправкой
+                        await Task.Delay((int)(_timeSecondWait * 1000));
+
+                        NextPushRequest();
+                    }
+                    
+                    IEnumerator WaitRequestCoroutine()
+                    {
+                        // Ждём указ. кол - во секунд, перед переотправкой
+                        yield return new WaitForSeconds(_timeSecondWait);
+
+                        NextPushRequest();
+                    }
+                    
+                    
+                    void NextPushRequest()
+                    {
+                        Debug.Log("Запрос на проверку обн. каталогов ошибка. Переотправка начата");
+                        
+                        //заного отпр. запрос, и по новой 
+                        dataCallback = Addressables.CheckForCatalogUpdates();
+                        if (dataCallback.IsDone == true)
+                        {
+                            CompletedCallback();
+                        }
+                        else
+                        {
+                            dataCallback.Completed -= OnCompletedCallback;
+                            dataCallback.Completed += OnCompletedCallback;
+                        }
+                    }
+                    
                     
                     return;
                 }

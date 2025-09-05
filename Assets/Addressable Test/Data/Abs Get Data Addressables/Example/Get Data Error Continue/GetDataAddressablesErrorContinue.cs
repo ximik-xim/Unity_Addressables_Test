@@ -57,8 +57,12 @@ public class GetDataAddressablesErrorContinue : AbsCallbackGetDataAddressables
     }
     public override GetServerRequestData<T> GetData<T>(object data)
     {
+        Debug.Log("Запрос на загр. обьекта был отправлен");
+        //Тут именно скопировать нужно
+        object copiedData = data;
+        
         //запрашиваю данные
-        var dataCallback = _absGetDataAddressables.GetData<T>(data);
+        var dataCallback = _absGetDataAddressables.GetData<T>(copiedData);
         //делаю обертку т.к могу несколько раз делать запросы на данные, а верну лиш 1 итог. результат 
         CallbackRequestDataAddressablesWrapper<T> wrapperCallbackData = new CallbackRequestDataAddressablesWrapper<T>(dataCallback.IdMassage);
 
@@ -90,6 +94,7 @@ public class GetDataAddressablesErrorContinue : AbsCallbackGetDataAddressables
             //Если успешно получил данные
             if (dataCallback.StatusServer == StatusCallBackServer.Ok)
             {
+                Debug.Log("Запрос на загр. обьекта успешен");
                 //очищаю список ошибок
                 _errorLogic.OnRemoveAllError();
                 
@@ -109,8 +114,10 @@ public class GetDataAddressablesErrorContinue : AbsCallbackGetDataAddressables
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 
                 {
+                    Debug.Log("Запрос на загр. обьекта ошибка. Переотправка");
+                    
                     //заного отпр. запрос, и по новой 
-                    dataCallback = _absGetDataAddressables.GetData<T>(data);
+                    dataCallback = _absGetDataAddressables.GetData<T>(copiedData);
                     if (dataCallback.IsGetDataCompleted == true)
                     {
                         CompletedCallback();
@@ -125,6 +132,7 @@ public class GetDataAddressablesErrorContinue : AbsCallbackGetDataAddressables
                 }
                 else
                 {
+                    Debug.Log("Запрос на загр. обьекта ошибка. Попытки кончились. Возр. ERROR");
                     //если попытки достучаться до сервера закончились, то отпр. все как есть(ошибку)
                     
                     //очищаю список ошибок

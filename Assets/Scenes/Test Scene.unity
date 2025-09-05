@@ -2375,9 +2375,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1287144593235274748, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
+      propertyPath: _pathTargetBuild
+      value: Assets
+      objectReference: {fileID: 0}
     - target: {fileID: 1401144828346217610, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
       propertyPath: m_Name
       value: Get Data Variants List
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199951527269882774, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
+      propertyPath: _pathTargetBuild
+      value: Assets
       objectReference: {fileID: 0}
     - target: {fileID: 6320092650736920248, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
       propertyPath: _absIsGetAddressablesObject

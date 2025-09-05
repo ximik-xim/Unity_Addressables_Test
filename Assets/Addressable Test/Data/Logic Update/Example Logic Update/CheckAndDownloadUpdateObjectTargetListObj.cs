@@ -122,6 +122,7 @@ public class CheckAndDownloadUpdateObjectTargetListObj : MonoBehaviour
                     {
                         Debug.Log($"Получил {dataCallback.GetData.ListCallbackStatus.Count} обьектов нуждающихся в обновлении");
 
+                        //Debug.Log($"Получил {dataCallback.GetData.ListCallbackStatus[0].ResourceLocator.InternalId}");
                         StartUpdateData(dataCallback.GetData);
                         return;
                     }

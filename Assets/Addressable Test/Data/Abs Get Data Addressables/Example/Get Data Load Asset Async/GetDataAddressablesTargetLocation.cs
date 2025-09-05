@@ -53,6 +53,8 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
 
     public override GetServerRequestData<T> GetData<T>(object data)
     {
+        Debug.Log("Запрос на загр. обьекта по указ. пути был отправлен");
+        
         int id = GetUniqueId();
         CallbackRequestDataAddressablesWrapper<T> wrapperCallbackData = new CallbackRequestDataAddressablesWrapper<T>(id);
         _idCallback.Add(id);
@@ -111,6 +113,12 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
 #else
                 patchTarget = _pathTargetBuild;
 #endif
+
+                //чисто для тестов
+                foreach (var VARIABLE in resourceAllLocation)
+                {
+                    Debug.Log("Найденный обьект Id = " + VARIABLE.InternalId);
+                }
                 
                 //ищем подход. путь
                 foreach (var VARIABLE in resourceAllLocation)
@@ -140,6 +148,8 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
                 }
                 else
                 {
+                    Debug.Log("Запрос на загр. обьекта по указ. пути. Ошибка, ничего не найдено");
+                    
                     //а если такого пути нету отвеч. Error
                     
                     //заполняю данные для ответа
@@ -155,6 +165,7 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
                 
                 void StartLoadAsset(IResourceLocation resourceLocation)
                 {
+                    Debug.Log("Запрос на загр. обьекта по указ. пути. Получение обьекта");
                     var dataCallbackLoadAsset = Addressables.LoadAssetAsync<T>(resourceLocation);
 
                     //проверяю готовы ли данные 
@@ -184,6 +195,7 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
                     {
                         if (dataCallbackLoadAsset.Status == AsyncOperationStatus.Succeeded)
                         {
+                            Debug.Log("Запрос на загр. обьекта по указ. пути. Обьект получен");
                             wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
                             wrapperCallbackData.Data.GetData = dataCallbackLoadAsset.Result;
 
@@ -195,6 +207,7 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
                         }
                         else
                         {
+                            Debug.Log("Запрос на загр. обьекта по указ. пути. Ошибка при получ. обьекта");
                             //заполняю данные для ответа
                             wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
                             wrapperCallbackData.Data.GetData = default;
@@ -210,6 +223,7 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataAddressables
             }
             else
             {
+                Debug.Log("Запрос на загр. обьекта по указ. пути. Ошибка");
                 //заполняю данные для ответа
                 wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
                 wrapperCallbackData.Data.GetData = default;

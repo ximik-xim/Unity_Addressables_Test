@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDataAddressables
 {
-    
     public override bool IsInit => _isInit;
     private bool _isInit = false;
     public override event Action OnInit;
@@ -100,6 +99,8 @@ public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDat
         
         void StartGetData()
         {
+            Debug.Log("Обьект разрешено брать");
+            
             var callbackGetData = _absGetDataAddressables.GetData<T>(data);
             
             if (callbackGetData.IsGetDataCompleted == true)
@@ -138,6 +139,7 @@ public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDat
 
         void CallbackError()
         {
+            Debug.Log("Обьект запрещено брать");
             //Если запрещено брать, то возращаем пустышку
             //тут именно ERROR
             callbackData.Data.StatusServer = StatusCallBackServer.Error;

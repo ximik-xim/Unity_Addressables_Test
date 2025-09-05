@@ -157,12 +157,17 @@ public class GetDataAddressablesVariantsList : AbsCallbackGetDataAddressables
                             //если вклучена проверка на null, и пришел null в данных(хотя статус и OK)
                             if (_moveNextVariantDataNull == true && dataCallback.GetData == null) 
                             {
+                                Debug.Log("Переключ. получ статус ОК, но пришел null, переключ. на след. вариант");
+                                
+                                dataCallback.OnGetDataCompleted -= OnCompletedCallback;
+                                
                                 //переключ на след. вариант
                                 lastId++;
                                 NextElement();
                             }
                             else
                             {
+                                Debug.Log("Переключ. получ статус ОК");
                                 //заполняю данные для ответа
                                 wrapperCallbackData.Data.StatusServer = dataCallback.StatusServer;
                                 wrapperCallbackData.Data.GetData = dataCallback.GetData;
@@ -176,6 +181,10 @@ public class GetDataAddressablesVariantsList : AbsCallbackGetDataAddressables
                         }
                         else
                         {
+                            Debug.Log("Переключ. получ статус ERROR, переключ. на след. вариант");
+                            
+                            dataCallback.OnGetDataCompleted -= OnCompletedCallback;
+                            
                             lastId++;
                             //Если же, этот способ получить данные вернул ERROR, то переключаюсь на следующий способ
                             NextElement();
@@ -185,6 +194,7 @@ public class GetDataAddressablesVariantsList : AbsCallbackGetDataAddressables
                 }
                 else
                 {
+                    Debug.Log("Переключ. элементы в списке закончились. Возрв. ERROR");
                     //Если элементы в списке закончились, значит оправляю Error
                     wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
                     wrapperCallbackData.Data.GetData = default;
@@ -200,6 +210,7 @@ public class GetDataAddressablesVariantsList : AbsCallbackGetDataAddressables
         }
         else
         {
+            Debug.Log("Переключ. нет элементов в списке. Возрв. ERROR");
             //Если элементы в списке тупо нет, значит оправляю Error
             wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
             wrapperCallbackData.Data.GetData = default;

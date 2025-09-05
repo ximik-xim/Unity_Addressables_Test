@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _errorLogic: {fileID: 4339490481442442508}
+  _timeSecondWait: 0.2
+  _useWaitAsycn: 1
   _idCallback: 
 --- !u!1 &3969186338019280650
 GameObject:
@@ -329,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455d1eec1b970f54ab1d6a1f49ea3679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isCheckUpdateAwake: 1
   _checkUpdateCatalog: {fileID: 1383450628218358854}
   _updateCatalog: {fileID: 5877774588834185399}
   _getCatalogUpdateID: {fileID: 3470000221135144398}

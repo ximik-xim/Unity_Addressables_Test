@@ -84,6 +84,8 @@ public class ButtonCheckUpdateTargetObj : MonoBehaviour
             listResourceLocation.Add(VARIABLE);
         }
         
+        Debug.Log($"Получено {listResourceLocation.Count} обьектов, для проверки обновления");
+        
         //Запускаем логику обновления для обьектов(взятых из списка с рашен. обьектами для обновл)
         var dataCallback = _checkAndDownloadUpdateObject.StartCheckAndUpdateObject(listResourceLocation);
 

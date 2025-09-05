@@ -67,8 +67,13 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
     
     public override GetServerRequestData<StorageStatusCallbackIResourceLocation> CheckIsUpdateObj(List<IResourceLocation> locatorsObjectUpdate)
     {
+        Debug.Log("Запрос на проверку обн. обьектов был отправлен");
+        
+        //Тут именно скопировать нужно все элементы, т.к список locatorsObjectUpdate очиститься после вызова return
+        List<IResourceLocation> copiedListData = new List<IResourceLocation>(locatorsObjectUpdate);
+        
         //запрашиваю данные
-        var dataCallback = Addressables.GetDownloadSizeAsync(locatorsObjectUpdate);
+        var dataCallback = Addressables.GetDownloadSizeAsync(copiedListData);
         
         int id = GetUniqueId();
         //делаю обертку т.к могу несколько раз делать запросы на данные, а верну лиш 1 итог. результат 
@@ -103,6 +108,7 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
             //Если успешно получил данные
             if (dataCallback.Status == AsyncOperationStatus.Succeeded)
             {
+                Debug.Log("Запрос на проверку обн. обьектов успешен");
                 //очищаю список ошибок
                 _errorLogic.OnRemoveAllError();
                 
@@ -111,11 +117,13 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                 {
                     if (dataCallback.Result > 0) 
                     {
+                        Debug.Log("Обьекту(-там) нужно обновление"); 
+                        
                         //заполняю данные для ответа
                         wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
-
+                        
                         List<StatusCallbackIResourceLocation> listCallbackData = new List<StatusCallbackIResourceLocation>();
-                        foreach (var VARIABLE in locatorsObjectUpdate)
+                        foreach (var VARIABLE in copiedListData)
                         {
                             listCallbackData.Add(new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE));
                         }
@@ -132,6 +140,7 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                     else
                     {
                         //Т.к включена филтрация, то возращаю пустой список(т.к у тех обьектво нет обновлений)
+                        Debug.Log("Обьекту(-там) НЕ нужно обновление");
                         
                         //заполняю данные для ответа
                         wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
@@ -154,7 +163,7 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                 wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
                 
                 List<StatusCallbackIResourceLocation> listCallbackData2 = new List<StatusCallbackIResourceLocation>();
-                foreach (var VARIABLE in locatorsObjectUpdate)
+                foreach (var VARIABLE in copiedListData)
                 {
                     listCallbackData2.Add(new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE));
                 }
@@ -170,15 +179,15 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
             }
             else
             {
+                Debug.Log("Запрос на проверку обн. обьектов ошибка. Переотправка");
                 //добавляю ошибку
                 _errorLogic.OnAddError();
                 
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 
                 {
-                    
                     //заного отпр. запрос, и по новой 
-                    dataCallback = Addressables.GetDownloadSizeAsync(locatorsObjectUpdate);
+                    dataCallback = Addressables.GetDownloadSizeAsync(copiedListData);
                     if (dataCallback.IsDone == true)
                     {
                         CompletedCallback();
@@ -193,6 +202,8 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                 }
                 else
                 {
+                    Debug.Log("Запрос на проверку обн. обьектов ошибка. Попытки кончились. Возр. ERROR");
+                    
                     //если попытки достучаться до сервера закончились, то отпр. все как есть(ошибку)
                     
                     //очищаю список ошибок
@@ -202,7 +213,7 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                     wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
                     
                     List<StatusCallbackIResourceLocation> listCallbackData = new List<StatusCallbackIResourceLocation>();
-                    foreach (var VARIABLE in locatorsObjectUpdate)
+                    foreach (var VARIABLE in copiedListData)
                     {
                         listCallbackData.Add(new StatusCallbackIResourceLocation(StatusCallBackServer.Error, VARIABLE));
                     }

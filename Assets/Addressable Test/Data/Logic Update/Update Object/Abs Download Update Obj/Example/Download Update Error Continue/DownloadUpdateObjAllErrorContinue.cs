@@ -59,9 +59,12 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
     
     public override GetServerRequestData<StorageStatusCallbackIResourceLocation> DownloadUpdateObj(List<IResourceLocation> locatorsObjectUpdate)
     {
+        //Тут именно скопировать нужно все элементы, т.к список locatorsObjectUpdate очиститься после вызова return
+        List<IResourceLocation> copiedListData = new List<IResourceLocation>(locatorsObjectUpdate);
+        
         Debug.Log("Запрос на загр. обн. обьекта был отправлен");
         //запрашиваю данные
-        var dataCallback = Addressables.DownloadDependenciesAsync(locatorsObjectUpdate);
+        var dataCallback = Addressables.DownloadDependenciesAsync(copiedListData);
         
         int id = GetUniqueId();
         //делаю обертку т.к могу несколько раз делать запросы на данные, а верну лиш 1 итог. результат 
@@ -105,7 +108,7 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
                 wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
 
                 List<StatusCallbackIResourceLocation> listStatusCallback = new List<StatusCallbackIResourceLocation>();
-                foreach (var VARIABLE in locatorsObjectUpdate)
+                foreach (var VARIABLE in copiedListData)
                 {
                     StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE);
                     listStatusCallback.Add(statusCallback);
@@ -131,7 +134,7 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
                     Debug.Log("Запрос на загр. обн. обьекта ошибка. Переотправка");
                     
                     //заного отпр. запрос, и по новой 
-                    dataCallback = Addressables.DownloadDependenciesAsync(locatorsObjectUpdate);
+                    dataCallback = Addressables.DownloadDependenciesAsync(copiedListData);
                     if (dataCallback.IsDone == true)
                     {
                         CompletedCallback();
@@ -157,7 +160,7 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
                     wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
                     
                     List<StatusCallbackIResourceLocation> listStatusCallback = new List<StatusCallbackIResourceLocation>();
-                    foreach (var VARIABLE in locatorsObjectUpdate)
+                    foreach (var VARIABLE in copiedListData)
                     {
                         StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Error, VARIABLE);
                         listStatusCallback.Add(statusCallback);

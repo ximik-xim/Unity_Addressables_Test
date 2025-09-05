@@ -25,7 +25,7 @@ public class CheckUpdateCatalogs : MonoBehaviour
     /// (нужно, т.к иначе, если сразу сделаю переотправку запроса, получу ERROR Attempting to use an invalid operation handle)
     /// </summary>
     [SerializeField]
-    private float _timeSecondWait = 1f;
+    private float _timeSecondWait = 0.2f;
 
     /// <summary>
     /// Буду ли исп. для ожидания асинхронную операцию

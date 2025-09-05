@@ -37,10 +37,12 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
     
     public override GetServerRequestData<StorageStatusCallbackIResourceLocation> StartUpdateCatalog(List<string> idCatalogUpdate)
     {
+        //Тут именно скопировать нужно все элементы, т.к список idCatalogUpdate очиститься после вызова return
+        List<string> copiedListData = new List<string>(idCatalogUpdate);
         
         Debug.Log("Запрос на загр. обн. каталогов был отправлен");
         //запрашиваю данные
-        var dataCallback = Addressables.UpdateCatalogs(idCatalogUpdate);
+        var dataCallback = Addressables.UpdateCatalogs(copiedListData);
         
         int id = GetUniqueId();
         //делаю обертку т.к могу несколько раз делать запросы на данные, а верну лиш 1 итог. результат 
@@ -113,7 +115,7 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                     Debug.Log("Запрос на обн. каталогов ошибка. Переотправка");
                     
                     //заного отпр. запрос, и по новой 
-                    dataCallback = Addressables.UpdateCatalogs(idCatalogUpdate);
+                    dataCallback = Addressables.UpdateCatalogs(copiedListData);
                     if (dataCallback.IsDone == true)
                     {
                         CompletedCallback();

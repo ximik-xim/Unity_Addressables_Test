@@ -2251,17 +2251,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949222689}
   m_CullTransparentMesh: 1
---- !u!114 &2063859631 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1287144593235274748, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
-  m_PrefabInstance: {fileID: 7841100035409683069}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f0a4ae708485b489cd3b8180b8fa2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &40421841637242816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2375,22 +2364,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1287144593235274748, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
-      propertyPath: _pathTargetBuild
-      value: Assets
-      objectReference: {fileID: 0}
     - target: {fileID: 1401144828346217610, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
       propertyPath: m_Name
       value: Get Data Variants List
       objectReference: {fileID: 0}
-    - target: {fileID: 4199951527269882774, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
-      propertyPath: _pathTargetBuild
-      value: Assets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6320092650736920248, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
-      propertyPath: _absIsGetAddressablesObject
-      value: 
-      objectReference: {fileID: 2063859631}
     - target: {fileID: 6462871461678353499, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

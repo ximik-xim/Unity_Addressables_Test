@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathTargetEditor: Assets
-  _pathTargetBuild: file
+  _pathTargetBuild: Assets
   _excludeTarget: 0
   _storageBool: {fileID: 11400000, guid: 800e8e02007b0dd44bc01b9acf2ad6f3, type: 2}
 --- !u!1 &1401144828346217610
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pathTargetEditor: Assets
-  _pathTargetBuild: file
+  _pathTargetBuild: Assets
   _excludeTarget: 0
   _idCallback: 
 --- !u!1 &8618085097207766669

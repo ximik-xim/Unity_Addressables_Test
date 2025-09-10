@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 346699dbb217b9249a88fd034740002a
   m_currentHash:
     serializedVersion: 2
-    Hash: fb9f78601b5d7b3562f0f5dc6af2cfa8
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_CatalogRequestsTimeout: 0
@@ -82,14 +82,28 @@ MonoBehaviour:
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
     - m_InheritedParent: 
       m_Id: 1576689ae29e22144a5f73697c6d10e7
-      m_ProfileName: Remote VK Cloud V2
+      m_ProfileName: Remote VK Cloud V2 Test
       m_Values:
       - m_Id: 412369346a0af454fa7304bd94e770ef
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 8ab264d50462df94595472a2b418c581
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: 95f9e83fdbe8d5b42b1e673ab3f01e8e
-        m_Value: 'https://unity0addressables0testv2.hb.ru-msk.vkcloud-storage.ru/[BuildTarget]'
+        m_Value: 'https://unity0addressables0testv2.hb.ru-msk.vkcloud-storage.ru/Test/[BuildTarget]/[UnityEditor.PlayerSettings.bundleVersion]'
+      - m_Id: b94cc9307d359dc49a6c0cda3f2f843b
+        m_Value: 'ServerData/[BuildTarget]'
+      - m_Id: e08ef432be7c1a14a9e35cad6e41b151
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+    - m_InheritedParent: 
+      m_Id: 380fd6d0ba3434446bc9657b2756a8ec
+      m_ProfileName: Remote VK Cloud V2 Release
+      m_Values:
+      - m_Id: 412369346a0af454fa7304bd94e770ef
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 8ab264d50462df94595472a2b418c581
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 95f9e83fdbe8d5b42b1e673ab3f01e8e
+        m_Value: 'https://unity0addressables0testv2.hb.ru-msk.vkcloud-storage.ru/Release/[BuildTarget]/[UnityEditor.PlayerSettings.bundleVersion]'
       - m_Id: b94cc9307d359dc49a6c0cda3f2f843b
         m_Value: 'ServerData/[BuildTarget]'
       - m_Id: e08ef432be7c1a14a9e35cad6e41b151

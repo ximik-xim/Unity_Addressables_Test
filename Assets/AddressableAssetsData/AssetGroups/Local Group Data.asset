@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: Packed Assets
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
-  m_GUID: 346699dbb217b9249a88fd034740002a
+  m_GroupName: Packed Assets
+  m_GUID: 820099e62e686134e85df02109482fbc
   m_SerializeEntries:
   - m_GUID: 6d3936dcfd20df44380ff7f18fe09e30
     m_Address: Assets/Addressable Test/Example/Data Example/Example Object 2.prefab
@@ -31,5 +31,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: b090ad64ee7daee4caf0c4da90a69914, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: fed124cbb636b934895f195a93c85ca6, type: 2}
-    - {fileID: 11400000, guid: 01f3efce27e38d541a57156fb9f5cbc4, type: 2}
+    - {fileID: 11400000, guid: 5298eba3006f86a45974cc9829d428c0, type: 2}
+    - {fileID: 11400000, guid: 149d87fc41e1c614a94baf6ed8a9367f, type: 2}

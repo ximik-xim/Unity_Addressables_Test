@@ -1799,31 +1799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defPrefabUI: {fileID: 5513903487914292950, guid: 289cbccc16c1a9a458ada87adc41974e, type: 3}
-  _keyException:
-  - Key:
-      _dataSO: {fileID: 11400000, guid: afd83ff7bb0f203458d38ef2b3abbaac, type: 2}
-      _selectIndif: {fileID: 11400000, guid: cfbca12a724b1b2479b48f68c634b79c, type: 2}
-      _error:
-        Enable: 0
-        TextError: 
-        MessageType: 0
-    Data: {fileID: 1705059225463884406, guid: 7edff64e039704a429e89338cd57c2e4, type: 3}
-  - Key:
-      _dataSO: {fileID: 11400000, guid: afd83ff7bb0f203458d38ef2b3abbaac, type: 2}
-      _selectIndif: {fileID: 11400000, guid: f05d0e638b106ef4b8fe691d51997bed, type: 2}
-      _error:
-        Enable: 0
-        TextError: 
-        MessageType: 0
-    Data: {fileID: 1705059225463884406, guid: 7edff64e039704a429e89338cd57c2e4, type: 3}
-  - Key:
-      _dataSO: {fileID: 11400000, guid: afd83ff7bb0f203458d38ef2b3abbaac, type: 2}
-      _selectIndif: {fileID: 11400000, guid: 043cfc04d59803044b1b40e586db43a9, type: 2}
-      _error:
-        Enable: 0
-        TextError: 
-        MessageType: 0
-    Data: {fileID: 1705059225463884406, guid: 7edff64e039704a429e89338cd57c2e4, type: 3}
+  _keyException: []
 --- !u!4 &2052922639
 Transform:
   m_ObjectHideFlags: 0

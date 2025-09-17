@@ -163,8 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keyNameScene: Dont Destroy.unity
   _sceneLoader: {fileID: 133758283}
-  _useAwake: 1
-  _useStart: 0
+  _useAwake: 0
+  _useStart: 1
   _useOnEnable: 0
   _useOnDisable: 0
   _useOnDestroy: 0

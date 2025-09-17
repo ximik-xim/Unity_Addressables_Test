@@ -35,11 +35,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 794a4632ce111a247a88563d41af94af
-    m_Address: Dont Destroy.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8939ad81640fcd74ea03b9794212de80
     m_Address: Scene Level 2.unity
     m_ReadOnly: 0
@@ -52,6 +47,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7c53423d06f16c41b074ec85043e923
     m_Address: Assets/Game Data/Remote/Scene/Scene Level 10.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e601730829d3a734f83c64b7b80f7df1
+    m_Address: Dont Destroy.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

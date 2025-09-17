@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -6,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class CreatorPrefabUI : MonoBehaviour
 {
+    public bool IsInit => _isInit;
+    private bool _isInit = false;
+    public event Action OnInit;
+    
     [SerializeField] 
     private StorageSceneName _sceneLevel;
 
@@ -15,6 +20,35 @@ public class CreatorPrefabUI : MonoBehaviour
     [SerializeField] 
     private GameObject _parent;
 
+    
+    private void Awake()
+    {
+        if (_storagePrefabUI.IsInit == false)
+        {
+            _storagePrefabUI.OnInit += OnInitStoragePrefabSceneUI;
+        }
+
+        CheckInit();
+    }
+    
+    private void OnInitStoragePrefabSceneUI()
+    {
+        if (_storagePrefabUI.IsInit == true) 
+        {
+            _storagePrefabUI.OnInit -= OnInitStoragePrefabSceneUI;
+            CheckInit();
+        }
+    }
+    
+    private void CheckInit()
+    {
+        if (_storagePrefabUI.IsInit == true)
+        {
+            _isInit = true;
+            OnInit?.Invoke();
+        }
+    }
+    
     public void StartCreateUI()
     {
         //получ. список сцен

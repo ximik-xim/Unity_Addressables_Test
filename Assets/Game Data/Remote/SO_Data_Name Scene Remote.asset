@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85dd51b3fa7ba5c4eb98cfe0982a3268, type: 3}
+  m_Name: SO_Data_Name Scene Remote
+  m_EditorClassIdentifier: 
+  _nameSO: SO_Data_Name Scene Remote
+  _setName: 1
+  _saveBackupChangeData: 1
+  _list:
+  - _identifierData: {fileID: 11400000, guid: 98c275f76f7e94f4c9a8ba75794ea859, type: 2}
+    _dataKey:
+      _nameScene: Scene Level 1
+  - _identifierData: {fileID: 11400000, guid: ba1c3cba4f1c0d7429f04c6ae9fc2021, type: 2}
+    _dataKey:
+      _nameScene: Scene Level 2
+  - _identifierData: {fileID: 11400000, guid: 8591440e73b09ac4e8ed58143b56fff8, type: 2}
+    _dataKey:
+      _nameScene: Scene Level 3
+  - _identifierData: {fileID: 11400000, guid: 8abae374a9297d64589a6c72bd90e04f, type: 2}
+    _dataKey:
+      _nameScene: Assets/Game Data/Remote/Scene/Scene Level 10.unity
+  - _identifierData: {fileID: 11400000, guid: 09d24a9046579884dae0d1a0a18b4fe8, type: 2}
+    _dataKey:
+      _nameScene: Assets/Game Data/Remote/Scene/Scene Level 11.unity
+  - _identifierData: {fileID: 11400000, guid: f5390443f47f92f459163a4320028882, type: 2}
+    _dataKey:
+      _nameScene: Assets/Game Data/Remote/Scene/Scene Level 12.unity
+  _fatalError:
+    Enable: 0
+    TextError: 
+    MessageType: 3
+  _error:
+    Enable: 0
+    TextError: 
+    MessageType: 2

@@ -67,3 +67,7 @@ MonoBehaviour:
     _nameSO: Key Task Loader Type Log
   - _objectSO: {fileID: 11400000, guid: 94f7d92568703274dafe2b849ab5339f, type: 2}
     _nameSO: New SO_Data_Name Scene
+  - _objectSO: {fileID: 11400000, guid: afd83ff7bb0f203458d38ef2b3abbaac, type: 2}
+    _nameSO: SO_Data_Name Scene Local
+  - _objectSO: {fileID: 11400000, guid: 03eefb16683569543a1ad88862a1ffc4, type: 2}
+    _nameSO: SO_Data_Name Scene Remote

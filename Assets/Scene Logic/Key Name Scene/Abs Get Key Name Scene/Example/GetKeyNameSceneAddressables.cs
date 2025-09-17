@@ -10,9 +10,9 @@ public class GetKeyNameSceneAddressables : AbsGetStorageKeyNameScene
    public override bool IsInit => _isInit;
    private bool _isInit = false;
    public override event Action OnInit;
-   
+
    [SerializeField]
-   private string _key;
+   private AssetReference _key;
    
    [SerializeField] 
    private AbsCallbackGetDataAddressables _getDataAddressables;
@@ -67,10 +67,18 @@ public class GetKeyNameSceneAddressables : AbsGetStorageKeyNameScene
 
       void CompletedGetData()
       {
-         _localData = dataCallback.GetData;
+         if (dataCallback.StatusServer == StatusCallBackServer.Ok) 
+         {
+            _localData = dataCallback.GetData;
          
-         _isInit = true;
-         OnInit?.Invoke();
+            _isInit = true;
+            OnInit?.Invoke();
+         }
+         else
+         {
+            Debug.LogError("Ошибка, при загрузки хранилеща со списком сцен из Addrassable");
+         }
+
       }
 
    }

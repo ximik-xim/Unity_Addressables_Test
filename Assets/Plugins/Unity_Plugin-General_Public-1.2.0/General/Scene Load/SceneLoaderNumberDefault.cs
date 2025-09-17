@@ -7,7 +7,7 @@ public class SceneLoaderNumberDefault : MonoBehaviour
    private int _numberLoadScene;
    
    [SerializeField] 
-   private SceneLoader _sceneLoader;
+   private AbsSceneLoader _sceneLoader;
 
    [SerializeField] 
    private bool _useAwake = false;

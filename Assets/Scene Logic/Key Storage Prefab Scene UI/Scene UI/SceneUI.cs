@@ -8,7 +8,7 @@ public class SceneUI : MonoBehaviour
     private Button _button;
 
     [SerializeField] 
-    private SceneLoader _sceneLoader;
+    private AbsSceneLoader _sceneLoader;
     
     private KeyNameScene _nameScene;
 

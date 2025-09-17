@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -88,11 +90,25 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                 List<StatusCallbackIResourceLocation> listStatusCallback = new List<StatusCallbackIResourceLocation>();
                 foreach (var VARIABLE in dataCallback.Result)
                 {
-                    foreach (var VARIABLE2 in VARIABLE.AllLocations)
+#if ENABLE_JSON_CATALOG
+                    foreach (var VARIABLE2 in VARIABLE.Keys)
+                    {
+                        VARIABLE.Locate(VARIABLE2, typeof(UnityEngine.Object), out IList<IResourceLocation> list);
+
+                        foreach (var VARIABLE3 in list)
+                        {
+                            StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE3);
+                            listStatusCallback.Add(statusCallback);
+                        }
+                    }       
+                    
+#else
+                     foreach (var VARIABLE2 in VARIABLE.AllLocations)
                     {
                         StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE2);
                         listStatusCallback.Add(statusCallback);
                     }
+#endif
                 }
 
                 StorageStatusCallbackIResourceLocation statusAll = new StorageStatusCallbackIResourceLocation(listStatusCallback, TypeStorageStatusCallbackIResourceLocator.Ok);
@@ -143,11 +159,26 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                     List<StatusCallbackIResourceLocation> listStatusCallback = new List<StatusCallbackIResourceLocation>();
                     foreach (var VARIABLE in dataCallback.Result)
                     {
-                        foreach (var VARIABLE2 in VARIABLE.AllLocations)
+                        
+#if ENABLE_JSON_CATALOG
+                        foreach (var VARIABLE2 in VARIABLE.Keys)
                         {
-                            StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Error, VARIABLE2);
-                            listStatusCallback.Add(statusCallback);
-                        }
+                            VARIABLE.Locate(VARIABLE2, typeof(UnityEngine.Object), out IList<IResourceLocation> list);
+
+                            foreach (var VARIABLE3 in list)
+                            {
+                                StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE3);
+                                listStatusCallback.Add(statusCallback);
+                            }
+                        }       
+                    
+#else
+                     foreach (var VARIABLE2 in VARIABLE.AllLocations)
+                    {
+                        StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE2);
+                        listStatusCallback.Add(statusCallback);
+                    }
+#endif
                     }
 
                     StorageStatusCallbackIResourceLocation statusAll = new StorageStatusCallbackIResourceLocation(listStatusCallback, TypeStorageStatusCallbackIResourceLocator.AllError);

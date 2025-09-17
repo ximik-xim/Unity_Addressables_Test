@@ -15,10 +15,9 @@ MonoBehaviour:
   m_DefaultGroup: 820099e62e686134e85df02109482fbc
   m_currentHash:
     serializedVersion: 2
-    Hash: 24ba55cdddb2f2a95321310869d227a0
+    Hash: dbbd854952ff8f75435786238637bea1
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
-  m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 1
   m_InternalIdNamingMode: 0
@@ -32,7 +31,7 @@ MonoBehaviour:
     m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider
   m_IgnoreUnsupportedFilesInBuild: 0
   m_UniqueBundleIds: 0
-  m_EnableJsonCatalog: 1
+  m_EnableJsonCatalog: 0
   m_NonRecursiveBuilding: 1
   m_AllowNestedBundleFolders: 0
   m_CCDEnabled: 0

@@ -761,7 +761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &456067052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.09803921, g: 0.7521585, b: 1, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1289,11 +1289,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key:
-    m_AssetGUID: afd83ff7bb0f203458d38ef2b3abbaac
+    m_AssetGUID: 03eefb16683569543a1ad88862a1ffc4
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0
   _getDataAddressables: {fileID: 3432675122588309186}
 --- !u!4 &1259056900
 Transform:
@@ -2231,7 +2231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7650321138604317523, guid: 182215f034cd9434294583c37615d384, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

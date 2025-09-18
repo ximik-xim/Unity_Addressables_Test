@@ -34,11 +34,14 @@
     <type fullname="SOStorageBoolIsGetAddressablesObject" preserve="all" />
     <type fullname="StorageSceneName" preserve="all" />
     <type fullname="TestGetListCatalogID" preserve="all" />
+    <type fullname="TestGetTListV1" preserve="all" />
+    <type fullname="TestGetTListV2" preserve="all" />
     <type fullname="TestStart" preserve="all" />
     <type fullname="UpdateCatalogsAllErrorContinue" preserve="all" />
     <type fullname="UpdateCatalogsRequestSplit" preserve="all" />
     <type fullname=".IdentifierAndData_NameScene" preserve="nothing" serialized="true" />
     <type fullname=".KeyNameScene" preserve="nothing" serialized="true" />
+    <type fullname=".GetDataSO_NameScene" preserve="nothing" serialized="true" />
     <type fullname=".DataAssetReferenceAndFilterInternalId" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">

@@ -16,42 +16,42 @@ MonoBehaviour:
   m_GUID: 346699dbb217b9249a88fd034740002a
   m_SerializeEntries:
   - m_GUID: 03eefb16683569543a1ad88862a1ffc4
-    m_Address: SO Storage Name Scene.asset
+    m_Address: SO Storage Name Scene.asset Remote
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e7500c2d9b4e884fb73c44f68939bf3
-    m_Address: Assets/Game Data/Remote/Scene/Scene Level 12.unity
+    m_Address: Assets/Game Data/Remote/Scene/Scene Level 12.unity Remote
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 27fca50d93772724296cc915844e5aa2
-    m_Address: Assets/Game Data/Remote/Scene/Scene Level 11.unity
+    m_Address: Assets/Game Data/Remote/Scene/Scene Level 11.unity Remote
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4db46c5f124624e4aa30059613ce9d5e
-    m_Address: Scene Level 3.unity
+    m_Address: Scene Level 3.unity Remote
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8939ad81640fcd74ea03b9794212de80
-    m_Address: Scene Level 2.unity
+    m_Address: Scene Level 2.unity Remote
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b61c5d92552153448cd66a06b85d63e
-    m_Address: Dont Destroy.unity
+    m_Address: Dont Destroy.unity Remote
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7abef1a567d49041a3fe121bf994886
-    m_Address: Scene Level 1.unity
+    m_Address: Scene Level 1.unity Remote
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7c53423d06f16c41b074ec85043e923
-    m_Address: Assets/Game Data/Remote/Scene/Scene Level 10.unity
+    m_Address: Assets/Game Data/Remote/Scene/Scene Level 10.unity Remote
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

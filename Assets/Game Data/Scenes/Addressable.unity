@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a78b0f2d2f10d41a6184702fab09d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyNameScene: Dont Destroy.unity
+  _keyNameScene: Dont Destroy.unity Remote
   _sceneLoader: {fileID: 133758283}
   _useAwake: 0
   _useStart: 1

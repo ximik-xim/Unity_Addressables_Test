@@ -16,27 +16,27 @@ MonoBehaviour:
   m_GUID: 820099e62e686134e85df02109482fbc
   m_SerializeEntries:
   - m_GUID: 2e86de509bd5b5849854b5f1e07f2f80
-    m_Address: Scene Level 1.unity
+    m_Address: Scene Level 1.unity Local
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52070c2b44c205e4a97b4ab7adf76edb
-    m_Address: Scene Level 3.unity
+    m_Address: Scene Level 3.unity Local
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99c9720ab356a0642a771bea13969a05
-    m_Address: Dont Destroy.unity
+    m_Address: Dont Destroy.unity Local
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b06e39a6e5ebc3439b29bef366402c0
-    m_Address: Scene Level 2.unity
+    m_Address: Scene Level 2.unity Local
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: afd83ff7bb0f203458d38ef2b3abbaac
-    m_Address: SO Storage Name Scene.asset
+    m_Address: SO Storage Name Scene.asset Local
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

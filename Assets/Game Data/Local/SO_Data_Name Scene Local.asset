@@ -18,13 +18,13 @@ MonoBehaviour:
   _list:
   - _identifierData: {fileID: 11400000, guid: cfbca12a724b1b2479b48f68c634b79c, type: 2}
     _dataKey:
-      _nameScene: Scene Level 1
+      _nameScene: Scene Level 1.unity Local
   - _identifierData: {fileID: 11400000, guid: f05d0e638b106ef4b8fe691d51997bed, type: 2}
     _dataKey:
-      _nameScene: Scene Level 2
+      _nameScene: Scene Level 2.unity Local
   - _identifierData: {fileID: 11400000, guid: 043cfc04d59803044b1b40e586db43a9, type: 2}
     _dataKey:
-      _nameScene: Scene Level 3
+      _nameScene: Scene Level 3.unity Local
   _fatalError:
     Enable: 0
     TextError: 

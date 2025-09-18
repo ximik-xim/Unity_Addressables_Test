@@ -94,11 +94,28 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                     foreach (var VARIABLE2 in VARIABLE.Keys)
                     {
                         VARIABLE.Locate(VARIABLE2, typeof(UnityEngine.Object), out IList<IResourceLocation> list);
-
-                        foreach (var VARIABLE3 in list)
+                        
+                        if (list != null)
                         {
-                            StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE3);
-                            listStatusCallback.Add(statusCallback);
+                            foreach (var VARIABLE3 in list)
+                            {
+                                StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE3); 
+                                listStatusCallback.Add(statusCallback);
+                            }
+                        }
+                    }       
+                    
+                    foreach (var VARIABLE2 in VARIABLE.Keys)
+                    {
+                        VARIABLE.Locate(VARIABLE2, typeof(object), out IList<IResourceLocation> list);
+                        
+                        if (list != null)
+                        {
+                            foreach (var VARIABLE3 in list)
+                            {
+                                StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE3); 
+                                listStatusCallback.Add(statusCallback);
+                            }
                         }
                     }       
                     
@@ -164,11 +181,28 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                         foreach (var VARIABLE2 in VARIABLE.Keys)
                         {
                             VARIABLE.Locate(VARIABLE2, typeof(UnityEngine.Object), out IList<IResourceLocation> list);
-
-                            foreach (var VARIABLE3 in list)
+                        
+                            if (list != null)
                             {
-                                StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE3);
-                                listStatusCallback.Add(statusCallback);
+                                foreach (var VARIABLE3 in list)
+                                {
+                                    StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE3); 
+                                    listStatusCallback.Add(statusCallback);
+                                }
+                            }
+                        }       
+                    
+                        foreach (var VARIABLE2 in VARIABLE.Keys)
+                        {
+                            VARIABLE.Locate(VARIABLE2, typeof(object), out IList<IResourceLocation> list);
+                        
+                            if (list != null)
+                            {
+                                foreach (var VARIABLE3 in list)
+                                {
+                                    StatusCallbackIResourceLocation statusCallback = new StatusCallbackIResourceLocation(StatusCallBackServer.Ok, VARIABLE3); 
+                                    listStatusCallback.Add(statusCallback);
+                                }
                             }
                         }       
                     

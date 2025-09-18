@@ -34,6 +34,9 @@ MonoBehaviour:
   - _identifierData: {fileID: 11400000, guid: f5390443f47f92f459163a4320028882, type: 2}
     _dataKey:
       _nameScene: Assets/Game Data/Remote/Scene/Scene Level 12.unity Remote
+  - _identifierData: {fileID: 11400000, guid: d4f64d224b08337439a1c9470bc3f39a, type: 2}
+    _dataKey:
+      _nameScene: Assets/Game Data/Remote/Scene/Scene Level 133.unity Remote
   _fatalError:
     Enable: 0
     TextError: 

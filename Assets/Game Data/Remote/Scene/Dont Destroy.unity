@@ -1484,7 +1484,7 @@ MonoBehaviour:
   _getDataAddressables: {fileID: 1973115994}
   _dataSoNameScene:
     _dataSO: {fileID: 11400000, guid: 03eefb16683569543a1ad88862a1ffc4, type: 2}
-    _selectIndif: {fileID: 11400000, guid: 09d24a9046579884dae0d1a0a18b4fe8, type: 2}
+    _selectIndif: {fileID: 11400000, guid: d4f64d224b08337439a1c9470bc3f39a, type: 2}
     _error:
       Enable: 0
       TextError: 
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dataSoNameScene:
     _dataSO: {fileID: 11400000, guid: 03eefb16683569543a1ad88862a1ffc4, type: 2}
-    _selectIndif: {fileID: 11400000, guid: f5390443f47f92f459163a4320028882, type: 2}
+    _selectIndif: {fileID: 11400000, guid: d4f64d224b08337439a1c9470bc3f39a, type: 2}
     _error:
       Enable: 0
       TextError: 

@@ -13,4 +13,5 @@ using UnityEngine;
 /// </summary>
 public abstract class AbsCallbackGetDataAddressables : AbsCallbackGetData<object>
 {
+    
 }

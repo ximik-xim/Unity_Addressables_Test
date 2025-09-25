@@ -1,23 +1,22 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 /// <summary>
 /// Нужен для проверки, можно ли взять этот обьект(к примеру с локального хран)
 /// </summary>
-public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDataAddressables
+public class AbsCallbackGetDataCheckIsGet<AbsCallbackGetData, ArgData, CheckBool> : AbsCallbackGetData<ArgData> where AbsCallbackGetData : AbsCallbackGetData<ArgData> where CheckBool : AbsBoolIsGetObject<ArgData>
 {
     public override bool IsInit => _isInit;
     private bool _isInit = false;
     public override event Action OnInit;
     
     [SerializeField] 
-    private AbsCallbackGetDataAddressables _absGetDataAddressables;
-    
+    private AbsCallbackGetData _absGetData;
+
     [SerializeField] 
-    private AbsBoolIsGetAddressablesObject _absIsGetAddressablesObject;
+    private CheckBool _absIsGetObject;
 
     /// <summary>
     /// Список Id callback, которые сейчас в ожидании
@@ -28,9 +27,9 @@ public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDat
 
     private void Awake()
     {
-        if (_absIsGetAddressablesObject.IsInit == false)
+        if (_absIsGetObject.IsInit == false)
         {
-            _absIsGetAddressablesObject.OnInit += OnInitAbsIsGet;
+            _absIsGetObject.OnInit += OnInitAbsIsGet;
             return;
         }
 
@@ -40,9 +39,9 @@ public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDat
     
     private void OnInitAbsIsGet()
     {
-        if (_absIsGetAddressablesObject.IsInit == true)
+        if (_absIsGetObject.IsInit == true)
         {
-            _absIsGetAddressablesObject.OnInit -= OnInitAbsIsGet;
+            _absIsGetObject.OnInit -= OnInitAbsIsGet;
             InitAbsIsGet();
         }
     }
@@ -56,13 +55,13 @@ public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDat
         }
     }
     
-    public override GetServerRequestData<T> GetData<T>(object data)
+    public override GetServerRequestData<T> GetData<T>(ArgData data)
     {
         int id = GetUniqueId();
         CallbackRequestDataAddressablesWrapper<T> callbackData = new CallbackRequestDataAddressablesWrapper<T>(id);
         _idCallback.Add(id);
         
-        var callback = _absIsGetAddressablesObject.IsGet(data);
+        var callback = _absIsGetObject.IsGet(data);
 
         if (callback.IsGetDataCompleted == true)
         {
@@ -101,7 +100,7 @@ public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDat
         {
             Debug.Log("Обьект разрешено брать");
             
-            var callbackGetData = _absGetDataAddressables.GetData<T>(data);
+            var callbackGetData = _absGetData.GetData<T>(data);
             
             if (callbackGetData.IsGetDataCompleted == true)
             {
@@ -168,5 +167,4 @@ public class GetDataAddressablesCheckIsGetAddressablesObject : AbsCallbackGetDat
 
         return id;
     }
-
 }

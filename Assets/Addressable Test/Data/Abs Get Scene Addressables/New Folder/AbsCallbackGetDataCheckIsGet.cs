@@ -6,14 +6,15 @@ using Random = UnityEngine.Random;
 /// <summary>
 /// Нужен для проверки, можно ли взять этот обьект(к примеру с локального хран)
 /// </summary>
-public class AbsCallbackGetDataCheckIsGet<ArgData, CheckBool> : AbsCallbackGetData<ArgData> where CheckBool : AbsBoolIsGetObject<ArgData>
+[System.Serializable]
+public class AbsCallbackGetDataCheckIsGet<AbsCallbackGetData, ArgData, CheckBool>  where AbsCallbackGetData : AbsCallbackGetData<ArgData> where CheckBool : AbsBoolIsGetObject<ArgData>
 {
-    public override bool IsInit => _isInit;
+    public bool IsInit => _isInit;
     private bool _isInit = false;
-    public override event Action OnInit;
+    public event Action OnInit;
     
     [SerializeField] 
-    private AbsCallbackGetData<ArgData> _absGetData;
+    private AbsCallbackGetData _absGetData;
 
     [SerializeField] 
     private CheckBool _absIsGetObject;
@@ -25,7 +26,7 @@ public class AbsCallbackGetDataCheckIsGet<ArgData, CheckBool> : AbsCallbackGetDa
     [SerializeField]
     private List<int> _idCallback = new List<int>();
 
-    private void Awake()
+    public void StartInit()
     {
         if (_absIsGetObject.IsInit == false)
         {
@@ -55,7 +56,7 @@ public class AbsCallbackGetDataCheckIsGet<ArgData, CheckBool> : AbsCallbackGetDa
         }
     }
     
-    public override GetServerRequestData<T> GetData<T>(ArgData data)
+    public GetServerRequestData<T> GetData<T>(ArgData data)
     {
         int id = GetUniqueId();
         CallbackRequestDataAddressablesWrapper<T> callbackData = new CallbackRequestDataAddressablesWrapper<T>(id);

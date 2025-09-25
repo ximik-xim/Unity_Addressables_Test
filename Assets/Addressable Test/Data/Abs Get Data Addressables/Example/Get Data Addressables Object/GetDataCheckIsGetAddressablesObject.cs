@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 /// Нужен для проверки, можно ли взять этот обьект(к примеру с локального хран)
 /// </summary>
 [System.Serializable]
-public class GetDataCheckIsGetAddressablesObject : AbsCallbackGetDataCheckIsGet<AbsCallbackGetDataAddressables,object, AbsBoolIsGetAddressablesObject>
+public class GetDataCheckIsGetAddressablesObject : AbsCallbackGetDataCheckIsGet<AbsCallbackGetDataAddressables, object, AbsBoolIsGetAddressablesObject>
 {
 
 }

@@ -26,7 +26,7 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
     private List<int> _idCallback = new List<int>();
 
     [SerializeField]
-    private LogicErrorCallbackRequestAddressables _errorLogic;
+    private LogicErrorCallbackRequest _errorLogic;
 
     private void Awake()
     {

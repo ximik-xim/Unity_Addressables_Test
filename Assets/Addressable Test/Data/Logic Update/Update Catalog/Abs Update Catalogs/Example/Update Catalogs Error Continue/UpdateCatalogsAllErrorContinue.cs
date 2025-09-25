@@ -19,7 +19,7 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
     public override event Action OnInit;
     
     [SerializeField]
-    private LogicErrorCallbackRequestAddressables _errorLogic;
+    private LogicErrorCallbackRequest _errorLogic;
     
     /// <summary>
     /// Список Id callback, которые сейчас в ожидании

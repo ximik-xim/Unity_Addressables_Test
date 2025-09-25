@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Счетчик ошибок подрят, при запросе к Addressables
 /// </summary>
-public class CounterErrorRequestAddressables : LogicErrorCallbackRequestAddressables
+public class CounterErrorRequest : LogicErrorCallbackRequest
 {
     public override bool IsInit => true;
     public override event Action OnInit;

@@ -7,14 +7,16 @@ using Random = UnityEngine.Random;
 /// Нужен для проверки, можно ли взять этот обьект(к примеру с локального хран)
 /// </summary>
 [System.Serializable]
-public class AbsCallbackGetDataCheckIsGet<AbsCallbackGetData, ArgData, CheckBool>  where AbsCallbackGetData : AbsCallbackGetData<ArgData> where CheckBool : AbsBoolIsGetObject<ArgData>
+public class AbsCallbackGetDataCheckIsGet<AbsCallbackGet, ArgData, CheckBool>  
+    where AbsCallbackGet : AbsCallbackGetData<ArgData> 
+    where CheckBool : AbsRequestDataBoolIsGetObject<ArgData>
 {
     public bool IsInit => _isInit;
     private bool _isInit = false;
     public event Action OnInit;
     
     [SerializeField] 
-    private AbsCallbackGetData _absGetData;
+    private AbsCallbackGet _absGetData;
 
     [SerializeField] 
     private CheckBool _absIsGetObject;

@@ -18,7 +18,7 @@ public class CheckUpdateCatalogs : MonoBehaviour
     public event Action OnInit;
     
     [SerializeField]
-    private LogicErrorCallbackRequestAddressables _errorLogic;
+    private LogicErrorCallbackRequest _errorLogic;
 
     /// <summary>
     /// Время ожидание, до переотправки запроса

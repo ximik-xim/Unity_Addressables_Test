@@ -34,7 +34,7 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
     private bool _isIgnoreZeroSize = true;
     
     [SerializeField]
-    private LogicErrorCallbackRequestAddressables _errorLogic;
+    private LogicErrorCallbackRequest _errorLogic;
 
     private void Awake()
     {

@@ -5,19 +5,20 @@ using UnityEngine;
 /// <summary>
 /// Это обертка нужна, что бы сделать переотправку запроса несколько раз(в случ. ошибки)
 /// </summary>
-public class AbsCallbackGetDataErrorContinue<ArgData> : AbsCallbackGetData<ArgData> 
+public class AbsCallbackGetDataErrorContinue<AbsCallbackGet, ArgData> : AbsCallbackGetData<ArgData> 
+    where AbsCallbackGet : AbsCallbackGetData<ArgData>
 {
     public override bool IsInit => _isInit;
     private bool _isInit = false;
     public override event Action OnInit;
     
     [SerializeField]
-    private AbsCallbackGetData<ArgData> _absGetData;
+    private AbsCallbackGet _absGetData;
 
     [SerializeField]
-    private LogicErrorCallbackRequestAddressables _errorLogic;
+    private LogicErrorCallbackRequest _errorLogic;
 
-    private void Awake()
+    public void StartInit()
     {
         if (_errorLogic.IsInit == false)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
     /// <summary>
     /// Нужен для опр. действий, в случае если не удалось загр ресурс с 1 попытки(продолжать попытки или нет)
     /// </summary>
-public abstract class LogicErrorCallbackRequestAddressables : MonoBehaviour
+public abstract class LogicErrorCallbackRequest : MonoBehaviour
 {
     public abstract bool IsInit { get; }
     public abstract event Action OnInit;

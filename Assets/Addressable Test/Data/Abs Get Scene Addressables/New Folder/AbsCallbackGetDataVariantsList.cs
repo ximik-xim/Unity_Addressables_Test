@@ -8,8 +8,7 @@ using Random = UnityEngine.Random;
 /// (при ERROR от сервера, будет переключаться на след. вариант)
 /// Будет поочереди перебирать все варианты, пока кто то не вернет статус OK, или пока не закончаться варианты
 /// </summary>
-public class AbsCallbackGetDataVariantsList<TCallback, TArg> : TCallback
-    where TCallback : AbsCallbackGetData<TArg>
+public class AbsCallbackGetDataVariantsList<ArgData> : AbsCallbackGetData<ArgData>
 {
     public override bool IsInit => _isInit;
     private bool _isInit = false;
@@ -25,7 +24,7 @@ public class AbsCallbackGetDataVariantsList<TCallback, TArg> : TCallback
     /// Список вариантов, откуда можно взять обьект
     /// </summary>
     [SerializeField]
-    private List<AbsCallbackGetData> _variants;
+    private List<AbsCallbackGetData<ArgData>> _variants;
     
     /// <summary>
     /// Список Id callback, которые сейчас в ожидании
@@ -38,7 +37,7 @@ public class AbsCallbackGetDataVariantsList<TCallback, TArg> : TCallback
     /// сериализую, что бы видить через инспектор, какой вариант не иниц.
     /// </summary>
     [SerializeField]
-    private List<AbsCallbackGetData> _bufferInit = new List<AbsCallbackGetData>();
+    private List<AbsCallbackGetData<ArgData>> _bufferInit = new List<AbsCallbackGetData<ArgData>>();
     
     private void Awake()
     {

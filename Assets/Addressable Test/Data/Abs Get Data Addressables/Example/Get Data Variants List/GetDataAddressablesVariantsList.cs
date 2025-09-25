@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 /// (при ERROR от сервера, будет переключаться на след. вариант)
 /// Будет поочереди перебирать все варианты, пока кто то не вернет статус OK, или пока не закончаться варианты
 /// </summary>
-public class GetDataAddressablesVariantsList : AbsCallbackGetDataVariantsList<AbsCallbackGetData<object>, object>
+public class GetDataAddressablesVariantsList : AbsCallbackGetDataVariantsList<object>
 {
     
 }

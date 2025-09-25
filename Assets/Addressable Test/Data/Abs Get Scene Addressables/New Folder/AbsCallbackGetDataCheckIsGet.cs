@@ -6,14 +6,14 @@ using Random = UnityEngine.Random;
 /// <summary>
 /// Нужен для проверки, можно ли взять этот обьект(к примеру с локального хран)
 /// </summary>
-public class AbsCallbackGetDataCheckIsGet<AbsCallbackGetData, ArgData, CheckBool> : AbsCallbackGetData<ArgData> where AbsCallbackGetData : AbsCallbackGetData<ArgData> where CheckBool : AbsBoolIsGetObject<ArgData>
+public class AbsCallbackGetDataCheckIsGet<ArgData, CheckBool> : AbsCallbackGetData<ArgData> where CheckBool : AbsBoolIsGetObject<ArgData>
 {
     public override bool IsInit => _isInit;
     private bool _isInit = false;
     public override event Action OnInit;
     
     [SerializeField] 
-    private AbsCallbackGetData _absGetData;
+    private AbsCallbackGetData<ArgData> _absGetData;
 
     [SerializeField] 
     private CheckBool _absIsGetObject;

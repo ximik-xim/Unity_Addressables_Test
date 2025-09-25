@@ -921,17 +921,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scaler: {fileID: 442230232}
---- !u!114 &575415121 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6582898030191382244, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
-  m_PrefabInstance: {fileID: 7841100035409683069}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8c31fa87863c344686aadee197f42a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &652041135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1096,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 1
-  _getDataAddressables: {fileID: 575415121}
+  _getDataAddressables: {fileID: 0}
 --- !u!1 &781730414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,6 +2357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Get Data Variants List
       objectReference: {fileID: 0}
+    - target: {fileID: 5109850088579446303, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
+      propertyPath: _absGetData
+      value: 
+      objectReference: {fileID: 7841100035409683070}
     - target: {fileID: 6462871461678353499, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2413,6 +2406,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
+--- !u!114 &7841100035409683070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1601856473540456525, guid: 9a5a874f4847e3f4bbb46dc1e063e813, type: 3}
+  m_PrefabInstance: {fileID: 7841100035409683069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69f15f8d32ccca4ab337252cdc078ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9166529912754327628
 PrefabInstance:
   m_ObjectHideFlags: 0

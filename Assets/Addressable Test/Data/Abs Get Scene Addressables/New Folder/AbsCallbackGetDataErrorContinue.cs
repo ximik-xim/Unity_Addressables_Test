@@ -5,14 +5,14 @@ using UnityEngine;
 /// <summary>
 /// Это обертка нужна, что бы сделать переотправку запроса несколько раз(в случ. ошибки)
 /// </summary>
-public class AbsCallbackGetDataErrorContinue<AbsCallbackGetData, ArgData> : AbsCallbackGetData<ArgData> where AbsCallbackGetData : AbsCallbackGetData<ArgData>
+public class AbsCallbackGetDataErrorContinue<ArgData> : AbsCallbackGetData<ArgData> 
 {
     public override bool IsInit => _isInit;
     private bool _isInit = false;
     public override event Action OnInit;
     
     [SerializeField]
-    private AbsCallbackGetData _absGetData;
+    private AbsCallbackGetData<ArgData> _absGetData;
 
     [SerializeField]
     private LogicErrorCallbackRequestAddressables _errorLogic;

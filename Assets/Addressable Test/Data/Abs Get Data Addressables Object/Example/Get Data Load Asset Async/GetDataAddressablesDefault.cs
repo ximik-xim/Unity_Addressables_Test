@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 /// <summary>
 /// Обычное получение обьекта через LoadAssetAsync
 /// </summary>
+[System.Serializable]
 public class GetDataAddressablesDefault : AbsCallbackGetDataTAddressables
 {
    public override bool IsInit => _isInit;

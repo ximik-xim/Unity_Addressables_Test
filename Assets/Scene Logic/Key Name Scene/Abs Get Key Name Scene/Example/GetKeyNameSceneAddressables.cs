@@ -15,7 +15,7 @@ public class GetKeyNameSceneAddressables : AbsGetStorageKeyNameScene
    private AssetReference _key;
    
    [SerializeField] 
-   private AbsCallbackGetDataAddressables _getDataAddressables;
+   private AbsCallbackGetDataTAddressables _getDataAddressables;
 
    private SO_Data_NameScene _localData;
    

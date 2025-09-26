@@ -21,7 +21,7 @@ public class ButtonLoadTargetObj : MonoBehaviour
     private AssetReference _assetReference;
    
     [SerializeField] 
-    private AbsCallbackGetDataAddressables _getDataAddressables;
+    private AbsCallbackGetDataTAddressables _getDataAddressables;
 
     
     private void Awake()

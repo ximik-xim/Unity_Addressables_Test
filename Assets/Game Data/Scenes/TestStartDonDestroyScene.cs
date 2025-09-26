@@ -8,7 +8,7 @@ public class TestStartDonDestroyScene : MonoBehaviour
     private AssetReference _key;
    
     [SerializeField] 
-    private AbsCallbackGetDataAddressables _getDataAddressables;
+    private AbsCallbackGetDataTAddressables _getDataAddressables;
 
     private void Awake()
     {

@@ -17,7 +17,7 @@ public class ExampleGetDataAddressablesKey : MonoBehaviour
    private string _key;
 
    [SerializeField] 
-   private AbsCallbackGetDataAddressables _getDataAddressables;
+   private AbsCallbackGetDataTAddressables _getDataAddressables;
 
    private void Awake()
    {

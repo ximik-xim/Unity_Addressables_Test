@@ -26,7 +26,7 @@ public class ExampleGetDataAddressablesIResourceLocation : MonoBehaviour
    private IResourceLocation _resourceLocation;
 
    [SerializeField] 
-   private AbsCallbackGetDataAddressables _getDataAddressables;
+   private AbsCallbackGetDataTAddressables _getDataAddressables;
 
    private void Awake()
    {

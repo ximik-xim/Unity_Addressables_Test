@@ -20,6 +20,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13a6052ceb819244ab37ab8d4ab95eb6
+    m_Address: Assets/Addressable Test/Example/Scene/Load Scene/Example Load Scene
+      Addressable.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a7ad7fa5fd351c4a862c5d41350e57d
     m_Address: Assets/Addressable Test/Example/Data Example/Storage Addressables
       Update Obj.asset

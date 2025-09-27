@@ -8,8 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game Data/Scenes/Addressable.unity
     guid: 610243beb5836fe4bb04b14a9ef01b8e
-  - enabled: 0
-    path: Assets/Addressable Test/Example/Scene/Test Scene.unity
+  - enabled: 1
+    path: Assets/Addressable Test/Example/Scene/Example All Method.unity
+    guid: 41cf7e6032fc62c4f8b2d853e54f97f6
+  - enabled: 1
+    path: Assets/Addressable Test/Example/Scene/Example Test Method Button.unity
     guid: 8cebc81b945c2a94980a5447cf97db61
   - enabled: 0
     path: Assets/Game Data/Local/Scene/Dont Destroy.unity

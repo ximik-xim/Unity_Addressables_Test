@@ -8,8 +8,18 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class DataSceneLoadAddressable
 {
+    /// <summary>
+    /// Нужен только для инспектора
+    /// </summary>
+    public DataSceneLoadAddressable()
+    {
+        _loadMode = LoadSceneMode.Single;
+        _activateOnLoad = true;
+        _priority = 100;
+        _releaseMode = SceneReleaseMode.ReleaseSceneWhenSceneUnloaded;
+    }
 
-    public  DataSceneLoadAddressable(object key, LoadSceneMode loadMode = LoadSceneMode.Single, bool activateOnLoad = true, int priority = 100, SceneReleaseMode releaseMode = SceneReleaseMode.ReleaseSceneWhenSceneUnloaded)
+    public DataSceneLoadAddressable(object key, LoadSceneMode loadMode = LoadSceneMode.Single, bool activateOnLoad = true, int priority = 100, SceneReleaseMode releaseMode = SceneReleaseMode.ReleaseSceneWhenSceneUnloaded)
     {
         _key = key;
         _loadMode = loadMode;

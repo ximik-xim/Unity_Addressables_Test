@@ -293,6 +293,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1415911092626707755}
   - component: {fileID: 4369332930316111714}
+  - component: {fileID: 6908056134765386087}
+  - component: {fileID: 8518782865771109431}
   m_Layer: 0
   m_Name: Check And Download Update Object All
   m_TagString: Untagged
@@ -331,12 +333,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455d1eec1b970f54ab1d6a1f49ea3679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCheckUpdateAwake: 1
   _checkUpdateCatalog: {fileID: 1383450628218358854}
   _updateCatalog: {fileID: 5877774588834185399}
   _getCatalogUpdateID: {fileID: 3470000221135144398}
   _absDownloadUpdateObj: {fileID: 4340084373347013905}
   _storageIsGetObject: {fileID: 11400000, guid: 800e8e02007b0dd44bc01b9acf2ad6f3, type: 2}
+--- !u!114 &6908056134765386087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650321138604317523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 219de9a271e68db4cb086dbe58b40127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkAndDownloadUpdate: {fileID: 4369332930316111714}
+--- !u!114 &8518782865771109431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650321138604317523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1532a3f9151b8574f93f3310999beb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7684482957554093867
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,11 +76,16 @@ public abstract class AbsTaskLoaderDataMono : MonoBehaviour
         return _objcetDKO;
     }
 
-    private void OnDestroy()
+    protected void DestroyLogic()
     {
         _taskData.DestroyObject();
         
         OnUpdateStatus -= _onUpdateStatus;
         OnUpdatePercentage -= _onUpdatePercentage;
+    }
+    
+    protected void OnDestroy()
+    {
+        DestroyLogic();
     }
 }

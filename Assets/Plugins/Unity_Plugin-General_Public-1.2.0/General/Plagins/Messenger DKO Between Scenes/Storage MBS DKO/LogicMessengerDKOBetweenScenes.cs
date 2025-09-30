@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public abstract class LogicMessengerDKOBetweenScenes : MonoBehaviour
 {
-    
     private bool _isInit = false;
     public bool IsInit => _isInit;
     public event Action OnInit;
@@ -18,6 +17,11 @@ public abstract class LogicMessengerDKOBetweenScenes : MonoBehaviour
 
     private Dictionary<string, DKOKeyAndTargetAction> _dictionary = new Dictionary<string, DKOKeyAndTargetAction>();
 
+#if  UNITY_EDITOR
+    [SerializeField]
+    private List<AbsKeyData<string, DKOKeyAndTargetAction>> _visibleData = new List<AbsKeyData<string, DKOKeyAndTargetAction>>();
+#endif
+    
     private void Awake()
     {
         LocalAwake();
@@ -42,6 +46,9 @@ public abstract class LogicMessengerDKOBetweenScenes : MonoBehaviour
                 Debug.LogError($"Ошибка при инициализации. Внимание проблема с ключем, возвращаемым им ключ == Null. Элемент под номером {i}");
             }
 
+#if  UNITY_EDITOR
+            _visibleData.Add(new AbsKeyData<string, DKOKeyAndTargetAction>(_list[i].Key.GetData().GetKey(), _list[i].Data));
+#endif
             _dictionary.Add(_list[i].Key.GetData().GetKey(), _list[i].Data);
         }
 
@@ -156,6 +163,10 @@ public abstract class LogicMessengerDKOBetweenScenes : MonoBehaviour
     {
         if (DKOIsAlready(key) == false)
         {
+#if  UNITY_EDITOR
+            _visibleData.Add(new AbsKeyData<string, DKOKeyAndTargetAction>(key.GetKey(), DKO));
+#endif
+            
             _dictionary.Add(key.GetKey(), DKO);
             OnInitElement?.Invoke(key.GetKey());
         }
@@ -165,7 +176,48 @@ public abstract class LogicMessengerDKOBetweenScenes : MonoBehaviour
     {
         if (DKOIsAlready(key) == true)
         {
+#if  UNITY_EDITOR
+            for (int i = 0; i < _visibleData.Count; i++)
+            {
+                if (_visibleData[i].Key == key.GetKey())
+                {
+                    _visibleData.RemoveAt(i);
+                    break;
+                }
+            }
+#endif
+            
             _dictionary.Remove(key.GetKey());
+        }
+    }
+
+    public List<AbsKeyData<MessengerBetweenSceneKeyDKO, DKOKeyAndTargetAction>> GetCopyData()
+    {
+        List<AbsKeyData<MessengerBetweenSceneKeyDKO, DKOKeyAndTargetAction>> copyData = new List<AbsKeyData<MessengerBetweenSceneKeyDKO, DKOKeyAndTargetAction>>();
+        
+        foreach (var VARIABLE in _dictionary.Keys)
+        {
+            var data = new AbsKeyData<MessengerBetweenSceneKeyDKO, DKOKeyAndTargetAction>(new MessengerBetweenSceneKeyDKO(VARIABLE), _dictionary[VARIABLE]);
+            copyData.Add(data);
+        }
+
+        return copyData;
+    }
+    
+    public void CopyDataTargetStorage(LogicMessengerDKOBetweenScenes storage)
+    {
+        var copyData = storage.GetCopyData();
+        
+        foreach (var VARIABLE in copyData)
+        {
+            if (DKOIsAlready(VARIABLE.Key) == false)
+            {
+                AddDKO(VARIABLE.Key, VARIABLE.Data);
+            }
+            else
+            {
+                Debug.LogError($"Ошибка при копир. данных с MBS DKO. Ключ |{VARIABLE.Key.GetKey()}| уже есть в словаре, пропускаю. ");
+            }
         }
     }
 }

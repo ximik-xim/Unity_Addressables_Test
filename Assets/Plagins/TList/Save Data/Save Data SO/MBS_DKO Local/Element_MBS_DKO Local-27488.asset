@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea69d41f90c6ea4fa55c27c1d60c145, type: 3}
-  m_Name: AddressableAssetGroupSortSettings
+  m_Script: {fileID: 11500000, guid: f749bc4c1191e2f4fb3152a7c7e80e04, type: 3}
+  m_Name: Element_MBS_DKO Local-27488
   m_EditorClassIdentifier: 
-  sortOrder:
-  - 52b52b0685c68ed4b8c56e5b4c2c34f2
-  - bdef0ef150c549e4a8fd86440e2b0839
-  - 346699dbb217b9249a88fd034740002a
-  - 820099e62e686134e85df02109482fbc
+  _nameElement: Element_MBS_DKO Local-27488
+  _identifier: "DKO \u0445\u0440\u0430\u043D\u0438\u043B\u0435\u0449\u0435 Storage
+    Key And GM"

@@ -15,16 +15,16 @@ EditorBuildSettings:
     path: Assets/Addressable Test/Example/Scene/Example Test Method Button.unity
     guid: 8cebc81b945c2a94980a5447cf97db61
   - enabled: 0
-    path: Assets/Game Data/Local/Scene/Dont Destroy.unity
+    path: Assets/Game Data/Local/Game Scene/Dont Destroy (Local).unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
-    path: Assets/Game Data/Local/Scene/Level/Scene Level 1.unity
+    path: Assets/Game Data/Local/Game Scene/Level/Scene Level 1.unity
     guid: 2e86de509bd5b5849854b5f1e07f2f80
   - enabled: 0
-    path: Assets/Game Data/Local/Scene/Level/Scene Level 2.unity
+    path: Assets/Game Data/Local/Game Scene/Level/Scene Level 2.unity
     guid: 9b06e39a6e5ebc3439b29bef366402c0
   - enabled: 0
-    path: Assets/Game Data/Local/Scene/Level/Scene Level 3.unity
+    path: Assets/Game Data/Local/Game Scene/Level/Scene Level 3.unity
     guid: 52070c2b44c205e4a97b4ab7adf76edb
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: bd70633977bd8864a85530f5cccf85ce, type: 2}

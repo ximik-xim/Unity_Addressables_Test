@@ -9,9 +9,14 @@ using UnityEngine;
 /// </summary>
 public class SceneStartTask : MonoBehaviour
 {
-    [SerializeField] 
-    private bool _startTaskLoadOnInit = true;
-    public bool StartTaskLoadOnInit => _startTaskLoadOnInit;
+    
+    /// <summary>
+    /// Иници. ли хран.
+    /// (оно иниц. когда все Task буду готовы к запуску, а значит к передаче в Task Loader)
+    /// </summary>
+    public event Action OnInit;
+    private bool _isInit = false;
+    public bool IsInit => _isInit;
     
     [Header("Списки задач(Task) для выполнения")]
     [SerializeField] 
@@ -20,14 +25,6 @@ public class SceneStartTask : MonoBehaviour
     public event Action OnSetListTask;
     private StorageTaskLoader _listTask;
     public StorageTaskLoader ListTask => _listTask;
-
-    /// <summary>
-    /// Иници. ли хран.
-    /// (оно иниц. когда все Task буду готовы к запуску, а значит к передаче в Task Loader)
-    /// </summary>
-    public event Action OnInit;
-    private bool _isInit = false;
-    public bool IsInit => _isInit;
     
     private void Awake()
     {

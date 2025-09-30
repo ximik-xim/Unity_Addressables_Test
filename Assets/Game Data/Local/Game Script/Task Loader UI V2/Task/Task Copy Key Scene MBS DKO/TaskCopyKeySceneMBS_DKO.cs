@@ -38,8 +38,6 @@ public class TaskCopyKeySceneMBS_DKO : AbsTaskLoggerLoaderDataMono
     
     public override TaskLoaderData GetTaskInfo()
     {
-        Debug.Log("Get Task");
-        
         if (_taskData == null) 
         {
             InitTask();

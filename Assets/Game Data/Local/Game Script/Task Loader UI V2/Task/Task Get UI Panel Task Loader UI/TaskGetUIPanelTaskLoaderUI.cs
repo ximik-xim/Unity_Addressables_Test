@@ -39,8 +39,6 @@ public class TaskGetUIPanelTaskLoaderUI : AbsTaskLoggerLoaderDataMono
     
     public override TaskLoaderData GetTaskInfo()
     {
-        Debug.Log("Get Task");
-        
         if (_taskData == null) 
         {
             InitTask();

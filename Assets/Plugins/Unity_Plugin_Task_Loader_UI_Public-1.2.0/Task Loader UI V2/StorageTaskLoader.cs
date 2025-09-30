@@ -45,6 +45,12 @@ public class StorageTaskLoader : MonoBehaviour
     private SceneStartTask _tlCallBackAddDataTaskScene;
     
     private List<TaskLoaderData> _listTask = new List<TaskLoaderData>();
+    
+    
+    /// <summary>
+    /// Нужен для блокироки логики, пока не пройдусь по всему списку и не начну выполн. задач
+    /// </summary>
+    private bool _isBlockStartLogic = false;
 
     private void Awake()
     {
@@ -78,7 +84,7 @@ public class StorageTaskLoader : MonoBehaviour
         //КАНЦЕПЦИЯ ПОИСКА ТАСОК ДЛЯ ЗАГРУЗКИ ПРИ ПЕРЕХОДЕ НА НОВУЮ СЦЕНУ НРАВИТЬСЯ
         SceneStartTask callBackAddDataTaskScene = FindObjectOfType<SceneStartTask>();
         _tlCallBackAddDataTaskScene = callBackAddDataTaskScene;
-            
+        
         if (callBackAddDataTaskScene != null)
         {
                 callBackAddDataTaskScene.SetListTask(this);
@@ -104,7 +110,43 @@ public class StorageTaskLoader : MonoBehaviour
 
                 void InitStorageTask()
                 {
-                    var data= callBackAddDataTaskScene.GetTask();
+                    CheckStatusIsStartLoadTask();
+                }
+                
+                /// <summary>
+                /// проверяю, есть ли Task которые сейчас выполн
+                /// </summary>
+                void CheckStatusIsStartLoadTask()
+                {
+                    if (_isStartLoadTask == true)
+                    {
+                        //если есть такие Task, то жду их выполнения
+                        OnCompleted -= OnCheckCompletedLastTask;
+                        OnCompleted += OnCheckCompletedLastTask;
+                    }
+                    else
+                    {
+                        OnCompleted -= OnCheckCompletedLastTask;
+            
+                        StartLoadTaskScene();
+                    }
+                }
+                
+                void OnCheckCompletedLastTask()
+                {
+                    if (_isStartLoadTask == false) 
+                    {
+                        OnCompleted -= OnCheckCompletedLastTask;
+                        StartLoadTaskScene();
+                    }
+                }
+                
+                /// <summary>
+                /// Запускаю выполнение Task котор. были на сцене
+                /// </summary>
+                void StartLoadTaskScene()
+                {
+                    var data = callBackAddDataTaskScene.GetTask();
 
                     foreach (var VARIABLE in data)
                     {
@@ -117,16 +159,12 @@ public class StorageTaskLoader : MonoBehaviour
                             AddTaskData(VARIABLE);    
                         }
                     }
-                    
+        
                     _isSceneLoadTask = false;
                     OnSceneLoadTask?.Invoke(_isSceneLoadTask);
-
-                    if (callBackAddDataTaskScene.StartTaskLoadOnInit == true) 
-                    {
-                        StartLoad();
-                    }
+                    
+                    StartLoad();
                 }
-
         }
         else
         {
@@ -218,23 +256,26 @@ public class StorageTaskLoader : MonoBehaviour
     /// </summary>
     private void OnGeneralUpdateStatus(TypeStatusTaskLoad status)
     {
-        if (status == TypeStatusTaskLoad.FatalError)
+        if (_isBlockStartLogic == false)
         {
-            if (_isBreackLoadTaskFatalError == true) 
+            if (status == TypeStatusTaskLoad.FatalError)
             {
-                foreach (var VARIABLE in _listTask)
+                if (_isBreackLoadTaskFatalError == true)
                 {
-                    VARIABLE.BreakTask();
+                    foreach (var VARIABLE in _listTask)
+                    {
+                        VARIABLE.BreakTask();
+                    }
+
+                    _currentGeneralStatus = TypeStatusTaskLoad.FatalError;
+                    OnUpdateGeneralStatuse?.Invoke(_currentGeneralStatus);
+                    return;
                 }
-                
-                _currentGeneralStatus = TypeStatusTaskLoad.FatalError;
-                OnUpdateGeneralStatuse?.Invoke(_currentGeneralStatus);
-                return;
+
             }
-            
+
+            CheckGeneralUpdateStatus();
         }
-        
-        CheckGeneralUpdateStatus();
     }
 
     private void CheckGeneralUpdateStatus()
@@ -247,6 +288,22 @@ public class StorageTaskLoader : MonoBehaviour
             {
                 countComlite++;
                 continue;
+            }
+            
+            if (VARIABLE.StatusLoad == TypeStatusTaskLoad.FatalError)
+            {
+                if (_isBreackLoadTaskFatalError == true)
+                {
+                    foreach (var VARIABLE2 in _listTask)
+                    {
+                        VARIABLE2.BreakTask();
+                    }
+
+                    _currentGeneralStatus = TypeStatusTaskLoad.FatalError;
+                    OnUpdateGeneralStatuse?.Invoke(_currentGeneralStatus);
+                    return;
+                }
+
             }
         }
         
@@ -284,16 +341,19 @@ public class StorageTaskLoader : MonoBehaviour
         
         OnUpdateGeneralLoadPercentage?.Invoke(loadGeneralPercentage);
     }
-
-
+    
     /// <summary>
     /// Запустит загрузку задач
     /// </summary>
     /// <param name="openPanel"></param>
     public void StartLoad()
     {
-        if (_isStartLoadTask == false  && _isSceneLoadTask == false)   
+        Debug.Log("_isStartLoadTask = " + _isStartLoadTask);
+        Debug.Log("_isSceneLoadTask = " + _isSceneLoadTask);
+        if (_isStartLoadTask == false  && _isSceneLoadTask == false)
         {
+            _isBlockStartLogic = true;
+            
             foreach (var VARIABLE in _listTask)
             {
                 VARIABLE.StartLogic();
@@ -306,6 +366,8 @@ public class StorageTaskLoader : MonoBehaviour
             
             _currentGeneralStatus = TypeStatusTaskLoad.Load;
             OnUpdateGeneralStatuse?.Invoke(TypeStatusTaskLoad.Load);
+
+            _isBlockStartLogic = false;
             
             OnGeneralUpdateLoadPercentage();
             CheckGeneralUpdateStatus();

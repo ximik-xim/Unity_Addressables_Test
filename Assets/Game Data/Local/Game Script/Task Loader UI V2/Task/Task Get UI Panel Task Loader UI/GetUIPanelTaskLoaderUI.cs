@@ -89,6 +89,8 @@ public class GetUIPanelTaskLoaderUI : MonoBehaviour
 
         DebugLog(_storageTypeLog.GetKeyDefaultLog(), "Установка нового родителя у панели");
         uiPanel.transform.parent = _targetParent.transform;
+        uiPanel.transform.localPosition = Vector3.zero;
+        uiPanel.transform.localScale = Vector3.one;
     }
     
     private void DebugLog(KeyTaskLoaderTypeLog keyLog, string text)

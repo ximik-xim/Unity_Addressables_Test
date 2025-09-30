@@ -8,12 +8,20 @@ using UnityEngine;
 /// </summary>
 public class CopyKeySceneMBS_DKO : MonoBehaviour
 {
+    public event Action OnInit;
+    public bool IsInit => _isInit;
+    private bool _isInit = false;
+    
     [SerializeField]
     private FindMBS_DKO_DontDestroy _findMbsDkoDontDestroy;
 
     [SerializeField]
     private SceneMBS_DKO _sceneMbsDko;
-
+    
+    [SerializeField]
+    private StorageTypeLog _storageTypeLog;
+    public event Action<AbsKeyData<KeyTaskLoaderTypeLog, string>> OnAddLogData;
+    
     private void Awake()
     {
         if (_findMbsDkoDontDestroy.Init == false)
@@ -59,7 +67,19 @@ public class CopyKeySceneMBS_DKO : MonoBehaviour
 
     private void InitData()
     {
-        Debug.Log("Копирую ключи из Scene MBS DKO в Dont Destroy MBS DKO");
+        _isInit = true;
+        OnInit?.Invoke();
+    }
+
+    public void StartLogic()
+    {
+        DebugLog(_storageTypeLog.GetKeyDefaultLog(), "Копирую ключи из Scene MBS DKO в Dont Destroy MBS DKO");
         _findMbsDkoDontDestroy.GetDontDestroyMbsDko.CopyDataTargetStorage(_sceneMbsDko);
+    }
+    
+    private void DebugLog(KeyTaskLoaderTypeLog keyLog, string text)
+    {
+        var logData = new AbsKeyData<KeyTaskLoaderTypeLog, string>(keyLog, text);
+        OnAddLogData?.Invoke(logData);
     }
 }

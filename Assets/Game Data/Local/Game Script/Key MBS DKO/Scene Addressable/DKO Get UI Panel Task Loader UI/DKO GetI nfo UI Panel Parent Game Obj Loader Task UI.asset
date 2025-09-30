@@ -9,19 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1069d4693d96c9645826a9ae2f38e28e, type: 3}
-  m_Name: MBS_DKO Scene Addressable
+  m_Script: {fileID: 11500000, guid: 9740cfd502222fc49892fd9d1ddf4325, type: 3}
+  m_Name: DKO GetI nfo UI Panel Parent Game Obj Loader Task UI
   m_EditorClassIdentifier: 
-  _nameSO: MBS_DKO Scene Addressable
+  _nameSO: DKO GetI nfo UI Panel Parent Game Obj Loader Task UI
   _setName: 1
   _saveBackupChangeData: 1
   _list:
-  - _identifierData: {fileID: 11400000, guid: f515f4c300e15924da5e514f0fe7c99b, type: 2}
-    dataKeyDKO:
-      _key: DKO Loader UI Task
-  - _identifierData: {fileID: 11400000, guid: 37608d1f07b94794d832e0cf04bb126e, type: 2}
-    dataKeyDKO:
-      _key: "DKO UI \u041F\u0430\u043D\u0435\u043B\u044C Loader UI Task"
+  - _identifierData: {fileID: 11400000, guid: c3c17dd408611b84b9397719f7dba551, type: 2}
+    _dataKey:
+      key: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C Game Obj \u0443 UI Panel
+        Task"
   _fatalError:
     Enable: 0
     TextError: 

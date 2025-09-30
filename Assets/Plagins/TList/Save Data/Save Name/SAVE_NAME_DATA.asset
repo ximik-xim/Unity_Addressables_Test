@@ -83,3 +83,9 @@ MonoBehaviour:
     _nameSO: Example SO_Data_TSG_Key Task Data UI Panel
   - _objectSO: {fileID: 11400000, guid: 94f7d92568703274dafe2b849ab5339f, type: 2}
     _nameSO: New SO_Data_Name Scene
+  - _objectSO: {fileID: 11400000, guid: f510f0a4f4614fb48b07f0fd21c97a16, type: 2}
+    _nameSO: DKO Storage Task Loader
+  - _objectSO: {fileID: 11400000, guid: c8272c13d80978b429b401222d1fb35b, type: 2}
+    _nameSO: DKO GetI nfo UI Panel Parent Game Obj Loader Task UI
+  - _objectSO: {fileID: 11400000, guid: b135963d89bd11047ae5eb61792c669a, type: 2}
+    _nameSO: SO Storage Key GM (Local)

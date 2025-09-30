@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea69d41f90c6ea4fa55c27c1d60c145, type: 3}
-  m_Name: AddressableAssetGroupSortSettings
+  m_Script: {fileID: 11500000, guid: f749bc4c1191e2f4fb3152a7c7e80e04, type: 3}
+  m_Name: Element_MBS_DKO Scene Addressable-70464
   m_EditorClassIdentifier: 
-  sortOrder:
-  - bdef0ef150c549e4a8fd86440e2b0839
-  - 346699dbb217b9249a88fd034740002a
-  - 820099e62e686134e85df02109482fbc
+  _nameElement: Element_MBS_DKO Scene Addressable-70464
+  _identifier: "DKO UI \u041F\u0430\u043D\u0435\u043B\u044C Loader UI Task"

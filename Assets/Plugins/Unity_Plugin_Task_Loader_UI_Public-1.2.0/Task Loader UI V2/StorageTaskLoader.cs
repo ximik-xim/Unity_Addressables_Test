@@ -82,20 +82,51 @@ public class StorageTaskLoader : MonoBehaviour
         if (callBackAddDataTaskScene != null)
         {
                 callBackAddDataTaskScene.SetListTask(this);
-                var data= callBackAddDataTaskScene.GetTask();
 
-                foreach (var VARIABLE in data)
+                if (callBackAddDataTaskScene.IsInit == false)
                 {
-                    AddTaskData(VARIABLE);
+                    callBackAddDataTaskScene.OnInit -= OnInitStorageTask;
+                    callBackAddDataTaskScene.OnInit += OnInitStorageTask;
+                }
+                else
+                {
+                    InitStorageTask();
                 }
                 
-                _isSceneLoadTask = false;
-                OnSceneLoadTask?.Invoke(_isSceneLoadTask);
-
-                if (callBackAddDataTaskScene.StartTaskLoadOnInit == true) 
+                void OnInitStorageTask()
                 {
-                    StartLoad();
+                    if (callBackAddDataTaskScene.IsInit == true) 
+                    {
+                        callBackAddDataTaskScene.OnInit -= OnInitStorageTask;
+                        InitStorageTask();
+                    }
                 }
+
+                void InitStorageTask()
+                {
+                    var data= callBackAddDataTaskScene.GetTask();
+
+                    foreach (var VARIABLE in data)
+                    {
+                        if (VARIABLE == null)
+                        {
+                            Debug.LogError("Ошибка Task == null, переданная в Task Lader UI");  
+                        }
+                        else
+                        {
+                            AddTaskData(VARIABLE);    
+                        }
+                    }
+                    
+                    _isSceneLoadTask = false;
+                    OnSceneLoadTask?.Invoke(_isSceneLoadTask);
+
+                    if (callBackAddDataTaskScene.StartTaskLoadOnInit == true) 
+                    {
+                        StartLoad();
+                    }
+                }
+
         }
         else
         {
@@ -103,7 +134,6 @@ public class StorageTaskLoader : MonoBehaviour
             OnSceneLoadTask?.Invoke(_isSceneLoadTask);
         }
     }
-    
 
     /// <summary>
     /// Очищает список задач после завершения
@@ -143,9 +173,16 @@ public class StorageTaskLoader : MonoBehaviour
     {
         if (_isStartLoadTask == false)
         {
-            AddSubscription(taskData);
-            _listTask.Add(taskData);
-            OnAddTask.Invoke(taskData.GetObjectDKO());
+            if (taskData == null)
+            {
+                Debug.LogError("Ошибка Task == null, переданная в Task Lader UI");    
+            }
+            else
+            {
+                AddSubscription(taskData);
+                _listTask.Add(taskData);
+                OnAddTask.Invoke(taskData.GetObjectDKO());    
+            }
         }
         
     }

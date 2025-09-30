@@ -21,6 +21,69 @@ public class SceneStartTask : MonoBehaviour
     private StorageTaskLoader _listTask;
     public StorageTaskLoader ListTask => _listTask;
 
+    /// <summary>
+    /// Иници. ли хран.
+    /// (оно иниц. когда все Task буду готовы к запуску, а значит к передаче в Task Loader)
+    /// </summary>
+    public event Action OnInit;
+    private bool _isInit = false;
+    public bool IsInit => _isInit;
+    
+    private void Awake()
+    {
+        List<AbsTaskLoaderDataMono> _buffer = new List<AbsTaskLoaderDataMono>();
+        bool _isStart = false;
+
+        StartLogic();
+
+        void StartLogic()
+        {
+            _isStart = true;
+
+            foreach (var VARIABLE in _task)
+            {
+                if (VARIABLE.IsInit == false)
+                {
+                    _buffer.Add(VARIABLE);
+                    VARIABLE.OnInit += CheckInit;
+                }
+            }
+
+            _isStart = false;
+
+            CheckInit();
+        }
+
+        void CheckInit()
+        {
+            if (_isStart == false)
+            {
+                int targetCount = _buffer.Count;
+                for (int i = 0; i < targetCount; i++)
+                {
+                    if (_buffer[i].IsInit == true)
+                    {
+                        _buffer[i].OnInit -= CheckInit;
+                        _buffer.RemoveAt(i);
+                        i--;
+                        targetCount--;
+                    }
+                }
+
+                if (_buffer.Count == 0)
+                {
+                    Completed();
+                }
+            }
+        }
+    }
+
+    private void Completed()
+    {
+        _isInit = true;
+        OnInit?.Invoke();
+    }
+
     public void SetListTask(StorageTaskLoader listTask)
     {
         _listTask = listTask;

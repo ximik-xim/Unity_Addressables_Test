@@ -9,7 +9,7 @@ public abstract class AbsTaskLoaderDataMono : MonoBehaviour
     public bool IsInit => _isInit;
     protected bool _isInit = false;
     
-    private TaskLoaderData _taskData;
+    protected TaskLoaderData _taskData;
     
     private event Action<TypeStatusTaskLoad> OnUpdateStatus;
     private event Action<float> OnUpdatePercentage;
@@ -34,8 +34,6 @@ public abstract class AbsTaskLoaderDataMono : MonoBehaviour
 
             OnUpdateStatus += onUpdateStatus;
             OnUpdatePercentage += onUpdatePercentage;
-
-            Init();
         }
     }
 
@@ -45,11 +43,16 @@ public abstract class AbsTaskLoaderDataMono : MonoBehaviour
         OnInit?.Invoke();
     }
 
-    public TaskLoaderData GetTaskInfo()
+    public virtual TaskLoaderData GetTaskInfo()
     {
-        if (_isInit == false)
+        if (_taskData == null) 
         {
             InitTask();
+        }
+        
+        if (_isInit == false)
+        {
+            Init();
         }
         
         return _taskData;

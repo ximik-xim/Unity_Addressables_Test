@@ -66,6 +66,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37514a0d3cc5fc4f940a6054245f5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5087983137687869433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6202227541664682210}
+  - component: {fileID: 4217470907086606343}
+  m_Layer: 0
+  m_Name: DKO UI Storage Task
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6202227541664682210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087983137687869433}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1050390813571096339}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4217470907086606343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087983137687869433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3cf5a51f291e64abf44753240d88e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _list:
+  - Key:
+      _dataSO: {fileID: 11400000, guid: f510f0a4f4614fb48b07f0fd21c97a16, type: 2}
+      _selectIndif: {fileID: 11400000, guid: 0ccae8107856e8e4d93a19994940cebc, type: 2}
+      _error:
+        Enable: 0
+        TextError: 
+        MessageType: 0
+    Data: {fileID: 9128291158638000009}
+  - Key:
+      _dataSO: {fileID: 11400000, guid: f510f0a4f4614fb48b07f0fd21c97a16, type: 2}
+      _selectIndif: {fileID: 11400000, guid: cac741f4ce2ecb0468ae3da0b7d60b4b, type: 2}
+      _error:
+        Enable: 0
+        TextError: 
+        MessageType: 0
+    Data: {fileID: 2362414474675698121}
 --- !u!1 &5672349332320343637
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1050390813571096339}
   - component: {fileID: 2426252343897977143}
+  - component: {fileID: 9128291158638000009}
   m_Layer: 0
   m_Name: Storage Task Loader
   m_TagString: Untagged
@@ -202,6 +264,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6202227541664682210}
   - {fileID: 6335040526185832648}
   - {fileID: 5778785673408762053}
   - {fileID: 7398764051432101952}
@@ -221,6 +284,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isBreackLoadTaskFatalError: 0
+--- !u!114 &9128291158638000009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212776355600306694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efa027b2d83d0b43ace125f2f7d9173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 2426252343897977143}
 --- !u!1 &8509742592567800218
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6335040526185832648}
   - component: {fileID: 8811040746657266451}
+  - component: {fileID: 2362414474675698121}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -269,3 +346,16 @@ MonoBehaviour:
   _progressBarLoadPercentageTask: {fileID: 0}
   _textLoadPercentageTask: {fileID: 0}
   _taskStorage: {fileID: 2426252343897977143}
+--- !u!114 &2362414474675698121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8509742592567800218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ae6cca9d626134f9d1c9ec87dc9395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 8811040746657266451}

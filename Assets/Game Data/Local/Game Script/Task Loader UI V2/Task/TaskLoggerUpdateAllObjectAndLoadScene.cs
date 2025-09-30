@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class TaskLoggerUpdateAllObjectAndLoadScene : AbsTaskLoggerLoaderDataMono
 {
-
     [Header("---------")]
     [SerializeField]
     private CheckAndDownloadUpdateObjectAll _checkAndDownloadUpdateObjectAll;
@@ -17,15 +16,66 @@ public class TaskLoggerUpdateAllObjectAndLoadScene : AbsTaskLoggerLoaderDataMono
     
     private void Awake()
     {
-        _sceneLoad.OnAddLogData += OnAddLogDataTaskLoadScene;
+        if (_checkAndDownloadUpdateObjectAll.IsInit == false)
+        {
+            _checkAndDownloadUpdateObjectAll.OnInit += OnInitCheckAndDownloadUpdateObjectAll;
+        }
+
+        if (_sceneLoad.IsInit == false)
+        {
+            _sceneLoad.OnInit += OnInitSceneLoad;
+        }
+        
+        CheckInit();
+    }
+    
+    private void OnInitCheckAndDownloadUpdateObjectAll()
+    {
+        if (_checkAndDownloadUpdateObjectAll.IsInit == true)
+        {
+            _checkAndDownloadUpdateObjectAll.OnInit -= OnInitCheckAndDownloadUpdateObjectAll;
+            CheckInit();
+        }
+        
+    }
+    
+    private void OnInitSceneLoad()
+    {
+        if (_sceneLoad.IsInit == true)
+        {
+            _sceneLoad.OnInit -= OnInitSceneLoad;
+            CheckInit();
+        }
+        
+    }
+    
+    private void CheckInit()
+    {
+        if (_checkAndDownloadUpdateObjectAll.IsInit == true && _sceneLoad.IsInit == true)  
+        {
+            _sceneLoad.OnAddLogData += OnAddLogDataTaskLoadScene;
+
+            Init();
+        }
+    }
+    
+    public override TaskLoaderData GetTaskInfo()
+    {
+        if (_taskData == null) 
+        {
+            InitTask();
+        }
+        
+        //тут убир. авто иниц.
+        
+        return _taskData;
     }
 
     private void OnAddLogDataTaskLoadScene(AbsKeyData<KeyTaskLoaderTypeLog, string> textLog)
     {
         _storageLog.DebugLog(textLog.Key, textLog.Data);
     }
-
-
+    
     protected override void StartLogic()
     {
         UpdateStatus(TypeStatusTaskLoad.Start);

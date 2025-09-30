@@ -24,12 +24,12 @@ public class StorageTaskLoaderUI : MonoBehaviour
     }
 
 
-    public void OnGeneralUpdateStatus(TypeStatusTaskLoad status)
+    private void OnGeneralUpdateStatus(TypeStatusTaskLoad status)
     {
  
     }
 
-    public void OnGeneralUpdateLoadPercentage(float loadPercentage)
+    private void OnGeneralUpdateLoadPercentage(float loadPercentage)
     {
         _progressBarLoadPercentageTask.fillAmount = loadPercentage / 100f;
         _textLoadPercentageTask.text = loadPercentage + "%";

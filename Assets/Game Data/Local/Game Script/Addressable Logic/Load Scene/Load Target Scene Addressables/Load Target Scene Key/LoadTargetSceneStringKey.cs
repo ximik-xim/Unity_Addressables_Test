@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-public class LoadTargetSceneStringKey : MonoBehaviour
+public class LoadTargetSceneStringKey : AbsLoadTargetSceneKey
 {
-    public event Action OnInit
+    public override event Action OnInit
     {
         add
         {
@@ -17,7 +17,7 @@ public class LoadTargetSceneStringKey : MonoBehaviour
         }
     }
 
-    public bool IsInit => _loadSceneAddressables.IsInit;
+    public override bool IsInit => _loadSceneAddressables.IsInit;
 
     [SerializeField]
     private LoadTargetSceneAddressables _loadSceneAddressables;
@@ -25,7 +25,7 @@ public class LoadTargetSceneStringKey : MonoBehaviour
     [SerializeField] 
     private string _keyNameScene;
 
-    public GetServerRequestData<SceneInstance> StartLoadScene()
+    public override GetServerRequestData<SceneInstance> StartLoadScene()
     {
         return _loadSceneAddressables.StartLoadScene(_keyNameScene);
     }

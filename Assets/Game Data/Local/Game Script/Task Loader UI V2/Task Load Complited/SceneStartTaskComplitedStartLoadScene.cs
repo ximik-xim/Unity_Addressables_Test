@@ -11,7 +11,7 @@ public class SceneStartTaskComplitedStartLoadScene : MonoBehaviour
     private SceneStartTask _sceneStartTask;
     
     [SerializeField] 
-    private LoadTargetSceneAssetReference _loadSceneAddressables;
+    private AbsLoadTargetSceneKey _loadSceneAddressables;
     
     private void Awake()
     {

@@ -14,6 +14,13 @@ public class StorageKeyAndGM : MonoBehaviour
 
     private Dictionary<string, GameObject> _dictionary = new Dictionary<string, GameObject>();
     
+#if UNITY_EDITOR
+    [SerializeField] 
+    private bool _visibleData;
+    [SerializeField] 
+    private List<AbsKeyData<string, GameObject>> _listVisible = new List<AbsKeyData<string, GameObject>>();
+#endif
+    
     private void Awake()
     {
         LocalAwake();
@@ -24,7 +31,16 @@ public class StorageKeyAndGM : MonoBehaviour
         foreach (var VARIABLE in _list)
         {
             _dictionary.Add(VARIABLE.Key.GetData().GetKey(), VARIABLE.Data);
+            
+#if UNITY_EDITOR
+            if (_visibleData == true)
+            {
+                _listVisible.Add(new AbsKeyData<string, GameObject>(VARIABLE.Key.GetData().GetKey(), VARIABLE.Data));
+            }
+#endif
         }
+        
+
         
         _isInit = true;
         OnInit?.Invoke();
@@ -44,6 +60,13 @@ public class StorageKeyAndGM : MonoBehaviour
     {
         if (_dictionary.ContainsKey(key.GetKey()) == false)
         {
+#if UNITY_EDITOR
+            if (_visibleData == true)
+            {
+                _listVisible.Add(new AbsKeyData<string, GameObject>(key.GetKey(), gameObject));
+            }
+#endif
+            
             _dictionary.Add(key.GetKey(), gameObject);
             OnInitElement?.Invoke(key.GetKey());
         }
@@ -53,6 +76,22 @@ public class StorageKeyAndGM : MonoBehaviour
     {
         if (_dictionary.ContainsKey(key.GetKey()) == true)
         {
+#if UNITY_EDITOR
+            if (_visibleData == true)
+            {
+                for (int i = 0; i < _listVisible.Count; i++)
+                {
+                    if (_listVisible[i].Key == key.GetKey()) 
+                    {
+                        _listVisible.RemoveAt(i);
+                        break;
+                    }
+                        
+                }
+                
+            }
+#endif
+            
             _dictionary.Remove(key.GetKey());
         }
     }

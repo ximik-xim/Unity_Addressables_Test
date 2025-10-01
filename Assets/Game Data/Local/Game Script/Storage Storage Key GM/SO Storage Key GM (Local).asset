@@ -23,6 +23,12 @@ MonoBehaviour:
     _dataKey:
       _key: "\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0420\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u0441\u043A\u0438\u0439
         Canvas"
+  - _identifierData: {fileID: 11400000, guid: 8256c0ffabf33ec4691a5ef5d588107e, type: 2}
+    _dataKey:
+      _key: Canvas Main Menu
+  - _identifierData: {fileID: 11400000, guid: d2c744feda1c91044a0aef3c82d9359a, type: 2}
+    _dataKey:
+      _key: Canvas Scene 1
   _fatalError:
     Enable: 0
     TextError: 

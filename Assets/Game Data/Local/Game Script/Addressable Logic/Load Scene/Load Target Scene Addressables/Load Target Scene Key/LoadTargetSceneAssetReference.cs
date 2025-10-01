@@ -6,9 +6,9 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 /// <summary>
 /// Нужен что бы удобно указать ключ через инспектор
 /// </summary>
-public class LoadTargetSceneAssetReference : MonoBehaviour
+public class LoadTargetSceneAssetReference : AbsLoadTargetSceneKey
 {
-    public event Action OnInit
+    public override event Action OnInit
     {
         add
         {
@@ -21,7 +21,7 @@ public class LoadTargetSceneAssetReference : MonoBehaviour
         }
     }
 
-    public bool IsInit => _loadSceneAddressables.IsInit;
+    public override bool IsInit => _loadSceneAddressables.IsInit;
 
     [SerializeField]
     private LoadTargetSceneAddressables _loadSceneAddressables;
@@ -29,7 +29,7 @@ public class LoadTargetSceneAssetReference : MonoBehaviour
     [SerializeField] 
     private AssetReference _keyNameScene;
 
-    public GetServerRequestData<SceneInstance> StartLoadScene()
+    public override GetServerRequestData<SceneInstance> StartLoadScene()
     {
         return _loadSceneAddressables.StartLoadScene(_keyNameScene);
     }

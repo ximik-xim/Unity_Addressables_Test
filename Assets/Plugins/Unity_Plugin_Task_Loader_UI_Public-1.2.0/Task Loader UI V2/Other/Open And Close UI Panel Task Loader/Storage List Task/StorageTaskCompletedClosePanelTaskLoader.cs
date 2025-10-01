@@ -1,14 +1,13 @@
+using System;
 using UnityEngine;
 
 public class StorageTaskCompletedClosePanelTaskLoader : MonoBehaviour
 {
-   
     [SerializeField] 
     private SceneStartTask _sceneStartTask;
 
     [SerializeField] 
     private StorageTaskLoaderUI _storageTaskLoaderUI;
-
 
     private void Awake()
     {
@@ -34,7 +33,11 @@ public class StorageTaskCompletedClosePanelTaskLoader : MonoBehaviour
 
     private void OnCompletedTask()
     {
-        _sceneStartTask.StorageTaskLoader.OnCompleted -= OnCompletedTask;
         _storageTaskLoaderUI.Close();
+    }
+
+    private void OnDestroy()
+    {
+        _sceneStartTask.StorageTaskLoader.OnCompleted -= OnCompletedTask;
     }
 }

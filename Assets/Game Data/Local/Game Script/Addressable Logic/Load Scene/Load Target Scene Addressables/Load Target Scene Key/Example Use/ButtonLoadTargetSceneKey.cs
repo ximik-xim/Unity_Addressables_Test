@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class sdsdf : MonoBehaviour
+public class ButtonLoadTargetSceneKey : MonoBehaviour
 {
     [SerializeField]
     private Button _button;

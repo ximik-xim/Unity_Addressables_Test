@@ -350,8 +350,6 @@ public class StorageTaskLoader : MonoBehaviour
     /// <param name="openPanel"></param>
     public void StartLoad()
     {
-        Debug.Log("_isStartLoadTask = " + _isStartLoadTask);
-        Debug.Log("_isSceneLoadTask = " + _isSceneLoadTask);
         if (_isStartLoadTask == false  && _isSceneLoadTask == false)
         {
             _isBlockStartLogic = true;

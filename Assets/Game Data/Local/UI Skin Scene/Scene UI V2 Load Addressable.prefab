@@ -278,8 +278,8 @@ MonoBehaviour:
     _key:
       rid: -2
     _loadMode: 0
-    _activateOnLoad: 0
-    _priority: 0
+    _activateOnLoad: 1
+    _priority: 100
     _releaseMode: 0
   _getSceneAddressables: {fileID: 8273446659643906255}
   references:

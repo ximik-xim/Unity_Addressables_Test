@@ -40,11 +40,11 @@ public class GetSceneAddressablesDefault : AbsCallbackGetSceneAddressables
        //!! Тут ОБЕЗАТЕЛЬНО нужно приведение типа, иначе при передаче IResourceLocation как Object, метод LoadAssetAsync выдает ОШИБКУ !!
        if (data.Key is IResourceLocation resourceLocation)
        {
-           dataCallback = Addressables.LoadSceneAsync(resourceLocation);
+           dataCallback = Addressables.LoadSceneAsync(resourceLocation, data.LoadMode, data.ActivateOnLoad, data.Priority, data.ReleaseMode);
        }
        else
        {
-            dataCallback = Addressables.LoadSceneAsync(data.Key);   
+           dataCallback = Addressables.LoadSceneAsync(data.Key, data.LoadMode, data.ActivateOnLoad, data.Priority, data.ReleaseMode);
        }
 
        if (dataCallback.IsDone == true)

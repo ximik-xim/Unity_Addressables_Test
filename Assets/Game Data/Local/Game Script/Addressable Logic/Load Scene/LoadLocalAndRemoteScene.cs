@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 /// <summary>
 /// Отвечает за загрузку сцен
+/// Сначало Remote, затем если не удалось, то Local сцены
 /// </summary>
 public class LoadLocalAndRemoteScene : MonoBehaviour
 {

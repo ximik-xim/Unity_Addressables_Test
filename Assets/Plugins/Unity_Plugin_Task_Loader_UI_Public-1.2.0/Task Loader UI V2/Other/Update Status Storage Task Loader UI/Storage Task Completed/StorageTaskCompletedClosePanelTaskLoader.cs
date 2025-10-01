@@ -12,9 +12,9 @@ public class StorageTaskCompletedClosePanelTaskLoader : MonoBehaviour
 
     private void Awake()
     {
-        if (_sceneStartTask.ListTask == null)
+        if (_sceneStartTask.StorageTaskLoader == null)
         {
-            _sceneStartTask.OnSetListTask += OnInit;
+            _sceneStartTask.OnSetStorageTaskLoader += OnInit;
             return;
         }
 
@@ -23,18 +23,18 @@ public class StorageTaskCompletedClosePanelTaskLoader : MonoBehaviour
 
     private void OnInit()
     {
-        _sceneStartTask.OnSetListTask -= OnInit;
+        _sceneStartTask.OnSetStorageTaskLoader -= OnInit;
         Init();
     }
 
     private void Init()
     {
-        _sceneStartTask.ListTask.OnCompleted += OnCompletedTask;
+        _sceneStartTask.StorageTaskLoader.OnCompleted += OnCompletedTask;
     }
 
     private void OnCompletedTask()
     {
-        _sceneStartTask.ListTask.OnCompleted -= OnCompletedTask;
+        _sceneStartTask.StorageTaskLoader.OnCompleted -= OnCompletedTask;
         _storageTaskLoaderUI.Close();
     }
 }

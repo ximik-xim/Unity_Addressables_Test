@@ -1,0 +1,32 @@
+using System;
+using UnityEngine;
+using UnityEngine.ResourceManagement.ResourceProviders;
+
+public class LoadTargetSceneStringKey : MonoBehaviour
+{
+    public event Action OnInit
+    {
+        add
+        {
+            _loadSceneAddressables.OnInit += value;
+        }
+
+        remove
+        {
+            _loadSceneAddressables.OnInit -= value;
+        }
+    }
+
+    public bool IsInit => _loadSceneAddressables.IsInit;
+
+    [SerializeField]
+    private LoadTargetSceneAddressables _loadSceneAddressables;
+        
+    [SerializeField] 
+    private string _keyNameScene;
+
+    public GetServerRequestData<SceneInstance> StartLoadScene()
+    {
+        return _loadSceneAddressables.StartLoadScene(_keyNameScene);
+    }
+}

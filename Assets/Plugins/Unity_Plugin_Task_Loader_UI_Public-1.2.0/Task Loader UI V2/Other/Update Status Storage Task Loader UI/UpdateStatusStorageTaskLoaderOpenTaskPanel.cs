@@ -12,9 +12,9 @@ public class UpdateStatusStorageTaskLoaderOpenTaskPanel : MonoBehaviour
 
     private void Awake()
     {
-        if (_sceneStartTask.ListTask == null)
+        if (_sceneStartTask.StorageTaskLoader == null)
         {
-            _sceneStartTask.OnSetListTask += OnInit;
+            _sceneStartTask.OnSetStorageTaskLoader += OnInit;
             return;
         }
 
@@ -23,27 +23,27 @@ public class UpdateStatusStorageTaskLoaderOpenTaskPanel : MonoBehaviour
 
     private void OnInit()
     {
-        _sceneStartTask.OnSetListTask -= OnInit;
+        _sceneStartTask.OnSetStorageTaskLoader -= OnInit;
         Init();
     }
 
     private void Init()
     {
-        _sceneStartTask.ListTask.OnUpdateGeneralStatuse += OnUpdateGeneralStatuse;
+        _sceneStartTask.StorageTaskLoader.OnUpdateGeneralStatuse += OnUpdateGeneralStatuse;
     }
 
     private void OnUpdateGeneralStatuse(TypeStatusTaskLoad status)
     {
         if (status == TypeStatusTaskLoad.Start)
         {
-            _sceneStartTask.ListTask.OnUpdateGeneralStatuse -= OnUpdateGeneralStatuse;
+            _sceneStartTask.StorageTaskLoader.OnUpdateGeneralStatuse -= OnUpdateGeneralStatuse;
             _storageTaskLoaderUI.Open();   
         }
     }
     
     private void OnDestroy()
     {
-        _sceneStartTask.ListTask.OnUpdateGeneralStatuse -= OnUpdateGeneralStatuse;
+        _sceneStartTask.StorageTaskLoader.OnUpdateGeneralStatuse -= OnUpdateGeneralStatuse;
     }
     
 }

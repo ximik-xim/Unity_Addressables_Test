@@ -87,7 +87,7 @@ public class StorageTaskLoader : MonoBehaviour
         
         if (callBackAddDataTaskScene != null)
         {
-                callBackAddDataTaskScene.SetListTask(this);
+              
 
                 if (callBackAddDataTaskScene.IsInit == false)
                 {
@@ -146,6 +146,8 @@ public class StorageTaskLoader : MonoBehaviour
                 /// </summary>
                 void StartLoadTaskScene()
                 {
+                    callBackAddDataTaskScene.SetStorageTaskLoader(this);
+                    
                     var data = callBackAddDataTaskScene.GetTask();
 
                     foreach (var VARIABLE in data)

@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Packed Assets
   m_GUID: 820099e62e686134e85df02109482fbc
   m_SerializeEntries:
+  - m_GUID: 1dcf9356291bd0641a5e4d602b279c09
+    m_Address: Main (Local).unity Local
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e86de509bd5b5849854b5f1e07f2f80
     m_Address: Scene Level 1.unity Local
     m_ReadOnly: 0
@@ -26,7 +31,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99c9720ab356a0642a771bea13969a05
-    m_Address: Dont Destroy.unity Local
+    m_Address: Dont Destroy (Local).unity Local
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

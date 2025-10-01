@@ -22,9 +22,9 @@ public class SceneStartTask : MonoBehaviour
     [SerializeField] 
     private List<AbsTaskLoaderDataMono> _task;
 
-    public event Action OnSetListTask;
-    private StorageTaskLoader _listTask;
-    public StorageTaskLoader ListTask => _listTask;
+    public event Action OnSetStorageTaskLoader;
+    private StorageTaskLoader _storageTaskLoader;
+    public StorageTaskLoader StorageTaskLoader => _storageTaskLoader;
     
     private void Awake()
     {
@@ -81,10 +81,10 @@ public class SceneStartTask : MonoBehaviour
         OnInit?.Invoke();
     }
 
-    public void SetListTask(StorageTaskLoader listTask)
+    public void SetStorageTaskLoader(StorageTaskLoader listTask)
     {
-        _listTask = listTask;
-        OnSetListTask?.Invoke();
+        _storageTaskLoader = listTask;
+        OnSetStorageTaskLoader?.Invoke();
     }
     
     public List<TaskLoaderData> GetTask()

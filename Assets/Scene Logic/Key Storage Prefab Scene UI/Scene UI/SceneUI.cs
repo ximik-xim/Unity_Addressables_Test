@@ -8,10 +8,11 @@ public class SceneUI : MonoBehaviour
     private Button _button;
 
     [SerializeField] 
-    private AbsSceneLoader _sceneLoader;
-    
-    private KeyNameScene _nameScene;
+    private LoadTargetSceneSetKey _sceneLoader;
 
+    [SerializeField]
+    private AddTaskInStorageTaskLoader _logicAddTask;
+    
     private void Awake()
     {
         _button.onClick.AddListener(ButtonClick);
@@ -19,12 +20,12 @@ public class SceneUI : MonoBehaviour
 
     public void SetNameScene(KeyNameScene nameScene)
     {
-        _nameScene = nameScene;
+        _sceneLoader.SetKeyScene(nameScene.GetKey());
     }
-
+    
     private void ButtonClick()
     {
-        _sceneLoader.LoadScene(_nameScene.GetKey());
+        _logicAddTask.StartLoadScene();
     }
 
     private void OnDestroy()

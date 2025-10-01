@@ -39,12 +39,14 @@ public class StorageTaskLoaderUI : MonoBehaviour
     public void Open()
     {
         _generalTaskPanel.alpha = 1;
+        _generalTaskPanel.blocksRaycasts = true;
     }
     
     public void Close()
     {
         //Тут нельзя отключать, т.к дальше в иерархии идут еще обьекты, к которым нужен доступ
         _generalTaskPanel.alpha = 0f;
+        _generalTaskPanel.blocksRaycasts = false;
     }
 
     private void OnDestroy()

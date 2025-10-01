@@ -25,7 +25,7 @@ public abstract class AbsTaskLoaderDataMono : MonoBehaviour
     
     protected void InitTask()
     {
-        if (_isInit == false)
+        if (_taskData == null)
         {
             _taskData = new TaskLoaderData(_nameTask, StartLogic, BreakTask, ResetStatusTask, out Action<TypeStatusTaskLoad> onUpdateStatus, out Action<float> onUpdatePercentage, GetDKO);
 

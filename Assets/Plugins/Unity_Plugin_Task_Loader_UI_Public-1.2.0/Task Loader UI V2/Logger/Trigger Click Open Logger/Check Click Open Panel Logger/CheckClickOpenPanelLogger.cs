@@ -26,6 +26,28 @@ public class CheckClickOpenPanelLogger : MonoBehaviour
 
    private void OnSpawn()
    {
+      if (_spawnerPaneTasklUI.IsInit == false)
+      {
+         _spawnerPaneTasklUI.OnInit -= OnInitSpawnerPanel;
+         _spawnerPaneTasklUI.OnInit += OnInitSpawnerPanel;
+         return;
+      }
+
+
+      InitSpawnerPanel();
+   }
+
+   private void OnInitSpawnerPanel()
+   {
+      if (_spawnerPaneTasklUI.IsInit == true)
+      {
+         _spawnerPaneTasklUI.OnInit -= OnInitSpawnerPanel;
+         InitSpawnerPanel();
+      }
+   }
+
+   private void InitSpawnerPanel()
+   {
       var dko = _spawnerPaneTasklUI.GetTaskUI().GetDKO();
       var data = (DKODataInfoT<TriggerClickOpenLogger>)dko.KeyRun(_getKey.GetData());
       _data = data.Data;

@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 1533185631935866853}
   - component: {fileID: 7599833556714873407}
   m_Layer: 0
-  m_Name: Check Click Open Panel Logger
+  m_Name: Creator Logic Trigger Button Open Panel Logger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4241084894996183470}
   m_Father: {fileID: 105793623304576619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7599833556714873407
@@ -154,6 +155,7 @@ MonoBehaviour:
       Enable: 0
       TextError: 
       MessageType: 0
+  _logicTrigger: {fileID: 1679644601496966732}
 --- !u!1 &3046627732473722973
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47dcce4eed790a3418871fb8c1f63ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _duplicateLogConsole: 1
 --- !u!1 &5061026571391659160
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,8 +260,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b45cf6fa64ffec40a12407b3a7a9b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listContext: []
   _data: {fileID: 2309869645965528705}
+--- !u!1 &5619240410048759225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7567920152800419666}
+  - component: {fileID: 6715222395125416674}
+  m_Layer: 0
+  m_Name: Create Logic Trigger Destroy GM Panel Logger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7567920152800419666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619240410048759225}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5524227643069895008}
+  m_Father: {fileID: 105793623304576619}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6715222395125416674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619240410048759225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00a259e651dcc9438fc2c973ee6fb4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnerLoggerPanelUI: {fileID: 2530824396879996719}
+  _spawnerPaneTasklUI: {fileID: 2309869645965528705}
+  _getKey:
+    _dataSO: {fileID: 11400000, guid: f981e88ec28dfea438e4998b9eab19f9, type: 2}
+    _selectIndif: {fileID: 11400000, guid: d461d05f812154544b007dc248b98b98, type: 2}
+    _error:
+      Enable: 0
+      TextError: 
+      MessageType: 0
+  _logicTrigger: {fileID: 1641502867665732570}
 --- !u!1 &5816962717516837746
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +450,94 @@ MonoBehaviour:
       Enable: 0
       TextError: 
       MessageType: 0
+--- !u!1 &6184014496602130252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5524227643069895008}
+  - component: {fileID: 1641502867665732570}
+  m_Layer: 0
+  m_Name: Logic Trigger Destroy GM Panel Logger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5524227643069895008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184014496602130252}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7567920152800419666}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1641502867665732570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184014496602130252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f283a6afa2e82c347b9279dd20862d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8106610398285468659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4241084894996183470}
+  - component: {fileID: 1679644601496966732}
+  m_Layer: 0
+  m_Name: Logic Trigger Button Open Panel Logger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4241084894996183470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106610398285468659}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1533185631935866853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1679644601496966732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106610398285468659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6467a394ee2d948bd0e2954f35d3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8236662016084821816
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4ceee653952924a88abab6ff6728bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listContext: []
   _data: {fileID: 2746138845263439046}
 --- !u!1 &8806276725655383241
 GameObject:
@@ -485,6 +629,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1533185631935866853}
+  - {fileID: 7567920152800419666}
   m_Father: {fileID: 132005969869928970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2530824396879996719
@@ -513,5 +658,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27da915ec9babdc40983be9adfd97049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listContext: []
   _data: {fileID: 2530824396879996719}

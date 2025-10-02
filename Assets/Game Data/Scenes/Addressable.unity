@@ -119,6 +119,66 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &145761083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 145761084}
+  - component: {fileID: 145761085}
+  m_Layer: 0
+  m_Name: Get Patch Storage DKO Task Loader UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &145761084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145761083}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -359.9596, y: -640.05505, z: -0.13188222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1726216293}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &145761085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145761083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b44c351561b1d41894b19e43406e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _findMbsDkoDontDestroy: {fileID: 0}
+  _keyDko:
+    _dataSO: {fileID: 11400000, guid: 274982f8747edf046ad058ad4540b868, type: 2}
+    _selectIndif: {fileID: 11400000, guid: f515f4c300e15924da5e514f0fe7c99b, type: 2}
+    _error:
+      Enable: 0
+      TextError: 
+      MessageType: 0
+  _keyGeneralLogic:
+    _dataSO: {fileID: 11400000, guid: f510f0a4f4614fb48b07f0fd21c97a16, type: 2}
+    _selectIndif: {fileID: 11400000, guid: 97c4e719afde51841ac63a211f5d7ece, type: 2}
+    _error:
+      Enable: 0
+      TextError: 
+      MessageType: 0
+  _isSaveDataDKO: 1
 --- !u!1 &152901845
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +285,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1027823215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &467176837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 467176838}
+  - component: {fileID: 467176839}
+  m_Layer: 0
+  m_Name: Get Patch Storage Task Loader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &467176838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467176837}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -359.9596, y: -640.05505, z: -0.13188222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1726216293}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &467176839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467176837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b44c351561b1d41894b19e43406e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _findMbsDkoDontDestroy: {fileID: 0}
+  _keyDko:
+    _dataSO: {fileID: 11400000, guid: 274982f8747edf046ad058ad4540b868, type: 2}
+    _selectIndif: {fileID: 11400000, guid: f515f4c300e15924da5e514f0fe7c99b, type: 2}
+    _error:
+      Enable: 0
+      TextError: 
+      MessageType: 0
+  _keyGeneralLogic:
+    _dataSO: {fileID: 11400000, guid: f510f0a4f4614fb48b07f0fd21c97a16, type: 2}
+    _selectIndif: {fileID: 11400000, guid: 0ccae8107856e8e4d93a19994940cebc, type: 2}
+    _error:
+      Enable: 0
+      TextError: 
+      MessageType: 0
+  _isSaveDataDKO: 1
 --- !u!1 &572037144
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +828,8 @@ Transform:
   - {fileID: 1533815782}
   - {fileID: 1726835509}
   - {fileID: 1279257694}
+  - {fileID: 1297095209}
+  - {fileID: 1726216293}
   - {fileID: 1036319119}
   - {fileID: 1840349353}
   m_Father: {fileID: 0}
@@ -1178,6 +1300,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1027823215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1297095207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297095209}
+  - component: {fileID: 1297095208}
+  m_Layer: 0
+  m_Name: Auto Clear Task UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1297095208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297095207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b9bde936089ce47a40af70c4101a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _storageTaskLoader: {fileID: 1726835511}
+  _storageDkoTaskLoaderUI: {fileID: 1726835510}
+  _keyGetDestroy:
+    _dataSO: {fileID: 11400000, guid: f981e88ec28dfea438e4998b9eab19f9, type: 2}
+    _selectIndif: {fileID: 11400000, guid: d461d05f812154544b007dc248b98b98, type: 2}
+    _error:
+      Enable: 0
+      TextError: 
+      MessageType: 0
+--- !u!4 &1297095209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297095207}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 359.9596, y: 639.05505, z: -89.86812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1027823215}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1310708687 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7003500295436557588, guid: a9f8330d06795cc479cf19bfc6aed544, type: 3}
@@ -1238,7 +1413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3711671218537901078, guid: 28c710959df06bd4fb2cd4a8938d393c, type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125853922506048626, guid: 28c710959df06bd4fb2cd4a8938d393c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1567,6 +1742,61 @@ MonoBehaviour:
         MessageType: 0
     Data: {fileID: 760583028}
   _visibleData: []
+--- !u!1 &1726216291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1726216293}
+  - component: {fileID: 1726216292}
+  m_Layer: 0
+  m_Name: Auto Clear Task UI DKO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1726216292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726216291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced4c5302b0508946ae24a0aefaa7181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _getDkoPatchStorageTaskLoader: {fileID: 467176839}
+  _getDkoPatchStorageDkoTaskLoaderUI: {fileID: 145761085}
+  _keyGetDestroy:
+    _dataSO: {fileID: 11400000, guid: f981e88ec28dfea438e4998b9eab19f9, type: 2}
+    _selectIndif: {fileID: 11400000, guid: d461d05f812154544b007dc248b98b98, type: 2}
+    _error:
+      Enable: 0
+      TextError: 
+      MessageType: 0
+--- !u!4 &1726216293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726216291}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 359.9596, y: 639.05505, z: -89.86812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 467176838}
+  - {fileID: 145761084}
+  m_Father: {fileID: 1027823215}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1726835508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1649,6 +1879,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1050390813571096339, guid: 6be272121da13cc4cb40a66737ae4b4f, type: 3}
   m_PrefabInstance: {fileID: 1726835508}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1726835510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8860596529810744774, guid: 6be272121da13cc4cb40a66737ae4b4f, type: 3}
+  m_PrefabInstance: {fileID: 1726835508}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5542403e31186c46811ff2334f81cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1726835511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2426252343897977143, guid: 6be272121da13cc4cb40a66737ae4b4f, type: 3}
+  m_PrefabInstance: {fileID: 1726835508}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84fa47171f3a4e4ba3a0b138bbce2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1783973841
 PrefabInstance:
   m_ObjectHideFlags: 0

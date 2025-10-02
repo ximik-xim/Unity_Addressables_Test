@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Нужен что бы подписать открытие панели логера на event находящийся на панели Task UI
+/// Логика создания триггера на включение панели логгера, когда будет начата кнопка на UI Task
 /// </summary>
-public class CheckClickOpenPanelLogger : MonoBehaviour
+public class CreatorLogicTriggerButtonOpenPanelLogger : MonoBehaviour
 {
    [SerializeField] 
    private SpawnerLoggerPanelUI _spawnPanelLogger;
@@ -17,7 +17,8 @@ public class CheckClickOpenPanelLogger : MonoBehaviour
    [SerializeField] 
    private GetDataSODataDKODataKey _getKey;
 
-   private TriggerClickOpenLogger _data;
+   [SerializeField]
+   private LogicTriggerButtonOpenPanelLogger _logicTrigger;
    
    private void Awake()
    {
@@ -50,23 +51,13 @@ public class CheckClickOpenPanelLogger : MonoBehaviour
    {
       var dko = _spawnerPaneTasklUI.GetTaskUI().GetDKO();
       var data = (DKODataInfoT<TriggerClickOpenLogger>)dko.KeyRun(_getKey.GetData());
-      _data = data.Data;
       
-      data.Data.OnClick += OnButtonClick;
+      _logicTrigger.SetData(data.Data, _spawnPanelLogger.GetTaskUI());
    }
-
-   private void OnButtonClick()
-   {
-      _spawnPanelLogger.GetTaskUI().Open();
-   }
+   
 
    private void OnDestroy()
    {
-      if (_data != null)
-      {
-         _data.OnClick -= OnButtonClick;
-      }
-      
       _spawnPanelLogger.OnSpawn -= OnSpawn;
    }
 }

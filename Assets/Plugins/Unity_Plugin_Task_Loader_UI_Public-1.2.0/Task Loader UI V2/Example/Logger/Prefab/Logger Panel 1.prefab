@@ -564,6 +564,7 @@ MonoBehaviour:
   _taskLoggerPanel: {fileID: 9018419274104692418}
   _textLogs: {fileID: 6052035464485475806}
   _storageParameterText: {fileID: 11400000, guid: f5340273947a97a4da2a61e91dc5cbab, type: 2}
+  _destroyObject: {fileID: 5206869326377744058}
 --- !u!1 &5224569583908948745
 GameObject:
   m_ObjectHideFlags: 0

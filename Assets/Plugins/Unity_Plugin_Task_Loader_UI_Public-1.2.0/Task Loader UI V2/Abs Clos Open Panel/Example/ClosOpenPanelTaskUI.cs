@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Позволяет включать и отключать Task
+/// </summary>
 public class ClosOpenPanelTaskUI : AbsClosOpenPanelTask
 {
     [SerializeField] 

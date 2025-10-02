@@ -34,6 +34,9 @@ public class LoggerPanelUI : MonoBehaviour
     [SerializeField] 
     private StoragePrefabParameterTextTypeLog _storageParameterText;
     
+    [SerializeField] 
+    private GameObject _destroyObject;
+    
     private void Awake()
     {
         if (_storageParameterText.IsInit == true && _storagePrefabButtonTypeLog.IsInit == true)
@@ -206,6 +209,11 @@ public class LoggerPanelUI : MonoBehaviour
     public void Close()
     {
         _taskLoggerPanel.SetActive(false);
+    }
+
+    public void StartDestroy()
+    {
+        Destroy(_destroyObject);
     }
     
     private void OnDestroy()

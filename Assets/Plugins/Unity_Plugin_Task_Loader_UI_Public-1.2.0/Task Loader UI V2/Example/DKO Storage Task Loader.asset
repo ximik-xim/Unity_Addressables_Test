@@ -23,6 +23,10 @@ MonoBehaviour:
     _dataKey:
       key: "\u041B\u043E\u0433\u0438\u043A\u0430 \u043F\u0430\u043D\u0435\u043B\u0438
         UI Task"
+  - _identifierData: {fileID: 11400000, guid: 97c4e719afde51841ac63a211f5d7ece, type: 2}
+    _dataKey:
+      key: "\u0425\u0440\u0430\u043D\u0438\u043B\u0435\u0449\u0435 \u0441 DKO \u043E\u0442
+        Task UI"
   _fatalError:
     Enable: 0
     TextError: 

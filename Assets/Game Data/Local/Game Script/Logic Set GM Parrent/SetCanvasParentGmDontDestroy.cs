@@ -3,19 +3,22 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// Нужен что бы перенести Canvas сцены в Dont Destroy когда перейдем на сцену
-/// И когда уйдем со сцены, удалить этот Canvas из хранлеща и Destroy этот canvas
+/// Нужен что бы установить у GM родителя взятого из Key Storage GM 
+/// При уничтожении скрипта, можно уничтожить GM обьект
 /// </summary>
 public class SetCanvasParentGmDontDestroy : MonoBehaviour
 {
+   /// <summary>
+   /// Уничтожать ли GM при Destroy этого скрипта
+   /// </summary>
    [SerializeField]
-   private GetDKOPatch _getDkoPatch;
-
-   [SerializeField]
-   private GameObject _targerCanvas;
+   private bool _isGmDestroy;
    
    [SerializeField]
-   private GetDataSO_StorageKeyGM _keySetCanvas;
+   private GetDKOPatch _getDkoPatch;
+   
+   [SerializeField]
+   private ListActionGmSetParent _setParent;
    
    [SerializeField]
    private GetDataSO_StorageKeyGM _keyGetParent;
@@ -51,25 +54,19 @@ public class SetCanvasParentGmDontDestroy : MonoBehaviour
    private void InitData()
    {
       StorageKeyAndGM storageKeyAndGm = _getDkoPatch.GetDKO<DKODataInfoT<StorageKeyAndGM>>().Data;
-      storageKeyAndGm.AddGM(_keySetCanvas.GetData(), _targerCanvas);
 
       GameObject parent = storageKeyAndGm.GetGM(_keyGetParent.GetData());
-      _targerCanvas.transform.parent = parent.transform;
-      
-      _targerCanvas.transform.localPosition = Vector3.zero;
-      _targerCanvas.transform.localScale = Vector3.one;
+      _setParent.StartAction(parent);
    }
 
    private void OnDestroy()
    {
-      if (_getDkoPatch.Init == true) 
+      if (_isGmDestroy == true)
       {
-         StorageKeyAndGM storageKeyAndGm = _getDkoPatch.GetDKO<DKODataInfoT<StorageKeyAndGM>>().Data;
-         var gm = storageKeyAndGm.GetGM(_keySetCanvas.GetData());
-         
-         Destroy(gm);
-         
-         storageKeyAndGm.RemoveGM(_keySetCanvas.GetData());
+         foreach (var VARIABLE in _setParent.GetListGm())
+         {
+            Destroy(VARIABLE);
+         }
       }
    }
 }

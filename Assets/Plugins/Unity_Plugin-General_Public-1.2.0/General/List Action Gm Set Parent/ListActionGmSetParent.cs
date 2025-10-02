@@ -23,6 +23,12 @@ public class ListActionGmSetParent : MonoBehaviour
     private Vector3 _setScale = Vector3.one;
     
     [SerializeField] 
+    private bool _isSetLocalPosition = false;
+    
+    [SerializeField] 
+    private Vector3 _setLocalPosition = Vector3.zero;
+    
+    [SerializeField] 
     private List<GameObject> _gm = new List<GameObject>();
     
     public event Action OnCompletedLogic;
@@ -58,10 +64,19 @@ public class ListActionGmSetParent : MonoBehaviour
             {
                 VARIABLE.gameObject.transform.localScale = _setScale;
             }
+            
+            if (_isSetScale == true)
+            {
+                VARIABLE.gameObject.transform.localPosition = _setLocalPosition;
+            }
         }
 
         _isCompletedLogic = true;
         OnCompletedLogic?.Invoke();
+    }
 
+    public IReadOnlyList<GameObject> GetListGm()
+    {
+        return _gm;
     }
 }

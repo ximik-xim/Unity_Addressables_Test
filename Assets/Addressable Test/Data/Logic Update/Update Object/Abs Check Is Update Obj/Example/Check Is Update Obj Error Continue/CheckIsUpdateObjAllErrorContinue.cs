@@ -219,6 +219,7 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                     }
                     StorageStatusCallbackIResourceLocation storage = new StorageStatusCallbackIResourceLocation(listCallbackData);
 
+                    wrapperCallbackData.Data.GetData = storage;
                     wrapperCallbackData.Data.IsGetDataCompleted = true;
                     wrapperCallbackData.Data.Invoke();
                     

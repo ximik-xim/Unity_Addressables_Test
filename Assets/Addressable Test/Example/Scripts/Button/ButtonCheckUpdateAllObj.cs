@@ -11,7 +11,7 @@ public class ButtonCheckUpdateAllObj : MonoBehaviour
    private Button _button;
        
      [SerializeField]
-    private CheckAndDownloadUpdateObjectAll _downloadUpdateObject;
+    private AbsCheckAndDownloadUpdateObject _downloadUpdateObject;
 
     private void Awake()
     {

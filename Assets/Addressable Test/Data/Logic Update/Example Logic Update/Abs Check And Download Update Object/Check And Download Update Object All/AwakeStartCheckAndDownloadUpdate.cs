@@ -15,7 +15,7 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 public class AwakeStartCheckAndDownloadUpdate : MonoBehaviour
 {
    [SerializeField]
-   private CheckAndDownloadUpdateObjectAll _checkAndDownloadUpdate;
+   private AbsCheckAndDownloadUpdateObject _checkAndDownloadUpdate;
    
     private void Awake()
     {

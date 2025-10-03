@@ -73,7 +73,7 @@ public class CopyKeySceneMBS_DKO : MonoBehaviour
 
     public void StartLogic()
     {
-        DebugLog(_storageTypeLog.GetKeyDefaultLog(), "Копирую ключи из Scene MBS DKO в Dont Destroy MBS DKO");
+        DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Копирую ключи из Scene MBS DKO в Dont Destroy MBS DKO");
         _findMbsDkoDontDestroy.GetDontDestroyMbsDko.CopyDataTargetStorage(_sceneMbsDko);
     }
     

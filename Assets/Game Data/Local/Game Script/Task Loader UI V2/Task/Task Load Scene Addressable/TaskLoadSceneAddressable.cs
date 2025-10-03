@@ -64,7 +64,7 @@ public class TaskLoadSceneAddressable : AbsTaskLoggerLoaderDataMono
     {
         UpdatePercentage(50f);  
         
-        _storageLog.DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Начинаю сцены");
+        _storageLog.DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Начинаю загрузку сцены");
         
         _isLoadScene = true;
         

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -7,17 +6,11 @@ using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
-/// <summary>
-/// Отвечает за проверку и загрузку обновлений
-/// - каталогов
-/// - обьектов
-/// (желательно использовать в момент запуска(загрузки) игры)
-/// </summary>
-public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
+public class CheckAndDownloadUpdateObjectAll_AndCheckCurrentCatalog : AbsCheckAndDownloadUpdateObject
 {
-    public bool IsInit => _isInit;
+    public override bool IsInit => _isInit;
     private bool _isInit = false;
-    public event Action OnInit;
+    public override event Action OnInit;
     
     /// <summary>
     /// Проверка, есть ли обновление для каталогов
@@ -36,6 +29,12 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
     /// </summary>
     [SerializeField] 
     private AbsGetListCatalogID _getCatalogUpdateID;
+    
+    /// <summary>
+    /// Проверит можно ли обновить этот обьект и есть ли для него обновления
+    /// </summary>
+    [SerializeField]
+    private AbsCheckIsUpdateObj _absCheckIsUpdateObj;
     
     /// <summary>
     ///  Загрузка обновлений у обьектов
@@ -122,6 +121,13 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
             Debug.Log("Check Init _getCatalogUpdateID");
             _getCatalogUpdateID.OnInit += OnInitGetCatalogUpdateID;
         }
+        
+        if (_absCheckIsUpdateObj.IsInit == false)
+        {
+            Debug.Log("Check Init _absCheckIsUpdateObj");
+            _absCheckIsUpdateObj.OnInit += OnInitCheckIsUpdateObj;
+        }
+        
 
         if (_absDownloadUpdateObj.IsInit == false)
         {
@@ -169,6 +175,16 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
         }
     }
 
+    private void OnInitCheckIsUpdateObj()
+    {
+        if (_absCheckIsUpdateObj.IsInit == true)
+        {
+            Debug.Log("Init _absCheckIsUpdateObj");
+            _absCheckIsUpdateObj.OnInit -= OnInitCheckIsUpdateObj;
+            CheckInit();
+        }
+    }
+    
     private void OnInitDownloadUpdateObj()
     {
         if (_absDownloadUpdateObj.IsInit == true)
@@ -193,7 +209,7 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
     {
         if (_isInit == false)
         {
-            if (_checkUpdateCatalog.IsInit == true && _updateCatalog.IsInit == true && _getCatalogUpdateID.IsInit == true && _absDownloadUpdateObj.IsInit == true && _storageIsGetObject.IsInit == true) 
+            if (_checkUpdateCatalog.IsInit == true && _updateCatalog.IsInit == true && _getCatalogUpdateID.IsInit == true && _absDownloadUpdateObj.IsInit == true && _storageIsGetObject.IsInit == true && _absCheckIsUpdateObj.IsInit == true) 
             {
                 _isInit = true;
                 OnInit?.Invoke();
@@ -207,7 +223,7 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
     /// (сначало делаем запрос для проверки обн. у каталогов)
     /// </summary>
     /// <returns></returns>
-    public GetServerRequestData<StorageStatusCallbackIResourceLocation> StartCheckUpdateCatalog()
+    public override GetServerRequestData<StorageStatusCallbackIResourceLocation> StartCheckUpdateCatalog()
     {
         if (_isBlock == false)
         {
@@ -309,19 +325,81 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
         else
         {
             Debug.Log("По итогу фильтрации нет обновлений у каталогов");
-            
-            //А раз нет обновл. для каталогов, значит все прошло успешно
-            _wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
-            _wrapperCallbackData.Data.GetData = null;
-            _wrapperCallbackData.Data.IsGetDataCompleted = true;
-            _wrapperCallbackData.Data.Invoke();
 
-            _isBlock = false;
-            OnUpdateStatusBlock?.Invoke();
+
+            StartCheckUpdateAllElementCurrentCatalog();
         }
         
     }
+
+
+    /// <summary>
+    /// Начинаю логику проверки наличия обновлений для всех фаилов в тек. каталоге
+    /// (бывает, что при обновл происход. ошибка,по этому это нужно проверять)
+    /// </summary>
+    private void StartCheckUpdateAllElementCurrentCatalog()
+    {
+        Debug.Log("Начинаю проверку на наличие обновлений всех обьектов текущего каталога");
+        
+        List<IResourceLocation> listObjectCatalog = new List<IResourceLocation>();
+        foreach (var locator in Addressables.ResourceLocators)
+        {
+            foreach (var VARIABLE in locator.AllLocations)
+            {
+                listObjectCatalog.Add(VARIABLE);
+            }
+        }
+        
+        //Проверка, есть ли обновл. у обьекта
+        var dataCallback = _absCheckIsUpdateObj.CheckIsUpdateObj(listObjectCatalog);
+
+        if (dataCallback.IsGetDataCompleted == true)
+        {
+            CompletedCallback();
+        }
+        else
+        {
+            dataCallback.OnGetDataCompleted -= OnCompletedCallback;
+            dataCallback.OnGetDataCompleted += OnCompletedCallback;
+        }
+
+        void OnCompletedCallback()
+        {
+            //Если данные пришли
+            if (dataCallback.IsGetDataCompleted == true)
+            {
+                dataCallback.OnGetDataCompleted -= OnCompletedCallback;
+                //начинаю обработку данных
+                CompletedCallback();
+            }
+        }
+
+        void CompletedCallback()
+        {
+            if (dataCallback.StatusServer == StatusCallBackServer.Ok)
+            {
+                if (dataCallback.GetData.StatusAllCallBack == TypeStorageStatusCallbackIResourceLocator.Ok)
+                {
+                    List<IResourceLocation> listUpdateObject = new List<IResourceLocation>();
+                    foreach (var VARIABLE in dataCallback.GetData.ListCallbackStatus)
+                    {
+                        listUpdateObject.Add(VARIABLE.ResourceLocator);
+                    }
+
+                    Debug.Log($"Получено обьектов {listUpdateObject.Count} для обновлений");
+                    
+                    StartUpdateObject(listUpdateObject);
+                    return;
+                }
+
+                Debug.Log("Ошибка, не все элементы удалось проверить");
+            }
+        
+            CallbackError();
+        }
     
+    }
+
 
     /// <summary>
     /// Запускаю само обновление каталогов
@@ -431,6 +509,9 @@ public class CheckAndDownloadUpdateObjectAll : MonoBehaviour
             {
                 if (dataCallback.GetData.StatusAllCallBack == TypeStorageStatusCallbackIResourceLocator.Ok)
                 {
+                    //удалит старые не используемые бандлы
+                    Addressables.CleanBundleCache();
+                    
                     Debug.Log("Все обновления для обьектов были успешно установлены");
                 
                     _wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;

@@ -81,13 +81,13 @@ public class GetUIPanelTaskLoaderUI : MonoBehaviour
 
     public void StartLogic()
     {
-        DebugLog(_storageTypeLog.GetKeyDefaultLog(), "Получение GM UI панели Task Loader UI через DKO");
+        DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Получение GM UI панели Task Loader UI через DKO");
         GameObject uiPanel = _getDkoPatch.GetDKO<DKODataInfoT<GameObject>>().Data;
 
-        DebugLog(_storageTypeLog.GetKeyDefaultLog(), $"Добавление GM панели в Storage GM по ключу {_keyStorageGM.GetData().GetKey()}");
+        DebugLog(_storageTypeLog.GetKeyDefaultLog(), $"- Добавление GM панели в Storage GM по ключу {_keyStorageGM.GetData().GetKey()}");
         _storageGM.AddGM(_keyStorageGM.GetData(), uiPanel);
 
-        DebugLog(_storageTypeLog.GetKeyDefaultLog(), "Установка нового родителя у панели");
+        DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Установка нового родителя у панели");
         uiPanel.transform.parent = _targetParent.transform;
         uiPanel.transform.localPosition = Vector3.zero;
         uiPanel.transform.localScale = Vector3.one;

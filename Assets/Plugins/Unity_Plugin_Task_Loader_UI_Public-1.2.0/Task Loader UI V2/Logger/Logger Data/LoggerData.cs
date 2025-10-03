@@ -22,7 +22,7 @@ public class LoggerData : MonoBehaviour
     {
         if (_duplicateLogConsole == true)
         {
-            Debug.Log(text);
+            Debug.Log("-> " + text);
         }
         
         var logData = new AbsKeyData<KeyTaskLoaderTypeLog, string>(keyLog, text);

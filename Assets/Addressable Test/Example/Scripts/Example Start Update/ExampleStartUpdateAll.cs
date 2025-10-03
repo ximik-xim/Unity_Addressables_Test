@@ -10,7 +10,7 @@ public class ExampleStartUpdateAll : MonoBehaviour
     /// Логика обновления каталогов и обьектов(все разом)
     /// </summary>
     [SerializeField]
-    private CheckAndDownloadUpdateObjectAll _downloadUpdateObject;
+    private AbsCheckAndDownloadUpdateObject _downloadUpdateObject;
 
     private void Awake()
     {

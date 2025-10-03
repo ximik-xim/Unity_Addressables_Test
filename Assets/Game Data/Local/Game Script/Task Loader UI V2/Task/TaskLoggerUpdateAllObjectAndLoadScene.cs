@@ -9,7 +9,7 @@ public class TaskLoggerUpdateAllObjectAndLoadScene : AbsTaskLoggerLoaderDataMono
 {
     [Header("---------")]
     [SerializeField]
-    private CheckAndDownloadUpdateObjectAll _checkAndDownloadUpdateObjectAll;
+    private AbsCheckAndDownloadUpdateObject _checkAndDownloadUpdateObjectAll;
 
     [SerializeField]
     private LoadLocalAndRemoteScene _sceneLoad;

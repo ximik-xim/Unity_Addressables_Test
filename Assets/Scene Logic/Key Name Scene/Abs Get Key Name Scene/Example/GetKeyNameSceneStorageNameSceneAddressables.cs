@@ -1,11 +1,12 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 /// <summary>
 /// По идеи он загрузит список сцен через Addressables
 /// </summary>
-public class GetKeyNameSceneAddressables : AbsGetStorageKeyNameScene
+public class GetKeyNameSceneStorageNameSceneAddressables : AbsGetStorageKeyNameScene
 {
    public override bool IsInit => _isInit;
    private bool _isInit = false;
@@ -83,8 +84,8 @@ public class GetKeyNameSceneAddressables : AbsGetStorageKeyNameScene
 
    }
    
-   public override SO_Data_NameScene GetData()
+   public override List<KeyNameScene> GetData()
    {
-      return _localData;
+      return _localData.GetAllData();
    }
 }

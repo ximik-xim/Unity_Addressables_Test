@@ -45,7 +45,7 @@ public class ControllerAddScene : AbsControllerAddScene
     public override void StartAddScene()
     {
         //получ. список сцен
-        var listScene = _sceneLevel.GetData().GetAllData();
+        var listScene = _sceneLevel.GetData();
 
         foreach (var VARIABLE in listScene)
         {

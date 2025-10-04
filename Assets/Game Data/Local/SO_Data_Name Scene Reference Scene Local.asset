@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88285b2077ae844f9ce8cdc67b3e4c3, type: 3}
+  m_Name: SO_Data_Name Scene Reference Scene Local
+  m_EditorClassIdentifier: 
+  _nameSO: SO_Data_Name Scene Reference Scene Local
+  _setName: 1
+  _saveBackupChangeData: 1
+  _list:
+  - _identifierData: {fileID: 11400000, guid: 79f4a8a429a1b07498edd0c56ec08686, type: 2}
+    _dataKey:
+      _refScene:
+        m_AssetGUID: 2e86de509bd5b5849854b5f1e07f2f80
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_SubObjectGUID: 
+        m_EditorAssetChanged: 0
+  - _identifierData: {fileID: 11400000, guid: 58aadc0ccf20141438000518ce193aca, type: 2}
+    _dataKey:
+      _refScene:
+        m_AssetGUID: 9b06e39a6e5ebc3439b29bef366402c0
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_SubObjectGUID: 
+        m_EditorAssetChanged: 0
+  - _identifierData: {fileID: 11400000, guid: f81f0134b18cdb840b1f92bf3de8d5da, type: 2}
+    _dataKey:
+      _refScene:
+        m_AssetGUID: 52070c2b44c205e4a97b4ab7adf76edb
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_SubObjectGUID: 
+        m_EditorAssetChanged: 0
+  _fatalError:
+    Enable: 0
+    TextError: 
+    MessageType: 3
+  _error:
+    Enable: 0
+    TextError: 
+    MessageType: 2

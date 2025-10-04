@@ -13,18 +13,26 @@ MonoBehaviour:
   m_Name: SAVE_NAME_DATA
   m_EditorClassIdentifier: 
   _list:
-  - _objectSO: {fileID: 11400000, guid: 38ed79d58e9f2d344bebbe1cec97e30b, type: 2}
-    _nameSO: MBS_DKO Local
   - _objectSO: {fileID: 11400000, guid: 41e5b4fe7f73db749aa3d29d143be6e9, type: 2}
     _nameSO: DKO Data Key Storage Key GM (Local)
   - _objectSO: {fileID: 11400000, guid: 76f14a2edd3d0894fba2214c6ce42c8d, type: 2}
     _nameSO: DKO Key Storage Task (Local)
   - _objectSO: {fileID: 11400000, guid: 94cf4c2d166ed2246800903c84c2bfcf, type: 2}
     _nameSO: DKO Key Storage UI Game Pane lInfo Game (Local)
+  - _objectSO: {fileID: 11400000, guid: 21fa9c557eef3e44083bc3f50a7def74, type: 2}
+    _nameSO: DKO Status Active Other Camera
+  - _objectSO: {fileID: 11400000, guid: 38ed79d58e9f2d344bebbe1cec97e30b, type: 2}
+    _nameSO: MBS_DKO Local
+  - _objectSO: {fileID: 11400000, guid: c8272c13d80978b429b401222d1fb35b, type: 2}
+    _nameSO: DKO GetI nfo UI Panel Parent Game Obj Loader Task UI
   - _objectSO: {fileID: 11400000, guid: 274982f8747edf046ad058ad4540b868, type: 2}
     _nameSO: MBS_DKO Scene Addressable
+  - _objectSO: {fileID: 11400000, guid: b135963d89bd11047ae5eb61792c669a, type: 2}
+    _nameSO: SO Storage Key GM (Local)
   - _objectSO: {fileID: 11400000, guid: afd83ff7bb0f203458d38ef2b3abbaac, type: 2}
     _nameSO: SO_Data_Name Scene Local
+  - _objectSO: {fileID: 11400000, guid: fcb006b479c3f80488ff63e8ab93fb35, type: 2}
+    _nameSO: SO_Data_Name Scene Reference Scene Local
   - _objectSO: {fileID: 11400000, guid: 15be4774f8ff1804ea07a96d685f3793, type: 2}
     _nameSO: MBS_DKO Remote
   - _objectSO: {fileID: 11400000, guid: 03eefb16683569543a1ad88862a1ffc4, type: 2}
@@ -65,6 +73,8 @@ MonoBehaviour:
     _nameSO: Example TGS SO DKO Storage Task
   - _objectSO: {fileID: 11400000, guid: 30a4fe48fed7e4444987a7db233073de, type: 2}
     _nameSO: Example TGS SO_Data_TSG_Key Task Data
+  - _objectSO: {fileID: 11400000, guid: f510f0a4f4614fb48b07f0fd21c97a16, type: 2}
+    _nameSO: DKO Storage Task Loader
   - _objectSO: {fileID: 11400000, guid: f981e88ec28dfea438e4998b9eab19f9, type: 2}
     _nameSO: DKO Task Panel UI
   - _objectSO: {fileID: 11400000, guid: 2e695e6fa82ba5345af8236f7e33688d, type: 2}
@@ -83,9 +93,3 @@ MonoBehaviour:
     _nameSO: Example SO_Data_TSG_Key Task Data UI Panel
   - _objectSO: {fileID: 11400000, guid: 94f7d92568703274dafe2b849ab5339f, type: 2}
     _nameSO: New SO_Data_Name Scene
-  - _objectSO: {fileID: 11400000, guid: f510f0a4f4614fb48b07f0fd21c97a16, type: 2}
-    _nameSO: DKO Storage Task Loader
-  - _objectSO: {fileID: 11400000, guid: c8272c13d80978b429b401222d1fb35b, type: 2}
-    _nameSO: DKO GetI nfo UI Panel Parent Game Obj Loader Task UI
-  - _objectSO: {fileID: 11400000, guid: b135963d89bd11047ae5eb61792c669a, type: 2}
-    _nameSO: SO Storage Key GM (Local)

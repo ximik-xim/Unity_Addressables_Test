@@ -1,7 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class GetKeyNameSceneDef : AbsGetStorageKeyNameScene
+public class GetKeyNameSceneStorageNameScene : AbsGetStorageKeyNameScene
 {
     public override bool IsInit => true;
     public override event Action OnInit;
@@ -14,8 +15,8 @@ public class GetKeyNameSceneDef : AbsGetStorageKeyNameScene
         OnInit?.Invoke();
     }
 
-    public override SO_Data_NameScene GetData()
+    public override List<KeyNameScene> GetData()
     {
-        return _storage;
+        return _storage.GetAllData();
     }
 }

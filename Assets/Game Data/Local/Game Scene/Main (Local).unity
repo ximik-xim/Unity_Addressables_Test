@@ -773,6 +773,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &314606334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314606336}
+  - component: {fileID: 314606335}
+  m_Layer: 0
+  m_Name: Storage Key Scene Name And Prefab UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &314606335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314606334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273a08ed5cb2bf2418e73414584dceca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneName: {fileID: 309596936}
+  _fabricPrefabUI: {fileID: 1511761400}
+  _getKeyDestroyObj:
+    _dataSO: {fileID: 11400000, guid: 78430fa33a213e64398101f22b69ad8d, type: 2}
+    _selectIndif: {fileID: 11400000, guid: aa7382935f7ff96468bcc60d6596a579, type: 2}
+    _error:
+      Enable: 0
+      TextError: 
+      MessageType: 0
+--- !u!4 &314606336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314606334}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &354214460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,7 +2880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b59c7c52d633b34985a6188dfd5e352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defPrefabUI: {fileID: 5513903487914292950, guid: 289cbccc16c1a9a458ada87adc41974e, type: 3}
+  _defPrefabUI: {fileID: 8545083907066949083, guid: 289cbccc16c1a9a458ada87adc41974e, type: 3}
   _keyException: []
 --- !u!4 &1201427934
 Transform:
@@ -3648,7 +3701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e8cdaba58d34f44a113e3a10078584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneLevel: {fileID: 309596936}
   _storagePrefabUI: {fileID: 1201427933}
   _parent: {fileID: 821973053}
 --- !u!4 &1511761401
@@ -5213,9 +5265,10 @@ SceneRoots:
   - {fileID: 1305146814}
   - {fileID: 692219167}
   - {fileID: 1257887209}
-  - {fileID: 1201427934}
   - {fileID: 309596937}
+  - {fileID: 314606336}
   - {fileID: 1511761401}
+  - {fileID: 1201427934}
   - {fileID: 354214462}
   - {fileID: 2036868899}
   - {fileID: 686076299}

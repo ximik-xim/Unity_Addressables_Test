@@ -44,6 +44,11 @@ public class ButtonSceneLoaderNameDefault : MonoBehaviour
         _button.onClick.AddListener(ButtonClick);
     }
 
+    public void SetNameScene(string sceneName)
+    {
+        _nameScene = sceneName;
+    }
+    
     private void ButtonClick()
     {
         _sceneLoader.LoadScene(_nameScene);

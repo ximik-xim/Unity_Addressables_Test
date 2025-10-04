@@ -1,6 +1,10 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Нужен для удобной работы с выбором хранилещ
+/// из которых буду брать список сцен
+/// </summary>
 public class ControllerAddScene : AbsControllerAddScene
 {
     public override bool IsInit => _isInit;

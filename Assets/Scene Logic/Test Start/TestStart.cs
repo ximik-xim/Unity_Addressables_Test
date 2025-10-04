@@ -5,10 +5,10 @@ using UnityEngine;
 public class TestStart : MonoBehaviour
 {
    [SerializeField] 
-   private ControllerAddScene _controllerAddScene;
+   private AbsControllerAddScene _controllerAddScene;
    
    [SerializeField] 
-   private CreatorPrefabUI _creatorPrefabUI;
+   private FabricPrefabUI _creatorPrefabUI;
 
    private void Awake()
    {
@@ -48,7 +48,7 @@ public class TestStart : MonoBehaviour
       if (_controllerAddScene.IsInit == true && _creatorPrefabUI.IsInit == true)
       {
          _controllerAddScene.StartAddScene();
-         _creatorPrefabUI.StartCreateUI();
+         
       }
    }
 }

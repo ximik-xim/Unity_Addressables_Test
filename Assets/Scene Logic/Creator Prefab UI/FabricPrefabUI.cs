@@ -2,17 +2,14 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// Он будет получать список сцен(уровней) которые нужно добавить
-/// И затем каждой сцене будет создовать UI (используя как ключ имя этой сцены)
+/// Создает экземпляр префаба SceneUI на сцене
+/// и указываем этому экземпляру родителя
 /// </summary>
-public class CreatorPrefabUI : MonoBehaviour
+public class FabricPrefabUI : MonoBehaviour
 {
     public bool IsInit => _isInit;
     private bool _isInit = false;
     public event Action OnInit;
-    
-    [SerializeField] 
-    private StorageSceneName _sceneLevel;
 
     [SerializeField] 
     private KeyStoragePrefabSceneUI _storagePrefabUI;
@@ -27,7 +24,7 @@ public class CreatorPrefabUI : MonoBehaviour
         {
             _storagePrefabUI.OnInit += OnInitStoragePrefabSceneUI;
         }
-
+    
         CheckInit();
     }
     
@@ -48,19 +45,12 @@ public class CreatorPrefabUI : MonoBehaviour
             OnInit?.Invoke();
         }
     }
-    
-    public void StartCreateUI()
-    {
-        //получ. список сцен
-        var listScene = _sceneLevel.GetAllScene();
 
-        foreach (var VARIABLE in listScene)
-        {
-            var prefabUI = _storagePrefabUI.GetPrefabUI(VARIABLE);
-            var example = Instantiate(prefabUI, _parent.transform);
-            
-            example.SetNameScene(VARIABLE);
-        }
-        
+    public AbsSceneUI CreatePrefabUI(KeyNameScene key)
+    {
+        var prefabUI = _storagePrefabUI.GetPrefabUI(key);
+        var example = Instantiate(prefabUI, _parent.transform);
+
+        return example;
     }
 }

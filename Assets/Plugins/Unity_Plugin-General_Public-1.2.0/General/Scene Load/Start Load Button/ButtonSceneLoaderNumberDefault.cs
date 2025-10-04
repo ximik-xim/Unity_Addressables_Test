@@ -42,6 +42,11 @@ public class ButtonSceneLoaderNumberDefault : MonoBehaviour
     {
         _button.onClick.AddListener(ButtonClick);
     }
+    
+    public void SetNameScene(int sceneNumber)
+    {
+        _numberScene = sceneNumber;
+    }
 
     private void ButtonClick()
     {

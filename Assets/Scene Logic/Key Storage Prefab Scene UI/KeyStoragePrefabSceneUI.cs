@@ -12,12 +12,12 @@ public class KeyStoragePrefabSceneUI : MonoBehaviour
     private bool _isInit = false;
     
     [SerializeField] 
-    private SceneUI _defPrefabUI;
+    private AbsSceneUI _defPrefabUI;
 
     [SerializeField] 
-    private List<AbsKeyData<GetDataSO_NameScene, SceneUI>> _keyException;
+    private List<AbsKeyData<GetDataSO_NameScene, AbsSceneUI>> _keyException;
 
-    private Dictionary<string, SceneUI> _exceptionData = new Dictionary<string, SceneUI>();
+    private Dictionary<string, AbsSceneUI> _exceptionData = new Dictionary<string, AbsSceneUI>();
 
 
     private void Awake()
@@ -31,7 +31,7 @@ public class KeyStoragePrefabSceneUI : MonoBehaviour
         OnInit?.Invoke();
     }
 
-    public SceneUI GetPrefabUI(KeyNameScene key)
+    public AbsSceneUI GetPrefabUI(KeyNameScene key)
     {
         if (_exceptionData.ContainsKey(key.GetKey()) == true)
         {

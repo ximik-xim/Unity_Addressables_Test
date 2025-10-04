@@ -15,20 +15,41 @@ public class KeyStoragePrefabSceneUI : MonoBehaviour
     private AbsSceneUI _defPrefabUI;
 
     [SerializeField] 
-    private List<AbsKeyData<GetDataSO_NameScene, AbsSceneUI>> _keyException;
+    private AbsExceptionsListInKeyStoragePrefabSceneUI _keyException;
 
     private Dictionary<string, AbsSceneUI> _exceptionData = new Dictionary<string, AbsSceneUI>();
 
-
     private void Awake()
     {
-        foreach (var VARIABLE in _keyException)
+        if (_keyException.IsInit == false)
         {
-            _exceptionData.Add(VARIABLE.Key.GetData().GetKey(), VARIABLE.Data);
+            _keyException.OnInit += OnInitListExceptions;
         }
 
-        _isInit = true;
-        OnInit?.Invoke();
+        CheckInit();
+    }
+
+    private void OnInitListExceptions()
+    {
+        if (_keyException.IsInit == true)
+        {
+            _keyException.OnInit -= OnInitListExceptions;
+            CheckInit();
+        }
+    }
+
+    private void CheckInit()
+    {
+        if (_keyException.IsInit == true)
+        {
+            foreach (var VARIABLE in _keyException.GetListExceptions())
+            {
+                _exceptionData.Add(VARIABLE.Key.GetKey(), VARIABLE.Data);
+            }
+
+            _isInit = true;
+            OnInit?.Invoke();
+        }
     }
 
     public AbsSceneUI GetPrefabUI(KeyNameScene key)

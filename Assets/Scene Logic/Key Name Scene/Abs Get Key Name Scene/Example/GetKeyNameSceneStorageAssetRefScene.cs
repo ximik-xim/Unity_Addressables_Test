@@ -26,13 +26,13 @@ public class GetKeyNameSceneStorageAssetRefScene : AbsGetStorageKeyNameScene
     [SerializeField]
     private List<AbsKeyData<GetDataSO_KeyReferenceScene, string>> _listExceptions = new List<AbsKeyData<GetDataSO_KeyReferenceScene, string>>();
     private Dictionary<object, string> _exceptionsData = new Dictionary<object, string>();
-    
+
     /// <summary>
-    /// Сериализован только для тестов
+    /// Сериализоан для тестов
     /// </summary>
     [SerializeField]
     private List<KeyNameScene> _listKeyScene;
-
+    
     private void Awake()
     {
         foreach (var VARIABLE in _listExceptions)
@@ -45,6 +45,11 @@ public class GetKeyNameSceneStorageAssetRefScene : AbsGetStorageKeyNameScene
 
 
         List<AsyncOperationHandle<IList<IResourceLocation>>> listCallback = new List<AsyncOperationHandle<IList<IResourceLocation>>>();
+
+        //нужен для сохранения порядкового номера(костыль)
+        List<AsyncOperationHandle<IList<IResourceLocation>>> listCallback2 = new List<AsyncOperationHandle<IList<IResourceLocation>>>();
+        
+        
         bool _isStart = false;
 
         StartLogic();
@@ -61,21 +66,13 @@ public class GetKeyNameSceneStorageAssetRefScene : AbsGetStorageKeyNameScene
                 {
                     //то логика опр. ключа для неё стандартная
                     var callback = Addressables.LoadResourceLocationsAsync(listKey[i].GetRefScene().RuntimeKey);
+                    listCallback2.Add(callback);
                     
                     if (callback.IsDone == false)
                     {
                         listCallback.Add(callback);
                         callback.Completed += CheckCompletedCallback;
                     }
-                    else
-                    {
-                        _listKeyScene.Add(new KeyNameScene(callback.Result[0].PrimaryKey));
-                    }
-                }
-                else
-                {
-                    // иначе, беру указ в инспекторе ключ
-                    _listKeyScene.Add(new KeyNameScene(_exceptionsData[listKey[i].GetRefScene().RuntimeKey]));
                 }
             }
 
@@ -98,8 +95,6 @@ public class GetKeyNameSceneStorageAssetRefScene : AbsGetStorageKeyNameScene
                 {
                     if (listCallback[i].IsDone == true)
                     {
-                        _listKeyScene.Add(new KeyNameScene(listCallback[i].Result[0].PrimaryKey));
-
                         listCallback[i].Completed -= CheckCompletedCallback;
                         listCallback.RemoveAt(i);
                         i--;
@@ -113,13 +108,41 @@ public class GetKeyNameSceneStorageAssetRefScene : AbsGetStorageKeyNameScene
                 }
             }
         }
+
+        void Completed()
+        {
+       
+            List<KeyNameScene> listKeyScene = new List<KeyNameScene>();
+                ю
+            //что бы сохранить порядковый номер, пришлось немного покостылить,
+            //добавить список callback что бы сохранить очередность
+            //и дважды проверять исключения
+            //ПОТОМ ПОДУМАТЬ КАК ЛУЧШЕ СДЕЛАТЬ
+            int num = 0;
+            for (int i = 0; i < listKey.Count; i++)
+            {
+                //если эта ссылка на сцену не наход в списке исключ
+                if (_exceptionsData.ContainsKey(listKey[i].GetRefScene().RuntimeKey) == false)
+                {
+                    listKeyScene.Add(new KeyNameScene(listCallback2[num].Result[0].PrimaryKey));
+                    num++;
+                }
+                else
+                {
+                    // иначе, беру указ в инспекторе ключ
+                    listKeyScene.Add(new KeyNameScene(_exceptionsData[listKey[i].GetRefScene().RuntimeKey]));
+                }
+            }
+
+
+            _listKeyScene = listKeyScene;
+            
+            _isInit = true;
+            OnInit?.Invoke();
+        }
     }
 
-    private void Completed()
-    {
-        _isInit = true;
-        OnInit?.Invoke();
-    }
+  
     
     public override List<KeyNameScene> GetData()
     {

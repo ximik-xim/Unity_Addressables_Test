@@ -19,7 +19,31 @@ public class TestStart : MonoBehaviour
    [SerializeField] 
    private FabricPrefabUI _creatorPrefabUI;
 
-   private void Start()
+   [SerializeField]
+   private SceneStartTask _sceneStartTask;
+
+   private void Awake()
+   {
+      if (_sceneStartTask.IsInit == false)
+      {
+         _sceneStartTask.OnInit += OnInitSceneTask;
+      }
+      else
+      {
+         InitSceneTask();
+      }
+   }
+
+   private void OnInitSceneTask()
+   {
+      if (_sceneStartTask.IsInit == true)
+      {
+         _sceneStartTask.OnInit -= OnInitSceneTask;
+         InitSceneTask();
+      }
+   }
+
+   private void InitSceneTask()
    {
       if (_controllerAddScene.IsInit == false)
       {
@@ -61,9 +85,7 @@ public class TestStart : MonoBehaviour
          //получ. отсортир. по порядку список сцен
          listKeyScene = _logicSortingSceneLevel.SortingNumberScene(listKeyScene, 1);
          
-            ю
-         //уст порядковый номер(и тут вопрос ТУТ ли это делать или сделать подписку на метод ADD)?
-         //Для тестов пока пусть тут будет, но потом наверное в подписку это сделаю(а может быть и нет, т.к в теор. подписка не успеет отраб, а значит номер должна быть проставлена заранее, крч надо думать)
+         //Да, его нужно вручную отдельно уст. т.к надо знать под каким поряд. номером должна наход сцена
          _storageSceneNumber.SetNumberScene(listKeyScene);
          
          //Добавляю в хран сцены 

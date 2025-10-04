@@ -113,11 +113,10 @@ public class GetKeyNameSceneStorageAssetRefScene : AbsGetStorageKeyNameScene
         {
        
             List<KeyNameScene> listKeyScene = new List<KeyNameScene>();
-                ю
+                
             //что бы сохранить порядковый номер, пришлось немного покостылить,
             //добавить список callback что бы сохранить очередность
             //и дважды проверять исключения
-            //ПОТОМ ПОДУМАТЬ КАК ЛУЧШЕ СДЕЛАТЬ
             int num = 0;
             for (int i = 0; i < listKey.Count; i++)
             {

@@ -20,6 +20,13 @@ public class CopyKeySceneMBS_DKO : MonoBehaviour
     
     [SerializeField]
     private StorageTypeLog _storageTypeLog;
+
+    /// <summary>
+    /// Удалять ли скопированные ключ, при уничтожении этой Task
+    /// </summary>
+    [SerializeField]
+    private bool _deletedCopyKeyDestroy = false;
+    
     public event Action<AbsKeyData<KeyTaskLoaderTypeLog, string>> OnAddLogData;
     
     private void Awake()
@@ -81,5 +88,23 @@ public class CopyKeySceneMBS_DKO : MonoBehaviour
     {
         var logData = new AbsKeyData<KeyTaskLoaderTypeLog, string>(keyLog, text);
         OnAddLogData?.Invoke(logData);
+    }
+
+    private void OnDestroy()
+    {
+        if (_deletedCopyKeyDestroy == true)
+        {
+            if (_findMbsDkoDontDestroy.Init == true && _sceneMbsDko.IsInit == true)
+            {
+                DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Удаляю ранее скопированные ключи из Scene MBS DKO в Dont Destroy MBS DKO");
+            
+                var copyData = _sceneMbsDko.GetCopyData();
+
+                foreach (var VARIABLE in copyData)
+                {
+                    _findMbsDkoDontDestroy.GetDontDestroyMbsDko.RemoveDKO(VARIABLE.Key);
+                }
+            }
+        }
     }
 }

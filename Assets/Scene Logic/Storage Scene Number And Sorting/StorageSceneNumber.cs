@@ -60,7 +60,27 @@ public class StorageSceneNumber : MonoBehaviour
         
         OnUpdateData?.Invoke();
     }
+
+    /// <summary>
+    /// Вернет текущий список ключей и номеров сцен к ним
+    /// </summary>
+    /// <returns></returns>
+    public List<AbsKeyData<KeyNameScene, int>> GetCurrentNumberData()
+    {
+        List<AbsKeyData<KeyNameScene, int>> listData = new List<AbsKeyData<KeyNameScene, int>>();
+        foreach (var VARIABLE in _dataNumberScene.Keys)
+        {
+            var data = new AbsKeyData<KeyNameScene, int>(new KeyNameScene(VARIABLE), _dataNumberScene[VARIABLE]);
+            listData.Add(data);
+        }
+
+        return listData;
+    }
     
+    public bool ContainNumberScene(KeyNameScene keyNameScene)
+    {
+        return _dataNumberScene.ContainsKey(keyNameScene.GetKey());
+    }
     
     public int GetNumberScene(KeyNameScene keyNameScene)
     {

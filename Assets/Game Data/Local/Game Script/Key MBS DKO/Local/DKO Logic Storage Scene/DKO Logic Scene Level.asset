@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9740cfd502222fc49892fd9d1ddf4325, type: 3}
+  m_Name: DKO Logic Scene Level
+  m_EditorClassIdentifier: 
+  _nameSO: DKO Logic Storage Scene
+  _setName: 1
+  _saveBackupChangeData: 1
+  _list:
+  - _identifierData: {fileID: 11400000, guid: 2a4c394f1f977b24f8a31f93131bfdd5, type: 2}
+    _dataKey:
+      key: "\u0425\u0440\u0430\u043D\u0438\u043B\u0435\u0449\u0435 \u0441 \u043D\u0443\u043C\u0435\u0440\u0430\u0446\u0438\u0435\u0439
+        \u0441\u0446\u0435\u043D"
+  _fatalError:
+    Enable: 0
+    TextError: 
+    MessageType: 3
+  _error:
+    Enable: 0
+    TextError: 
+    MessageType: 2

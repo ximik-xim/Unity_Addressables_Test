@@ -68,6 +68,7 @@ public class StorageKeySceneNameAndPrefabUI : MonoBehaviour
     public void AddScene(KeyNameScene keyNameScene)
     {
         var prefab= _fabricPrefabUI.CreatePrefabUI(keyNameScene);
+        prefab.SetNameScene(keyNameScene);
         
         _scenes.Add(keyNameScene.GetKey(), prefab.GetSceneUIDKO());
     }

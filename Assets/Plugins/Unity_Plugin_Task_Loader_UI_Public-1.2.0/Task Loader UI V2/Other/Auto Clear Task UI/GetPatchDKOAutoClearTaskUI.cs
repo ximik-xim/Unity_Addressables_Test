@@ -14,6 +14,9 @@ public class GetPatchDKOAutoClearTaskUI : MonoBehaviour
     [SerializeField]
     private GetDataSODataDKODataKey _keyGetDestroy;
 
+    [SerializeField]
+    private bool _isActive = true;
+    
     private void Awake()
     {
         if (_getDkoPatchStorageTaskLoader.Init == false)
@@ -66,21 +69,29 @@ public class GetPatchDKOAutoClearTaskUI : MonoBehaviour
 
     private void OnCompleted()
     {
-        var listTask = _storageDkoTaskLoaderUI.GetAllTask();
-
-        int maxCount = listTask.Count;
-        for (int i = 0; i < maxCount; i++)
+        if (_isActive == true)
         {
-            var data = (DKODataInfoT<LogicDestroyTaskUI>)listTask[i].KeyRun(_keyGetDestroy.GetData());
-            LogicDestroyTaskUI logicDestroyTaskUI = data.Data;
+            var listTask = _storageDkoTaskLoaderUI.GetAllTask();
+
+            int maxCount = listTask.Count;
+            for (int i = 0; i < maxCount; i++)
+            {
+                var data = (DKODataInfoT<LogicDestroyTaskUI>)listTask[i].KeyRun(_keyGetDestroy.GetData());
+                LogicDestroyTaskUI logicDestroyTaskUI = data.Data;
             
-            _storageDkoTaskLoaderUI.RemoveTaskUI(listTask[i]);
+                _storageDkoTaskLoaderUI.RemoveTaskUI(listTask[i]);
             
-            logicDestroyTaskUI.StartDestroyObject();
+                logicDestroyTaskUI.StartDestroyObject();
             
-            i--;
-            maxCount--;
+                i--;
+                maxCount--;
+            }
         }
+    }
+
+    public void SetActiveLogic(bool activeAutoClear)
+    {
+        _isActive = activeAutoClear;
     }
 
     private void OnDestroy()

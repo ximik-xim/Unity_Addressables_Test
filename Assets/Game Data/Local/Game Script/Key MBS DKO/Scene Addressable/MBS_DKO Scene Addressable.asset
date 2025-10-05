@@ -22,6 +22,9 @@ MonoBehaviour:
   - _identifierData: {fileID: 11400000, guid: 37608d1f07b94794d832e0cf04bb126e, type: 2}
     dataKeyDKO:
       _key: "DKO UI \u041F\u0430\u043D\u0435\u043B\u044C Loader UI Task"
+  - _identifierData: {fileID: 11400000, guid: bc3031c3ccbc09c44a763a3221ac86b1, type: 2}
+    dataKeyDKO:
+      _key: "DKO \u0441\u043A\u0440\u043F\u0438\u0442 \u043B\u043E\u0433\u0433\u0435\u0440\u0430"
   _fatalError:
     Enable: 0
     TextError: 

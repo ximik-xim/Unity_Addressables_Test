@@ -101,3 +101,7 @@ MonoBehaviour:
     _nameSO: DKO Storage Block Scene
   - _objectSO: {fileID: 11400000, guid: b1d9b5b4940d5224e8418e0f24bcab37, type: 2}
     _nameSO: SO SD Key Storage String Variable Prefs Local
+  - _objectSO: {fileID: 11400000, guid: fa56c67b9f9625b45a4a579f645b1d27, type: 2}
+    _nameSO: DKO Input Console Code
+  - _objectSO: {fileID: 11400000, guid: 336586d6c757d784b938c2f75300c21f, type: 2}
+    _nameSO: DKO Debug Log Manager

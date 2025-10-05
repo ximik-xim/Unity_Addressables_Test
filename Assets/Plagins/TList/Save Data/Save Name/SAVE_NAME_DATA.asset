@@ -97,3 +97,7 @@ MonoBehaviour:
     _nameSO: DKO Prefab Scene UI
   - _objectSO: {fileID: 11400000, guid: 6b1b464ce3b2cbc43b442c166cb46751, type: 2}
     _nameSO: DKO Logic Storage Scene
+  - _objectSO: {fileID: 11400000, guid: ae39f11c52f92a84c8124a6bbd3aaa75, type: 2}
+    _nameSO: DKO Storage Block Scene
+  - _objectSO: {fileID: 11400000, guid: b1d9b5b4940d5224e8418e0f24bcab37, type: 2}
+    _nameSO: SO SD Key Storage String Variable Prefs Local

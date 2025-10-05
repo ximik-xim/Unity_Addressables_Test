@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 public class AbsKeyData<K,D> 
 {
@@ -7,6 +9,9 @@ public class AbsKeyData<K,D>
         Data = data;
     }
 
+    [SerializeField]
     public K Key;
+    
+    [SerializeField]
     public D Data;
 }

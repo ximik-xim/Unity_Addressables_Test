@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonDevelopPanelOpenAndCloseStorageTaskLoaderUI : MonoBehaviour
+public class ToggleDevelopPanelOpenAndCloseStorageTaskLoaderUI : MonoBehaviour
 {
     [SerializeField]
-    private Button _button;
+    private Toggle _toggle;
 
     private StorageTaskLoaderUI _storageTaskLoaderPanelUI;
 
@@ -37,13 +37,25 @@ public class ButtonDevelopPanelOpenAndCloseStorageTaskLoaderUI : MonoBehaviour
         if (_patchStorageTaskLoaderPanelUI.Init == true)
         {
             _storageTaskLoaderPanelUI = _patchStorageTaskLoaderPanelUI.GetDKO<DKODataInfoT<StorageTaskLoaderUI>>().Data;
-            _button.onClick.AddListener(ButtonClick);
+
+            _storageTaskLoaderPanelUI.OnUpdateStatusOpen += OnUpdateStatusOpen;
+            OnUpdateStatusOpen();
+            
+            _toggle.onValueChanged.AddListener(ToggleClick);
         }
     }
 
-    private void ButtonClick()
+    private void OnUpdateStatusOpen()
     {
-        if (_isOpen == true) 
+        if (_toggle.isOn != _storageTaskLoaderPanelUI.IsOpen)
+        {
+            _toggle.SetIsOnWithoutNotify(_storageTaskLoaderPanelUI.IsOpen);    
+        }
+    }
+
+    private void ToggleClick(bool isOn)
+    {
+        if (isOn == true) 
         {
             _storageTaskLoaderPanelUI.Open();    
         }
@@ -55,6 +67,11 @@ public class ButtonDevelopPanelOpenAndCloseStorageTaskLoaderUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        _button.onClick.RemoveListener(ButtonClick);  
+        _toggle.onValueChanged.RemoveListener(ToggleClick);
+
+        if (_storageTaskLoaderPanelUI != null) 
+        {
+            _storageTaskLoaderPanelUI.OnUpdateStatusOpen -= OnUpdateStatusOpen;
+        }
     }
 }

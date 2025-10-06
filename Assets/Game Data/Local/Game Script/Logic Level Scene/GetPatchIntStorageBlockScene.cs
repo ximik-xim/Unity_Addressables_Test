@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -69,5 +70,10 @@ public class GetPatchIntStorageBlockScene : MonoBehaviour
     public void SetStatus(KeyNameScene keyNameScene, bool isBlock)
     {
         _storageBlockScene.SetStatusBlock(keyNameScene, isBlock);
+    }
+    
+    public void SetStatus(List<AbsKeyData<KeyNameScene, bool>> data)
+    {
+        _storageBlockScene.SetStatusBlock(data);
     }
 }

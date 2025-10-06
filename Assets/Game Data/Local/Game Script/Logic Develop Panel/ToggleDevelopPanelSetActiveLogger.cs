@@ -3,15 +3,12 @@ using IngameDebugConsole;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonDevelopPanelSetActiveLogger : MonoBehaviour
+public class ToggleDevelopPanelSetActiveLogger : MonoBehaviour
 {
    [SerializeField]
-   private Button _button;
+   private Toggle _toggle;
 
    private DebugLogManager _logger;
-
-   [SerializeField]
-   private bool _isActiveGm;
    
    [SerializeField]
    private GetDKOPatch _getDkoPatchLogger;
@@ -39,17 +36,20 @@ public class ButtonDevelopPanelSetActiveLogger : MonoBehaviour
       if (_getDkoPatchLogger.Init == true)  
       {
          _logger = _getDkoPatchLogger.GetDKO<DKODataInfoT<DebugLogManager>>().Data;
-         _button.onClick.AddListener(ButtonClick);
+         
+         _toggle.SetIsOnWithoutNotify(_logger.gameObject.activeSelf);
+         
+         _toggle.onValueChanged.AddListener(ToggleClick);
       }
    }
 
-   private void ButtonClick()
+   private void ToggleClick(bool isOn)
    {
-      _logger.gameObject.SetActive(_isActiveGm);   
+      _logger.gameObject.SetActive(isOn);   
    }
-
+   
    private void OnDestroy()
    {
-      _button.onClick.RemoveListener(ButtonClick);  
+      _toggle.onValueChanged.RemoveListener(ToggleClick);
    }
 }

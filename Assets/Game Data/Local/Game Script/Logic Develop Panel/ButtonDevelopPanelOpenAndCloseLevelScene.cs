@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -75,18 +76,27 @@ public class ButtonDevelopPanelOpenAndCloseLevelScene : MonoBehaviour
     {
         if (_allOpen == true) 
         {
-            foreach (var VARIABLE in _storageAbsGetKeyScene.GetAllKeyScene())
+            var listSceneName = _storageAbsGetKeyScene.GetAllKeyScene();
+
+            List<AbsKeyData<KeyNameScene, bool>> listData = new List<AbsKeyData<KeyNameScene, bool>>();
+            foreach (var VARIABLE in listSceneName)
             {
-                _storageBlockScene.SetStatusBlock(VARIABLE, false);
+                listData.Add(new AbsKeyData<KeyNameScene, bool>(VARIABLE, false));
             }
-    
+         
+            _storageBlockScene.SetStatusBlock(listData);
         }
         else
         {
-            foreach (var VARIABLE in _storageAbsGetKeyScene.GetAllKeyScene())
+            var listSceneName = _storageAbsGetKeyScene.GetAllKeyScene();
+            
+            List<AbsKeyData<KeyNameScene, bool>> listData = new List<AbsKeyData<KeyNameScene, bool>>();
+            foreach (var VARIABLE in listSceneName)
             {
-                _storageBlockScene.SetStatusBlock(VARIABLE, true);
+                listData.Add(new AbsKeyData<KeyNameScene, bool>(VARIABLE, true));
             }
+            
+            _storageBlockScene.SetStatusBlock(listData);
         }
     }
 

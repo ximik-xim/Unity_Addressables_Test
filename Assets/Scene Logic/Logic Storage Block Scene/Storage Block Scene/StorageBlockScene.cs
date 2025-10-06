@@ -113,6 +113,37 @@ public class StorageBlockScene : MonoBehaviour
         OnUpdateData?.Invoke();
     }
 
+    public void SetStatusBlock(List<AbsKeyData<KeyNameScene, bool>> data)
+    {
+        foreach (var VARIABLE in data)
+        {
+            if (_blockList.ContainsKey(VARIABLE.Key.GetKey()) == false)
+            {
+                _blockList.Add(VARIABLE.Key.GetKey(), VARIABLE.Data);
+#if UNITY_EDITOR
+                _visibleData.Add(new AbsKeyData<string, bool>(VARIABLE.Key.GetKey(), VARIABLE.Data));
+#endif
+            }
+            else
+            {
+#if UNITY_EDITOR
+                foreach (var VARIABLE2 in _visibleData)
+                {
+                    if (VARIABLE2.Key == VARIABLE.Key.GetKey())
+                    {
+                        VARIABLE2.Data = VARIABLE.Data;
+                    }
+                }
+#endif
+                _blockList[VARIABLE.Key.GetKey()] = VARIABLE.Data;
+            }
+        }
+        
+        SaveData();
+
+        OnUpdateData?.Invoke();
+    }
+
     public bool GetIsBlock(KeyNameScene keyNameScene)
     {
         if (_blockList.ContainsKey(keyNameScene.GetKey()) == true)

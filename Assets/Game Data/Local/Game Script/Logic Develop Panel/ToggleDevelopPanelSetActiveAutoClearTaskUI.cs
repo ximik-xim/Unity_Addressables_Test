@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonDevelopPanelSetActiveAutoClearTaskUI : MonoBehaviour
+public class ToggleDevelopPanelSetActiveAutoClearTaskUI : MonoBehaviour
 {
     [SerializeField]
-    private Button _button;
+    private Toggle _toggle;
 
     private GetPatchDKOAutoClearTaskUI _logicAutoClearTaskUI;
 
@@ -37,17 +37,34 @@ public class ButtonDevelopPanelSetActiveAutoClearTaskUI : MonoBehaviour
         if (_getDkoPatchLogger.Init == true)  
         {
             _logicAutoClearTaskUI = _getDkoPatchLogger.GetDKO<DKODataInfoT<GetPatchDKOAutoClearTaskUI>>().Data;
-            _button.onClick.AddListener(ButtonClick);
+            
+            _logicAutoClearTaskUI.OnUpdateStatusActive += OnUpdateStatusActive;
+            OnUpdateStatusActive();
+            
+            _toggle.onValueChanged.AddListener(ToggleClick);
         }
     }
 
-    private void ButtonClick()
+    private void OnUpdateStatusActive()
     {
-        _logicAutoClearTaskUI.SetActiveLogic(_isActiveAutoClear);   
+        if (_toggle.isOn != _logicAutoClearTaskUI.IsActive)
+        {
+            _toggle.SetIsOnWithoutNotify(_logicAutoClearTaskUI.IsActive);    
+        }
     }
-
+    
+    private void ToggleClick(bool isOn)
+    {
+        _logicAutoClearTaskUI.SetActiveLogic(isOn);   
+    }
+    
     private void OnDestroy()
     {
-        _button.onClick.RemoveListener(ButtonClick);  
+        _toggle.onValueChanged.RemoveListener(ToggleClick);
+
+        if (_logicAutoClearTaskUI != null) 
+        {
+            _logicAutoClearTaskUI.OnUpdateStatusActive -= OnUpdateStatusActive;
+        }
     }
 }

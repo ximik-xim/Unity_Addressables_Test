@@ -323,7 +323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183486585606435273, guid: 0c99c00f55a5bf54a959bc3014bb3c6a, type: 3}
       propertyPath: m_Name
-      value: Task Load Scene Menu
+      value: Task Load Scene
       objectReference: {fileID: 0}
     - target: {fileID: 3422727487822405869, guid: 0c99c00f55a5bf54a959bc3014bb3c6a, type: 3}
       propertyPath: _data

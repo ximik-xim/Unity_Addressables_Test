@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GetPatchDKOAutoClearTaskUI : MonoBehaviour
@@ -16,6 +17,9 @@ public class GetPatchDKOAutoClearTaskUI : MonoBehaviour
 
     [SerializeField]
     private bool _isActive = true;
+
+    public bool IsActive => _isActive;
+    public event Action OnUpdateStatusActive;
     
     private void Awake()
     {
@@ -92,6 +96,7 @@ public class GetPatchDKOAutoClearTaskUI : MonoBehaviour
     public void SetActiveLogic(bool activeAutoClear)
     {
         _isActive = activeAutoClear;
+        OnUpdateStatusActive?.Invoke();
     }
 
     private void OnDestroy()

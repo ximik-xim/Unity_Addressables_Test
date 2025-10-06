@@ -17,6 +17,10 @@ public class StorageTaskLoaderUI : MonoBehaviour
     [SerializeField] 
     private StorageTaskLoader _taskStorage;
 
+    private bool _isOpen;
+    public bool IsOpen => _isOpen;
+    public event Action OnUpdateStatusOpen;
+    
     private void Awake()
     {
         _taskStorage.OnUpdateGeneralLoadPercentage += OnGeneralUpdateLoadPercentage;
@@ -40,6 +44,9 @@ public class StorageTaskLoaderUI : MonoBehaviour
     {
         _generalTaskPanel.alpha = 1;
         _generalTaskPanel.blocksRaycasts = true;
+        
+        _isOpen = true;
+        OnUpdateStatusOpen?.Invoke();
     }
     
     public void Close()
@@ -47,6 +54,9 @@ public class StorageTaskLoaderUI : MonoBehaviour
         //Тут нельзя отключать, т.к дальше в иерархии идут еще обьекты, к которым нужен доступ
         _generalTaskPanel.alpha = 0f;
         _generalTaskPanel.blocksRaycasts = false;
+
+        _isOpen = false;
+        OnUpdateStatusOpen?.Invoke();
     }
 
     private void OnDestroy()

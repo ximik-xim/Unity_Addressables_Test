@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Нужен что бы установить или снять блокировку с уровня при запуске
+/// При запуске разблокирует(или блокирует) указ сцены
 /// </summary>
-public class AwakeSetStatusBlockLevelScene : MonoBehaviour
+public class TL_TaskSetStatusBlockScene : TL_AbsTaskLogicDKO
 {
+    public override event Action OnInit;
+    public override bool IsInit => _isInit;
+    private bool _isInit = false;
+    
+    public override bool IsCompletedLogic => _isCompletedLogic;
+    private bool _isCompletedLogic = false;
+    public override event Action OnCompletedLogic;
+    
     [SerializeField]
     private GetPatchIntStorageBlockScene _getPatchIntStorageBlockScene;
     
@@ -54,15 +62,26 @@ public class AwakeSetStatusBlockLevelScene : MonoBehaviour
     {
         if (_getPatchIntStorageBlockScene.IsInit == true && _keyScene.IsInit == true)
         {
-            var listSceneName = _keyScene.GetAllKeyScene();
-
-            List<AbsKeyData<KeyNameScene, bool>> listData = new List<AbsKeyData<KeyNameScene, bool>>();
-            foreach (var VARIABLE in listSceneName)
-            {
-                listData.Add(new AbsKeyData<KeyNameScene, bool>(VARIABLE, _isBlock));
-            }
-            
-            _getPatchIntStorageBlockScene.SetStatus(listData);
+            _isInit = true;
+            OnInit?.Invoke();
         }
+    }
+    
+    public override void StartLogic(DKOKeyAndTargetAction dataDKO)
+    {
+        _isCompletedLogic = false;
+
+        var listSceneName = _keyScene.GetAllKeyScene();
+
+        List<AbsKeyData<KeyNameScene, bool>> listData = new List<AbsKeyData<KeyNameScene, bool>>();
+        foreach (var VARIABLE in listSceneName)
+        {
+            listData.Add(new AbsKeyData<KeyNameScene, bool>(VARIABLE, _isBlock));
+        }
+        
+        _getPatchIntStorageBlockScene.SetStatus(listData);
+        
+        _isCompletedLogic = true;
+        OnCompletedLogic?.Invoke();
     }
 }

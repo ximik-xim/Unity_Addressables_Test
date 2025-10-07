@@ -27,6 +27,8 @@ public class ActionListCheckIsBlockSceneLevel : MonoBehaviour
 
     [SerializeField]
     private DKOKeyAndTargetAction _dko;
+
+    private bool _isAutoCheckBlock = true;
     
     private void Awake()
     {
@@ -58,17 +60,26 @@ public class ActionListCheckIsBlockSceneLevel : MonoBehaviour
                 _isInit = true;
                 OnInit?.Invoke();
 
+                SetAutoCheckBlock(_isAutoCheckBlock);
+                
                 StartCheck();
             }
         }
-       
     }
 
     public void SetNameKey(KeyNameScene keyNameScene, bool isAutoCheckBlock = true)
     {
         _keyNameScene = keyNameScene;
-        SetAutoCheckBlock(isAutoCheckBlock);
 
+        if (_getPatchIntStorageBlockScene.IsInit==true)
+        {
+            SetAutoCheckBlock(isAutoCheckBlock);
+        }
+        else
+        {
+            _isAutoCheckBlock = isAutoCheckBlock;
+        }
+        
         CheckInit();
     }
 
@@ -83,6 +94,8 @@ public class ActionListCheckIsBlockSceneLevel : MonoBehaviour
         {
             _getPatchIntStorageBlockScene.GetStorageBlockScene().OnUpdateData -= OnUpdateData;
         }
+
+        _isAutoCheckBlock = isAutoCheckBlock;
     }
 
     private void OnUpdateData()

@@ -1084,10 +1084,10 @@ RectTransform:
   - {fileID: 1350813840}
   m_Father: {fileID: 168471912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 740, y: 1300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &525607824
 MonoBehaviour:
@@ -3288,6 +3288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _storage: {fileID: 11400000, guid: afd83ff7bb0f203458d38ef2b3abbaac, type: 2}
+  _isSaveList: 1
 --- !u!1 &1201427932
 GameObject:
   m_ObjectHideFlags: 0
@@ -5519,6 +5520,7 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_EditorAssetChanged: 1
   _getDataAddressables: {fileID: 1647805767}
+  _isSaveList: 1
 --- !u!4 &2026180747
 Transform:
   m_ObjectHideFlags: 0

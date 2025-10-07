@@ -61,8 +61,8 @@ public class AwakeSetStatusBlockLevelScene : MonoBehaviour
             {
                 listData.Add(new AbsKeyData<KeyNameScene, bool>(VARIABLE, _isBlock));
             }
-            
-            _getPatchIntStorageBlockScene.SetStatus(listData);
+
+            _getPatchIntStorageBlockScene.GetStorageBlockScene().SetStatusBlock(listData);
         }
     }
 }

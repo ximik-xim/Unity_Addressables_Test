@@ -14,6 +14,14 @@ public class GetKeyNameSceneListAssetRefScene : AbsGetStorageKeyNameScene
     private bool _isInit = false;
     public override event Action OnInit;
     
+    /// <summary>
+    /// сохранять ли список ключей(нужно что бы не плодить ненужные ключи по 100 раз) 
+    /// </summary>
+    [SerializeField]
+    private bool _isSaveList = true;
+    
+    private List<KeyNameScene> _listKeyScene;
+    
     private void Awake()
     {
         List<KeyNameSceneInGetDataSO_KeyReferenceScene> _buffer = new List<KeyNameSceneInGetDataSO_KeyReferenceScene>();
@@ -67,20 +75,35 @@ public class GetKeyNameSceneListAssetRefScene : AbsGetStorageKeyNameScene
 
     private void Completed()
     {
+        if (_isSaveList == true) 
+        {
+            _listKeyScene = GetListKey();
+        }
+
+        
         _isInit = true;
         OnInit?.Invoke();
     }
 
-
-    public override List<KeyNameScene> GetData()
+    private List<KeyNameScene> GetListKey()
     {
         List<KeyNameScene> list = new List<KeyNameScene>();
         
         foreach (var VARIABLE in _listKeyNameScene)
         {
-            list.Add(VARIABLE.GetSceneName());
+            list.Add(VARIABLE.GetKeySceneName());
         }
 
         return list;
+    }
+
+    public override List<KeyNameScene> GetData()
+    {
+        if (_isSaveList == false)
+        {
+            return GetListKey();
+        }
+        
+        return _listKeyScene;
     }
 }

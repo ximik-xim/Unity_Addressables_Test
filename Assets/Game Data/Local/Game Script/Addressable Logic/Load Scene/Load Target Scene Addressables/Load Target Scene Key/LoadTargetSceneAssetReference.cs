@@ -27,7 +27,7 @@ public class LoadTargetSceneAssetReference : AbsLoadTargetSceneKey
     private LoadTargetSceneAddressables _loadSceneAddressables;
         
     [SerializeField] 
-    private AssetReference _keyNameScene;
+    private AssetReferenceSceneCustom _keyNameScene;
 
     public override GetServerRequestData<SceneInstance> StartLoadScene()
     {

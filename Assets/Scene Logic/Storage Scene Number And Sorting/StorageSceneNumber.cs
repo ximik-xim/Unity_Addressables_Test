@@ -86,4 +86,35 @@ public class StorageSceneNumber : MonoBehaviour
     {
         return _dataNumberScene[keyNameScene.GetKey()];
     }
+
+    /// <summary>
+    /// Вернет след по номеру сцену, если она есть
+    /// </summary>
+    public KeyNameScene GetNextNumberScene(KeyNameScene keyNameScene)
+    {
+        if (ContainNumberScene(keyNameScene) == true)
+        {
+            int currentNumber = GetNumberScene(keyNameScene);
+            
+            return GetNextNumberScene(currentNumber);
+        }
+        
+        return null;
+    }
+    
+    /// <summary>
+    /// Вернет след по номеру сцену, если она есть
+    /// </summary>
+    public KeyNameScene GetNextNumberScene(int numberScene)
+    {
+        foreach (var VARIABLE in _dataNumberScene.Keys)
+        {
+            if (_dataNumberScene[VARIABLE] > numberScene)
+            {
+                return new KeyNameScene(VARIABLE);
+            }
+        }
+        
+        return null;
+    }
 }

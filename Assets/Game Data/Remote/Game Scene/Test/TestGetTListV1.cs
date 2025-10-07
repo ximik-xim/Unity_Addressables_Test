@@ -10,7 +10,7 @@ public class TestGetTListV1 : MonoBehaviour
     private AbsCallbackGetDataTAddressables _getDataAddressables;
 
     [SerializeField]
-    private GetDataSO_NameScene _dataSoNameScene;
+    private GetDataSO_NameSceneAndKeyString _dataSoNameScene;
     
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class TestGetTListV1 : MonoBehaviour
     private void InitGetData()
     {
         Debug.Log("Послан запрос на получения данных GameObject");
-        var dataCallback = _getDataAddressables.GetData<SO_Data_NameScene>(_key);
+        var dataCallback = _getDataAddressables.GetData<SO_Data_NameSceneAndKeyString>(_key);
 
         if (dataCallback.IsGetDataCompleted == true)
         {

@@ -67,13 +67,9 @@ public class GetPatchIntStorageBlockScene : MonoBehaviour
         OnInit?.Invoke();
     }
 
-    public void SetStatus(KeyNameScene keyNameScene, bool isBlock)
+
+    public StorageBlockScene GetStorageBlockScene()
     {
-        _storageBlockScene.SetStatusBlock(keyNameScene, isBlock);
-    }
-    
-    public void SetStatus(List<AbsKeyData<KeyNameScene, bool>> data)
-    {
-        _storageBlockScene.SetStatusBlock(data);
+        return _storageBlockScene;
     }
 }

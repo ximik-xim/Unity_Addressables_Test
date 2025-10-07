@@ -52,7 +52,7 @@ public class KeyNameSceneInGetDataSO_KeyReferenceScene
        }
    }
 
-   public KeyNameScene GetSceneName()
+   public KeyNameScene GetKeySceneName()
    {
        return _keyNameScene;
    }

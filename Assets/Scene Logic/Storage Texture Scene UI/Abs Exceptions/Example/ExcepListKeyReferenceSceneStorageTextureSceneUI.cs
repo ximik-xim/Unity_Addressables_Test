@@ -74,7 +74,7 @@ public class ExcepListKeyReferenceSceneStorageTextureSceneUI : AbsExceptionsList
             
         foreach (var VARIABLE in _listExceptions)
         {
-            list.Add(new AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>(VARIABLE.Key.GetSceneName(), VARIABLE.Data));
+            list.Add(new AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>(VARIABLE.Key.GetKeySceneName(), VARIABLE.Data));
         }
 
         return list;

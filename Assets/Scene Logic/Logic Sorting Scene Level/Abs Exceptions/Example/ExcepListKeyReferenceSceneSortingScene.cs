@@ -75,7 +75,7 @@ public class ExcepListKeyReferenceSceneSortingScene : AbsExceptionsListInLogicSo
             
         foreach (var VARIABLE in _listExceptions)
         {
-            list.Add(new AbsKeyData<KeyNameScene, int>(VARIABLE.Key.GetSceneName(), VARIABLE.Data));
+            list.Add(new AbsKeyData<KeyNameScene, int>(VARIABLE.Key.GetKeySceneName(), VARIABLE.Data));
         }
 
         return list;

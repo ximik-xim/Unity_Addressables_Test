@@ -6,7 +6,7 @@ public class ExcepListKeyNameSceneSortingScene : AbsExceptionsListInLogicSorting
 {
     [SerializeField]
     //Список исключений. Нужен в случ. если опр. сцене, нужно задать опр. номер на сцене
-    private List<AbsKeyData<GetDataSO_NameScene, int>> _listExceptions;
+    private List<AbsKeyData<GetDataSO_NameSceneAndKeyString, int>> _listExceptions;
 
     public override event Action OnInit;
     public override bool IsInit => true;
@@ -22,7 +22,7 @@ public class ExcepListKeyNameSceneSortingScene : AbsExceptionsListInLogicSorting
             
         foreach (var VARIABLE in _listExceptions)
         {
-            list.Add(new AbsKeyData<KeyNameScene, int>(VARIABLE.Key.GetData(), VARIABLE.Data));
+            list.Add(new AbsKeyData<KeyNameScene, int>(new KeyNameScene(VARIABLE.Key.GetData().GetKey()) , VARIABLE.Data));
         }
 
         return list;

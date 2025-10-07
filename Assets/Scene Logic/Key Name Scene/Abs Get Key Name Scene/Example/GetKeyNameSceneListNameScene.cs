@@ -8,25 +8,50 @@ using UnityEngine;
 public class GetKeyNameSceneListNameScene : AbsGetStorageKeyNameScene
 {
     [SerializeField]
-    private List<GetDataSO_NameScene> _listKeyNameScene;
+    private List<GetDataSO_NameSceneAndKeyString> _listKeyNameScene;
 
-    public override bool IsInit => true;
+    public override bool IsInit => _isInit;
+    private bool _isInit = false;
     public override event Action OnInit;
+    
+    /// <summary>
+    /// сохранять ли список ключей(нужно что бы не плодить ненужные ключи по 100 раз) 
+    /// </summary>
+    [SerializeField]
+    private bool _isSaveList = true;
+    
+    private List<KeyNameScene> _listKeyScene;
 
     private void Awake()
     {
+        if (_isSaveList == true) 
+        {
+            _listKeyScene = GetListKey();
+        }
+        
+        _isInit = true;
         OnInit?.Invoke();
+    }
+    
+    private List<KeyNameScene> GetListKey()
+    {
+        List<KeyNameScene> list = new List<KeyNameScene>();
+
+        foreach (var VARIABLE in _listKeyNameScene)
+        {
+            list.Add(new KeyNameScene(VARIABLE.GetData().GetKey()));
+        }
+
+        return list;
     }
 
     public override List<KeyNameScene> GetData()
     {
-        List<KeyNameScene> list = new List<KeyNameScene>();
-        
-        foreach (var VARIABLE in _listKeyNameScene)
+        if (_isSaveList == false)
         {
-            list.Add(VARIABLE.GetData());
+            return GetListKey();
         }
-
-        return list;
+        
+        return _listKeyScene;
     }
 }

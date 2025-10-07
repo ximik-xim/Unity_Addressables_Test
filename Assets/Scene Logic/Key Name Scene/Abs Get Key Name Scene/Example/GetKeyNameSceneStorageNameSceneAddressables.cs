@@ -18,7 +18,15 @@ public class GetKeyNameSceneStorageNameSceneAddressables : AbsGetStorageKeyNameS
    [SerializeField] 
    private AbsCallbackGetDataTAddressables _getDataAddressables;
 
-   private SO_Data_NameScene _localData;
+   private SO_Data_NameSceneAndKeyString _localData;
+   
+   /// <summary>
+   /// сохранять ли список ключей(нужно что бы не плодить ненужные ключи по 100 раз) 
+   /// </summary>
+   [SerializeField]
+   private bool _isSaveList = true;
+    
+   private List<KeyNameScene> _listKeyScene;
    
    private void Awake()
    {
@@ -46,7 +54,7 @@ public class GetKeyNameSceneStorageNameSceneAddressables : AbsGetStorageKeyNameS
    private void InitGetData()
    {
       Debug.Log("Послан запрос на получения данных GameObject");
-      var dataCallback = _getDataAddressables.GetData<SO_Data_NameScene>(_key);
+      var dataCallback = _getDataAddressables.GetData<SO_Data_NameSceneAndKeyString>(_key);
 
       if (dataCallback.IsGetDataCompleted == true)
       {
@@ -84,8 +92,25 @@ public class GetKeyNameSceneStorageNameSceneAddressables : AbsGetStorageKeyNameS
 
    }
    
+   private List<KeyNameScene> GetListKey()
+   {
+      List<KeyNameScene> list = new List<KeyNameScene>();
+
+      foreach (var VARIABLE in _localData.GetAllData())
+      {
+         list.Add(new KeyNameScene(VARIABLE.GetKey()));
+      }
+
+      return list;
+   }
+   
    public override List<KeyNameScene> GetData()
    {
-      return _localData.GetAllData();
+      if (_isSaveList == false)
+      {
+         return GetListKey();
+      }
+        
+      return _listKeyScene;
    }
 }

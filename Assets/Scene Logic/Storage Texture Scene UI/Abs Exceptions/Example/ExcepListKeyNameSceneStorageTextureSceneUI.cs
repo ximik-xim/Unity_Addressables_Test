@@ -6,7 +6,7 @@ public class ExcepListKeyNameSceneStorageTextureSceneUI : AbsExceptionsListStora
 {
     [SerializeField]
     //Список исключений. Нужен в случ. если опр. сцене, нужно задать опр. номер на сцене
-    private List<AbsKeyData<GetDataSO_NameScene, DataStorageTextureSceneUI>> _listExceptions;
+    private List<AbsKeyData<GetDataSO_NameSceneAndKeyString, DataStorageTextureSceneUI>> _listExceptions;
 
     public override event Action OnInit;
     public override bool IsInit => true;
@@ -22,7 +22,7 @@ public class ExcepListKeyNameSceneStorageTextureSceneUI : AbsExceptionsListStora
             
         foreach (var VARIABLE in _listExceptions)
         {
-            list.Add(new AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>(VARIABLE.Key.GetData(), VARIABLE.Data));
+            list.Add(new AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>(new KeyNameScene(VARIABLE.Key.GetData().GetKey()) , VARIABLE.Data));
         }
 
         return list;

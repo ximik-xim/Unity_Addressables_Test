@@ -831,14 +831,14 @@ MonoBehaviour:
   _findMbsDkoDontDestroy: {fileID: 0}
   _keyDko:
     _dataSO: {fileID: 11400000, guid: 38ed79d58e9f2d344bebbe1cec97e30b, type: 2}
-    _selectIndif: {fileID: 11400000, guid: f9f72e80479694a4e902be232e43904d, type: 2}
+    _selectIndif: {fileID: 11400000, guid: a630e1a14ff3de7499fb1f868f537d04, type: 2}
     _error:
       Enable: 0
       TextError: 
       MessageType: 0
   _keyGeneralLogic:
-    _dataSO: {fileID: 11400000, guid: 6b1b464ce3b2cbc43b442c166cb46751, type: 2}
-    _selectIndif: {fileID: 11400000, guid: 2a4c394f1f977b24f8a31f93131bfdd5, type: 2}
+    _dataSO: {fileID: 11400000, guid: d8266e6cd00ff1a43be681869bcc9d48, type: 2}
+    _selectIndif: {fileID: 11400000, guid: 514ec8f9e973d8b4eb735253af068d92, type: 2}
     _error:
       Enable: 0
       TextError: 

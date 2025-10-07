@@ -4,7 +4,7 @@ using UnityEngine;
 public class TestGetTListV2 : MonoBehaviour
 {
     [SerializeField]
-    private GetDataSO_NameScene _dataSoNameScene;
+    private GetDataSO_NameSceneAndKeyString _dataSoNameScene;
 
     private void Awake()
     {

@@ -78,8 +78,8 @@ public class TL_TaskSetStatusBlockScene : TL_AbsTaskLogicDKO
         {
             listData.Add(new AbsKeyData<KeyNameScene, bool>(VARIABLE, _isBlock));
         }
-        
-        _getPatchIntStorageBlockScene.SetStatus(listData);
+
+        _getPatchIntStorageBlockScene.GetStorageBlockScene().SetStatusBlock(listData);
         
         _isCompletedLogic = true;
         OnCompletedLogic?.Invoke();

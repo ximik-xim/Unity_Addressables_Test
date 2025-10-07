@@ -74,7 +74,7 @@ public class ExcepListKeyReferenceSceneStoragePrefabSceneUI : AbsExceptionsListI
             
         foreach (var VARIABLE in _listExceptions)
         {
-            list.Add(new AbsKeyData<KeyNameScene, AbsSceneUI>(VARIABLE.Key.GetSceneName(), VARIABLE.Data));
+            list.Add(new AbsKeyData<KeyNameScene, AbsSceneUI>(VARIABLE.Key.GetKeySceneName(), VARIABLE.Data));
         }
 
         return list;

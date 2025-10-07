@@ -18,6 +18,7 @@ MonoBehaviour:
   _list:
   - _identifierData: {fileID: 11400000, guid: 79f4a8a429a1b07498edd0c56ec08686, type: 2}
     _dataKey:
+      _nameScene: Scene Level 1
       _refScene:
         m_AssetGUID: 2e86de509bd5b5849854b5f1e07f2f80
         m_SubObjectName: 
@@ -26,6 +27,7 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
   - _identifierData: {fileID: 11400000, guid: 58aadc0ccf20141438000518ce193aca, type: 2}
     _dataKey:
+      _nameScene: Scene Level 2
       _refScene:
         m_AssetGUID: 9b06e39a6e5ebc3439b29bef366402c0
         m_SubObjectName: 
@@ -34,6 +36,7 @@ MonoBehaviour:
         m_EditorAssetChanged: 0
   - _identifierData: {fileID: 11400000, guid: f81f0134b18cdb840b1f92bf3de8d5da, type: 2}
     _dataKey:
+      _nameScene: Scene Level 3
       _refScene:
         m_AssetGUID: 52070c2b44c205e4a97b4ab7adf76edb
         m_SubObjectName: 

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c621637b15644d468dffa431c8ca764, type: 3}
+  m_Name: SO Data Sound Level Audio Mixer Game
+  m_EditorClassIdentifier: 
+  _nameSO: SO Data Sound Level Audio Mixer Game
+  _setName: 1
+  _saveBackupChangeData: 1
+  _list:
+  - _identifierData: {fileID: 11400000, guid: 196bd62042d4a8c44886070c8719651c, type: 2}
+    _dataKey:
+      _key: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u0437\u0432\u0443\u043A\u0430
+        \u0432 \u0438\u0433\u0440\u0435(\u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439)"
+  _fatalError:
+    Enable: 0
+    TextError: 
+    MessageType: 3
+  _error:
+    Enable: 0
+    TextError: 
+    MessageType: 2

@@ -178,18 +178,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 80
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
-    m_MaxSize: 94
+    m_MinSize: 5
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level
+  m_Text: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C\n1"
 --- !u!1 &3486158342630907862
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +784,8 @@ MonoBehaviour:
   _getDkoPatch: {fileID: 2272076775626932403}
   _sceneUI: {fileID: 8545083907066949083}
   _text: {fileID: 5660245335080554978}
+  _textNewLine: 1
+  _textLevel: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C"
 --- !u!1 &9031058055355233010
 GameObject:
   m_ObjectHideFlags: 0

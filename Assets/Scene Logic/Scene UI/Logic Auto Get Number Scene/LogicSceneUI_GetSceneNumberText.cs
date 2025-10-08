@@ -14,9 +14,15 @@ public class LogicSceneUI_GetSceneNumberText : MonoBehaviour
     private AbsSceneUI _sceneUI;
 
     private StorageSceneNumber _storageSceneNumber;
-
+    
     [SerializeField]
     private Text _text;
+    
+    [SerializeField]
+    private bool _textNewLine = true;
+    
+    [SerializeField]
+    private string _textLevel = "Уровень ";
     
     private void Awake()
     {
@@ -85,7 +91,15 @@ public class LogicSceneUI_GetSceneNumberText : MonoBehaviour
 
     private void GetNumberScene()
     {
-        //Потом тут другую логику можно написать
-        _text.text = _storageSceneNumber.GetNumberScene(_sceneUI.GetName()).ToString();
+        if (_textNewLine == true)
+        {
+            //Потом тут другую логику можно написать
+            _text.text = _textLevel + "\n" + _storageSceneNumber.GetNumberScene(_sceneUI.GetName()).ToString();
+        }
+        else
+        {
+            //Потом тут другую логику можно написать
+            _text.text = _textLevel + _storageSceneNumber.GetNumberScene(_sceneUI.GetName()).ToString();
+        }
     }
 }

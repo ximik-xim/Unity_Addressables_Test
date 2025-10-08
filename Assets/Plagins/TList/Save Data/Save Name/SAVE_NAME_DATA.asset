@@ -13,16 +13,24 @@ MonoBehaviour:
   m_Name: SAVE_NAME_DATA
   m_EditorClassIdentifier: 
   _list:
+  - _objectSO: {fileID: 11400000, guid: b1d9b5b4940d5224e8418e0f24bcab37, type: 2}
+    _nameSO: SO SD Key Storage String Variable Prefs Local
   - _objectSO: {fileID: 11400000, guid: 336586d6c757d784b938c2f75300c21f, type: 2}
     _nameSO: DKO Debug Log Manager
   - _objectSO: {fileID: 11400000, guid: fa56c67b9f9625b45a4a579f645b1d27, type: 2}
     _nameSO: DKO Input Console Code
+  - _objectSO: {fileID: 11400000, guid: 39363a1e7b022d241937b662ae0d6ab2, type: 2}
+    _nameSO: DKO Data Key Sount Level Data
+  - _objectSO: {fileID: 11400000, guid: 124dcdb7bea9768449d20c6bc1a49ec4, type: 2}
+    _nameSO: DKO Data Key Sount Mute General Data
   - _objectSO: {fileID: 11400000, guid: 41e5b4fe7f73db749aa3d29d143be6e9, type: 2}
     _nameSO: DKO Data Key Storage Key GM (Local)
   - _objectSO: {fileID: 11400000, guid: 76f14a2edd3d0894fba2214c6ce42c8d, type: 2}
     _nameSO: DKO Key Storage Task (Local)
   - _objectSO: {fileID: 11400000, guid: 94cf4c2d166ed2246800903c84c2bfcf, type: 2}
     _nameSO: DKO Key Storage UI Game Pane lInfo Game (Local)
+  - _objectSO: {fileID: 11400000, guid: d9ca53b595456e94a82a40233748562a, type: 2}
+    _nameSO: DKO Auto Detect Key Current Scene
   - _objectSO: {fileID: 11400000, guid: 6b1b464ce3b2cbc43b442c166cb46751, type: 2}
     _nameSO: DKO Logic Storage Scene
   - _objectSO: {fileID: 11400000, guid: d252096814e988b488a251d9ad11667b, type: 2}
@@ -39,8 +47,12 @@ MonoBehaviour:
     _nameSO: DKO GetI nfo UI Panel Parent Game Obj Loader Task UI
   - _objectSO: {fileID: 11400000, guid: 274982f8747edf046ad058ad4540b868, type: 2}
     _nameSO: MBS_DKO Scene Addressable
-  - _objectSO: {fileID: 11400000, guid: b1d9b5b4940d5224e8418e0f24bcab37, type: 2}
-    _nameSO: SO SD Key Storage String Variable Prefs Local
+  - _objectSO: {fileID: 11400000, guid: 6f5c6435862e64548b67d7558ed60b29, type: 2}
+    _nameSO: SO Data Audio Mixer Variable Game
+  - _objectSO: {fileID: 11400000, guid: 5c47bc8fd70078d49a0302f97a54539d, type: 2}
+    _nameSO: SO Data Sound Level Audio Mixer Game
+  - _objectSO: {fileID: 11400000, guid: 24406163377b9964b8e0892ec7d46237, type: 2}
+    _nameSO: SO Data Task Mute Sound Level Game
   - _objectSO: {fileID: 11400000, guid: b135963d89bd11047ae5eb61792c669a, type: 2}
     _nameSO: SO Storage Key GM (Local)
   - _objectSO: {fileID: 11400000, guid: afd83ff7bb0f203458d38ef2b3abbaac, type: 2}
@@ -109,5 +121,3 @@ MonoBehaviour:
     _nameSO: DKO Prefab Scene UI
   - _objectSO: {fileID: 11400000, guid: 94f7d92568703274dafe2b849ab5339f, type: 2}
     _nameSO: New SO_Data_Name Scene
-  - _objectSO: {fileID: 11400000, guid: d9ca53b595456e94a82a40233748562a, type: 2}
-    _nameSO: DKO Auto Detect Key Current Scene

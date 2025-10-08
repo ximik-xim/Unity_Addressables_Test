@@ -57,6 +57,10 @@ MonoBehaviour:
     dataKeyDKO:
       _key: "DKO \u041B\u043E\u0433\u0438\u043A\u0430 \u043A\u043E\u0441\u043E\u043B\u044C\u043D\u044B\u0445
         \u043A\u043E\u0434\u043E\u0432"
+  - _identifierData: {fileID: 11400000, guid: e381b8e16b8f4834988af03a9fe76a2f, type: 2}
+    dataKeyDKO:
+      _key: "DKO \u043B\u043E\u0433\u0438\u043A\u0430 \u0443\u0440\u043E\u0432\u043D\u044F
+        \u0437\u0432\u0443\u043A\u0430 Audio Mixer"
   _fatalError:
     Enable: 0
     TextError: 

@@ -44,10 +44,12 @@ public class GetDataAddressablesDefault : AbsCallbackGetDataTAddressables
        if (data is IResourceLocation resourceLocation)
        {
            dataCallback = Addressables.LoadAssetAsync<T>(resourceLocation);
+           wrapperCallbackData.Data.GetData = dataCallback;
        }
        else
        {
             dataCallback = Addressables.LoadAssetAsync<T>(data);   
+            wrapperCallbackData.Data.GetData = dataCallback;
        }
 
        if (dataCallback.IsDone == true)
@@ -79,8 +81,7 @@ public class GetDataAddressablesDefault : AbsCallbackGetDataTAddressables
                wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
            }
            
-           wrapperCallbackData.Data.GetData = callbackLoadData;
-
+           
            wrapperCallbackData.Data.IsGetDataCompleted = true;
            wrapperCallbackData.Data.Invoke();        
            

@@ -83,11 +83,41 @@ public class SceneStartTaskComplitedStartLoadScene : MonoBehaviour
     {
         _sceneStartTask.StorageTaskLoader.OnCompleted -= OnCompletedTaskLoad;
         
-        _handleScene = _loadSceneAddressables.StartLoadScene().GetData;
-        
         if (_isAutoUnloadScene == true)
         {
-            StartAutoUnloadScene();
+            DontDestroyOnLoad(this.gameObject);
+            this.gameObject.transform.parent = null;
+        }
+        
+        var callback = _loadSceneAddressables.StartLoadScene();
+
+        if (_isAutoUnloadScene == true)
+        {
+            if (callback.IsGetDataCompleted == false)
+            {
+                callback.OnGetDataCompleted += OnGetDataCompleted;
+            }
+            else
+            {
+                GetDataCompleted();
+            }
+
+            void OnGetDataCompleted()
+            {
+                if (callback.IsGetDataCompleted == true)
+                {
+                    callback.OnGetDataCompleted -= OnGetDataCompleted;
+                    GetDataCompleted();
+                }
+            }
+
+            void GetDataCompleted()
+            {
+                _handleScene = callback.GetData;
+
+
+                StartAutoUnloadScene();
+            }
         }
 
     }
@@ -103,8 +133,6 @@ public class SceneStartTaskComplitedStartLoadScene : MonoBehaviour
  
     private void StartAutoUnloadScene()
     {
-        DontDestroyOnLoad(this.gameObject);
-
         if (_handleScene.IsDone == false) 
         {
             _handleScene.Completed += OnCheckIsDoneLoadScene;

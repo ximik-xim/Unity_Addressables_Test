@@ -64,18 +64,50 @@ public class TaskLoadSceneAddressable : AbsTaskLoggerLoaderDataMono
 
     protected override void StartLogic()
     {
-        UpdatePercentage(50f);  
-        
+        UpdatePercentage(50f);
+
         _storageLog.DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Начинаю загрузку сцены");
         
-        _handleScene = _sceneLoad.StartLoadScene().GetData;
-        
-        if (_isAutoUnloadScene == true) 
+        if (_isAutoUnloadScene == true)
         {
-            StartAutoUnloadScene();
+            DontDestroyOnLoad(this.gameObject);
+            this.gameObject.transform.parent = null;
+        }
+
+        var callback = _sceneLoad.StartLoadScene();
+
+        if (_isAutoUnloadScene == true)
+        {
+            if (callback.IsGetDataCompleted == false)
+            {
+                callback.OnGetDataCompleted += OnGetDataCompleted;
+            }
+            else
+            {
+                GetDataCompleted();
+            }
+
+            void OnGetDataCompleted()
+            {
+                if (callback.IsGetDataCompleted == true)
+                {
+                    callback.OnGetDataCompleted -= OnGetDataCompleted;
+                    GetDataCompleted();
+                }
+            }
+
+            void GetDataCompleted()
+            {
+                _handleScene = callback.GetData;
+
+
+                StartAutoUnloadScene();
+            }
         }
 
     }
+
+
 
     protected override void BreakTask()
     {
@@ -98,8 +130,6 @@ public class TaskLoadSceneAddressable : AbsTaskLoggerLoaderDataMono
  
     private void StartAutoUnloadScene()
     {
-        DontDestroyOnLoad(this.gameObject);
-
         if (_handleScene.IsDone == false) 
         {
             _handleScene.Completed += OnCheckIsDoneLoadScene;
@@ -123,11 +153,6 @@ public class TaskLoadSceneAddressable : AbsTaskLoggerLoaderDataMono
     {
         UpdatePercentage(100f);  
         UpdateStatus(TypeStatusTaskLoad.Comlite);
-        
-        //тааааак походу тут я уже получ уничтоженый _handleScene И тут вопрос какого ху.....
-        Debug.Log("DDDDDD 2 = " + _handleScene.IsDone);
-        Debug.Log("DDDDDD = " + _handleScene.Result);
-        Debug.Log("DDDDDD NAME = " + _handleScene.Result.Scene.name);
         
         if (_handleScene.Result.Scene.name != SceneManager.GetActiveScene().name)
         {
@@ -155,6 +180,8 @@ public class TaskLoadSceneAddressable : AbsTaskLoggerLoaderDataMono
 
     private void OnDestroy()
     {
+        DestroyLogic();
+        
         if (_handleScene.IsValid() == true) 
         {
             Addressables.UnloadSceneAsync(_handleScene);

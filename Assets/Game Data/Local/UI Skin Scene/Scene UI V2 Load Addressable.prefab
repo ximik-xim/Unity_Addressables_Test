@@ -902,6 +902,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5969842959102660398, guid: 8391c0a5439370c4983c72d3f7c78e23, type: 3}
+      propertyPath: _isAutoUnloadScene
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7752617644601900800, guid: 8391c0a5439370c4983c72d3f7c78e23, type: 3}
       propertyPath: _button
       value: 

@@ -5048,10 +5048,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Get Data Error Continu
       objectReference: {fileID: 0}
-    - target: {fileID: 2899470389311290689, guid: 4000575a8b24ae040be09ef6828aac2f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5386728045000807258, guid: 4000575a8b24ae040be09ef6828aac2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

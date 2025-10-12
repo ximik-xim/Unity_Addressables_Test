@@ -45,20 +45,47 @@ public class LoadTargetSceneAddressables : MonoBehaviour
     /// </summary>
     [SerializeField]
     private bool _isAutoUnloadScene = true;
-    
-    
+
     public GetServerRequestData<AsyncOperationHandle<SceneInstance>> StartLoadScene(object keyScene)
     {
+        if (_isAutoUnloadScene == true) 
+        {
+            DontDestroyOnLoad(this.gameObject);
+            this.gameObject.transform.parent = null;
+        }
+        
         _sceneLoadSettings = new DataSceneLoadAddressable(keyScene, _sceneLoadSettings.LoadMode, _sceneLoadSettings.ActivateOnLoad, _sceneLoadSettings.Priority, _sceneLoadSettings.ReleaseMode);
         var callback = _loadSceneAddressables.GetData(_sceneLoadSettings);
 
-        if (_isAutoUnloadScene == true) 
+        if (_isAutoUnloadScene == true)
         {
-            _handleScene = callback.GetData;
-            StartAutoUnloadScene();
+            if (callback.IsGetDataCompleted == false)
+            {
+                callback.OnGetDataCompleted += OnGetDataCompleted;
+            }
+            else
+            {
+                GetDataCompleted();
+            }
+
+            void OnGetDataCompleted()
+            {
+                if (callback.IsGetDataCompleted == true)
+                {
+                    callback.OnGetDataCompleted -= OnGetDataCompleted;
+                    GetDataCompleted();
+                }
+            }
+
+            void GetDataCompleted()
+            {
+                _handleScene = callback.GetData;
+                StartAutoUnloadScene();
+            }
+            
         }
-        
-        
+
+
         return callback;
     }
     
@@ -72,8 +99,6 @@ public class LoadTargetSceneAddressables : MonoBehaviour
  
     private void StartAutoUnloadScene()
     {
-        DontDestroyOnLoad(this.gameObject);
-
         if (_handleScene.IsDone == false) 
         {
             _handleScene.Completed += OnCheckIsDoneLoadScene;

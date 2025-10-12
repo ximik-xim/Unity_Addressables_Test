@@ -117,6 +117,7 @@ MonoBehaviour:
     _activateOnLoad: 1
     _priority: 100
     _releaseMode: 0
+  _isAutoUnloadScene: 0
   references:
     version: 2
     RefIds:
@@ -391,7 +392,7 @@ MonoBehaviour:
   _storageLog: {fileID: 4458360720957851292}
   _storageTypeLog: {fileID: 9168027362244781200}
   _sceneLoad: {fileID: 216455642888968086}
-  _isDestroyTaskGmComplited: 0
+  _isAutoUnloadScene: 1
 --- !u!114 &9168027362244781200 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3489446141036853804, guid: 0c99c00f55a5bf54a959bc3014bb3c6a, type: 3}

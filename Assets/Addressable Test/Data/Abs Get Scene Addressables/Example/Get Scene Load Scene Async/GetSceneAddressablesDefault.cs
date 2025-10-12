@@ -41,10 +41,12 @@ public class GetSceneAddressablesDefault : AbsCallbackGetSceneAddressables
        if (data.Key is IResourceLocation resourceLocation)
        {
            dataCallback = Addressables.LoadSceneAsync(resourceLocation, data.LoadMode, data.ActivateOnLoad, data.Priority, data.ReleaseMode);
+           wrapperCallbackData.Data.GetData = dataCallback;
        }
        else
        {
            dataCallback = Addressables.LoadSceneAsync(data.Key, data.LoadMode, data.ActivateOnLoad, data.Priority, data.ReleaseMode);
+           wrapperCallbackData.Data.GetData = dataCallback;
        }
 
        if (dataCallback.IsDone == true)
@@ -76,8 +78,6 @@ public class GetSceneAddressablesDefault : AbsCallbackGetSceneAddressables
                wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
            }
            
-           wrapperCallbackData.Data.GetData = callbackLoadData;
-
            wrapperCallbackData.Data.IsGetDataCompleted = true;
            wrapperCallbackData.Data.Invoke();        
            

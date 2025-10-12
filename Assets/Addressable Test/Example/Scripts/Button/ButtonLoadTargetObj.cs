@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 /// <summary>
@@ -22,7 +24,8 @@ public class ButtonLoadTargetObj : MonoBehaviour
    
     [SerializeField] 
     private AbsCallbackGetDataTAddressables _getDataAddressables;
-
+    
+    private AsyncOperationHandle<GameObject> _localData;
     
     private void Awake()
     {
@@ -58,6 +61,11 @@ public class ButtonLoadTargetObj : MonoBehaviour
    
     private void StartLogic()
     {
+        if (_localData.IsValid() == true) 
+        {
+            Addressables.Release(_localData);   
+        }
+        
         Debug.Log("Послан запрос на получения данных GameObject");
         var dataCallback = _getDataAddressables.GetData<GameObject>(_assetReference);
 
@@ -81,13 +89,23 @@ public class ButtonLoadTargetObj : MonoBehaviour
 
         void CompletedGetData()
         {
+            _localData = dataCallback.GetData;
+            
             Debug.Log("----- Данные получены ----");
             Debug.Log("Статус запроса = " + dataCallback.StatusServer.ToString());
             Debug.Log("Получен обьект = " + dataCallback.GetData);
-            Debug.Log("Проверка на null = " + (dataCallback.GetData == null));
+            Debug.Log("Проверка на null = " + (dataCallback.GetData.Result == null));
 
-            Instantiate(dataCallback.GetData, _parent.transform);
+            Instantiate(dataCallback.GetData.Result, _parent.transform);
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        if (_localData.IsValid() == true) 
+        {
+            Addressables.Release(_localData);   
+        }
     }
 }

@@ -24,6 +24,8 @@ public class ExampleGetDataAddressablesAssetLabelReference : MonoBehaviour
     // [SerializeField] 
     // private AbsCallbackGetDataAddressables _getDataAddressables;
 
+    private  AsyncOperationHandle<IList<Object>> _localData;
+    
     private void Awake()
     {
         InitGetData();
@@ -80,6 +82,8 @@ public class ExampleGetDataAddressablesAssetLabelReference : MonoBehaviour
 
         void CompletedGetData()
         {
+            _localData = dataCallback;
+            
             Debug.Log("----- Данные получены ----");
             Debug.Log("Статус запроса = " + dataCallback.Status.ToString());
             Debug.Log("Получен кол - во обьектов = " + dataCallback.Result.Count);
@@ -91,6 +95,14 @@ public class ExampleGetDataAddressablesAssetLabelReference : MonoBehaviour
 
             _isInit = true;
             OnInit?.Invoke();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (_localData.IsValid() == true) 
+        {
+            Addressables.Release(_localData);   
         }
     }
 }

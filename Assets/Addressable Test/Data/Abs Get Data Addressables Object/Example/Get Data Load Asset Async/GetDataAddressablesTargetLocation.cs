@@ -51,12 +51,12 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataTAddressables
         OnInit?.Invoke();
     }
 
-    public override GetServerRequestData<T> GetData<T>(object data)
+    public override GetServerRequestData<AsyncOperationHandle<T>> GetData<T>(object data)
     {
         Debug.Log("Запрос на загр. обьекта по указ. пути был отправлен");
         
         int id = GetUniqueId();
-        CallbackRequestDataWrapperT<T> wrapperCallbackData = new CallbackRequestDataWrapperT<T>(id);
+        CallbackRequestDataWrapperT<AsyncOperationHandle<T>> wrapperCallbackData = new CallbackRequestDataWrapperT<AsyncOperationHandle<T>>(id);
         _idCallback.Add(id);
 
         AsyncOperationHandle<IList<IResourceLocation>> dataCallbackLoadResource;
@@ -114,12 +114,13 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataTAddressables
                 patchTarget = _pathTargetBuild;
 #endif
 
+#if UNITY_EDITOR
                 //чисто для тестов
                 foreach (var VARIABLE in resourceAllLocation)
                 {
                     Debug.Log("Найденный обьект Id = " + VARIABLE.InternalId);
                 }
-                
+#endif
                 //ищем подход. путь
                 foreach (var VARIABLE in resourceAllLocation)
                 {
@@ -160,6 +161,11 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataTAddressables
                     wrapperCallbackData.Data.Invoke();
                     
                     _idCallback.Remove(wrapperCallbackData.Data.IdMassage);
+                    
+                    if (dataCallbackLoadResource.IsValid() == true) 
+                    {
+                        Addressables.Release(dataCallbackLoadResource);   
+                    }
                 }
                 
                 
@@ -197,12 +203,18 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataTAddressables
                         {
                             Debug.Log("Запрос на загр. обьекта по указ. пути. Обьект получен");
                             wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
-                            wrapperCallbackData.Data.GetData = dataCallbackLoadAsset.Result;
+                            wrapperCallbackData.Data.GetData = dataCallbackLoadAsset;
 
                             wrapperCallbackData.Data.IsGetDataCompleted = true;
                             wrapperCallbackData.Data.Invoke();
 
                             _idCallback.Remove(wrapperCallbackData.Data.IdMassage);
+                            
+                            
+                            if (dataCallbackLoadResource.IsValid() == true) 
+                            {
+                                Addressables.Release(dataCallbackLoadResource);   
+                            }
                             return;
                         }
                         else
@@ -216,6 +228,17 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataTAddressables
                             wrapperCallbackData.Data.Invoke();
 
                             _idCallback.Remove(wrapperCallbackData.Data.IdMassage);
+                            
+                                            
+                            if (dataCallbackLoadAsset.IsValid() == true) 
+                            {
+                                Addressables.Release(dataCallbackLoadAsset);   
+                            }
+                            
+                            if (dataCallbackLoadResource.IsValid() == true) 
+                            {
+                                Addressables.Release(dataCallbackLoadResource);   
+                            }
                             return;
                         }
                     }
@@ -232,6 +255,12 @@ public class GetDataAddressablesTargetLocation : AbsCallbackGetDataTAddressables
                 wrapperCallbackData.Data.Invoke();
 
                 _idCallback.Remove(wrapperCallbackData.Data.IdMassage);
+                
+                            
+                if (dataCallbackLoadResource.IsValid() == true) 
+                {
+                    Addressables.Release(dataCallbackLoadResource);   
+                }
                 return;
             }
 

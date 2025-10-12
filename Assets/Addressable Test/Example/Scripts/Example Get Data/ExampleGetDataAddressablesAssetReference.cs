@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 
 /// <summary>
@@ -21,6 +22,8 @@ public class ExampleGetDataAddressablesAssetReference : MonoBehaviour
    [SerializeField] 
    private AbsCallbackGetDataTAddressables _getDataAddressables;
 
+   private AsyncOperationHandle<GameObject> _localData;
+   
    private void Awake()
    {
       if (_getDataAddressables.IsInit == false)
@@ -67,10 +70,12 @@ public class ExampleGetDataAddressablesAssetReference : MonoBehaviour
 
       void CompletedGetData()
       {
+         _localData = dataCallback.GetData;
+         
          Debug.Log("----- Данные получены ----");
          Debug.Log("Статус запроса = " + dataCallback.StatusServer.ToString());
-         Debug.Log("Получен обьект = " + dataCallback.GetData);
-         Debug.Log("Проверка на null = " + (dataCallback.GetData == null));
+         Debug.Log("Получен обьект = " + dataCallback.GetData.Result);
+         Debug.Log("Проверка на null = " + (dataCallback.GetData.Result == null));
 
          _isInit = true;
          OnInit?.Invoke();
@@ -78,6 +83,11 @@ public class ExampleGetDataAddressablesAssetReference : MonoBehaviour
 
    }
 
-
-   
+   private void OnDestroy()
+   {
+      if (_localData.IsValid() == true) 
+      {
+         Addressables.Release(_localData);   
+      }
+   }
 }

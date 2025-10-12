@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 /// <summary>
 /// По идеи он загрузит список сцен через Addressables
@@ -18,7 +19,7 @@ public class GetKeyNameSceneStorageNameSceneAddressables : AbsGetStorageKeyNameS
    [SerializeField] 
    private AbsCallbackGetDataTAddressables _getDataAddressables;
 
-   private SO_Data_NameSceneAndKeyString _localData;
+   private AsyncOperationHandle<SO_Data_NameSceneAndKeyString> _localData;
    
    /// <summary>
    /// сохранять ли список ключей(нужно что бы не плодить ненужные ключи по 100 раз) 
@@ -79,7 +80,7 @@ public class GetKeyNameSceneStorageNameSceneAddressables : AbsGetStorageKeyNameS
          if (dataCallback.StatusServer == StatusCallBackServer.Ok) 
          {
             _localData = dataCallback.GetData;
-         
+
             _isInit = true;
             OnInit?.Invoke();
          }
@@ -96,7 +97,7 @@ public class GetKeyNameSceneStorageNameSceneAddressables : AbsGetStorageKeyNameS
    {
       List<KeyNameScene> list = new List<KeyNameScene>();
 
-      foreach (var VARIABLE in _localData.GetAllData())
+      foreach (var VARIABLE in _localData.Result.GetAllData())
       {
          list.Add(new KeyNameScene(VARIABLE.GetKey()));
       }
@@ -112,5 +113,13 @@ public class GetKeyNameSceneStorageNameSceneAddressables : AbsGetStorageKeyNameS
       }
         
       return _listKeyScene;
+   }
+
+   private void OnDestroy()
+   {
+      if (_localData.IsValid() == true) 
+      {
+         Addressables.Release(_localData);   
+      }
    }
 }

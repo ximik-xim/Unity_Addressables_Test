@@ -31,11 +31,11 @@ public class GetDataAddressablesDefault : AbsCallbackGetDataTAddressables
        OnInit?.Invoke();
    }
        
-   public override GetServerRequestData<T> GetData<T>(object data)
+   public override GetServerRequestData<AsyncOperationHandle<T>> GetData<T>(object data)
    {
        int id = GetUniqueId();
        
-       CallbackRequestDataWrapperT<T> wrapperCallbackData = new CallbackRequestDataWrapperT<T>(id);
+       CallbackRequestDataWrapperT<AsyncOperationHandle<T>> wrapperCallbackData = new CallbackRequestDataWrapperT<AsyncOperationHandle<T>>(id);
        _idCallback.Add(id);
 
        AsyncOperationHandle<T> dataCallback;
@@ -79,7 +79,7 @@ public class GetDataAddressablesDefault : AbsCallbackGetDataTAddressables
                wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
            }
            
-           wrapperCallbackData.Data.GetData = callbackLoadData.Result;
+           wrapperCallbackData.Data.GetData = callbackLoadData;
 
            wrapperCallbackData.Data.IsGetDataCompleted = true;
            wrapperCallbackData.Data.Invoke();        

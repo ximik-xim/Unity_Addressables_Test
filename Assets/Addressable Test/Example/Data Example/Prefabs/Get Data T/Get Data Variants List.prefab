@@ -46,13 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ac4c4cd0a3ca64dbed1183cdab517c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _absGetData:
-    _moveNextVariantDataNull: 0
-    _variants:
-    - {fileID: 575377169519653110}
-    - {fileID: 353829203322417203}
-    _idCallback: 
-    _bufferInit: []
+  _moveNextVariantDataNull: 0
+  _variants:
+  - {fileID: 575377169519653110}
+  - {fileID: 353829203322417203}
+  _idCallback: 
+  _bufferInit: []
 --- !u!1 &2321852638074411954
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,9 +364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b068909f0bed3a45933eb502fb0309b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _absGetData:
-    _absGetData: {fileID: 5074909402702625312}
-    _errorLogic: {fileID: 2084884425622084248}
+  _absGetData: {fileID: 5074909402702625312}
+  _errorLogic: {fileID: 2084884425622084248}
 --- !u!1 &9124820766855899049
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,10 +412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7856b49e79ac3a4e9dec6b6194e42ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _absGetData:
-    _absGetData: {fileID: 7646660706505265659}
-    _absIsGetObject: {fileID: 4723018165388485009}
-    _idCallback: 
+  _absGetData: {fileID: 7646660706505265659}
+  _absIsGetObject: {fileID: 4723018165388485009}
+  _idCallback: 
 --- !u!1 &9160643158856847838
 GameObject:
   m_ObjectHideFlags: 0

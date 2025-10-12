@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using Random = UnityEngine.Random;
 
@@ -35,7 +36,7 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
 
     public event Action<AbsKeyData<KeyTaskLoaderTypeLog, string>> OnAddLogData;
 
-    private CallbackRequestDataWrapperT<SceneInstance> _wrapperCallbackData;
+    private CallbackRequestDataWrapperT<AsyncOperationHandle<SceneInstance>> _wrapperCallbackData;
 
     public bool IsBlock => _isBlock;
     private bool _isBlock = true;
@@ -80,7 +81,7 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
     }
     
     
-    public GetServerRequestData<SceneInstance> StartLoadScene()
+    public GetServerRequestData<AsyncOperationHandle<SceneInstance>> StartLoadScene()
     {
         if (_isBlock == false)
         {
@@ -89,10 +90,8 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
         
             int id = GetUniqueId();
         
-            _wrapperCallbackData = new CallbackRequestDataWrapperT<SceneInstance>(id);
+            _wrapperCallbackData = new CallbackRequestDataWrapperT<AsyncOperationHandle<SceneInstance>>(id);
             _idCallback.Add(id);
-      
-
         
             DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Запуск загрузку начальной сцены");
 
@@ -151,6 +150,12 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
             }
             else
             {
+                if (dataCallback.GetData.IsValid() == true) 
+                {
+                    //Addressables.Release(_handle);
+                    Addressables.UnloadSceneAsync(dataCallback.GetData);
+                }
+                
                 DebugLog(_storageTypeLog.GetKeyErrorLog(), "- Ошибка при загрузки Remote сцены");
                 DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Начинаю загрузку локальной сцены");
 
@@ -216,6 +221,12 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
                 _wrapperCallbackData.Data.Invoke();
 
                 _idCallback.Remove(_wrapperCallbackData.Data.IdMassage);
+
+                if (dataCallback.GetData.IsValid() == true) 
+                {
+                    //Addressables.Release(_handle);
+                    Addressables.UnloadSceneAsync(dataCallback.GetData);
+                }
                 
                 _isBlock = false;
                 OnUpdateStatusBlock?.Invoke();

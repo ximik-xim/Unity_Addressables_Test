@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 /// <summary>
@@ -29,7 +29,7 @@ public class LoadTargetSceneAssetReference : AbsLoadTargetSceneKey
     [SerializeField] 
     private AssetReferenceSceneCustom _keyNameScene;
 
-    public override GetServerRequestData<SceneInstance> StartLoadScene()
+    public override GetServerRequestData<AsyncOperationHandle<SceneInstance>> StartLoadScene()
     {
         return _loadSceneAddressables.StartLoadScene(_keyNameScene);
     }

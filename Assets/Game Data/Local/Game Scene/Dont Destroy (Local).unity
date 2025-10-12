@@ -1068,7 +1068,7 @@ MonoBehaviour:
   _storageLog: {fileID: 224195936}
   _storageTypeLog: {fileID: 224195935}
   _sceneLoad: {fileID: 1585900225}
-  _isDestroyTaskGmComplited: 0
+  _isAutoUnloadScene: 1
 --- !u!1001 &278994013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5296,6 +5296,7 @@ MonoBehaviour:
     _activateOnLoad: 1
     _priority: 100
     _releaseMode: 0
+  _isAutoUnloadScene: 0
   references:
     version: 2
     RefIds:

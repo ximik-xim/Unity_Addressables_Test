@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 public class SceneLoaderAddressable : AbsSceneLoader
@@ -17,6 +19,13 @@ public class SceneLoaderAddressable : AbsSceneLoader
 
     [SerializeField] 
     private AbsCallbackGetSceneAddressables _getSceneAddressables;
+    
+    /// <summary>
+    /// Вызывать ли удаление сцены из оперативки при уничтожении скрипта
+    /// </summary>
+    private bool _isUnloadSceneInDestroy = true;
+    
+    private AsyncOperationHandle<SceneInstance> _handle;
 
     private void Awake()
     {
@@ -81,7 +90,9 @@ public class SceneLoaderAddressable : AbsSceneLoader
         {
             Debug.Log("----- Данные получены от загр. сцены ----");
 
-            Scene sceneData = dataCallback.GetData.Scene;
+            _handle = dataCallback.GetData;
+            
+            Scene sceneData = dataCallback.GetData.Result.Scene;
             
             Debug.Log("Scene Name = " + sceneData.name);
             Debug.Log("Scene Path = " + sceneData.path);
@@ -89,4 +100,15 @@ public class SceneLoaderAddressable : AbsSceneLoader
         }
     }
     
+    private void OnDestroy()
+    {
+        if (_isUnloadSceneInDestroy == true)
+        {
+            if (_handle.IsValid() == true) 
+            {
+                //Addressables.Release(_handle);
+                Addressables.UnloadSceneAsync(_handle);
+            }
+        }
+    }
 }

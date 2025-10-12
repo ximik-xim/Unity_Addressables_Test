@@ -28,11 +28,11 @@ public class GetSceneAddressablesDefault : AbsCallbackGetSceneAddressables
        OnInit?.Invoke();
    }
        
-   public override GetServerRequestData<SceneInstance> GetData(DataSceneLoadAddressable data)
+   public override GetServerRequestData<AsyncOperationHandle<SceneInstance>> GetData(DataSceneLoadAddressable data)
    {
        int id = GetUniqueId();
        
-       CallbackRequestDataWrapperT<SceneInstance> wrapperCallbackData = new CallbackRequestDataWrapperT<SceneInstance>(id);
+       CallbackRequestDataWrapperT<AsyncOperationHandle<SceneInstance>> wrapperCallbackData = new CallbackRequestDataWrapperT<AsyncOperationHandle<SceneInstance>>(id);
        _idCallback.Add(id);
 
        AsyncOperationHandle<SceneInstance> dataCallback;
@@ -76,7 +76,7 @@ public class GetSceneAddressablesDefault : AbsCallbackGetSceneAddressables
                wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Error;
            }
            
-           wrapperCallbackData.Data.GetData = callbackLoadData.Result;
+           wrapperCallbackData.Data.GetData = callbackLoadData;
 
            wrapperCallbackData.Data.IsGetDataCompleted = true;
            wrapperCallbackData.Data.Invoke();        

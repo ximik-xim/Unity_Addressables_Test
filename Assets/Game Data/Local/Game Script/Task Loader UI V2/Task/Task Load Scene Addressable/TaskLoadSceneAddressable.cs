@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Отвечает за загрузку и переход на сцену через Task 
-/// Т.к сразу после загр сцены, происходит переход на сцену, то тут костыль в DontDestroy,
-/// который должен отработать и сказать, что Task закончила выполнение
-/// Если все же нужно что бы Task прожила до перехода на след. сцену и потом сама себя уничтожила,
-/// то есть _isDestroyTaskGmComplited, если его включить, то Task сама себя уничтожит после загр. сцены
+/// Отвечает за загрузку и переход на сцену через Task
+/// В итоге должен сам уничтожиться на следующей сцене(когда будет происходить уходи на другую сцену)
 /// </summary>
 public class TaskLoadSceneAddressable : AbsTaskLoggerLoaderDataMono
 {
@@ -14,12 +14,14 @@ public class TaskLoadSceneAddressable : AbsTaskLoggerLoaderDataMono
     [SerializeField]
     private AbsLoadTargetSceneKey _sceneLoad;
 
-    //идет ли загр. сцены
-    private bool _isLoadScene = false;
+    private AsyncOperationHandle<SceneInstance> _handleScene;
 
+    /// <summary>
+    /// Производит ли автоматически удаление данных сцены из опер. памяти при переходе на другую сцену
+    /// </summary>
     [SerializeField]
-    //Будет ли уничтожина Task при переход. на след сцену(нежно в случ, если Task будет помеч как DontDestoy)
-    private bool _isDestroyTaskGmComplited = false;
+    private bool _isAutoUnloadScene = true;
+
     
     private void Awake()
     {
@@ -66,46 +68,13 @@ public class TaskLoadSceneAddressable : AbsTaskLoggerLoaderDataMono
         
         _storageLog.DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Начинаю загрузку сцены");
         
-        _isLoadScene = true;
+        _handleScene = _sceneLoad.StartLoadScene().GetData;
         
-        var dataCallback = _sceneLoad.StartLoadScene();
-        
-        if (dataCallback.IsGetDataCompleted == true)
+        if (_isAutoUnloadScene == true) 
         {
-            CompletedCallback();
-        }
-        else
-        {
-            dataCallback.OnGetDataCompleted -= OnCompletedCallback;
-            dataCallback.OnGetDataCompleted += OnCompletedCallback;
-        }
-        
-        void OnCompletedCallback()
-        {
-            //Если данные пришли
-            if (dataCallback.IsGetDataCompleted == true)
-            {
-                dataCallback.OnGetDataCompleted -= OnCompletedCallback;
-                //начинаю обработку данных
-                CompletedCallback();
-            }
+            StartAutoUnloadScene();
         }
 
-        void CompletedCallback()
-        {
-            UpdatePercentage(100f);  
-            UpdateStatus(TypeStatusTaskLoad.Comlite);
-            
-            //запуск сцены вручную
-            //dataCallback.GetData.ActivateAsync();
-            
-            _isLoadScene = false;
-
-            if (_isDestroyTaskGmComplited == true)
-            {
-                Destroy(this.gameObject);
-            }
-        }
     }
 
     protected override void BreakTask()
@@ -118,17 +87,77 @@ public class TaskLoadSceneAddressable : AbsTaskLoggerLoaderDataMono
     
     }
     
-    protected void OnDestroy()
+    
+    // т.к при загрузку сцены сразу и переходим на неё, то вызыв OnDestroy будет осуществлен в момент перехода с текущей сцена на сцену котор загружаем,
+    // а значит если в этот момент вызову Addressables.UnloadSceneAsync, то получиться, что я загружаю сцену XXXX и сразу же эту сцену(XXXX) уничтожаю 
+    // что мне не подходит
+    //     
+    //По этому задумка в след. До момента перехода на сцену XXXX(которую загружаем), мы делаем GM на котором находиться этот скрипт DontDestroy
+    //И когда перейдем на сцену XXXX, то этот GM переместим с DontDestroy на сцену XXXX. Тем самым сделаем так, что бы метод OnDestroy сработал, когда будем уходить со сцены,
+    //а значит и в этом OnDestroy мы можем выгрузить(удалить) сцену из оперативки
+ 
+    private void StartAutoUnloadScene()
     {
-        //Если идет загр. сцены и сработал DontDestroy, значит сцена была удачно загружена
-        if (_isLoadScene == true)
-        {
-            UpdatePercentage(100f);  
-            UpdateStatus(TypeStatusTaskLoad.Comlite);
+        DontDestroyOnLoad(this.gameObject);
 
-            _isLoadScene = false;
+        if (_handleScene.IsDone == false) 
+        {
+            _handleScene.Completed += OnCheckIsDoneLoadScene;
         }
+        else
+        {
+            CheckIsDoneLoadScene();
+        }
+    }
+
+    private void OnCheckIsDoneLoadScene(AsyncOperationHandle<SceneInstance> obj)
+    {
+        if (_handleScene.IsDone == true) 
+        {
+            _handleScene.Completed -= OnCheckIsDoneLoadScene;
+            CheckIsDoneLoadScene();
+        }
+    }
+
+    private void CheckIsDoneLoadScene()
+    {
+        UpdatePercentage(100f);  
+        UpdateStatus(TypeStatusTaskLoad.Comlite);
         
-        DestroyLogic();
+        //тааааак походу тут я уже получ уничтоженый _handleScene И тут вопрос какого ху.....
+        Debug.Log("DDDDDD 2 = " + _handleScene.IsDone);
+        Debug.Log("DDDDDD = " + _handleScene.Result);
+        Debug.Log("DDDDDD NAME = " + _handleScene.Result.Scene.name);
+        
+        if (_handleScene.Result.Scene.name != SceneManager.GetActiveScene().name)
+        {
+            SceneManager.sceneLoaded += OnCheckSceneLoaded;
+        }
+        else
+        {
+            MoveCurrentScriptInCurrentScene();
+        }
+    }
+
+    private void OnCheckSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (_handleScene.Result.Scene.name == SceneManager.GetActiveScene().name)
+        {
+            SceneManager.sceneLoaded -= OnCheckSceneLoaded;
+            MoveCurrentScriptInCurrentScene();
+        }
+    }
+
+    private void MoveCurrentScriptInCurrentScene()
+    {
+        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
+    }
+
+    private void OnDestroy()
+    {
+        if (_handleScene.IsValid() == true) 
+        {
+            Addressables.UnloadSceneAsync(_handleScene);
+        }
     }
 }

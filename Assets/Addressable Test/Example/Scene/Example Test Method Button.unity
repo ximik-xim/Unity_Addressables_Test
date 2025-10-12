@@ -715,7 +715,7 @@ MonoBehaviour:
   _button: {fileID: 281989572}
   _nameScene: Assets/Addressable Test/Example/Scene/Load Scene/Example Load Scene
     Addressable.unity
-  _sceneLoader: {fileID: 982153748}
+  _sceneLoader: {fileID: 0}
 --- !u!1 &286122324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,7 +2190,7 @@ MonoBehaviour:
   _button: {fileID: 1081476521}
   _nameScene: Assets/Addressable Test/Example/Scene/Load Scene/Example Load Scene
     Addressable.unity
-  _sceneLoader: {fileID: 1624865619}
+  _sceneLoader: {fileID: 0}
 --- !u!1 &1238612746
 GameObject:
   m_ObjectHideFlags: 0

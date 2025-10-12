@@ -118,7 +118,10 @@ public class GetDataAddressablesErrorContinueT : AbsCallbackGetDataTAddressables
                 {
                     Debug.Log("Запрос на загр. обьекта ошибка. Переотправка");
 
-                    Addressables.Release(dataCallback);
+                    if (dataCallback.GetData.IsValid() == true) 
+                    {
+                        Addressables.Release(dataCallback);
+                    }
                     
                     //заного отпр. запрос, и по новой 
                     dataCallback = _absGetData.GetData<T>(copiedData);

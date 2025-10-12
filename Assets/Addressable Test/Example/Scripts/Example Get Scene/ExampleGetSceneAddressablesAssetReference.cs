@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 public class ExampleGetSceneAddressablesAssetReference : MonoBehaviour
@@ -20,6 +22,13 @@ public class ExampleGetSceneAddressablesAssetReference : MonoBehaviour
 
     [SerializeField] 
     private AbsCallbackGetSceneAddressables _getSceneAddressables;
+
+    /// <summary>
+    /// Вызывать ли удаление сцены из оперативки при уничтожении скрипта
+    /// </summary>
+    private bool _isUnloadSceneInDestroy = true;
+    
+    private AsyncOperationHandle<SceneInstance> _handle;
 
     private void Awake()
     {
@@ -72,7 +81,8 @@ public class ExampleGetSceneAddressablesAssetReference : MonoBehaviour
         {
             Debug.Log("----- Данные получены от загр. сцены ----");
 
-            Scene sceneData = dataCallback.GetData.Scene;
+            _handle = dataCallback.GetData;
+            Scene sceneData = dataCallback.GetData.Result.Scene;
             
             Debug.Log("Scene Name = " + sceneData.name);
             Debug.Log("Scene Path = " + sceneData.path);
@@ -83,5 +93,16 @@ public class ExampleGetSceneAddressablesAssetReference : MonoBehaviour
         
 
     }
-    
+
+    private void OnDestroy()
+    {
+        if (_isUnloadSceneInDestroy == true)
+        {
+            if (_handle.IsValid() == true) 
+            {
+                //Addressables.Release(_handle);
+                Addressables.UnloadSceneAsync(_handle);
+            }
+        }
+    }
 }

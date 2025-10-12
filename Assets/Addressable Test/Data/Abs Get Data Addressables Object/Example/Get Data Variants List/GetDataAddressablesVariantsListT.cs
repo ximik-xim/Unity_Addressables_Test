@@ -165,6 +165,7 @@ public class GetDataAddressablesVariantsListT : AbsCallbackGetDataTAddressables
                                 {
                                     Addressables.Release(dataCallback.GetData);   
                                 }
+                                
                                 //переключ на след. вариант
                                 lastId++;
                                 NextElement();

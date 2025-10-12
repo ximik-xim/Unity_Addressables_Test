@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 public class LoadTargetSceneSetKey : AbsLoadTargetSceneKey
@@ -30,7 +31,7 @@ public class LoadTargetSceneSetKey : AbsLoadTargetSceneKey
         _keyScene = keyScene;
     }
 
-    public override GetServerRequestData<SceneInstance> StartLoadScene()
+    public override GetServerRequestData<AsyncOperationHandle<SceneInstance>> StartLoadScene()
     {
         return _loadSceneAddressables.StartLoadScene(_keyScene);
     }

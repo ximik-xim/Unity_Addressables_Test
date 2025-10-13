@@ -574,6 +574,7 @@ GameObject:
   - component: {fileID: 781183297}
   - component: {fileID: 781183296}
   - component: {fileID: 781183295}
+  - component: {fileID: 781183298}
   m_Layer: 0
   m_Name: Example Load Scene (Abs Scene Loader)
   m_TagString: Untagged
@@ -593,19 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0596ea3a101ec64c98837503021bd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneLoadSettings:
-    _key:
-      rid: -2
-    _loadMode: 0
-    _activateOnLoad: 0
-    _priority: 0
-    _releaseMode: 0
-  _getSceneAddressables: {fileID: 1879702688}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+  _loadTargetSceneAddressables: {fileID: 781183298}
 --- !u!114 &781183296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,6 +631,32 @@ Transform:
   - {fileID: 1879702689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &781183298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781183294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f192eeabe8dbb2f46b61159089d355cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadSceneAddressables: {fileID: 1879702688}
+  _sceneLoadSettings:
+    _key:
+      rid: -2
+    _loadMode: 0
+    _activateOnLoad: 1
+    _priority: 100
+    _releaseMode: 0
+  _isAutoUnloadScene: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,6 +790,7 @@ GameObject:
   - component: {fileID: 954153257}
   - component: {fileID: 954153256}
   - component: {fileID: 954153255}
+  - component: {fileID: 954153258}
   m_Layer: 0
   m_Name: Example Load Scene Variants List (Abs Scene Loader)
   m_TagString: Untagged
@@ -794,19 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0596ea3a101ec64c98837503021bd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneLoadSettings:
-    _key:
-      rid: -2
-    _loadMode: 0
-    _activateOnLoad: 0
-    _priority: 0
-    _releaseMode: 0
-  _getSceneAddressables: {fileID: 848002165}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+  _loadTargetSceneAddressables: {fileID: 954153258}
 --- !u!114 &954153256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +847,32 @@ Transform:
   - {fileID: 848002166}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &954153258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954153254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f192eeabe8dbb2f46b61159089d355cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadSceneAddressables: {fileID: 848002165}
+  _sceneLoadSettings:
+    _key:
+      rid: -2
+    _loadMode: 0
+    _activateOnLoad: 1
+    _priority: 100
+    _releaseMode: 0
+  _isAutoUnloadScene: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &1097099811
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1097099813}
   - component: {fileID: 1097099812}
+  - component: {fileID: 1097099814}
   m_Layer: 0
   m_Name: Example Load Scene AssetReference
   m_TagString: Untagged
@@ -878,19 +909,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  _sceneLoadSettings:
-    _key:
-      rid: -2
-    _loadMode: 0
-    _activateOnLoad: 0
-    _priority: 0
-    _releaseMode: 0
-  _getSceneAddressables: {fileID: 1190187500}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+  _loadTargetSceneAddressables: {fileID: 1097099814}
 --- !u!4 &1097099813
 Transform:
   m_ObjectHideFlags: 0
@@ -907,6 +926,32 @@ Transform:
   - {fileID: 1190187501}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1097099814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097099811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f192eeabe8dbb2f46b61159089d355cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadSceneAddressables: {fileID: 1190187500}
+  _sceneLoadSettings:
+    _key:
+      rid: -2
+    _loadMode: 0
+    _activateOnLoad: 1
+    _priority: 100
+    _releaseMode: 0
+  _isAutoUnloadScene: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &1190187499
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -89,6 +89,48 @@ public class LoadTargetSceneAddressables : MonoBehaviour
         return callback;
     }
     
+    public GetServerRequestData<AsyncOperationHandle<SceneInstance>> StartLoadScene(DataSceneLoadAddressable sceneLoadSettings)
+    {
+        if (_isAutoUnloadScene == true) 
+        {
+            DontDestroyOnLoad(this.gameObject);
+            this.gameObject.transform.parent = null;
+        }
+        
+        var callback = _loadSceneAddressables.GetData(sceneLoadSettings);
+
+        if (_isAutoUnloadScene == true)
+        {
+            if (callback.IsGetDataCompleted == false)
+            {
+                callback.OnGetDataCompleted += OnGetDataCompleted;
+            }
+            else
+            {
+                GetDataCompleted();
+            }
+
+            void OnGetDataCompleted()
+            {
+                if (callback.IsGetDataCompleted == true)
+                {
+                    callback.OnGetDataCompleted -= OnGetDataCompleted;
+                    GetDataCompleted();
+                }
+            }
+
+            void GetDataCompleted()
+            {
+                _handleScene = callback.GetData;
+                StartAutoUnloadScene();
+            }
+            
+        }
+
+
+        return callback;
+    }
+    
     // т.к при загрузку сцены сразу и переходим на неё, то вызыв OnDestroy будет осуществлен в момент перехода с текущей сцена на сцену котор загружаем,
     // а значит если в этот момент вызову Addressables.UnloadSceneAsync, то получиться, что я загружаю сцену XXXX и сразу же эту сцену(XXXX) уничтожаю 
     // что мне не подходит

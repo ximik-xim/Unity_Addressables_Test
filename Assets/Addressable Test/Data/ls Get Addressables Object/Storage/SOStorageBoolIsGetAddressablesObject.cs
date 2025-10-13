@@ -242,9 +242,15 @@ public class SOStorageBoolIsGetAddressablesObject : ScriptableObject, IInitScrip
                             _resourceLocations.Add(VARIABLE);    
                         }
                     }
-
+                    
                     //Отписывась от проверки 
                     listCallback[i].CallbackData.Completed -= OnCheck;
+                    
+                    if (listCallback[i].CallbackData.IsValid() == true) 
+                    {
+                        Addressables.Release(listCallback[i].CallbackData);
+                    }
+                    
                     //Удаляю Callback с сервера
                     listCallback.RemoveAt(i);
                     i--;

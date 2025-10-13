@@ -124,6 +124,12 @@ public class GetKeyNameSceneStorageAssetRefScene : AbsGetStorageKeyNameScene
                 if (_exceptionsData.ContainsKey(listKey[i].GetRefScene().RuntimeKey) == false)
                 {
                     listKeyScene.Add(new KeyNameScene(listCallback2[num].Result[0].PrimaryKey));
+                    
+                    if (listCallback2[num].IsValid() == true) 
+                    {
+                        Addressables.Release(listCallback2[num]);
+                    }
+                    
                     num++;
                 }
                 else

@@ -121,12 +121,21 @@ public class DownloadUpdateObjAllErrorContinue : AbsDownloadUpdateObj
                 wrapperCallbackData.Data.Invoke();
                 
                 _idCallback.Remove(wrapperCallbackData.DataGet.IdMassage);
+                if (dataCallback.IsValid() == true) 
+                {
+                    Addressables.Release(dataCallback);
+                }
                 return;
             }
             else
             {
                 //добавляю ошибку
                 _errorLogic.OnAddError();
+                
+                if (dataCallback.IsValid() == true) 
+                {
+                    Addressables.Release(dataCallback);
+                }
                 
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 

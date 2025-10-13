@@ -135,12 +135,18 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                         wrapperCallbackData.Data.Invoke();
 
                         _idCallback.Remove(wrapperCallbackData.Data.IdMassage);
+                        
+                        if (dataCallback.IsValid() == true) 
+                        {
+                            Addressables.Release(dataCallback);
+                        }
                         return;
                     }
                     else
                     {
                         //Т.к включена филтрация, то возращаю пустой список(т.к у тех обьектво нет обновлений)
                         Debug.Log("Обьекту(-там) НЕ нужно обновление");
+                        
                         
                         //заполняю данные для ответа
                         wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
@@ -153,6 +159,11 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                         wrapperCallbackData.Data.Invoke();
                 
                         _idCallback.Remove(wrapperCallbackData.Data.IdMassage);
+                        
+                        if (dataCallback.IsValid() == true) 
+                        {
+                            Addressables.Release(dataCallback);
+                        }
                         return;
                         
                     }
@@ -175,6 +186,11 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                 wrapperCallbackData.Data.Invoke();
                 
                 _idCallback.Remove(wrapperCallbackData.Data.IdMassage);
+                
+                if (dataCallback.IsValid() == true) 
+                {
+                    Addressables.Release(dataCallback);
+                }
                 return;
             }
             else
@@ -182,6 +198,11 @@ public class CheckIsUpdateObjAllErrorContinue : AbsCheckIsUpdateObj
                 Debug.Log("Запрос на проверку обн. обьектов ошибка. Переотправка");
                 //добавляю ошибку
                 _errorLogic.OnAddError();
+                
+                if (dataCallback.IsValid() == true) 
+                {
+                    Addressables.Release(dataCallback);
+                }
                 
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 

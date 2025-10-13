@@ -102,6 +102,11 @@ public class AwakeStartCheckUpdateCatalog : MonoBehaviour
                 Debug.LogError("Ошибка при запросе обновлений каталогов");    
             }
             
+            
+            if (callback.IsValid() == true) 
+            {
+                Addressables.Release(callback);
+            }
         }
     }
 }

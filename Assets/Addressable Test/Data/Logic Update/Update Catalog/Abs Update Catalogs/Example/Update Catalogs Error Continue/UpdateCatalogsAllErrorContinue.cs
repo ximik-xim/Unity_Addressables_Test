@@ -135,6 +135,11 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                 wrapperCallbackData.Data.Invoke();
                 
                 _idCallback.Remove(wrapperCallbackData.DataGet.IdMassage);
+
+                if (dataCallback.IsValid() == true) 
+                {
+                    Addressables.Release(dataCallback);
+                }
                 return;
             }
             else
@@ -146,6 +151,11 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                 if (_errorLogic.IsContinue == true) 
                 {
                     Debug.Log("Запрос на обн. каталогов ошибка. Переотправка");
+                    
+                    if (dataCallback.IsValid() == true) 
+                    {
+                        Addressables.Release(dataCallback);
+                    }
                     
                     //заного отпр. запрос, и по новой 
                     dataCallback = Addressables.UpdateCatalogs(copiedListData);

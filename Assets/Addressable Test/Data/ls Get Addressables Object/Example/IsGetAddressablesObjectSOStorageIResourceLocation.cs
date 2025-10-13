@@ -133,6 +133,11 @@ public class IsGetAddressablesObjectSOStorageIResourceLocation : AbsBoolIsGetAdd
             wrapperCallbackData.Data.GetData = isGet;
             wrapperCallbackData.Data.IsGetDataCompleted = true;
             wrapperCallbackData.Data.Invoke();
+            
+            if (callback.IsValid() == true) 
+            {
+                Addressables.Release(callback); 
+            }
         }
 
         return wrapperCallbackData.DataGet;

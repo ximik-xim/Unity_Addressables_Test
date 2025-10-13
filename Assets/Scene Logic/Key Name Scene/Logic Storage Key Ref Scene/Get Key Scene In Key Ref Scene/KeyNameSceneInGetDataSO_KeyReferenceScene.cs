@@ -46,6 +46,11 @@ public class KeyNameSceneInGetDataSO_KeyReferenceScene
        void CheckCompletedCallback()
        {
            _keyNameScene = new KeyNameScene(callback.Result[0].PrimaryKey);
+ 
+           if (callback.IsValid() == true) 
+           {
+               Addressables.Release(callback);
+           }
            
            _isInit = true;
            OnInit?.Invoke();

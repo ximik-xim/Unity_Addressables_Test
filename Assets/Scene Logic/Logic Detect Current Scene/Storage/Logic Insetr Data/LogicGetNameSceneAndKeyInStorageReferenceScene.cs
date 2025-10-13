@@ -48,7 +48,6 @@ public class LogicGetNameSceneAndKeyInStorageReferenceScene : MonoBehaviour
 
             for (int i = 0; i < buffer.Count; i++)
             {
-
                 var callback = Addressables.LoadResourceLocationsAsync(buffer[i].GetRefScene().RuntimeKey);
                 _data.Add(buffer[i].GetRefScene().RuntimeKey, callback);
 
@@ -80,6 +79,7 @@ public class LogicGetNameSceneAndKeyInStorageReferenceScene : MonoBehaviour
                     if (listCallback[i].IsDone == true)
                     {
                         listCallback[i].Completed -= CheckCompletedCallback;
+                        
                         listCallback.RemoveAt(i);
                         i--;
                         targetCount--;
@@ -101,6 +101,11 @@ public class LogicGetNameSceneAndKeyInStorageReferenceScene : MonoBehaviour
             {
                 string key = _data[VARIABLE.GetRefScene().RuntimeKey].Result[0].PrimaryKey;
                 listKeyScene.Add(new AbsKeyData<string, KeyNameScene>(VARIABLE.GetNameScene(), new KeyNameScene(key)));
+                
+                if (_data[VARIABLE.GetRefScene().RuntimeKey].IsValid() == true) 
+                {
+                    Addressables.Release(_data[VARIABLE.GetRefScene().RuntimeKey]);
+                }
             }
 
             _listNameSceneAndKey = listKeyScene;

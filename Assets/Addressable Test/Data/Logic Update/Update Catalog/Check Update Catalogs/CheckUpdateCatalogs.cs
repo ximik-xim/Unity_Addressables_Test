@@ -103,10 +103,13 @@ public class CheckUpdateCatalogs : MonoBehaviour
                 
                 _idCallback.Remove(wrapperCallbackData.DataGet.IdMassage);
                 
-                if (dataCallback.IsValid() == true) 
-                {
-                    Addressables.Release(dataCallback);
-                }
+                //Тут не надо вручную удалять данные из оперативки, если вручну не выключели авто очистки у метода CheckForCatalogUpdates( тут передать false)
+                //иначе метод ломаеться(ля приколы)
+                // if (dataCallback.IsValid() == true) 
+                // {
+                //     Addressables.Release(dataCallback);
+                // }
+                
                 return;
             }
             else
@@ -114,10 +117,12 @@ public class CheckUpdateCatalogs : MonoBehaviour
                 //добавляю ошибку
                 _errorLogic.OnAddError();
                 
-                if (dataCallback.IsValid() == true) 
-                {
-                    Addressables.Release(dataCallback);
-                }
+                //Тут не надо вручную удалять данные из оперативки, если вручну не выключели авто очистки у метода CheckForCatalogUpdates( тут передать false)
+                //иначе метод ломаеться(ля приколы)
+                // if (dataCallback.IsValid() == true) 
+                // {
+                //     Addressables.Release(dataCallback);
+                // }
                 
                 //Проверяю, могу ли еще раз отпр. запрос
                 if (_errorLogic.IsContinue == true) 

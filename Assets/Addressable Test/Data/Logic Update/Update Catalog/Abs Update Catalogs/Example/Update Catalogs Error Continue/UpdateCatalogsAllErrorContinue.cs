@@ -136,10 +136,12 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                 
                 _idCallback.Remove(wrapperCallbackData.DataGet.IdMassage);
 
-                if (dataCallback.IsValid() == true) 
-                {
-                    Addressables.Release(dataCallback);
-                }
+                //Тут не надо вручную удалять данные из оперативки, если вручну не выключели авто очистки у метода UpdateCatalogs( тут передать false)
+                //иначе метод ломаеться(ля приколы)
+                // if (dataCallback.IsValid() == true) 
+                // {
+                //     Addressables.Release(dataCallback);
+                // }
                 return;
             }
             else
@@ -152,10 +154,12 @@ public class UpdateCatalogsAllErrorContinue : AbsUpdateCatalogs
                 {
                     Debug.Log("Запрос на обн. каталогов ошибка. Переотправка");
                     
-                    if (dataCallback.IsValid() == true) 
-                    {
-                        Addressables.Release(dataCallback);
-                    }
+                    //Тут не надо вручную удалять данные из оперативки, если вручну не выключели авто очистки у метода UpdateCatalogs( тут передать false)
+                    //иначе метод ломаеться(ля приколы)
+                    // if (dataCallback.IsValid() == true) 
+                    // {
+                    //     Addressables.Release(dataCallback);
+                    // }
                     
                     //заного отпр. запрос, и по новой 
                     dataCallback = Addressables.UpdateCatalogs(copiedListData);

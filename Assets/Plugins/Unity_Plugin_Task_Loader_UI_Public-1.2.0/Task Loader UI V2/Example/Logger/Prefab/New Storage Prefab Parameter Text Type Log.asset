@@ -21,7 +21,7 @@ MonoBehaviour:
         TextError: 
         MessageType: 0
     Data:
-      _color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+      _color: {r: 0.38431376, g: 0.6392157, b: 0.34509805, a: 1}
   - Key:
       _dataSO: {fileID: 11400000, guid: 42b8fac120e0d414494daf6e497cf794, type: 2}
       _selectIndif: {fileID: 11400000, guid: 6e585f43b2d7ab24a930c671885cdb4b, type: 2}
@@ -30,7 +30,7 @@ MonoBehaviour:
         TextError: 
         MessageType: 0
     Data:
-      _color: {r: 0.745283, g: 0.6567905, b: 0.10898005, a: 1}
+      _color: {r: 0.7647059, g: 0.5686275, b: 0.32156864, a: 1}
   - Key:
       _dataSO: {fileID: 11400000, guid: 42b8fac120e0d414494daf6e497cf794, type: 2}
       _selectIndif: {fileID: 11400000, guid: d2e88807413d77b46b57f72ed9ee16d4, type: 2}
@@ -39,7 +39,7 @@ MonoBehaviour:
         TextError: 
         MessageType: 0
     Data:
-      _color: {r: 0.5566038, g: 0.07613921, b: 0.07613921, a: 1}
+      _color: {r: 0.7764706, g: 0.17254902, b: 0.22745098, a: 1}
   - Key:
       _dataSO: {fileID: 11400000, guid: 42b8fac120e0d414494daf6e497cf794, type: 2}
       _selectIndif: {fileID: 11400000, guid: a11e37af1bf67ef4e9c8e5a922ec761f, type: 2}
@@ -48,4 +48,4 @@ MonoBehaviour:
         TextError: 
         MessageType: 0
     Data:
-      _color: {r: 0, g: 0.7254902, b: 0.69499123, a: 1}
+      _color: {r: 0.31764707, g: 0.62352943, b: 0.8117647, a: 1}

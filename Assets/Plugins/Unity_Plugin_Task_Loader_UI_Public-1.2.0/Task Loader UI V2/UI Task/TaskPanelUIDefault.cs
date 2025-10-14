@@ -28,6 +28,9 @@ public class TaskPanelUIDefault : AbsTaskPanelUI
 
     [SerializeField] 
     private Texture2D ImageTask;
+
+    [SerializeField]
+    private Color _colorImageTask;
     
     public override void SetData(WrapperTaskLoaderData data)
     {
@@ -56,6 +59,7 @@ public class TaskPanelUIDefault : AbsTaskPanelUI
     private void UpdateUI()
     {
         _imageTask.texture = ImageTask;
+        _imageTask.color = _colorImageTask;
         
         OnUpdatePercentage(_taskWrapper.PercentComplited);
 

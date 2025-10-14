@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class SetParentStorageKeyAndGM : MonoBehaviour
 {
+    /// <summary>
+    /// Уничтожать ли GM при Destroy этого скрипта
+    /// </summary>
+    [SerializeField]
+    private bool _isGmDestroy;
+    
     [SerializeField]
     private GetDKOPatch _patchStorageKeyAndGM;
 
-    [SerializeField] 
-    private ListActionGmSetParent _listActionGm;
+    [SerializeField]
+    private ListActionGmSetParent _setParent;
 
     [SerializeField]
     private bool _startAwake = false;
 
     [SerializeField]
-    private GetDataSO_StorageKeyGM _keyGM;
+    private GetDataSO_StorageKeyGM _keyGetParent;
  
     private void Awake()
     {
@@ -44,14 +50,21 @@ public class SetParentStorageKeyAndGM : MonoBehaviour
 
     public void StartAction()
     {
-        var DKOData = (DKODataInfoT<StorageKeyAndGM>)_patchStorageKeyAndGM.GetDKO();
-        StorageKeyAndGM taskInfo = DKOData.Data;
+        StorageKeyAndGM storageKeyAndGm = _patchStorageKeyAndGM.GetDKO<DKODataInfoT<StorageKeyAndGM>>().Data;
+        GameObject parent = storageKeyAndGm.GetGM(_keyGetParent.GetData());
 
-        var parent = taskInfo.GetGM(_keyGM.GetData());
-
-        _listActionGm.StartAction(parent);
+        _setParent.StartAction(parent);
     }
     
-    
+    private void OnDestroy()
+    {
+        if (_isGmDestroy == true)
+        {
+            foreach (var VARIABLE in _setParent.GetListGm())
+            {
+                Destroy(VARIABLE);
+            }
+        }
+    }
     
 }

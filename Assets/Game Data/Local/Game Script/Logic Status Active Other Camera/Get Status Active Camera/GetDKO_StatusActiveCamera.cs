@@ -1,6 +1,11 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Нужен что бы получить статус для все побочных камер(и если надо, то отключить их)
+/// (во время разработки камеры нужны, но в готовом проекте они должны быть отключены, но они все еще нужны,
+/// для логики маштабирования 1 к 1)
+/// </summary>
 public class GetDKO_StatusActiveCamera : MonoBehaviour
 {
    [SerializeField]
@@ -8,7 +13,7 @@ public class GetDKO_StatusActiveCamera : MonoBehaviour
 
    [SerializeField]
    private GameObject _cameraGM;
-
+   
    private void Awake()
    {
       if (_dkoPatchStatusOtherCamer.Init == false)

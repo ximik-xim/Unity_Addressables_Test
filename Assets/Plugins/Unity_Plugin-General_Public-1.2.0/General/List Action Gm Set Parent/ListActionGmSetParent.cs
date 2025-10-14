@@ -27,6 +27,13 @@ public class ListActionGmSetParent : MonoBehaviour
     
     [SerializeField] 
     private Vector3 _setLocalPosition = Vector3.zero;
+
+    /// <summary>
+    /// Если false, то будет сохранять локальные коорд. относительно нового род.
+    /// Если True, будет сохр. мировые(глобальные) коорд.
+    /// </summary>
+    [SerializeField]
+    private bool _isWorldPositionStays = false;
     
     [SerializeField] 
     private List<GameObject> _gm = new List<GameObject>();
@@ -52,20 +59,19 @@ public class ListActionGmSetParent : MonoBehaviour
         {
             if (parent == null)
             {
-                VARIABLE.gameObject.transform.parent = _parent.transform;    
+                VARIABLE.gameObject.transform.SetParent(_parent.transform, _isWorldPositionStays);    
             }
             else
             {
-                VARIABLE.gameObject.transform.parent = parent.transform;
+                VARIABLE.gameObject.transform.SetParent(parent.transform, _isWorldPositionStays);
             }
-            
             
             if (_isSetScale == true)
             {
                 VARIABLE.gameObject.transform.localScale = _setScale;
             }
             
-            if (_isSetScale == true)
+            if (_isSetLocalPosition == true)
             {
                 VARIABLE.gameObject.transform.localPosition = _setLocalPosition;
             }

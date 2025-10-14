@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1c29eda4026b34e42abbd9cd52e97492
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201896
+  packageName: Scene Window
+  packageVersion: 2.2.0
+  assetPath: Assets/Jouaid Technologies/Scene Window/Editor/EditorStartupScene.cs
+  uploadId: 668200

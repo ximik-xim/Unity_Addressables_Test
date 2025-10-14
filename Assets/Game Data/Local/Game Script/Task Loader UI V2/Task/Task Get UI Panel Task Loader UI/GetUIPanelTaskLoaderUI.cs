@@ -88,7 +88,9 @@ public class GetUIPanelTaskLoaderUI : MonoBehaviour
         _storageGM.AddGM(_keyStorageGM.GetData(), uiPanel);
 
         DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Установка нового родителя у панели");
-        uiPanel.transform.parent = _targetParent.transform;
+        
+        uiPanel.transform.SetParent(_targetParent.transform, false);
+        //uiPanel.transform.parent = _targetParent.transform;
         uiPanel.transform.localPosition = Vector3.zero;
         uiPanel.transform.localScale = Vector3.one;
     }

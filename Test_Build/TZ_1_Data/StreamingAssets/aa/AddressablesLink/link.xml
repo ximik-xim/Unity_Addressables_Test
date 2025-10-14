@@ -1,7 +1,6 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="ActionListCheckIsBlockSceneLevel" preserve="all" />
-    <type fullname="AddKeyTargetGmInStorageKeyGM" preserve="all" />
     <type fullname="AddTaskInStorageTaskLoader" preserve="all" />
     <type fullname="AutoDetectedKeyNameScene" preserve="all" />
     <type fullname="AwakeInsertDataStorageNameSceneAndKeyNameScene" preserve="all" />
@@ -87,7 +86,6 @@
     <type fullname="LogicStartNumberScene" preserve="all" />
     <type fullname="ReactionTriggerStartListTask" preserve="all" />
     <type fullname="SceneUI_Addressable" preserve="all" />
-    <type fullname="SetCanvasParentGmDontDestroy" preserve="all" />
     <type fullname="SO_Data_KeyReferenceScene" preserve="all" />
     <type fullname="SO_Data_NameSceneAndKeyString" preserve="all" />
     <type fullname="SOStorageBoolIsGetAddressablesObject" preserve="all" />
@@ -173,6 +171,7 @@
     <type fullname="SceneMBS_DKO" preserve="all" />
     <type fullname="SceneStartTask" preserve="all" />
     <type fullname="SD_StorageDataStringPrefs" preserve="all" />
+    <type fullname="SetParentStorageKeyAndGM" preserve="all" />
     <type fullname="SO_Data_KeyTaskLoaderTypeLog" preserve="all" />
     <type fullname="SO_Data_SD_KeyStorageStringVariable" preserve="all" />
     <type fullname="SO_Data_StorageKeyGM" preserve="all" />

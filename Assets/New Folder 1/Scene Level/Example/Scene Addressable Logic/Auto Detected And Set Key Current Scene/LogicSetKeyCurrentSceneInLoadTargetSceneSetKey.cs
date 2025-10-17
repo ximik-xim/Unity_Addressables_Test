@@ -4,7 +4,7 @@ using UnityEngine;
 /// находит тек. ключ сцены, и засовывает его в Task Load Scene
 /// (для загрузки сцены через Task loader UI)
 /// </summary>
-public class LogicSetKeyCurrentSceneInLoadTargetSceneSetKeyAddressable : MonoBehaviour
+public class SetKeyCurrentSceneInLoadTargetSceneAddressable : MonoBehaviour
 {
     [SerializeField]
     private GetDKOPatch _dkoPatchAutoDetectedKeyNameScene;

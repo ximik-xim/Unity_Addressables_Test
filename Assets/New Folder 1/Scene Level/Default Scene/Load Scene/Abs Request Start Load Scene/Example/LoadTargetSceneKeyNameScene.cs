@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Нужен что бы удобно указать ключ сцены через инспектор
+/// </summary>
 public class LoadTargetSceneKeyNameScene : AbsRequestStartLoadScene
 {
     public override event Action OnInit

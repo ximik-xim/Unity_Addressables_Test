@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Список исключений
+/// Можно по ключу сцены указать другой порядковый номер для этого ключа сцены
+/// </summary>
 public class ExcepListKeyReferenceSceneSortingScene : AbsExceptionsListInLogicSortingSceneLevel
 {
-    
     public override event Action OnInit;
     public override bool IsInit => _isInit;
     private bool _isInit = false;

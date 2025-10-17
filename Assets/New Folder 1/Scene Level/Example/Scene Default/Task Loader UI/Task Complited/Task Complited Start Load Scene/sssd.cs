@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// По окончанию работы Task Loader UI запустит загрузку сцены
+/// </summary>
 public class SceneStartTaskComplitedStartLoadScene : MonoBehaviour
 {
     [SerializeField]

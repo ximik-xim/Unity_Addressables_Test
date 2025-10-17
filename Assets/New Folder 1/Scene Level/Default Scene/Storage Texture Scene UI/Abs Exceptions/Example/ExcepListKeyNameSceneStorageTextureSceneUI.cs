@@ -2,11 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExcepListKeyNameSceneStorageTextureSceneUI : AbsExceptionsListStorageTextureSceneUI
+/// <summary>
+/// Список исключений
+/// Можно по ключу сцены указать другую текстуру и цвет обложки
+/// </summary>
+public class ExcepListKeyNameSceneStorageTextureSceneUI : AbsExceptionsListStorageTextureAndColorSceneSkinSceneLevelUI
 {
     [SerializeField]
-    //Список исключений. Нужен в случ. если опр. сцене, нужно задать опр. номер на сцене
-    private List<AbsKeyData<GetDataSO_NameSceneAndKeyString, DataStorageTextureSceneUI>> _listExceptions;
+    //Список исключений. Нужен в случ. если опр. сцене, нужно задать текстуру и цвет обложки
+    private List<AbsKeyData<GetDataSO_NameSceneAndKeyString, DataStorageTextureAndColorSceneSkinSceneLevelUI>> _listExceptions;
 
     public override event Action OnInit;
     public override bool IsInit => true;
@@ -16,13 +20,13 @@ public class ExcepListKeyNameSceneStorageTextureSceneUI : AbsExceptionsListStora
         OnInit?.Invoke();
     }
 
-    public override List<AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>> GetListExceptions()
+    public override List<AbsKeyData<KeyNameScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>> GetListExceptions()
     {
-        List<AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>> list = new List<AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>>();
+        List<AbsKeyData<KeyNameScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>> list = new List<AbsKeyData<KeyNameScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>>();
             
         foreach (var VARIABLE in _listExceptions)
         {
-            list.Add(new AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>(new KeyNameScene(VARIABLE.Key.GetData().GetKey()) , VARIABLE.Data));
+            list.Add(new AbsKeyData<KeyNameScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>(new KeyNameScene(VARIABLE.Key.GetData().GetKey()) , VARIABLE.Data));
         }
 
         return list;

@@ -5,7 +5,7 @@ using UnityEngine;
 /// берет ключ через KeyReferenceScene
 /// передает его в логику проверки заблокирован ли Scene Level
 /// </summary>
-public class LogicSetKeyReferenceSceneInActionListCheckIsBlockSceneLevelAddressable : MonoBehaviour
+public class SetKeyRefSceneInActionListCheckBlockLevelAddressable : MonoBehaviour
 {
     [SerializeField]
     private ActionListCheckIsBlockSceneLevel _checkIsBlockSceneLeve;

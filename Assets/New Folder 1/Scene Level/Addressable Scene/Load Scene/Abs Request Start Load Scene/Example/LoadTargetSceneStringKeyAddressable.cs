@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
+/// <summary>
+/// Нужен что бы удобно указать ключ сцены через инспектор
+/// </summary>
 public class LoadTargetSceneStringKeyAddressable : AbsRequestStartLoadSceneAddressable
 {
     public override event Action OnInit

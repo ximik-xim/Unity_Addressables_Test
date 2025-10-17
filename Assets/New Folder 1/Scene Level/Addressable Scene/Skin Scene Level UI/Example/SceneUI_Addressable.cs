@@ -1,7 +1,10 @@
 using System;
 using UnityEngine;
 
-public class SceneUI_Addressable : AbsSceneUI
+/// <summary>
+/// Префаб обложки сцены для Addressable
+/// </summary>
+public class SceneUI_Addressable : AbsSkinSceneLevelUI
 {
     [SerializeField] 
     private LoadTargetSceneSetKeyAddressable _sceneLoader;

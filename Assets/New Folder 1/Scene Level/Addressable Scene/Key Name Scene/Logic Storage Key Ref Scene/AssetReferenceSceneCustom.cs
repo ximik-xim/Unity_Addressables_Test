@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Кастомный Asset Reference, в который можно передать только сцену помеченную как Addressable
+/// </summary>
 [System.Serializable]
 public class AssetReferenceSceneCustom : AssetReference
 {

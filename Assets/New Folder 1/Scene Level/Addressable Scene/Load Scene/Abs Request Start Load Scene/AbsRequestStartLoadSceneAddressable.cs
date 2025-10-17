@@ -5,6 +5,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 /// <summary>
 /// Абстракция нужная что бы отделить логику установки параметров для загр. сцен
 /// и логику запуска загрузки сцен
+/// (для Addressable нужна отдельная абстрация, т.к идет управление памятью)
 /// </summary>
 public abstract class AbsRequestStartLoadSceneAddressable : MonoBehaviour
 {

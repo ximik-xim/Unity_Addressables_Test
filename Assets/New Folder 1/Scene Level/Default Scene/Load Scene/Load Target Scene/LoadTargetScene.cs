@@ -2,6 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Обертка над логкикой загрузки сцены
+/// (идея в том, что тут в инспекторе уст. настройки для загрузки сцены,
+/// а ключ определяю где то из вне)
+/// </summary>
 public class LoadTargetScene : MonoBehaviour
 {
     public event Action OnInit;

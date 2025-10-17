@@ -4,7 +4,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 /// <summary>
-/// Нужен что бы удобно указать ключ через инспектор
+/// Нужен что бы удобно указать ключ сцены через инспектор
 /// </summary>
 public class LoadTargetSceneAssetReference : AbsRequestStartLoadSceneAddressable
 {

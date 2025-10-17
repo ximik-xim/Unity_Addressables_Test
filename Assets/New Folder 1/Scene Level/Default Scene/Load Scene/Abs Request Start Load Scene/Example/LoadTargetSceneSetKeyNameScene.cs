@@ -2,6 +2,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Нужен что бы указать ключ из вне
+/// </summary>
 public class LoadTargetSceneSetKeyNameScene : AbsRequestStartLoadScene
 {
     public override event Action OnInit

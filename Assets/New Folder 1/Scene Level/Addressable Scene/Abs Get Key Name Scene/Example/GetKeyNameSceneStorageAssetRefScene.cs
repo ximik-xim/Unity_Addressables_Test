@@ -7,8 +7,9 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
 /// <summary>
-/// Логика для получения через Asset Ref обычные ключи сцены
+/// Логика для получения через Asset Ref обычные ключи сцены(PrimaryKey)
 /// Обертка над хранилещем с Asset Ref Scene
+/// Есть возможность указать исключение, и указать другой ключ
 /// </summary>
 public class GetKeyNameSceneStorageAssetRefScene : AbsGetStorageKeyNameScene
 {

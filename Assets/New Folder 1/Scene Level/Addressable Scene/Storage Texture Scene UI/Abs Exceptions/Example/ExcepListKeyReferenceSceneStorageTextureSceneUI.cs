@@ -2,15 +2,19 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExcepListKeyReferenceSceneStorageTextureSceneUI : AbsExceptionsListStorageTextureSceneUI
+/// <summary>
+/// Список исключений
+/// Можно по ключу сцены указать другую текстуру и цвет обложки
+/// </summary>
+public class ExcepListKeyReferenceSceneStorageTextureSceneUI : AbsExceptionsListStorageTextureAndColorSceneSkinSceneLevelUI
 {
     public override event Action OnInit;
     public override bool IsInit => _isInit;
     private bool _isInit = false;
     
     [SerializeField]
-    //Список исключений. Нужен в случ. если опр. сцене, нужно задать опр. номер на сцене
-    private List<AbsKeyData<KeyNameSceneInGetDataSO_KeyReferenceScene, DataStorageTextureSceneUI>> _listExceptions;
+    //Список исключений. Нужен в случ. если опр. сцене, нужно задать текстуру и цвет обложки
+    private List<AbsKeyData<KeyNameSceneInGetDataSO_KeyReferenceScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>> _listExceptions;
 
     private void Awake()
     {
@@ -68,13 +72,13 @@ public class ExcepListKeyReferenceSceneStorageTextureSceneUI : AbsExceptionsList
         _isInit = true;
         OnInit?.Invoke();
     }
-    public override List<AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>> GetListExceptions()
+    public override List<AbsKeyData<KeyNameScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>> GetListExceptions()
     {
-        List<AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>> list = new List<AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>>();
+        List<AbsKeyData<KeyNameScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>> list = new List<AbsKeyData<KeyNameScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>>();
             
         foreach (var VARIABLE in _listExceptions)
         {
-            list.Add(new AbsKeyData<KeyNameScene, DataStorageTextureSceneUI>(VARIABLE.Key.GetKeySceneName(), VARIABLE.Data));
+            list.Add(new AbsKeyData<KeyNameScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>(VARIABLE.Key.GetKeySceneName(), VARIABLE.Data));
         }
 
         return list;

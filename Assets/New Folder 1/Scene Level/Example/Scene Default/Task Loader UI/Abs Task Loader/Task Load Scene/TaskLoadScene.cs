@@ -1,6 +1,8 @@
-
 using UnityEngine;
 
+/// <summary>
+/// Отвечает за загрузку и переход на сцену через Task
+/// </summary>
 public class TaskLoadScene : AbsTaskLoggerLoaderDataMono
 {
     [Header("---------")]

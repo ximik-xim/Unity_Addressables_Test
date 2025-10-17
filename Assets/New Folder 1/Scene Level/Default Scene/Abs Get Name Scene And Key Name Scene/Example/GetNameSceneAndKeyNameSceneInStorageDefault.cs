@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Логика для получения списка имен сцен и ключей к ним для обычного хранилеща
+/// </summary>
 public class GetNameSceneAndKeyNameSceneInStorageDefault : AbsGetNameSceneAndKeyNameScene
 {
     public override bool IsInit => _isInit;

@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
+/// <summary>
+/// Нужен что бы указать ключ из вне
+/// </summary>
 public class LoadTargetSceneSetKeyAddressable : AbsRequestStartLoadSceneAddressable
 {
     public override event Action OnInit

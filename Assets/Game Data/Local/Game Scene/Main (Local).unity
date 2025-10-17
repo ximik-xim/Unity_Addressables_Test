@@ -4836,7 +4836,7 @@ GameObject:
   - component: {fileID: 1511761401}
   - component: {fileID: 1511761400}
   m_Layer: 0
-  m_Name: Creator Prefab UI
+  m_Name: Fabric Prefab UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

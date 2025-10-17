@@ -8,7 +8,7 @@ public class ButtonDevelopPanelOpenAndCloseLevelScene : MonoBehaviour
     private Button _button;
 
     [SerializeField]
-    private StorageAbsGetKeyScene _storageAbsGetKeyScene;
+    private AbsGetStorageKeyNameScene _storageAbsGetKeyScene;
     
     [SerializeField]
     private StorageBlockScene _storageBlockScene;
@@ -76,7 +76,7 @@ public class ButtonDevelopPanelOpenAndCloseLevelScene : MonoBehaviour
     {
         if (_allOpen == true) 
         {
-            var listSceneName = _storageAbsGetKeyScene.GetAllKeyScene();
+            var listSceneName = _storageAbsGetKeyScene.GetData();
 
             List<AbsKeyData<KeyNameScene, bool>> listData = new List<AbsKeyData<KeyNameScene, bool>>();
             foreach (var VARIABLE in listSceneName)
@@ -88,7 +88,7 @@ public class ButtonDevelopPanelOpenAndCloseLevelScene : MonoBehaviour
         }
         else
         {
-            var listSceneName = _storageAbsGetKeyScene.GetAllKeyScene();
+            var listSceneName = _storageAbsGetKeyScene.GetData();
             
             List<AbsKeyData<KeyNameScene, bool>> listData = new List<AbsKeyData<KeyNameScene, bool>>();
             foreach (var VARIABLE in listSceneName)

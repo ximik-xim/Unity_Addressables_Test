@@ -6,7 +6,7 @@ using UnityEngine;
 /// Список исключений
 /// Можно по ключу сцены указать другой префаб обложки сцены(AbsSceneUI)
 /// </summary>
-public class ExcepListKeyNameSceneStoragePrefabSkinSceneLevelUI : AbsExceptionsListInKeyStoragePrefabSkinSceneLevelUI
+public class ExcepListKeyNameSceneAndPrefabSkinSceneLevelUI : AbsExceptionsListInKeyStoragePrefabSkinSceneLevelUI
 {
     [SerializeField]
     //Список исключений. Нужен в случ. если опр. сцене, нужно задать опр. номер на сцене

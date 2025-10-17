@@ -7,7 +7,7 @@ using UnityEngine;
 /// 1) При добавлении сцены в StorageSceneName, будет создавать префаб для этой сцены
 /// 2) По ключу(KeyNameScene) хранить DKO префаба который был создан
 /// </summary>
-public class StorageKeySceneNameAndPrefabSkinSceneLevelUI : MonoBehaviour
+public class StorageKeySceneNameAndPrefabDKO : MonoBehaviour
 {
     [SerializeField]
     private StorageSceneName _sceneName;
@@ -77,7 +77,7 @@ public class StorageKeySceneNameAndPrefabSkinSceneLevelUI : MonoBehaviour
     {
         var dko = _scenes[keyNameScene.GetKey()];
 
-        var data = (DKODataInfoT<LogicDestroySkinSceneLevelUI>)dko.KeyRun(_getKeyDestroyObj.GetData());
+        var data = (DKODataInfoT<LogicSkinSceneLevelUI_Destroy>)dko.KeyRun(_getKeyDestroyObj.GetData());
         data.Data.StartDestroyObject();
         
         _scenes.Remove(keyNameScene.GetKey());

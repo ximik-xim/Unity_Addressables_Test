@@ -5,7 +5,7 @@ using UnityEngine;
 /// Нужен для удобной работы с выбором хранилищ,
 /// из которых буду брать список имен и ключей сцен
 /// </summary>
-public class StorageGetNameSceneAndKeyNameScene : AbsGetNameSceneAndKeyNameScene
+public class StorageAbsGetNameSceneAndKeyNameScene : AbsGetNameSceneAndKeyNameScene
 {
     public override bool IsInit => _isInit;
     private bool _isInit = false;

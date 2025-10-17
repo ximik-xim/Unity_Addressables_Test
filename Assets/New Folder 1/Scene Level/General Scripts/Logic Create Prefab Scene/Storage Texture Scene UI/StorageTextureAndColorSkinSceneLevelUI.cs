@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Хранит в себе текстуру котор будет наложена на экземпляр SceneUI(обложка для загр. сцены)
 /// </summary>
-public class StorageTextureAndColorSceneSkinSceneLevelUI : MonoBehaviour
+public class StorageTextureAndColorSkinSceneLevelUI : MonoBehaviour
 {
 
     public event Action OnInit;
@@ -13,13 +13,13 @@ public class StorageTextureAndColorSceneSkinSceneLevelUI : MonoBehaviour
     private bool _isInit = false;
     
     [SerializeField]
-    private DataStorageTextureAndColorSceneSkinSceneLevelUI _defaultTexture;
+    private DataStorageTextureAndColorSkinSceneLevelUI _defaultTexture;
     
     //Список исключений. Нужен в случ. если опр. сцене, нужно задать опр. номер на сцене
     [SerializeField]
-    private AbsExceptionsListStorageTextureAndColorSceneSkinSceneLevelUI _listExceptions;
+    private AbsExceptionsListStorageTextureAndColorSkinSceneLevelUI _listExceptions;
 
-    private Dictionary<string, DataStorageTextureAndColorSceneSkinSceneLevelUI> _exceptionsTextureData = new Dictionary<string, DataStorageTextureAndColorSceneSkinSceneLevelUI>();
+    private Dictionary<string, DataStorageTextureAndColorSkinSceneLevelUI> _exceptionsTextureData = new Dictionary<string, DataStorageTextureAndColorSkinSceneLevelUI>();
 
     
     public event Action OnUpdateData;
@@ -57,7 +57,7 @@ public class StorageTextureAndColorSceneSkinSceneLevelUI : MonoBehaviour
         }
     }
 
-    public DataStorageTextureAndColorSceneSkinSceneLevelUI GetTextureUI(KeyNameScene keyNameScene)
+    public DataStorageTextureAndColorSkinSceneLevelUI GetTextureUI(KeyNameScene keyNameScene)
     {
         if (_exceptionsTextureData.ContainsKey(keyNameScene.GetKey()) == true)
         {

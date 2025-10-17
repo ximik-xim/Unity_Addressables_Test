@@ -4,7 +4,7 @@ using UnityEngine;
 /// Данные об текстуре и цвете для обложки сцены
 /// </summary>
 [System.Serializable]
-public class DataStorageTextureAndColorSceneSkinSceneLevelUI
+public class DataStorageTextureAndColorSkinSceneLevelUI
 {
     [SerializeField]
     private Texture _texture;

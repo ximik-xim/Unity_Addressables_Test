@@ -2,19 +2,19 @@ using System;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-
 /// <summary>
 /// Это обертка нужна, что бы сделать переотправку запроса несколько раз(в случ. ошибки)
 /// </summary>
 [System.Serializable]
-public class AbsCallbackGetDataErrorContinueT : AbsCallbackGetDataTAddressables
+public class AbsCallbackGetDataErrorContinueT <AbsCallbackGet, ArgData>  
+    where AbsCallbackGet : AbsCallbackGetDataMethodT<ArgData> 
 {
-    public override bool IsInit => _isInit;
+    public bool IsInit => _isInit;
     private bool _isInit = false;
-    public override event Action OnInit;
+    public event Action OnInit;
     
     [SerializeField]
-    private AbsCallbackGetDataTAddressables _absGetData;
+    private AbsCallbackGet _absGetData;
 
     [SerializeField]
     private LogicErrorCallbackRequest _errorLogic;
@@ -57,16 +57,16 @@ public class AbsCallbackGetDataErrorContinueT : AbsCallbackGetDataTAddressables
             }
         }
     }
-    public override GetServerRequestData<AsyncOperationHandle<T>> GetData<T>(object data)
+    public GetServerRequestData<T> GetData<T>(ArgData data)
     {
         Debug.Log("Запрос на загр. обьекта был отправлен");
         //Тут именно скопировать нужно
-        object copiedData = data;
+        ArgData copiedData = data;
         
         //запрашиваю данные
         var dataCallback = _absGetData.GetData<T>(copiedData);
         //делаю обертку т.к могу несколько раз делать запросы на данные, а верну лиш 1 итог. результат 
-        CallbackRequestDataWrapperT<AsyncOperationHandle<T>> wrapperCallbackData = new CallbackRequestDataWrapperT<AsyncOperationHandle<T>>(dataCallback.IdMassage);
+        CallbackRequestDataWrapperT<T> wrapperCallbackData = new CallbackRequestDataWrapperT<T>(dataCallback.IdMassage);
 
         //проверяю готовы ли данные 
         if (dataCallback.IsGetDataCompleted == true)

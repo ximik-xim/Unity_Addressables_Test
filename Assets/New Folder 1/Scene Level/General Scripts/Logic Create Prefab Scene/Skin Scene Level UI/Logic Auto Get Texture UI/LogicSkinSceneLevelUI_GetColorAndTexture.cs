@@ -12,7 +12,7 @@ public class LogicSkinSceneLevelUI_GetColorAndTexture : MonoBehaviour
     [SerializeField]
     private AbsSkinSceneLevelUI _sceneUI;
 
-    private StorageTextureAndColorSceneSkinSceneLevelUI _storageTexture;
+    private StorageTextureAndColorSkinSceneLevelUI _storageTexture;
 
     [SerializeField]
     private RawImage _texture;
@@ -54,7 +54,7 @@ public class LogicSkinSceneLevelUI_GetColorAndTexture : MonoBehaviour
     {
         if (_getDkoPatch.Init == true && _sceneUI.IsInit == true)  
         {
-            _storageTexture = _getDkoPatch.GetDKO<DKODataInfoT<StorageTextureAndColorSceneSkinSceneLevelUI>>().Data;
+            _storageTexture = _getDkoPatch.GetDKO<DKODataInfoT<StorageTextureAndColorSkinSceneLevelUI>>().Data;
             
             InitData();
         }

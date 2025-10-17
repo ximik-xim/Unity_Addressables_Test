@@ -4,7 +4,7 @@ using UnityEngine;
 /// Абстракция для создания списка исключений
 /// На случай, если по ключу нужно вернуть не стандартные данные
 /// </summary>
-public abstract class AbsExceptionsListStorageTextureAndColorSceneSkinSceneLevelUI : AbsExceptionsLogicT<KeyNameScene, DataStorageTextureAndColorSceneSkinSceneLevelUI>
+public abstract class AbsExceptionsListStorageTextureAndColorSkinSceneLevelUI : AbsExceptionsLogicT<KeyNameScene, DataStorageTextureAndColorSkinSceneLevelUI>
 {
    
 }

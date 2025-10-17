@@ -6,7 +6,7 @@ using UnityEngine;
 /// Список исключений
 /// Можно по ключу сцены указать другой префаб обложки сцены(AbsSceneUI)
 /// </summary>
-public class ExcepListKeyReferenceSceneStoragePrefabSkinSceneLevelUI : AbsExceptionsListInKeyStoragePrefabSkinSceneLevelUI
+public class ExcepListKeyReferenceSceneAndPrefabSkinSceneLevelUI : AbsExceptionsListInKeyStoragePrefabSkinSceneLevelUI
 {
   public override event Action OnInit;
     public override bool IsInit => _isInit;

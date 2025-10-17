@@ -11,7 +11,7 @@ public class AbsCallbackGetDataErrorContinue<AbsCallbackGet, GetType, ArgData>
     public bool IsInit => _isInit;
     private bool _isInit = false;
     public event Action OnInit;
-    
+
     [SerializeField]
     private AbsCallbackGet _absGetData;
 

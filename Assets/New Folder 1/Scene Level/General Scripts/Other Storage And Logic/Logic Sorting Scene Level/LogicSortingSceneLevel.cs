@@ -54,7 +54,7 @@ public class LogicSortingSceneLevel : MonoBehaviour
 /// Логика опр. порядкового номера сцен (и сразу сортировки сцен)
 /// (да получилось вообще ужасно с точки зрения кол-ва проходов, но пока пусть так)
 /// </summary>
-    public List<KeyNameScene> SortingNumberScene(List<KeyNameScene> keyNameScenes, int startNumber = 0)
+    public List<AbsKeyData<int, KeyNameScene>> SortingNumberScene(List<KeyNameScene> keyNameScenes, int startNumber = 0)
     {
         //Этот словарь сам потдерживает автомат. сортирует ключи по возрастанию,
         //и по этому в конце не надо будет делать лишний проход, для сортировки по порядку 
@@ -94,11 +94,11 @@ public class LogicSortingSceneLevel : MonoBehaviour
             }
         }
         
-        List<KeyNameScene> listSorting = new List<KeyNameScene>();
+        List<AbsKeyData<int, KeyNameScene>> listSorting = new List<AbsKeyData<int, KeyNameScene>>();
 
         foreach (var VARIABLE in buffID.Keys)
         {
-            listSorting.Add(buffID[VARIABLE]);
+            listSorting.Add(new AbsKeyData<int, KeyNameScene>(VARIABLE, buffID[VARIABLE]));
         }
 
         return listSorting;

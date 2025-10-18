@@ -64,6 +64,8 @@ public class StorageTaskLoader : MonoBehaviour
 
         _isInit = true;
         OnInit?.Invoke();
+
+        //FindCallBackAddTask(SceneManager.GetActiveScene(), LoadSceneMode.Single);
     }
 
     /// <summary>
@@ -87,8 +89,6 @@ public class StorageTaskLoader : MonoBehaviour
         
         if (callBackAddDataTaskScene != null)
         {
-              
-
                 if (callBackAddDataTaskScene.IsInit == false)
                 {
                     callBackAddDataTaskScene.OnInit -= OnInitStorageTask;
@@ -96,6 +96,8 @@ public class StorageTaskLoader : MonoBehaviour
                 }
                 else
                 {
+                    callBackAddDataTaskScene.OnInit -= OnInitStorageTask;
+                    
                     InitStorageTask();
                 }
                 

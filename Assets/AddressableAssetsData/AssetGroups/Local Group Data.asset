@@ -25,8 +25,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 519e32cce0bef1d4ab87af9953b038c7
+    m_Address: Assets/New Folder 1/Scene Level/Example/Example Scene Level.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52070c2b44c205e4a97b4ab7adf76edb
     m_Address: Scene Level 3.unity Local
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f9e65fbf00d9e343a5407b087870ea3
+    m_Address: Assets/New Folder 1/Scene Level/Example/Example Scene Level 2.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -42,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: afd83ff7bb0f203458d38ef2b3abbaac
     m_Address: SO Storage Name Scene.asset Local
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffd21a71bcc78a54abb803ff575e61c8
+    m_Address: Assets/New Folder 1/Scene Level/Example/Example Scene Menu.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85dd51b3fa7ba5c4eb98cfe0982a3268, type: 3}
+  m_Name: Example SO Key Name Scene And Key String
+  m_EditorClassIdentifier: 
+  _nameSO: Example SO Key Name Scene And Key String
+  _setName: 1
+  _saveBackupChangeData: 1
+  _list:
+  - _identifierData: {fileID: 11400000, guid: f11b8eebe99cb6045a1d19f5ae25812e, type: 2}
+    _dataKey:
+      _sceneAsset: {fileID: 102900000, guid: ffd21a71bcc78a54abb803ff575e61c8, type: 3}
+      _nameScene: Example Scene Menu
+      _keyNameScene: Example Scene Menu
+      _isAutoSetNameScene: 1
+      _isAutoSetKeyScene: 1
+  _fatalError:
+    Enable: 0
+    TextError: 
+    MessageType: 3
+  _error:
+    Enable: 0
+    TextError: 
+    MessageType: 2

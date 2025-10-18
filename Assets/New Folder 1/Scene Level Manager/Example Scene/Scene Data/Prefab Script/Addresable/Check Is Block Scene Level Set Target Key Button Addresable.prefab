@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5460430009893427763}
   - component: {fileID: 4817061940761349698}
   m_Layer: 0
-  m_Name: Check Is Block Scene Level Button AAA Addresable
+  m_Name: Check Is Block Scene Level Set Target Key Button Addresable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

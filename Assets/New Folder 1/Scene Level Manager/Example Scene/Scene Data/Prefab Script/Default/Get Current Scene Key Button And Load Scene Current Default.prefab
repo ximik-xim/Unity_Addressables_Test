@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4948032250564532041}
   - component: {fileID: 8311150126383737945}
   m_Layer: 0
-  m_Name: Get Current Scene Key Button Load Scene Current Default
+  m_Name: Get Current Scene Key Button And Load Scene Current Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

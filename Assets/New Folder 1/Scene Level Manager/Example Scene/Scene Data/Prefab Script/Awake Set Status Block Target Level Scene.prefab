@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7571603913388297166
+--- !u!1 &2869303257957978698
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5218425618374547088}
-  - component: {fileID: 7100249623674611981}
+  - component: {fileID: 3804903693094506771}
+  - component: {fileID: 5620541607010062808}
   m_Layer: 0
   m_Name: Get PatchInt Storage Block Scene
   m_TagString: Untagged
@@ -17,36 +17,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5218425618374547088
+--- !u!4 &3804903693094506771
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7571603913388297166}
+  m_GameObject: {fileID: 2869303257957978698}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5257857751340732502}
-  m_Father: {fileID: 7855860101430795083}
+  - {fileID: 4077715189295402759}
+  m_Father: {fileID: 4296045827670912987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7100249623674611981
+--- !u!114 &5620541607010062808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7571603913388297166}
+  m_GameObject: {fileID: 2869303257957978698}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa789a89ee13b9e4fa2aea3344f80a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _getDkoPatch: {fileID: 4251458311649172096}
---- !u!1 &8058351523004836031
+  _getDkoPatch: {fileID: 3123309433131568597}
+--- !u!1 &5113718750059970390
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,8 +54,57 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5257857751340732502}
-  - component: {fileID: 4251458311649172096}
+  - component: {fileID: 4296045827670912987}
+  - component: {fileID: 4842086003876782639}
+  m_Layer: 0
+  m_Name: Awake Set Status Block Target Level Scene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4296045827670912987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5113718750059970390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3804903693094506771}
+  - {fileID: 4073888620154390364}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4842086003876782639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5113718750059970390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0877bff46711d3348bedd1e98ea095d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _getPatchIntStorageBlockScene: {fileID: 5620541607010062808}
+  _keyScene: {fileID: 6271060949475655039}
+  _isBlock: 0
+--- !u!1 &5974591433221284039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4077715189295402759}
+  - component: {fileID: 3123309433131568597}
   m_Layer: 0
   m_Name: DKO Patch Storage Block Scene
   m_TagString: Untagged
@@ -63,28 +112,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5257857751340732502
+--- !u!4 &4077715189295402759
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8058351523004836031}
+  m_GameObject: {fileID: 5974591433221284039}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 235, y: -1, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5218425618374547088}
+  m_Father: {fileID: 3804903693094506771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4251458311649172096
+--- !u!114 &3123309433131568597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8058351523004836031}
+  m_GameObject: {fileID: 5974591433221284039}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23b44c351561b1d41894b19e43406e22, type: 3}
@@ -106,62 +155,13 @@ MonoBehaviour:
       TextError: 
       MessageType: 0
   _isSaveDataDKO: 1
---- !u!1 &8284986407607663025
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7855860101430795083}
-  - component: {fileID: 9030285078293299973}
-  m_Layer: 0
-  m_Name: TL Task Set Status Block Scene Level
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7855860101430795083
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8284986407607663025}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5218425618374547088}
-  - {fileID: 8040134730969287969}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9030285078293299973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8284986407607663025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0223ae0cd43624241b271c649058fffc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _getPatchIntStorageBlockScene: {fileID: 7100249623674611981}
-  _keyScene: {fileID: 7423183660152578}
-  _isBlock: 0
---- !u!1001 &1592901967249963815
+--- !u!1001 &4685441308558356826
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7855860101430795083}
+    m_TransformParent: {fileID: 4296045827670912987}
     m_Modifications:
     - target: {fileID: 5092684566576953650, guid: 9d0cee599da48a244b1dad2cbcb76735, type: 3}
       propertyPath: m_Name
@@ -212,10 +212,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d0cee599da48a244b1dad2cbcb76735, type: 3}
---- !u!114 &7423183660152578 stripped
+--- !u!4 &4073888620154390364 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8759312254635144710, guid: 9d0cee599da48a244b1dad2cbcb76735, type: 3}
+  m_PrefabInstance: {fileID: 4685441308558356826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6271060949475655039 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1585619732606618661, guid: 9d0cee599da48a244b1dad2cbcb76735, type: 3}
-  m_PrefabInstance: {fileID: 1592901967249963815}
+  m_PrefabInstance: {fileID: 4685441308558356826}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -223,8 +228,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925087d92cba7c048a6973797b90d947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &8040134730969287969 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8759312254635144710, guid: 9d0cee599da48a244b1dad2cbcb76735, type: 3}
-  m_PrefabInstance: {fileID: 1592901967249963815}
-  m_PrefabAsset: {fileID: 0}

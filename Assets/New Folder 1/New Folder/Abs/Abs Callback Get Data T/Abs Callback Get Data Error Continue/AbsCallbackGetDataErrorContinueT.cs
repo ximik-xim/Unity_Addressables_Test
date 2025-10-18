@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 /// <summary>
 /// Это обертка нужна, что бы сделать переотправку запроса несколько раз(в случ. ошибки)

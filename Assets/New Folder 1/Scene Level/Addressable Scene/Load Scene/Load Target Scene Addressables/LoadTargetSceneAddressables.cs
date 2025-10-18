@@ -50,8 +50,8 @@ public class LoadTargetSceneAddressables : MonoBehaviour
     {
         if (_isAutoUnloadScene == true) 
         {
-            DontDestroyOnLoad(this.gameObject);
             this.gameObject.transform.parent = null;
+            DontDestroyOnLoad(this.gameObject);
         }
         
         _sceneLoadSettings = new DataSceneLoadAddressable(keyScene, _sceneLoadSettings.LoadMode, _sceneLoadSettings.ActivateOnLoad, _sceneLoadSettings.Priority, _sceneLoadSettings.ReleaseMode);

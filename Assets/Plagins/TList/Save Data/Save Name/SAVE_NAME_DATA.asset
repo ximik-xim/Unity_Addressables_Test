@@ -119,8 +119,6 @@ MonoBehaviour:
     _nameSO: Example SO_Data_TSG_Key Task Data UI Panel
   - _objectSO: {fileID: 11400000, guid: 78430fa33a213e64398101f22b69ad8d, type: 2}
     _nameSO: DKO Prefab Scene UI
-  - _objectSO: {fileID: 11400000, guid: 94f7d92568703274dafe2b849ab5339f, type: 2}
-    _nameSO: New SO_Data_Name Scene
   - _objectSO: {fileID: 11400000, guid: 7dcd9b49e2b76bf4d96053a1570c4142, type: 2}
     _nameSO: Example SO Key Reference Scene
   - _objectSO: {fileID: 11400000, guid: 066f5290d395a874fa5b286442395ed8, type: 2}

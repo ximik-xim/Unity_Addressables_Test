@@ -32,25 +32,9 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 289cbccc16c1a9a458ada87adc41974e
-    m_Address: Assets/Game Data/Local/UI Skin Scene/Scene UI V2 Load Addressable.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 800e8e02007b0dd44bc01b9acf2ad6f3
     m_Address: Assets/Addressable Test/Example/Data Example/Storage Addressables
       Is Get Obj.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 94f7d92568703274dafe2b849ab5339f
-    m_Address: Assets/Scene Logic/Test Start/New SO_Data_Name Scene.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9b7da7647f974534ba4619b181439638
-    m_Address: Assets/Plagins/TList/Save Data/Save Data SO/New SO_Data_Name Scene/Element_New
-      SO_Data_Name Scene-7652.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

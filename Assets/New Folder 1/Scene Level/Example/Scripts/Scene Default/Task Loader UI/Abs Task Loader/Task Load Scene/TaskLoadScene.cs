@@ -56,9 +56,9 @@ public class TaskLoadScene : AbsTaskLoggerLoaderDataMono
 
         _storageLog.DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Начинаю загрузку сцены");
 
-
-        DontDestroyOnLoad(this.gameObject);
         this.gameObject.transform.parent = null;
+        DontDestroyOnLoad(this.gameObject);
+       
 
 
         callback = _sceneLoad.StartLoadScene();
@@ -84,7 +84,6 @@ public class TaskLoadScene : AbsTaskLoggerLoaderDataMono
 
         void GetDataCompleted()
         {
-
             UpdatePercentage(100f);
             UpdateStatus(TypeStatusTaskLoad.Comlite);
 

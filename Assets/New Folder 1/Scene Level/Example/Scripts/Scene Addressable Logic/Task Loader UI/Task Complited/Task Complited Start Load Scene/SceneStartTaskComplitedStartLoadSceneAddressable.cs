@@ -85,8 +85,8 @@ public class SceneStartTaskComplitedStartLoadSceneAddressable : MonoBehaviour
         
         if (_isAutoUnloadScene == true)
         {
-            DontDestroyOnLoad(this.gameObject);
             this.gameObject.transform.parent = null;
+            DontDestroyOnLoad(this.gameObject);
         }
         
         var callback = _loadSceneAddressables.StartLoadScene();

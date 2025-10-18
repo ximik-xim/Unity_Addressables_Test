@@ -51,8 +51,8 @@ public class SceneStartTaskComplitedStartLoadScene : MonoBehaviour
     {
         _sceneStartTask.StorageTaskLoader.OnCompleted -= OnCompletedTaskLoad;
         
-        DontDestroyOnLoad(this.gameObject);
         this.gameObject.transform.parent = null;
+        DontDestroyOnLoad(this.gameObject);
 
 
         callback = _sceneLoad.StartLoadScene();

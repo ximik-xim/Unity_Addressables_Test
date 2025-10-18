@@ -15,28 +15,29 @@ MonoBehaviour:
   m_GroupName: Packed Assets
   m_GUID: 820099e62e686134e85df02109482fbc
   m_SerializeEntries:
+  - m_GUID: 04b1d92cce94f484e86469ff3542274a
+    m_Address: Assets/Game Data/Local/Game Scene/Level/Scene Level 3 (Local).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1dcf9356291bd0641a5e4d602b279c09
     m_Address: Main (Local).unity Local
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e86de509bd5b5849854b5f1e07f2f80
-    m_Address: Scene Level 1.unity Local
+    m_Address: Assets/Game Data/Local/Game Scene/Level/Scene Level 1 (Local).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 519e32cce0bef1d4ab87af9953b038c7
-    m_Address: Assets/New Folder 1/Scene Level/Example/Example Scene Level.unity
+    m_Address: Assets/New Folder 1/Scene Level/Example/Addressable/Level/Example
+      Scene Level 1 (Addressable).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 52070c2b44c205e4a97b4ab7adf76edb
-    m_Address: Scene Level 3.unity Local
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8f9e65fbf00d9e343a5407b087870ea3
-    m_Address: Assets/New Folder 1/Scene Level/Example/Example Scene Level 2.unity
+  - m_GUID: 5533fcd9ba1b67540809852d62b8a646
+    m_Address: Assets/Game Data/Local/Game Scene/Level/Scene Level 2 (Local).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -45,13 +46,14 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9b06e39a6e5ebc3439b29bef366402c0
-    m_Address: Scene Level 2.unity Local
+  - m_GUID: afd83ff7bb0f203458d38ef2b3abbaac
+    m_Address: SO Storage Name Scene.asset Local
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: afd83ff7bb0f203458d38ef2b3abbaac
-    m_Address: SO Storage Name Scene.asset Local
+  - m_GUID: fa641cb398ec4584ea136f07905b503d
+    m_Address: Assets/New Folder 1/Scene Level/Example/Addressable/Level/Example
+      Scene Level 2 (Addressable).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

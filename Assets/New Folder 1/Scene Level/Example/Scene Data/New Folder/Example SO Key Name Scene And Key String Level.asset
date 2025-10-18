@@ -18,16 +18,16 @@ MonoBehaviour:
   _list:
   - _identifierData: {fileID: 11400000, guid: 16b64fc2c8b878948997b37268e2d475, type: 2}
     _dataKey:
-      _sceneAsset: {fileID: 102900000, guid: 519e32cce0bef1d4ab87af9953b038c7, type: 3}
-      _nameScene: Example Scene Level 1
-      _keyNameScene: Example Scene Level 1
+      _sceneAsset: {fileID: 102900000, guid: 09ae270335acc1044a798c9f0d0d98c5, type: 3}
+      _nameScene: Example Scene Level 1 (Default)
+      _keyNameScene: Example Scene Level 1 (Default)
       _isAutoSetNameScene: 1
       _isAutoSetKeyScene: 1
   - _identifierData: {fileID: 11400000, guid: 90b5fff42bdeea44aafb985d13673a5a, type: 2}
     _dataKey:
-      _sceneAsset: {fileID: 102900000, guid: 8f9e65fbf00d9e343a5407b087870ea3, type: 3}
-      _nameScene: Example Scene Level 2
-      _keyNameScene: Example Scene Level 2
+      _sceneAsset: {fileID: 102900000, guid: 94424579639dc5040a8e1f7b9c8e7b52, type: 3}
+      _nameScene: Example Scene Level 2 (Default)
+      _keyNameScene: Example Scene Level 2 (Default)
       _isAutoSetNameScene: 1
       _isAutoSetKeyScene: 1
   _fatalError:

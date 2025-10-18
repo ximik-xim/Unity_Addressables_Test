@@ -16,20 +16,20 @@ MonoBehaviour:
   _setName: 1
   _saveBackupChangeData: 1
   _list:
-  - _identifierData: {fileID: 11400000, guid: 4aa0d7668048e7e48b074e918c25dc5c, type: 2}
+  - _identifierData: {fileID: 11400000, guid: 34c60f4268cf5be498a45d171bfcdc67, type: 2}
     _dataKey:
-      _nameScene: Example Scene Level 1
+      _nameScene: Example Scene Level 1 (Addressable)
       _refScene:
         m_AssetGUID: 519e32cce0bef1d4ab87af9953b038c7
         m_SubObjectName: 
         m_SubObjectType: 
         m_SubObjectGUID: 
         m_EditorAssetChanged: 0
-  - _identifierData: {fileID: 11400000, guid: 230b2e075f63acc42ad2fc8342d3b5bc, type: 2}
+  - _identifierData: {fileID: 11400000, guid: 4b8e4d9eab0c7f248a905afea7d6b44f, type: 2}
     _dataKey:
-      _nameScene: Example Scene Level 2
+      _nameScene: Example Scene Level 2 (Addressable)
       _refScene:
-        m_AssetGUID: 8f9e65fbf00d9e343a5407b087870ea3
+        m_AssetGUID: fa641cb398ec4584ea136f07905b503d
         m_SubObjectName: 
         m_SubObjectType: 
         m_SubObjectGUID: 

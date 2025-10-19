@@ -16,18 +16,22 @@ EditorBuildSettings:
       Button.unity
     guid: 8cebc81b945c2a94980a5447cf97db61
   - enabled: 1
-    path: Assets/New Folder 1/Scene Level/Example Scene/Example Scene Default/Example
+    path: Assets/New Folder 1/Scene Level Manager/Example Scene/Example Scene Default/Example
       Scene Dont Destroy (Default).unity
     guid: 489e8177a019a1b418bd08057bfcb7a3
   - enabled: 1
-    path: Assets/New Folder 1/Scene Level/Example Scene/Example Scene Default/Example
+    path: Assets/New Folder 1/Scene Level Manager/Example Scene/Example Scene Default/Example
       Scene Menu (Default).unity
     guid: 209a9791c667fdf4292b04daeba5f460
   - enabled: 1
-    path: Assets/New Folder 1/Scene Level/Example Scene/Example Scene Default/Scene
+    path: Assets/New Folder 1/Scene Level Manager/Example Scene/Example Scene Default/Scene
       Level/Example Scene Level 1 (Default).unity
     guid: 09ae270335acc1044a798c9f0d0d98c5
   - enabled: 1
+    path: Assets/New Folder 1/Scene Level Manager/Example Scene/Example Scene Default/Scene
+      Level/Example Scene Level 2 (Default).unity
+    guid: b7e6516f3e29023498c4c5311c86c7e5
+  - enabled: 0
     path: Assets/New Folder 1/Scene Level/Example/Default/Level/Example Scene Level
       2 (Default).unity
     guid: b730e1f871bb7c040a02dacac8e6413f

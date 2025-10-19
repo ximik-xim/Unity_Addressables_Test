@@ -25,7 +25,7 @@ MonoBehaviour:
       _isAutoSetKeyScene: 1
   - _identifierData: {fileID: 11400000, guid: 90b5fff42bdeea44aafb985d13673a5a, type: 2}
     _dataKey:
-      _sceneAsset: {fileID: 102900000, guid: 94424579639dc5040a8e1f7b9c8e7b52, type: 3}
+      _sceneAsset: {fileID: 102900000, guid: b7e6516f3e29023498c4c5311c86c7e5, type: 3}
       _nameScene: Example Scene Level 2 (Default)
       _keyNameScene: Example Scene Level 2 (Default)
       _isAutoSetNameScene: 1

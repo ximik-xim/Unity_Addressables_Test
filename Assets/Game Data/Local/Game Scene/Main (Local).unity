@@ -2250,8 +2250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _findMbsDkoDontDestroy: {fileID: 0}
   _keyDko:
-    _dataSO: {fileID: 11400000, guid: 38ed79d58e9f2d344bebbe1cec97e30b, type: 2}
-    _selectIndif: {fileID: 11400000, guid: 1b522db6fea98424ea1ea69c186fb7d5, type: 2}
+    _dataSO: {fileID: 11400000, guid: fbdcfeb59246e884abd35fbf688b7211, type: 2}
+    _selectIndif: {fileID: 11400000, guid: 0659d32de30769a47b442b783972dedd, type: 2}
     _error:
       Enable: 0
       TextError: 
@@ -4033,11 +4033,11 @@ Transform:
   m_GameObject: {fileID: 1324092664}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1918767932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1338006114
 GameObject:
@@ -5641,8 +5641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _list:
   - Key:
-      _dataSO: {fileID: 11400000, guid: 38ed79d58e9f2d344bebbe1cec97e30b, type: 2}
-      _selectIndif: {fileID: 11400000, guid: f9f72e80479694a4e902be232e43904d, type: 2}
+      _dataSO: {fileID: 11400000, guid: fbdcfeb59246e884abd35fbf688b7211, type: 2}
+      _selectIndif: {fileID: 11400000, guid: 1527d120fda5d5f40859afe7f800b31f, type: 2}
       _error:
         Enable: 0
         TextError: 
@@ -6011,6 +6011,7 @@ Transform:
   m_Children:
   - {fileID: 257827905}
   - {fileID: 1760107522}
+  - {fileID: 1324092666}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1926008559
@@ -8947,7 +8948,6 @@ SceneRoots:
   - {fileID: 692219167}
   - {fileID: 1257887209}
   - {fileID: 1202427156}
-  - {fileID: 1324092666}
   - {fileID: 309596937}
   - {fileID: 1511761401}
   - {fileID: 1201427934}

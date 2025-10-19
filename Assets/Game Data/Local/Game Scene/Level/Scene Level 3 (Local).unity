@@ -883,6 +883,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 712153217}
     m_Modifications:
+    - target: {fileID: 590012777262850714, guid: 0d757dc099e092c4188205e4ef0094b9, type: 3}
+      propertyPath: _keyDko._dataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: fbdcfeb59246e884abd35fbf688b7211, type: 2}
+    - target: {fileID: 590012777262850714, guid: 0d757dc099e092c4188205e4ef0094b9, type: 3}
+      propertyPath: _keyDko._selectIndif
+      value: 
+      objectReference: {fileID: 11400000, guid: d1c0d50ec0b7bc94d9186abc826efb39, type: 2}
+    - target: {fileID: 590012777262850714, guid: 0d757dc099e092c4188205e4ef0094b9, type: 3}
+      propertyPath: _keyDko._error.Enable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 590012777262850714, guid: 0d757dc099e092c4188205e4ef0094b9, type: 3}
+      propertyPath: _keyDko._error.TextError
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 590012777262850714, guid: 0d757dc099e092c4188205e4ef0094b9, type: 3}
+      propertyPath: _keyDko._error.MessageType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2444077236668489799, guid: 0d757dc099e092c4188205e4ef0094b9, type: 3}
       propertyPath: m_IsActive
       value: 1

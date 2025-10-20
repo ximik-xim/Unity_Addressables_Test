@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Отвечает за запуск загрузки обновлений
 /// и за запуск загрузки сцен
+/// (нужен именно в таком ввиде, т.к загрузку сцен надо делать ПОЛСЕ обновлений)
 /// </summary>
 public class TaskLoggerUpdateAllObjectAndLoadScene : AbsTaskLoggerLoaderDataMono
 {
@@ -80,6 +82,9 @@ public class TaskLoggerUpdateAllObjectAndLoadScene : AbsTaskLoggerLoaderDataMono
     {
         UpdateStatus(TypeStatusTaskLoad.Start);
         UpdateStatus(TypeStatusTaskLoad.Load);
+        
+        this.gameObject.transform.parent = null;
+        DontDestroyOnLoad(this.gameObject);
         
         _storageLog.DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Запуск проверки и загрузки обновлений");
         
@@ -190,6 +195,8 @@ public class TaskLoggerUpdateAllObjectAndLoadScene : AbsTaskLoggerLoaderDataMono
 
         void CompletedCallback()
         {
+            RemoveDontDestroy();
+            
             UpdatePercentage(100f);  
             UpdateStatus(TypeStatusTaskLoad.Comlite);
         }
@@ -197,6 +204,10 @@ public class TaskLoggerUpdateAllObjectAndLoadScene : AbsTaskLoggerLoaderDataMono
 
     }
     
+    private void RemoveDontDestroy()
+    {
+        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
+    }
 
     protected override void BreakTask()
     {

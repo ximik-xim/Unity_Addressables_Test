@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -42,6 +43,14 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
     /// </summary>
     [SerializeField] 
     private List<int> _idCallback = new List<int>();
+
+    /// <summary>
+    /// Нужно ли автоматически помеч. обьект как Dont Destroy
+    /// А после окончания логики просто перемещать на сцену
+    /// (нужно в случае если будет использовать лиш 1 раз, а не многоразово)
+    /// </summary>
+    [SerializeField]
+    private bool _isAutoDontDestroyLogic = true;
     
     private void Awake()
     {
@@ -79,6 +88,12 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
     {
         if (_isBlock == false)
         {
+            if (_isAutoDontDestroyLogic == true)
+            {
+                this.gameObject.transform.parent = null;
+                DontDestroyOnLoad(this.gameObject);
+            }
+
             _isBlock = true;
             OnUpdateStatusBlock?.Invoke();
         
@@ -128,7 +143,6 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
             {
                 DebugLog(_storageTypeLog.GetKeyDefaultLog(), "- Загрузка Remote сцены успешна");
                 
-                
                 _wrapperCallbackData.Data.StatusServer = StatusCallBackServer.Ok;
                 _wrapperCallbackData.Data.GetData = dataCallback.GetData;
 
@@ -139,6 +153,11 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
 
                 _isBlock = false;
                 OnUpdateStatusBlock?.Invoke();
+                
+                if (_isAutoDontDestroyLogic == true)
+                {
+                    RemoveDontDestroy();
+                }
             }
             else
             {
@@ -196,9 +215,14 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
                 _wrapperCallbackData.Data.Invoke();
 
                 _idCallback.Remove(_wrapperCallbackData.Data.IdMassage);
-                
+
                 _isBlock = false;
                 OnUpdateStatusBlock?.Invoke();
+                
+                if (_isAutoDontDestroyLogic == true)
+                {
+                    RemoveDontDestroy();
+                }
             }
             else
             {
@@ -220,8 +244,18 @@ public class LoadLocalAndRemoteScene : MonoBehaviour
                 
                 _isBlock = false;
                 OnUpdateStatusBlock?.Invoke();
+                
+                if (_isAutoDontDestroyLogic == true)
+                {
+                    RemoveDontDestroy();
+                }
             }
         }
+    }
+
+    private void RemoveDontDestroy()
+    {
+        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
     }
     
     private void DebugLog(KeyTaskLoaderTypeLog keyLog, string text)

@@ -31,7 +31,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6d314147b40d9254e8f21fe08b35884a
+  - m_GUID: 5520f1b19300a754ebdf7c0f30095b0a
+    m_Address: Assets/Game Data/Local/Game Scene/Level/Scene Level 3 (Local).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62b90b9fe06a9434181818e630160a46
     m_Address: Assets/Game Data/Local/Game Scene/Level/Scene Level 2 (Local).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
@@ -43,11 +48,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: afd83ff7bb0f203458d38ef2b3abbaac
     m_Address: SO Storage Name Scene.asset Local
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c9998d5d63bcefd4eb92ef03aea810bf
-    m_Address: Assets/Game Data/Local/Game Scene/Level/Scene Level 3 (Local).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

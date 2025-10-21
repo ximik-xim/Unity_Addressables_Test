@@ -123,6 +123,14 @@ MonoBehaviour:
         TextError: 
         MessageType: 0
     Data: {fileID: 436052613514930168}
+  - Key:
+      _dataSO: {fileID: 11400000, guid: f510f0a4f4614fb48b07f0fd21c97a16, type: 2}
+      _selectIndif: {fileID: 11400000, guid: 97c4e719afde51841ac63a211f5d7ece, type: 2}
+      _error:
+        Enable: 0
+        TextError: 
+        MessageType: 0
+    Data: {fileID: 3018241123954119143}
 --- !u!1 &2572493466923092618
 GameObject:
   m_ObjectHideFlags: 0

@@ -129,3 +129,5 @@ MonoBehaviour:
     _nameSO: Example SO_Data_TSG_Key Storage Task UI Panel
   - _objectSO: {fileID: 11400000, guid: a75c3835a4d6a7744a5845aed01ecbfd, type: 2}
     _nameSO: Example SO_Data_TSG_Key Task Data UI Panel
+  - _objectSO: {fileID: 11400000, guid: 76da701f2ad352647bb7532cc9c1e3a7, type: 2}
+    _nameSO: MBS_DKO Task Loader

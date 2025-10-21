@@ -6,7 +6,7 @@ public class ToggleDevelopPanelSetActiveAutoClearTaskUI : MonoBehaviour
     [SerializeField]
     private Toggle _toggle;
 
-    private GetPatchDKOAutoClearTaskUI _logicAutoClearTaskUI;
+    private AutoClearTaskUI_DataGetPatchDKO _logicAutoClearTaskUI;
 
     [SerializeField]
     private bool _isActiveAutoClear;
@@ -36,7 +36,7 @@ public class ToggleDevelopPanelSetActiveAutoClearTaskUI : MonoBehaviour
     {
         if (_getDkoPatchLogger.Init == true)  
         {
-            _logicAutoClearTaskUI = _getDkoPatchLogger.GetDKO<DKODataInfoT<GetPatchDKOAutoClearTaskUI>>().Data;
+            _logicAutoClearTaskUI = _getDkoPatchLogger.GetDKO<DKODataInfoT<AutoClearTaskUI_DataGetPatchDKO>>().Data;
             
             _logicAutoClearTaskUI.OnUpdateStatusActive += OnUpdateStatusActive;
             OnUpdateStatusActive();

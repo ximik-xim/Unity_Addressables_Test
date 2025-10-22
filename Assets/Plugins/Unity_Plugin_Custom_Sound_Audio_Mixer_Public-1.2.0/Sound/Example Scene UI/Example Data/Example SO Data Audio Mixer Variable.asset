@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1be5231e786ac441bb3a4cb6fd0eb11, type: 3}
-  m_Name: New SO Data Audio Mixer Variable
+  m_Name: Example SO Data Audio Mixer Variable
   m_EditorClassIdentifier: 
   _nameSO: New SO Data Audio Mixer Variable
   _setName: 1

@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d075d1ddefdaa3b49904574e92b006ad, type: 3}
-  m_Name: New SO Data Task Mute Sound Level
+  m_Script: {fileID: 11500000, guid: 9c621637b15644d468dffa431c8ca764, type: 3}
+  m_Name: Example SO Data Sound Level Audio Mixer
   m_EditorClassIdentifier: 
-  _nameSO: New SO Data Task Mute Sound Level
+  _nameSO: New SO Data Sound Level Audio Mixer
   _setName: 1
-  _ChechTargetPath: 0
+  _saveBackupChangeData: 1
   _list:
-  - _identifierData: {fileID: 11400000, guid: f9b482858c703084b86c7c8093f67dab, type: 2}
+  - _identifierData: {fileID: 11400000, guid: a3e7d000d7d5dbd4882ca7c3f39de1e1, type: 2}
     _dataKey:
-      _key: "\u041F\u0440\u0438\u043C\u0435\u0440 \u043C\u0443\u0442\u0430"
+      _key: "\u041E\u0431\u0449\u0438\u0439 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
+        \u0437\u0432\u0443\u043A\u0430"
   _fatalError:
     Enable: 0
     TextError: 

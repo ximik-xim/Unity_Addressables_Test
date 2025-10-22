@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1069d4693d96c9645826a9ae2f38e28e, type: 3}
-  m_Name: Example SO Data MBS_DKO Sound
+  m_Name: MBS_DKO Sound
   m_EditorClassIdentifier: 
   _nameSO: Example SO Data MBS_DKO Sound
   _setName: 1

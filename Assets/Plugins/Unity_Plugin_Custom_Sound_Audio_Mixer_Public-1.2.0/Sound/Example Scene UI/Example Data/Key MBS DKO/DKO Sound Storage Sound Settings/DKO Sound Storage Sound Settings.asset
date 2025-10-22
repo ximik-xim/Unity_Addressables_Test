@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c621637b15644d468dffa431c8ca764, type: 3}
-  m_Name: New SO Data Sound Level Audio Mixer
+  m_Script: {fileID: 11500000, guid: 9740cfd502222fc49892fd9d1ddf4325, type: 3}
+  m_Name: DKO Sound Storage Sound Settings
   m_EditorClassIdentifier: 
-  _nameSO: New SO Data Sound Level Audio Mixer
+  _nameSO: Example SO Data DKO Sound
   _setName: 1
   _saveBackupChangeData: 1
   _list:
-  - _identifierData: {fileID: 11400000, guid: a3e7d000d7d5dbd4882ca7c3f39de1e1, type: 2}
+  - _identifierData: {fileID: 11400000, guid: 5e72644b281681148a04c59264269767, type: 2}
     _dataKey:
-      _key: "\u041E\u0431\u0449\u0438\u0439 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
-        \u0437\u0432\u0443\u043A\u0430"
+      key: "\u0425\u0440\u0430\u043D\u0438\u043B\u0435\u0449\u0435 \u0441 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0430\u043C\u0438
+        \u0443\u0440\u043E\u0432\u043D\u044F \u0437\u0432\u0443\u043A\u0430"
   _fatalError:
     Enable: 0
     TextError: 

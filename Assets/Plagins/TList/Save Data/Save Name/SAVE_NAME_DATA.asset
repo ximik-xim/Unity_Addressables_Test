@@ -131,3 +131,5 @@ MonoBehaviour:
     _nameSO: Example SO_Data_TSG_Key Task Data UI Panel
   - _objectSO: {fileID: 11400000, guid: 76da701f2ad352647bb7532cc9c1e3a7, type: 2}
     _nameSO: MBS_DKO Task Loader
+  - _objectSO: {fileID: 11400000, guid: 472d58bccab4fcb4180e79d45caf2008, type: 2}
+    _nameSO: Example SD Key Storage String Level Manager

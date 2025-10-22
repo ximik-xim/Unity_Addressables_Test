@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _findMbsDkoDontDestroy: {fileID: 0}
   _keyDko:
-    _dataSO: {fileID: 11400000, guid: 274982f8747edf046ad058ad4540b868, type: 2}
-    _selectIndif: {fileID: 11400000, guid: f515f4c300e15924da5e514f0fe7c99b, type: 2}
+    _dataSO: {fileID: 11400000, guid: 76da701f2ad352647bb7532cc9c1e3a7, type: 2}
+    _selectIndif: {fileID: 11400000, guid: f1489ddef3f42244b891974e77b31fed, type: 2}
     _error:
       Enable: 0
       TextError: 

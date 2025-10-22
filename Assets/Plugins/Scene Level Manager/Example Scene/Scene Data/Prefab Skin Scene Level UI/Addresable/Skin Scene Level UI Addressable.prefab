@@ -1252,6 +1252,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7692619407349136910, guid: b4cf6e17a32a50e48b87b2d2cd461bec, type: 3}
+      propertyPath: _keyDko._selectIndif
+      value: 
+      objectReference: {fileID: 11400000, guid: f1489ddef3f42244b891974e77b31fed, type: 2}
     - target: {fileID: 8115336192679855189, guid: b4cf6e17a32a50e48b87b2d2cd461bec, type: 3}
       propertyPath: _button
       value: 

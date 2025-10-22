@@ -18,7 +18,8 @@ MonoBehaviour:
   _list:
   - _identifierData: {fileID: 11400000, guid: 9c4d1f2c457f94141a913a85fd67a5b3, type: 2}
     _dataKey:
-      key: "\u0425\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435 \u0441 UI \u043F\u0430\u043D\u0435\u043B\u044F\u043C\u0438"
+      key: "DKO \u0425\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435 \u0441 UI
+        \u043F\u0430\u043D\u0435\u043B\u044F\u043C\u0438"
   _fatalError:
     Enable: 0
     TextError: 

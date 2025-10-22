@@ -18,7 +18,7 @@ MonoBehaviour:
   _list:
   - _identifierData: {fileID: 11400000, guid: fa5a16be4c1509a4d841fef58a342aa4, type: 2}
     _dataKey:
-      key: "\u0414\u0430\u043D\u043D\u044B\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0435\u0449\u0435
+      key: "DKO \u0414\u0430\u043D\u043D\u044B\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0435\u0449\u0435
         \u0441 Task"
   _fatalError:
     Enable: 0

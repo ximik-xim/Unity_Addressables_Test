@@ -508,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 1103674978}
     - target: {fileID: 8774838992575277121, guid: e549f0ba769f39a4ca51d0aad7db531d, type: 3}
       propertyPath: m_Name
-      value: List Task
+      value: Logic List Task DKO
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

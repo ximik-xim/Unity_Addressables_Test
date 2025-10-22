@@ -673,7 +673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815106296229214839, guid: 0f80d072464943643b04bc55f2a3c8cc, type: 3}
       propertyPath: m_Name
-      value: Auto Open And Close UI Panel Task Loader (1)
+      value: Auto Open And Close UI Panel Task Loader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

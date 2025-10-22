@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 3325198468050046486}
   - component: {fileID: 6713489976255037524}
   m_Layer: 0
-  m_Name: List Task
+  m_Name: Logic List Task DKO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

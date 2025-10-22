@@ -166,6 +166,7 @@ MonoBehaviour:
         TextError: 
         MessageType: 0
     Data: {fileID: 1501057486}
+  _visibleData: []
 --- !u!114 &96954692
 MonoBehaviour:
   m_ObjectHideFlags: 0

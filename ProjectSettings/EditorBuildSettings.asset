@@ -36,12 +36,21 @@ EditorBuildSettings:
     path: Assets/New Folder 1/Scene Level/Example/Default/Level/Example Scene Level
       2 (Default).unity
     guid: b730e1f871bb7c040a02dacac8e6413f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Game Data/Local/Game Scene/Dont Destroy (Local).unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Game Data/Local/Game Scene/Main (Local).unity
+    guid: 1dcf9356291bd0641a5e4d602b279c09
+  - enabled: 1
     path: Assets/Game Data/Local/Game Scene/Level/Scene Level 1 (Local).unity
     guid: 2e86de509bd5b5849854b5f1e07f2f80
+  - enabled: 1
+    path: Assets/Game Data/Local/Game Scene/Level/Scene Level 2 (Local).unity
+    guid: 2be0ff2ac5d75ac42b0c33cd67c5bb90
+  - enabled: 1
+    path: Assets/Game Data/Local/Game Scene/Level/Scene Level 3 (Local).unity
+    guid: 0a87b73f02703b249a146ab1b3eb4781
   - enabled: 0
     path: Assets/Game Data/Local/Game Scene/Level/Scene Level 2.unity
     guid: 9b06e39a6e5ebc3439b29bef366402c0

@@ -704,6 +704,10 @@ PrefabInstance:
       propertyPath: _listKeyNameScene.Array.data[0]._getKeyRefScene._error.MessageType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3203416166504337464, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3441644873032741784, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
       propertyPath: _listKeyNameScene.Array.size
       value: 1
@@ -770,7 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4424880207682108309, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5113718750059970390, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
       propertyPath: m_Name
@@ -784,6 +788,30 @@ PrefabInstance:
       propertyPath: '_storageSceneLevel.Array.data[0]'
       value: 
       objectReference: {fileID: 190415567}
+    - target: {fileID: 7229920702766740218, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
+      propertyPath: _listKeyNameScene.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229920702766740218, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
+      propertyPath: _listKeyNameScene.Array.data[0]._dataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d7d083cb0c390042a828fee5d72a2eb, type: 2}
+    - target: {fileID: 7229920702766740218, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
+      propertyPath: _listKeyNameScene.Array.data[0]._selectIndif
+      value: 
+      objectReference: {fileID: 11400000, guid: f75c70726b7868f4dafe597d6ca170ed, type: 2}
+    - target: {fileID: 7229920702766740218, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
+      propertyPath: _listKeyNameScene.Array.data[0]._error.Enable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229920702766740218, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
+      propertyPath: _listKeyNameScene.Array.data[0]._error.TextError
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229920702766740218, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
+      propertyPath: _listKeyNameScene.Array.data[0]._error.MessageType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7586922942012218317, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
       propertyPath: _storageSceneLevel.Array.size
       value: 1
@@ -799,13 +827,13 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
 --- !u!114 &190415567 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2451889414967823970, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7229920702766740218, guid: 4d562bc202793354e825b7b025e522cc, type: 3}
   m_PrefabInstance: {fileID: 190415566}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f4feece8c75134abf036ae68f5f203, type: 3}
+  m_Script: {fileID: 11500000, guid: 0af2b01ee3d528449b6bbfd68f7c9081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &207289338 stripped
@@ -3607,7 +3635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b59c7c52d633b34985a6188dfd5e352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defPrefabUI: {fileID: 8545083907066949083, guid: 2c98b3cbd5372f746aa6162817f522a1, type: 3}
+  _defPrefabUI: {fileID: 8621553570046727841, guid: 67240e69b87b12846ad7fd1eee01796f, type: 3}
   _keyException: {fileID: 1823077183}
 --- !u!4 &1201427934
 Transform:

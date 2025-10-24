@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88285b2077ae844f9ce8cdc67b3e4c3, type: 3}
+  m_Name: SO_Data_Key Reference Scene Remote
+  m_EditorClassIdentifier: 
+  _nameSO: SO_Data_Key Reference Scene Remote
+  _setName: 1
+  _saveBackupChangeData: 1
+  _list:
+  - _identifierData: {fileID: 11400000, guid: d39f271a2aa529a4cad07bcc0583f6f8, type: 2}
+    _dataKey:
+      _nameScene: Dont Destroy (Remote)
+      _refScene:
+        m_AssetGUID: 9abdb5edb1ebab14fa83feeaa18a5e52
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_SubObjectGUID: 
+        m_EditorAssetChanged: 0
+  - _identifierData: {fileID: 11400000, guid: e2104563dfbf62d479802b3ff00db35f, type: 2}
+    _dataKey:
+      _nameScene: Main (Remote)
+      _refScene:
+        m_AssetGUID: 0796a7e49b33f9b4ab5203c4a8b4c665
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_SubObjectGUID: 
+        m_EditorAssetChanged: 0
+  _fatalError:
+    Enable: 0
+    TextError: 
+    MessageType: 3
+  _error:
+    Enable: 0
+    TextError: 
+    MessageType: 2

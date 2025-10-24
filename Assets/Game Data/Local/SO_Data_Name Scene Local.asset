@@ -16,27 +16,20 @@ MonoBehaviour:
   _setName: 1
   _saveBackupChangeData: 1
   _list:
-  - _identifierData: {fileID: 11400000, guid: cfbca12a724b1b2479b48f68c634b79c, type: 2}
+  - _identifierData: {fileID: 11400000, guid: caec33ae479fab04c9f1a561d7c880bc, type: 2}
     _dataKey:
-      _sceneAsset: {fileID: 102900000, guid: 2e86de509bd5b5849854b5f1e07f2f80, type: 3}
-      _nameScene: Scene Level 1
-      _keyNameScene: Scene Level 1.unity Loca
+      _sceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+      _nameScene: Dont Destroy (Local)
+      _keyNameScene: Dont Destroy (Local)
       _isAutoSetNameScene: 1
-      _isAutoSetKeyScene: 0
-  - _identifierData: {fileID: 11400000, guid: f05d0e638b106ef4b8fe691d51997bed, type: 2}
+      _isAutoSetKeyScene: 1
+  - _identifierData: {fileID: 11400000, guid: f8a17f67396a5b44fb108913aaa266ba, type: 2}
     _dataKey:
-      _sceneAsset: {fileID: 102900000, guid: 9b06e39a6e5ebc3439b29bef366402c0, type: 3}
-      _nameScene: Scene Level 2
-      _keyNameScene: Scene Level 2.unity Local
+      _sceneAsset: {fileID: 102900000, guid: 1dcf9356291bd0641a5e4d602b279c09, type: 3}
+      _nameScene: Main (Local)
+      _keyNameScene: Main (Local)
       _isAutoSetNameScene: 1
-      _isAutoSetKeyScene: 0
-  - _identifierData: {fileID: 11400000, guid: 043cfc04d59803044b1b40e586db43a9, type: 2}
-    _dataKey:
-      _sceneAsset: {fileID: 102900000, guid: 52070c2b44c205e4a97b4ab7adf76edb, type: 3}
-      _nameScene: Scene Level 3
-      _keyNameScene: Scene Level 3.unity Local
-      _isAutoSetNameScene: 1
-      _isAutoSetKeyScene: 0
+      _isAutoSetKeyScene: 1
   _fatalError:
     Enable: 0
     TextError: 

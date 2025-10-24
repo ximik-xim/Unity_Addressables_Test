@@ -15,39 +15,9 @@ MonoBehaviour:
   m_GroupName: Packed Assets
   m_GUID: 820099e62e686134e85df02109482fbc
   m_SerializeEntries:
-  - m_GUID: 1dcf9356291bd0641a5e4d602b279c09
-    m_Address: Main (Local).unity Local
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2e86de509bd5b5849854b5f1e07f2f80
-    m_Address: Assets/Game Data/Local/Game Scene/Level/Scene Level 1 (Local).unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 519e32cce0bef1d4ab87af9953b038c7
     m_Address: Assets/New Folder 1/Scene Level/Example/Addressable/Level/Example
       Scene Level 1 (Addressable).unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5520f1b19300a754ebdf7c0f30095b0a
-    m_Address: Assets/Game Data/Local/Game Scene/Level/Scene Level 3 (Local).unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 62b90b9fe06a9434181818e630160a46
-    m_Address: Assets/Game Data/Local/Game Scene/Level/Scene Level 2 (Local).unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 99c9720ab356a0642a771bea13969a05
-    m_Address: Dont Destroy (Local).unity Local
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: afd83ff7bb0f203458d38ef2b3abbaac
-    m_Address: SO Storage Name Scene.asset Local
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

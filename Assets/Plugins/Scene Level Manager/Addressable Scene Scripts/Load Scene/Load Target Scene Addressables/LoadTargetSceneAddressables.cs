@@ -79,8 +79,16 @@ public class LoadTargetSceneAddressables : MonoBehaviour
 
             void GetDataCompleted()
             {
-                _handleScene = callback.GetData;
-                StartAutoUnloadScene();
+                //Нужен т.к в случае ошибки, handle будет автоматически уничтожен и тут ловить больше нечего
+                if (callback.StatusServer == StatusCallBackServer.Ok)
+                {
+                    _handleScene = callback.GetData;
+                    StartAutoUnloadScene();
+                }
+                else
+                {
+                    Destroy(this);
+                }
             }
             
         }
@@ -121,8 +129,16 @@ public class LoadTargetSceneAddressables : MonoBehaviour
 
             void GetDataCompleted()
             {
-                _handleScene = callback.GetData;
-                StartAutoUnloadScene();
+                //Нужен т.к в случае ошибки, handle будет автоматически уничтожен и тут ловить больше нечего
+                if (callback.StatusServer == StatusCallBackServer.Ok)
+                {
+                    _handleScene = callback.GetData;
+                    StartAutoUnloadScene();    
+                }
+                else
+                {
+                    Destroy(this);
+                }
             }
             
         }

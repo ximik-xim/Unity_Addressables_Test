@@ -17,7 +17,6 @@
     <type fullname="AutoDetectedKeyNameScene" preserve="all" />
     <type fullname="AwakeInsertDataStorageNameSceneAndKeyNameScene" preserve="all" />
     <type fullname="AwakeSetStatusBlockLevelSceneInStorageKey" preserve="all" />
-    <type fullname="AwakeStartCheckAndDownloadUpdate" preserve="all" />
     <type fullname="ButtonAddTaskInStorageTaskLoader" preserve="all" />
     <type fullname="ButtonCheckUpdateAllObj" preserve="all" />
     <type fullname="ButtonClickClearCache" preserve="all" />
@@ -25,9 +24,7 @@
     <type fullname="ButtonStartLogicListTaskDKO" preserve="all" />
     <type fullname="ButtonTypeLog" preserve="all" />
     <type fullname="CamerScalerSizeUnityCameraSize" preserve="all" />
-    <type fullname="CheckAndDownloadUpdateObjectAll" preserve="all" />
     <type fullname="CheckAndDownloadUpdateObjectAll_AndCheckCurrentCatalog" preserve="all" />
-    <type fullname="CheckAndDownloadUpdateObjectTargetListObj" preserve="all" />
     <type fullname="CheckIsUpdateObjAllErrorContinue" preserve="all" />
     <type fullname="CheckIsUpdateObjIsGetStorage" preserve="all" />
     <type fullname="CheckIsUpdateObjRequestSplit" preserve="all" />
@@ -71,12 +68,6 @@
     <type fullname="DontDestroyObject" preserve="all" />
     <type fullname="DownloadUpdateObjAllErrorContinue" preserve="all" />
     <type fullname="DownloadUpdateObjRequestSplit" preserve="all" />
-    <type fullname="ExampleGetDataAddressablesAssetLabelReference" preserve="all" />
-    <type fullname="ExampleGetDataAddressablesAssetReference" preserve="all" />
-    <type fullname="ExampleGetDataAddressablesIResourceLocation" preserve="all" />
-    <type fullname="ExampleGetDataAddressablesKey" preserve="all" />
-    <type fullname="ExampleStartUpdateAll" preserve="all" />
-    <type fullname="ExampleStartUpdateListObject" preserve="all" />
     <type fullname="ExcepListKeyNameSceneAndPrefabSkinSceneLevelUI" preserve="all" />
     <type fullname="ExcepListKeyNameSceneAndTextureSceneUI" preserve="all" />
     <type fullname="ExcepListKeyNameSceneSortingScene" preserve="all" />
@@ -85,11 +76,6 @@
     <type fullname="ExcepListKeyReferenceSceneSortingScene" preserve="all" />
     <type fullname="FabricPrefabSkinSceneLevelUI" preserve="all" />
     <type fullname="FindMBS_DKO_DontDestroy" preserve="all" />
-    <type fullname="GetDataAddressablesDefault" preserve="all" />
-    <type fullname="GetDataAddressablesErrorContinueT" preserve="all" />
-    <type fullname="GetDataAddressablesTargetLocation" preserve="all" />
-    <type fullname="GetDataAddressablesVariantsListT" preserve="all" />
-    <type fullname="GetDataCheckIsGetAddressablesObjectT" preserve="all" />
     <type fullname="GetDKO_StatusActiveCamera" preserve="all" />
     <type fullname="GetDKOPatch" preserve="all" />
     <type fullname="GetKeyNameSceneInAbsGetNameSceneAndKeyNameScene" preserve="all" />
@@ -98,7 +84,6 @@
     <type fullname="GetKeyNameSceneOutSetKey" preserve="all" />
     <type fullname="GetKeyNameSceneStorageAssetRefScene" preserve="all" />
     <type fullname="GetKeyNameSceneStorageNameScene" preserve="all" />
-    <type fullname="GetKeyNameSceneStorageNameSceneAddressables" preserve="all" />
     <type fullname="GetNameSceneAndKeyNameSceneInStorageDefault" preserve="all" />
     <type fullname="GetNameSceneAndKeyNameSceneInStorageReferenceScene" preserve="all" />
     <type fullname="GetPatchIntStorageBlockScene" preserve="all" />
@@ -106,14 +91,10 @@
     <type fullname="GetSceneAddressablesErrorContinue" preserve="all" />
     <type fullname="IndifNameSO_KeyReferenceScene" preserve="all" />
     <type fullname="IndifNameSO_KeyTaskLoaderTypeLog" preserve="all" />
-    <type fullname="IndifNameSO_NameSceneAndKeyString" preserve="all" />
     <type fullname="IndifNameSO_SD_KeyStorageStringVariable" preserve="all" />
     <type fullname="IndifNameSO_StorageKeyGM" preserve="all" />
     <type fullname="InputConsoleCode" preserve="all" />
     <type fullname="InputConsoleCodeUI" preserve="all" />
-    <type fullname="IsGetAddressablesObjectDefault" preserve="all" />
-    <type fullname="IsGetAddressablesObjectSOStorageIResourceLocation" preserve="all" />
-    <type fullname="IsGetAddressablesObjectSOStorageObject" preserve="all" />
     <type fullname="KeyStoragePrefabSkinSceneLevelUI" preserve="all" />
     <type fullname="ListActionGmSetParent" preserve="all" />
     <type fullname="LoadTargetSceneAddressables" preserve="all" />
@@ -149,7 +130,6 @@
     <type fullname="SkinSceneLevelUI_Addressable" preserve="all" />
     <type fullname="SO_Data_KeyReferenceScene" preserve="all" />
     <type fullname="SO_Data_KeyTaskLoaderTypeLog" preserve="all" />
-    <type fullname="SO_Data_NameSceneAndKeyString" preserve="all" />
     <type fullname="SO_Data_SD_KeyStorageStringVariable" preserve="all" />
     <type fullname="SO_Data_StorageKeyGM" preserve="all" />
     <type fullname="SODataAudioMixerVariable" preserve="all" />
@@ -195,37 +175,35 @@
     <type fullname="UpdateCatalogsAllErrorContinue" preserve="all" />
     <type fullname="UpdateCatalogsRequestSplit" preserve="all" />
     <type fullname="WrapperTaskLoaderDataMono" preserve="all" />
-    <type fullname=".IdentifierAndData_NameSceneAndKeyString" preserve="nothing" serialized="true" />
-    <type fullname=".NameSceneAndKeyString" preserve="nothing" serialized="true" />
     <type fullname=".AbsKeyData`2" preserve="nothing" serialized="true" />
     <type fullname=".AssetReferenceSceneCustom" preserve="nothing" serialized="true" />
-    <type fullname=".CS_KeySoundLevelAudioMixer" preserve="nothing" serialized="true" />
-    <type fullname=".CS_KeyTaskDataMuteSoundLevel" preserve="nothing" serialized="true" />
     <type fullname=".DKODataKey" preserve="nothing" serialized="true" />
     <type fullname=".DataSceneLoadAddressable" preserve="nothing" serialized="true" />
-    <type fullname=".DataStorageTextureAndColorSkinSceneLevelUI" preserve="nothing" serialized="true" />
     <type fullname=".GetDataSODataDKODataKey" preserve="nothing" serialized="true" />
-    <type fullname=".GetDataSODataSoundLevelAudioMixer" preserve="nothing" serialized="true" />
-    <type fullname=".GetDataSODataTaskMuteSoundLevel" preserve="nothing" serialized="true" />
     <type fullname=".GetDataSO_KeyReferenceScene" preserve="nothing" serialized="true" />
     <type fullname=".GetDataSO_KeyTaskLoaderTypeLog" preserve="nothing" serialized="true" />
     <type fullname=".GetDataSO_MBS_DKO" preserve="nothing" serialized="true" />
-    <type fullname=".GetDataSO_StorageKeyGM" preserve="nothing" serialized="true" />
     <type fullname=".IdentifierAndData_KeyReferenceScene" preserve="nothing" serialized="true" />
     <type fullname=".IdentifierAndData_KeyTaskLoaderTypeLog" preserve="nothing" serialized="true" />
-    <type fullname=".IdentifierAndData_StorageKeyGM" preserve="nothing" serialized="true" />
     <type fullname=".KeyIndifNameSODataDKODataKey" preserve="nothing" serialized="true" />
-    <type fullname=".KeyIndifNameSODataSoundLevelAudioMixer" preserve="nothing" serialized="true" />
-    <type fullname=".KeyIndifNameSODataTaskMuteSoundLevel" preserve="nothing" serialized="true" />
     <type fullname=".KeyIndifNameSOData_MBS_DKO" preserve="nothing" serialized="true" />
     <type fullname=".KeyNameSceneInGetDataSO_KeyReferenceScene" preserve="nothing" serialized="true" />
     <type fullname=".KeyReferenceScene" preserve="nothing" serialized="true" />
     <type fullname=".KeyTaskLoaderTypeLog" preserve="nothing" serialized="true" />
     <type fullname=".MessengerBetweenSceneKeyDKO" preserve="nothing" serialized="true" />
     <type fullname=".ParameterTextData" preserve="nothing" serialized="true" />
+    <type fullname=".GetDataSO_StorageKeyGM" preserve="nothing" serialized="true" />
+    <type fullname=".IdentifierAndData_StorageKeyGM" preserve="nothing" serialized="true" />
     <type fullname=".StorageKeyGM" preserve="nothing" serialized="true" />
     <type fullname=".TL_ReplicationTaskExecutorSequence" preserve="nothing" serialized="true" />
     <type fullname=".TL_ReplicationTaskReadyExecutor" preserve="nothing" serialized="true" />
+    <type fullname=".CS_KeySoundLevelAudioMixer" preserve="nothing" serialized="true" />
+    <type fullname=".CS_KeyTaskDataMuteSoundLevel" preserve="nothing" serialized="true" />
+    <type fullname=".DataStorageTextureAndColorSkinSceneLevelUI" preserve="nothing" serialized="true" />
+    <type fullname=".GetDataSODataSoundLevelAudioMixer" preserve="nothing" serialized="true" />
+    <type fullname=".GetDataSODataTaskMuteSoundLevel" preserve="nothing" serialized="true" />
+    <type fullname=".KeyIndifNameSODataSoundLevelAudioMixer" preserve="nothing" serialized="true" />
+    <type fullname=".KeyIndifNameSODataTaskMuteSoundLevel" preserve="nothing" serialized="true" />
     <type fullname=".CS_AudioMixerGetAndSetVariableData" preserve="nothing" serialized="true" />
     <type fullname=".CS_KeyAudioMixerVarible" preserve="nothing" serialized="true" />
     <type fullname=".CS_SoundLevelAudioMixerData" preserve="nothing" serialized="true" />
@@ -240,7 +218,6 @@
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
-    <type fullname="UnityEngine.AddressableAssets.AssetLabelReference" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.AddressableAssets.AssetReference" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.InputSystem, Version=1.11.2.0, Culture=neutral, PublicKeyToken=null">
@@ -303,7 +280,6 @@
     <type fullname="UnityEngine.Material" preserve="all" />
     <type fullname="UnityEngine.MeshFilter" preserve="all" />
     <type fullname="UnityEngine.MeshRenderer" preserve="all" />
-    <type fullname="UnityEngine.MonoBehaviour" preserve="all" />
     <type fullname="UnityEngine.Object" preserve="all" />
     <type fullname="UnityEngine.RectTransform" preserve="all" />
     <type fullname="UnityEngine.RenderSettings" preserve="all" />
@@ -311,10 +287,10 @@
     <type fullname="UnityEngine.Sprite" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />
-    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.BoxCollider" preserve="all" />
@@ -344,17 +320,17 @@
     <type fullname="UnityEngine.UI.Text" preserve="all" />
     <type fullname="UnityEngine.UI.Toggle" preserve="all" />
     <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.EventSystems.EventTrigger/Entry" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.EventSystems.EventTrigger/TriggerEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.FontData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.EventSystems.EventTrigger/Entry" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.EventSystems.EventTrigger/TriggerEvent" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.UI.FontData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.InputField/EndEditEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.InputField/OnChangeEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.InputField/SubmitEvent" preserve="nothing" serialized="true" />

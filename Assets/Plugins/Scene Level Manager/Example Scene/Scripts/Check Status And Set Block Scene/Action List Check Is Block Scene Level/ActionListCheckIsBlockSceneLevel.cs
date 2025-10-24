@@ -37,9 +37,37 @@ public class ActionListCheckIsBlockSceneLevel : MonoBehaviour
             _getPatchIntStorageBlockScene.OnInit += OnInitGetDkoPatch;
         }
         
+        if (_listTaskSceneBlock.IsInit == false)
+        {
+            _listTaskSceneBlock.OnInit += OnInitListTaskSceneBlock;
+        }
+        
+        if (_listTaskSceneNotBlock.IsInit == false)
+        {
+            _listTaskSceneNotBlock.OnInit += OnInitListTaskSceneNotBlock;
+        }
+        
         CheckInit();
     }
+
+    private void OnInitListTaskSceneBlock()
+    {
+        if (_listTaskSceneBlock.IsInit == true)
+        {
+            _listTaskSceneBlock.OnInit -= OnInitListTaskSceneBlock;
+            CheckInit();
+        }
+    }
     
+    private void OnInitListTaskSceneNotBlock()
+    {
+        if (_listTaskSceneNotBlock.IsInit == true)
+        {
+            _listTaskSceneNotBlock.OnInit -= OnInitListTaskSceneNotBlock;
+            CheckInit();
+        }
+    }
+
     private void OnInitGetDkoPatch()
     {
         if (_getPatchIntStorageBlockScene.IsInit == true)
@@ -53,7 +81,7 @@ public class ActionListCheckIsBlockSceneLevel : MonoBehaviour
     {
         if (_isInit == false)
         {
-            if (_getPatchIntStorageBlockScene.IsInit == true && _keyNameScene != null)
+            if (_getPatchIntStorageBlockScene.IsInit == true && _keyNameScene != null && _listTaskSceneBlock.IsInit == true && _listTaskSceneNotBlock.IsInit == true) 
             {
                 _storageBlockScene = _getPatchIntStorageBlockScene.GetStorageBlockScene();
                 
@@ -105,13 +133,20 @@ public class ActionListCheckIsBlockSceneLevel : MonoBehaviour
 
     public void StartCheck()
     {
-        if (_storageBlockScene.GetIsBlock(_keyNameScene) == true)  
+        if (_keyNameScene != null)
         {
-            _listTaskSceneBlock.StartAction(_dko);
+            if (_storageBlockScene.GetIsBlock(_keyNameScene) == true)  
+            {
+                _listTaskSceneBlock.StartAction(_dko);
+            }
+            else
+            {
+                _listTaskSceneNotBlock.StartAction(_dko);
+            }
         }
         else
         {
-            _listTaskSceneNotBlock.StartAction(_dko);
+            Debug.Log("ВНИМАНИЕ, ОШИБКА. Была вызвана проверка на заблокирована ли сцена, НО ПРИ ЭТО КЛЮЧ == null ");
         }
     }
 

@@ -14,17 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Duplicate Asset Isolation
   m_GUID: bdef0ef150c549e4a8fd86440e2b0839
-  m_SerializeEntries:
-  - m_GUID: 10fc4df2da32a41aaa32d77bc913491c
-    m_Address: Assets/Settings/SampleSceneProfile.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca9f5fa95ffab41fb9a615ab714db018
-    m_Address: Packages/com.unity.inputsystem/InputSystem/Plugins/PlayerInput/DefaultInputActions.inputactions
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b090ad64ee7daee4caf0c4da90a69914, type: 2}
   m_SchemaSet:

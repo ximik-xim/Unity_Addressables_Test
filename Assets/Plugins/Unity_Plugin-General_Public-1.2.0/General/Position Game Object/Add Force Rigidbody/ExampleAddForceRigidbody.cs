@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+/// <summary>
+/// Просто пример передвижения обькта с помощью физики(Rb)
+/// </summary>
 public class ExampleAddForceRigidbody : MonoBehaviour
 {
     [SerializeField] 

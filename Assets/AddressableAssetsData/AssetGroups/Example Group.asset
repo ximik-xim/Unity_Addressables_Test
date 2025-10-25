@@ -10,16 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Packed Assets
+  m_Name: Example Group
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
-  m_GUID: 820099e62e686134e85df02109482fbc
+  m_GroupName: Example Group
+  m_GUID: 5c1d5f5f5435d4f4ea8c6b87f6d75983
   m_SerializeEntries:
+  - m_GUID: 13a6052ceb819244ab37ab8d4ab95eb6
+    m_Address: Assets/Addressable Test/Example/Scene/Load Scene/Example Load Scene
+      Addressable.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a7ad7fa5fd351c4a862c5d41350e57d
+    m_Address: Assets/Addressable Test/Example/Data Example/Storage Addressables
+      Update Obj.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 519e32cce0bef1d4ab87af9953b038c7
     m_Address: Assets/New Folder 1/Scene Level/Example/Addressable/Level/Example
       Scene Level 1 (Addressable).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 800e8e02007b0dd44bc01b9acf2ad6f3
+    m_Address: Assets/Addressable Test/Example/Data Example/Storage Addressables
+      Is Get Obj.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1577abc74bdef84d914500c4796cfb1
+    m_Address: Assets/Addressable Test/Example/Data Example/Example Object.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa641cb398ec4584ea136f07905b503d
     m_Address: Assets/New Folder 1/Scene Level/Example/Addressable/Level/Example
@@ -36,5 +60,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: b090ad64ee7daee4caf0c4da90a69914, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 5298eba3006f86a45974cc9829d428c0, type: 2}
-    - {fileID: 11400000, guid: 149d87fc41e1c614a94baf6ed8a9367f, type: 2}
+    - {fileID: 11400000, guid: 3999e64c358bcac45a134cf0531b5c63, type: 2}
+    - {fileID: 11400000, guid: 980ab7aa82a80e84a80cfd7cf9614b5b, type: 2}

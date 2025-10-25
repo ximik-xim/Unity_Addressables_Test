@@ -172,6 +172,7 @@
     <type fullname="TriggerClickOpenLogger" preserve="all" />
     <type fullname="TSG_StorageKeyTaskDataMono" preserve="all" />
     <type fullname="UIGamePanelInfoStorage" preserve="all" />
+    <type fullname="UniversalAddForceRb3D" preserve="all" />
     <type fullname="UpdateCatalogsAllErrorContinue" preserve="all" />
     <type fullname="UpdateCatalogsRequestSplit" preserve="all" />
     <type fullname="WrapperTaskLoaderDataMono" preserve="all" />
@@ -192,18 +193,18 @@
     <type fullname=".KeyTaskLoaderTypeLog" preserve="nothing" serialized="true" />
     <type fullname=".MessengerBetweenSceneKeyDKO" preserve="nothing" serialized="true" />
     <type fullname=".ParameterTextData" preserve="nothing" serialized="true" />
-    <type fullname=".GetDataSO_StorageKeyGM" preserve="nothing" serialized="true" />
-    <type fullname=".IdentifierAndData_StorageKeyGM" preserve="nothing" serialized="true" />
-    <type fullname=".StorageKeyGM" preserve="nothing" serialized="true" />
-    <type fullname=".TL_ReplicationTaskExecutorSequence" preserve="nothing" serialized="true" />
-    <type fullname=".TL_ReplicationTaskReadyExecutor" preserve="nothing" serialized="true" />
     <type fullname=".CS_KeySoundLevelAudioMixer" preserve="nothing" serialized="true" />
     <type fullname=".CS_KeyTaskDataMuteSoundLevel" preserve="nothing" serialized="true" />
     <type fullname=".DataStorageTextureAndColorSkinSceneLevelUI" preserve="nothing" serialized="true" />
     <type fullname=".GetDataSODataSoundLevelAudioMixer" preserve="nothing" serialized="true" />
     <type fullname=".GetDataSODataTaskMuteSoundLevel" preserve="nothing" serialized="true" />
+    <type fullname=".GetDataSO_StorageKeyGM" preserve="nothing" serialized="true" />
+    <type fullname=".IdentifierAndData_StorageKeyGM" preserve="nothing" serialized="true" />
     <type fullname=".KeyIndifNameSODataSoundLevelAudioMixer" preserve="nothing" serialized="true" />
     <type fullname=".KeyIndifNameSODataTaskMuteSoundLevel" preserve="nothing" serialized="true" />
+    <type fullname=".StorageKeyGM" preserve="nothing" serialized="true" />
+    <type fullname=".TL_ReplicationTaskExecutorSequence" preserve="nothing" serialized="true" />
+    <type fullname=".TL_ReplicationTaskReadyExecutor" preserve="nothing" serialized="true" />
     <type fullname=".CS_AudioMixerGetAndSetVariableData" preserve="nothing" serialized="true" />
     <type fullname=".CS_KeyAudioMixerVarible" preserve="nothing" serialized="true" />
     <type fullname=".CS_SoundLevelAudioMixerData" preserve="nothing" serialized="true" />
@@ -285,6 +286,7 @@
     <type fullname="UnityEngine.RenderSettings" preserve="all" />
     <type fullname="UnityEngine.Shader" preserve="all" />
     <type fullname="UnityEngine.Sprite" preserve="all" />
+    <type fullname="UnityEngine.TextAsset" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />
     <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
@@ -294,6 +296,7 @@
   </assembly>
   <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.BoxCollider" preserve="all" />
+    <type fullname="UnityEngine.CapsuleCollider" preserve="all" />
     <type fullname="UnityEngine.Rigidbody" preserve="all" />
     <type fullname="UnityEngine.SphereCollider" preserve="all" />
   </assembly>

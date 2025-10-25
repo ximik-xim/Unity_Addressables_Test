@@ -15,8 +15,9 @@ MonoBehaviour:
   m_GroupName: Remote Group
   m_GUID: 346699dbb217b9249a88fd034740002a
   m_SerializeEntries:
-  - m_GUID: 03c31d338b5a93641892645d7147fd68
-    m_Address: Assets/Game Data/Remote/Game Scene/Level/Scene Level 2 (Remote).unity
+  - m_GUID: 00ef974fa87078f4893f5a6d1d0b34ee
+    m_Address: Assets/Plagins/TList/Save Data/Save Data SO/SO_Data_Name Scene Remote
+      Level/Element_SO_Data_Name Scene Remote Level-133816.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -25,13 +26,44 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 136d9bf78a791334387cf4ed068ebfcf
+    m_Address: Assets/Game Data/Remote/Game Scene/Level/Scene Level 2 (Remote).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15be4774f8ff1804ea07a96d685f3793
+    m_Address: Assets/Game Data/Remote/Game Script/Key MBS DKO/Remote/MBS_DKO Remote.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b424cd7a8bf02143a55c8d5a85fe86e
     m_Address: Assets/Game Data/Remote/Game Scene/Level/Scene Level 1 (Remote).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d63206d9dc6cd14ab451a56ee0369d8
+    m_Address: Assets/Game Data/Remote/Game Script/GG/GG Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c98b3cbd5372f746aa6162817f522a1
-    m_Address: Assets/Game Data/Local/UI Skin Scene/Game Skin Scene Level UI Addressable.prefab
+    m_Address: Assets/Game Data/Remote/UI Skin Scene/Game Skin Scene Level UI Addressable.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34c588354e07b194a8b1cd68f9ab37b2
+    m_Address: Assets/Game Data/Remote
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41773397bc1905e42b1b2955381d04b3
+    m_Address: Assets/Game Data/Remote/Backup_Text_SO_Data_Key Reference Scene Remote
+      Level.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f6030d33c2593f49baf09b5cb417d6d
+    m_Address: Assets/Game Data/Remote/Game Script/GG/GG Material (Remote).mat
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -40,8 +72,29 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85499ac806a4e014081e462ce8fe33c2
+    m_Address: Assets/Game Data/Remote/Backup_Text_SO_Data_Key Reference Scene Remote.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dc0f4ec3a411e34298734a9da1d0413
+    m_Address: Assets/Game Data/Remote/Game Scene/Level/Data/Material/Orange (Remote).mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9abdb5edb1ebab14fa83feeaa18a5e52
     m_Address: Assets/Game Data/Remote/Game Scene/Dont Destroy (Remote).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a53ec4273221aae45b8ad7bb538f8dd1
+    m_Address: Assets/Game Data/Remote/Game Scene/Level/Scene Level 3 (Remote).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adaf5292330109445afe9b40c040ed41
+    m_Address: Assets/Game Data/Remote/Game Script/Key MBS DKO/Remote/Backup_Text_MBS_DKO
+      Remote.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -50,8 +103,32 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fa5c935fd1bf38c4eb091e64ccfa0e5a
-    m_Address: Assets/Game Data/Remote/Game Scene/Level/Scene Level 3 (Remote).unity
+  - m_GUID: be585574c6dc1d4489dd083df25cb98c
+    m_Address: Assets/Plagins/TList/Save Data/Save Data SO/SO_Data_Name Scene Remote
+      Level/Element_SO_Data_Name Scene Remote Level-133716.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d39f271a2aa529a4cad07bcc0583f6f8
+    m_Address: Assets/Plagins/TList/Save Data/Save Data SO/SO_Data_Key Reference
+      Scene Remote/Element_SO_Data_Key Reference Scene Remote-135546.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2104563dfbf62d479802b3ff00db35f
+    m_Address: Assets/Plagins/TList/Save Data/Save Data SO/SO_Data_Key Reference
+      Scene Remote/Element_SO_Data_Key Reference Scene Remote-135646.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9d7155179bab1a4c82f466d5bfbef9b
+    m_Address: Assets/Game Data/Remote/Game Scene/Level/Data/Material/Black (Remote).mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa3616a863cf53c43a16e552327544d7
+    m_Address: Assets/Plagins/TList/Save Data/Save Data SO/SO_Data_Name Scene Remote
+      Level/Element_SO_Data_Name Scene Remote Level-133602.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

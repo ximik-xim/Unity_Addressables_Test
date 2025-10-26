@@ -1083,8 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a78b0f2d2f10d41a6184702fab09d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyNameScene: Assets/Addressable Test/Example/Scene/Load Scene/Example Load Scene
-    Addressable.unity
+  _keyNameScene: Scene Example Load Scene Addressable
   _sceneLoader: {fileID: 781183295}
   _useAwake: 1
   _useStart: 0
@@ -1225,8 +1224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a78b0f2d2f10d41a6184702fab09d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyNameScene: Assets/Addressable Test/Example/Scene/Load Scene/Example Load Scene
-    Addressable.unity
+  _keyNameScene: Scene Example Load Scene Addressable
   _sceneLoader: {fileID: 954153255}
   _useAwake: 1
   _useStart: 0
@@ -1671,7 +1669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e116ee1746973714b8039c00b764c518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: Assets/Addressable Test/Example/Data Example/Example Object.prefab
+  _key: Prefab Example Object Addressable
   _getDataAddressables: {fileID: 986548212}
 --- !u!1001 &1227547742
 PrefabInstance:

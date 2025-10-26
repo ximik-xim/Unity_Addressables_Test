@@ -16,43 +16,41 @@ MonoBehaviour:
   m_GUID: 5c1d5f5f5435d4f4ea8c6b87f6d75983
   m_SerializeEntries:
   - m_GUID: 13a6052ceb819244ab37ab8d4ab95eb6
-    m_Address: Assets/Addressable Test/Example/Scene/Load Scene/Example Load Scene
-      Addressable.unity
+    m_Address: Scene Example Load Scene Addressable
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a7ad7fa5fd351c4a862c5d41350e57d
-    m_Address: Assets/Addressable Test/Example/Data Example/Storage Addressables
-      Update Obj.asset
+    m_Address: SO Example Storage Addressables Update Obj
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 519e32cce0bef1d4ab87af9953b038c7
-    m_Address: Assets/New Folder 1/Scene Level/Example/Addressable/Level/Example
-      Scene Level 1 (Addressable).unity
+    m_Address: Assets/Plugins/Scene Level Manager/Example Scene/Example Scene Addressable/Scene
+      Level/Example Scene Level 1 (Addressable).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 800e8e02007b0dd44bc01b9acf2ad6f3
-    m_Address: Assets/Addressable Test/Example/Data Example/Storage Addressables
-      Is Get Obj.asset
+    m_Address: SO Example Storage Addressables Is Get Obj
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1577abc74bdef84d914500c4796cfb1
-    m_Address: Assets/Addressable Test/Example/Data Example/Example Object.prefab
+    m_Address: Prefab Example Object Addressable
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa641cb398ec4584ea136f07905b503d
-    m_Address: Assets/New Folder 1/Scene Level/Example/Addressable/Level/Example
-      Scene Level 2 (Addressable).unity
+    m_Address: Assets/Plugins/Scene Level Manager/Example Scene/Example Scene Addressable/Scene
+      Level/Example Scene Level 2 (Addressable).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffd21a71bcc78a54abb803ff575e61c8
-    m_Address: Assets/New Folder 1/Scene Level/Example/Example Scene Menu.unity
+    m_Address: Assets/Plugins/Scene Level Manager/Example Scene/Example Scene Addressable/Example
+      Scene Menu (Addressable).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

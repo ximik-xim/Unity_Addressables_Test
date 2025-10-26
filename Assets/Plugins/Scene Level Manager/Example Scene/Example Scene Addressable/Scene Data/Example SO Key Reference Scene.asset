@@ -18,7 +18,7 @@ MonoBehaviour:
   _list:
   - _identifierData: {fileID: 11400000, guid: 3a58973db4b16184786f7edfb1d03e04, type: 2}
     _dataKey:
-      _nameScene: Example Scene Menu
+      _nameScene: Example Scene Menu (Addressable)
       _refScene:
         m_AssetGUID: ffd21a71bcc78a54abb803ff575e61c8
         m_SubObjectName: 

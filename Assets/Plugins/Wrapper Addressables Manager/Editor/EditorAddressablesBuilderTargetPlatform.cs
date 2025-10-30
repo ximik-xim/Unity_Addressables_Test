@@ -3,7 +3,8 @@ using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
 /// <summary>
 /// Нужен что бы делать сборки обнов Addressable под разные платформы
-/// (сам переключает на нужную платформу и делает сборку обнов, после возращает на ту платформу, которая была до старта сборки)
+/// (сам переключает на нужную платформу и делает сборку обнов,
+/// есть возможность преключ на ту платформу, которая была до старта сборки)
 /// </summary>
 public class EditorAddressablesBuilderTargetPlatform 
 {
@@ -41,51 +42,95 @@ public class EditorAddressablesBuilderTargetPlatform
     /// <summary>
     /// Запускаем логику переключения платформы и сборку обновл 
     /// </summary>
-    private static void BuildAddressablesFor(BuildTargetGroup group, BuildTarget target)
+    private static void BuildAddressablesFor(BuildTargetGroup group, BuildTarget target, bool isRemoveLastPlatform)
     {
         SwitchPlatform(group, target);
 
         // Build Addressables
         AddressableAssetSettings.BuildPlayerContent();
 
-        RestorePlatform();
+        if (isRemoveLastPlatform == true)
+        {
+            RestorePlatform();    
+        }
+        
         EditorUtility.DisplayDialog("Сборка обновлений Addressables закончена", $"Addressables сборка под платформу: {target}", "ОК");
     }
 
     
     /// <summary>
     /// Сборка под андроид
+    /// с переключением на платформу котор. была до запуска сборки обновл.
     /// </summary>
-    [MenuItem("Wrapper Addressables Manager/Build For/Android")]
+    [MenuItem("Wrapper Addressables Manager/Build And Remove Current Platform/Android")]
+    public static void BuildForAndroidRemoveCurrentPlatform()
+    {
+        BuildAddressablesFor(BuildTargetGroup.Android, BuildTarget.Android, true);
+    }
+
+    /// <summary>
+    /// Сборка под Windows
+    /// с переключением на платформу котор. была до запуска сборки обновл.
+    /// </summary>
+    [MenuItem("Wrapper Addressables Manager/Build And Remove Current Platform/Windows")]
+    public static void BuildForWindowsRemoveCurrentPlatform()
+    {
+        BuildAddressablesFor(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64, true);
+    }
+
+    /// <summary>
+    /// Сборка под IOS
+    /// с переключением на платформу котор. была до запуска сборки обновл.
+    /// </summary>
+    [MenuItem("Wrapper Addressables Manager/Build And Remove Current Platform/iOS")]
+    public static void BuildForIOSRemoveCurrentPlatform()
+    {
+        BuildAddressablesFor(BuildTargetGroup.iOS, BuildTarget.iOS, true);
+    }
+    
+    /// <summary>
+    /// Сборка под WebGL
+    /// с переключением на платформу котор. была до запуска сборки обновл.
+    /// </summary>
+    [MenuItem("Wrapper Addressables Manager/Build And Remove Current Platform/WebGL")]
+    public static void BuildForWebGLRemoveCurrentPlatform()
+    {
+        BuildAddressablesFor(BuildTargetGroup.WebGL, BuildTarget.WebGL, true);
+    }
+    
+    /// <summary>
+    /// Сборка под андроид
+    /// </summary>
+    [MenuItem("Wrapper Addressables Manager/Build And Select Platform/Android")]
     public static void BuildForAndroid()
     {
-        BuildAddressablesFor(BuildTargetGroup.Android, BuildTarget.Android);
+        BuildAddressablesFor(BuildTargetGroup.Android, BuildTarget.Android, false);
     }
 
     /// <summary>
     /// Сборка под Windows
     /// </summary>
-    [MenuItem("Wrapper Addressables Manager/Build For/Windows")]
+    [MenuItem("Wrapper Addressables Manager/Build And Select Platform/Windows")]
     public static void BuildForWindows()
     {
-        BuildAddressablesFor(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64);
+        BuildAddressablesFor(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64, false);
     }
 
     /// <summary>
     /// Сборка под IOS
     /// </summary>
-    [MenuItem("Wrapper Addressables Manager/Build For/iOS")]
+    [MenuItem("Wrapper Addressables Manager/Build And Select Platform/iOS")]
     public static void BuildForIOS()
     {
-        BuildAddressablesFor(BuildTargetGroup.iOS, BuildTarget.iOS);
+        BuildAddressablesFor(BuildTargetGroup.iOS, BuildTarget.iOS, false);
     }
     
     /// <summary>
     /// Сборка под WebGL
     /// </summary>
-    [MenuItem("Wrapper Addressables Manager/Build For/WebGL")]
+    [MenuItem("Wrapper Addressables Manager/Build And Select Platform/WebGL")]
     public static void BuildForWebGL()
     {
-        BuildAddressablesFor(BuildTargetGroup.WebGL, BuildTarget.WebGL);
+        BuildAddressablesFor(BuildTargetGroup.WebGL, BuildTarget.WebGL, false);
     }
 }

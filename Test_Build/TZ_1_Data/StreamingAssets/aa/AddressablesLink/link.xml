@@ -24,7 +24,7 @@
     <type fullname="ButtonStartLogicListTaskDKO" preserve="all" />
     <type fullname="ButtonTypeLog" preserve="all" />
     <type fullname="CamerScalerSizeUnityCameraSize" preserve="all" />
-    <type fullname="CheckAndDownloadUpdateObjectAll_AndCheckCurrentCatalog" preserve="all" />
+    <type fullname="CheckDownloadUpdateAllObjectCurrentCatalog" preserve="all" />
     <type fullname="CheckIsUpdateObjAllErrorContinue" preserve="all" />
     <type fullname="CheckIsUpdateObjIsGetStorage" preserve="all" />
     <type fullname="CheckIsUpdateObjRequestSplit" preserve="all" />
@@ -86,7 +86,7 @@
     <type fullname="GetKeyNameSceneStorageNameScene" preserve="all" />
     <type fullname="GetNameSceneAndKeyNameSceneInStorageDefault" preserve="all" />
     <type fullname="GetNameSceneAndKeyNameSceneInStorageReferenceScene" preserve="all" />
-    <type fullname="GetPatchIntStorageBlockScene" preserve="all" />
+    <type fullname="GetPatchInStorageBlockScene" preserve="all" />
     <type fullname="GetSceneAddressablesDefault" preserve="all" />
     <type fullname="GetSceneAddressablesErrorContinue" preserve="all" />
     <type fullname="IndifNameSO_KeyReferenceScene" preserve="all" />
@@ -123,7 +123,7 @@
     <type fullname="SceneMBS_DKO" preserve="all" />
     <type fullname="SceneStartTask" preserve="all" />
     <type fullname="SD_StorageDataStringPrefs" preserve="all" />
-    <type fullname="SetKeyCurrentSceneInActionListCheckBlockLevelAddressable" preserve="all" />
+    <type fullname="SetKeyCurrentSceneInCheckBlockLevelAddressable" preserve="all" />
     <type fullname="SetKeyCurrentSceneInGetKeyNameSceneOutSetKey" preserve="all" />
     <type fullname="SetKeyCurrentSceneInLoadTargetSceneAddressable" preserve="all" />
     <type fullname="SetParentStorageKeyAndGM" preserve="all" />
@@ -188,7 +188,7 @@
     <type fullname=".IdentifierAndData_KeyTaskLoaderTypeLog" preserve="nothing" serialized="true" />
     <type fullname=".KeyIndifNameSODataDKODataKey" preserve="nothing" serialized="true" />
     <type fullname=".KeyIndifNameSOData_MBS_DKO" preserve="nothing" serialized="true" />
-    <type fullname=".KeyNameSceneInGetDataSO_KeyReferenceScene" preserve="nothing" serialized="true" />
+    <type fullname=".KeyNameSceneInGetDataSO_KeyRefScene" preserve="nothing" serialized="true" />
     <type fullname=".KeyReferenceScene" preserve="nothing" serialized="true" />
     <type fullname=".KeyTaskLoaderTypeLog" preserve="nothing" serialized="true" />
     <type fullname=".MessengerBetweenSceneKeyDKO" preserve="nothing" serialized="true" />
@@ -277,8 +277,10 @@
   <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.BoxCollider" preserve="all" />
     <type fullname="UnityEngine.CapsuleCollider" preserve="all" />
+    <type fullname="UnityEngine.PhysicsMaterial" preserve="all" />
     <type fullname="UnityEngine.Rigidbody" preserve="all" />
     <type fullname="UnityEngine.SphereCollider" preserve="all" />
+    <type fullname="UnityEngine.SpringJoint" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Font" preserve="all" />

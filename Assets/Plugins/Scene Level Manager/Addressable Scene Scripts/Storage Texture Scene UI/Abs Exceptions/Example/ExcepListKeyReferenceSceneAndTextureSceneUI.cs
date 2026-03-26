@@ -14,11 +14,11 @@ public class ExcepListKeyReferenceSceneAndTextureSceneUI : AbsExceptionsListStor
     
     [SerializeField]
     //Список исключений. Нужен в случ. если опр. сцене, нужно задать текстуру и цвет обложки
-    private List<AbsKeyData<KeyNameSceneInGetDataSO_KeyReferenceScene, DataStorageTextureAndColorSkinSceneLevelUI>> _listExceptions;
+    private List<AbsKeyData<KeyNameSceneInGetDataSO_KeyRefScene, DataStorageTextureAndColorSkinSceneLevelUI>> _listExceptions;
 
     private void Awake()
     {
-        List<KeyNameSceneInGetDataSO_KeyReferenceScene> _buffer = new List<KeyNameSceneInGetDataSO_KeyReferenceScene>();
+        List<KeyNameSceneInGetDataSO_KeyRefScene> _buffer = new List<KeyNameSceneInGetDataSO_KeyRefScene>();
         bool _isStart = false;
 
         StartLogic();

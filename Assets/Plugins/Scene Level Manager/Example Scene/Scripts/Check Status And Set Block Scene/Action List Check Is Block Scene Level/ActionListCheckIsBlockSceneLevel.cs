@@ -13,7 +13,7 @@ public class ActionListCheckIsBlockSceneLevel : MonoBehaviour
     private bool _isInit = false;
     
     [SerializeField]
-    private GetPatchIntStorageBlockScene _getPatchIntStorageBlockScene;
+    private GetPatchInStorageBlockScene _getPatchIntStorageBlockScene;
 
     [SerializeField]
     private LogicListTaskDKO _listTaskSceneBlock;

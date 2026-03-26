@@ -17,7 +17,7 @@ public class LoadTargetSceneKeySceneStringAddressable : AbsRequestStartLoadScene
     private LoadTargetSceneAddressables _loadSceneAddressables;
         
     [SerializeField] 
-    private KeyNameSceneInGetDataSO_KeyReferenceScene _keyNameScene;
+    private KeyNameSceneInGetDataSO_KeyRefScene _keyNameScene;
 
     private void Awake()
     {

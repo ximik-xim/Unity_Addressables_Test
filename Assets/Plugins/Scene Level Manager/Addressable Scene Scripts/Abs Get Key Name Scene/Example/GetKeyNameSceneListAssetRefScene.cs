@@ -8,7 +8,7 @@ using UnityEngine;
 public class GetKeyNameSceneListAssetRefScene : AbsGetStorageKeyNameScene
 {
     [SerializeField]
-    private List<KeyNameSceneInGetDataSO_KeyReferenceScene> _listKeyNameScene;
+    private List<KeyNameSceneInGetDataSO_KeyRefScene> _listKeyNameScene;
     
     public override bool IsInit => _isInit;
     private bool _isInit = false;
@@ -24,7 +24,7 @@ public class GetKeyNameSceneListAssetRefScene : AbsGetStorageKeyNameScene
     
     private void Awake()
     {
-        List<KeyNameSceneInGetDataSO_KeyReferenceScene> _buffer = new List<KeyNameSceneInGetDataSO_KeyReferenceScene>();
+        List<KeyNameSceneInGetDataSO_KeyRefScene> _buffer = new List<KeyNameSceneInGetDataSO_KeyRefScene>();
         bool _isStart = false;
 
         StartLogic();

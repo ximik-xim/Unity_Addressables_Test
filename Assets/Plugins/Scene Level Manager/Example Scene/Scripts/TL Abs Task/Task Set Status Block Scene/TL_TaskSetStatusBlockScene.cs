@@ -16,7 +16,7 @@ public class TL_TaskSetStatusBlockScene : TL_AbsTaskLogicDKO
     public override event Action OnCompletedLogic;
     
     [SerializeField]
-    private GetPatchIntStorageBlockScene _getPatchIntStorageBlockScene;
+    private GetPatchInStorageBlockScene _getPatchIntStorageBlockScene;
     
     [SerializeField]
     private AbsGetStorageKeyNameScene _keyScene;

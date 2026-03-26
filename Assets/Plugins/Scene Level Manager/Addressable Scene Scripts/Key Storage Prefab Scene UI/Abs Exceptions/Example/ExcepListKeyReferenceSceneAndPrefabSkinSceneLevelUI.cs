@@ -14,11 +14,11 @@ public class ExcepListKeyReferenceSceneAndPrefabSkinSceneLevelUI : AbsExceptions
     
     [SerializeField]
     //Список исключений. Нужен в случ. если опр. сцене, нужно задать опр. номер на сцене
-    private List<AbsKeyData<KeyNameSceneInGetDataSO_KeyReferenceScene, AbsSkinSceneLevelUI>> _listExceptions;
+    private List<AbsKeyData<KeyNameSceneInGetDataSO_KeyRefScene, AbsSkinSceneLevelUI>> _listExceptions;
 
     private void Awake()
     {
-        List<KeyNameSceneInGetDataSO_KeyReferenceScene> _buffer = new List<KeyNameSceneInGetDataSO_KeyReferenceScene>();
+        List<KeyNameSceneInGetDataSO_KeyRefScene> _buffer = new List<KeyNameSceneInGetDataSO_KeyRefScene>();
         bool _isStart = false;
 
         StartLogic();

@@ -9,7 +9,7 @@ using UnityEngine;
 public class AwakeSetStatusBlockLevelSceneInStorageKey : MonoBehaviour
 {
     [SerializeField]
-    private GetPatchIntStorageBlockScene _getPatchIntStorageBlockScene;
+    private GetPatchInStorageBlockScene _getPatchIntStorageBlockScene;
     
     [SerializeField]
     private AbsGetStorageKeyNameScene _keyScene;
